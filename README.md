@@ -10,7 +10,7 @@
 2. [Resource Development](#resourcedevelopment)
     - https://attack.mitre.org/tactics/TA0042/ (*TA0042*)
 3. [Initial Access](#initialaccess)
-    - https://attack.mitre.org/tactics/TA0001/ (*TA0001*)
+    - EvilGoPhish
 4. [Execution](#execution)
     - https://attack.mitre.org/tactics/TA0002/ (*TA0002*)
 5. [Persistence](#persistence)
@@ -22,7 +22,8 @@
 8. [Credential Access](#credentialaccess)
     - https://attack.mitre.org/tactics/TA0006/ (*TA0006*)
 9. [Discovery](#discovery)
-    - https://attack.mitre.org/tactics/TA0007/ (*TA0007*)
+    - PCredz
+    - PingCastle
 10. [Lateral Movement](#lateralmovement)
     - https://attack.mitre.org/tactics/TA0008/ (*TA0008*)
 11. [Collection](#collection)
