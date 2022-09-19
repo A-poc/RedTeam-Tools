@@ -43,7 +43,6 @@ InitialAccess
     
     ![image](https://user-images.githubusercontent.com/100603074/191007680-890acda1-72ec-429e-9c91-b2cae55d7189.png)
 
-
 Discovery
 ====================
 
@@ -53,3 +52,8 @@ Discovery
 
     ![image](https://user-images.githubusercontent.com/100603074/191007004-a0fd01f3-e01f-4bdb-b89e-887c85a7be91.png)
 
+* [PingCastle](https://github.com/vletoux/pingcastle)
+
+	Ping Castle is a tool designed to assess quickly the Active Directory security level with a methodology based on risk assessment and a maturity framework. It does not aim at a perfect evaluation but rather as an efficiency compromise.
+
+	![image](https://user-images.githubusercontent.com/100603074/191008405-39bab2dc-54ce-43d1-aed7-53956776a9ef.png)
