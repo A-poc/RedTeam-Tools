@@ -6,6 +6,7 @@
 # Table of Contents
 
 1. [Reconnaissance](#reconnaissance)
+    - crt.sh -> httprobe -> EyeWitness
     - dnsrecon
     - Shodan.io
     - AORT (All in One Recon Tool)
@@ -42,6 +43,22 @@
     
 Reconnaissance
 ====================
+
+* crt.sh -> httprobe -> EyeWitness
+
+	I have put together a bash one-liner that: 
+    - Passively collects a list of subdomains from certificate associations ([crt.sh](https://crt.sh/))
+    - Actively requests each subdomain to verify it's existance ([httprobe](https://github.com/tomnomnom/httprobe))
+    - Actively screenshots each subdomain for manual review ([EyeWitness](https://github.com/FortyNorthSecurity/EyeWitness))
+    
+    `domain=DOMAIN_COM;rand=$RANDOM;curl -fsSL "https://crt.sh/?q=${domain}" | pup 'td text{}' | grep "${domain}" | sort -n | uniq | httprobe > /tmp/enum_tmp_${rand}.txt; python3 /usr/share/eyewitness/EyeWitness.py -f /tmp/enum_tmp_${rand}.txt --web`
+    
+    *Note: You must have [httprobe](https://github.com/tomnomnom/httprobe), [pup](https://github.com/EricChiang/pup) and [EyeWitness](https://github.com/FortyNorthSecurity/EyeWitness) installed and change 'DOMAIN_COM' to the target domain. You are able to run this script concurrently in terminal windows if you have multiple target root domains*
+	
+	![image](https://user-images.githubusercontent.com/100603074/192104474-5836138a-4a61-44fd-b3e3-b2a908c2928e.png)
+
+	![image](https://user-images.githubusercontent.com/100603074/192104501-e038aff8-1e51-4cc3-a286-54e93408ed4e.png)
+
 
 * [dnsrecon](https://www.kali.org/tools/dnsrecon/#dnsrecon)
 
