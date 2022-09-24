@@ -10,7 +10,7 @@
     - Shodan.io
     - AORT (All in One Recon Tool)
 2. [Resource Development](#resource-development)
-    - .
+    - msfvenom
 3. [Initial Access](#initial-access)
     - EvilGoPhish
     - The Social-Engineer Toolkit
@@ -30,7 +30,7 @@
     - PCredz
     - PingCastle
 10. [Lateral Movement](#lateral-movement)
-    - .
+    - crackmapexec
 11. [Collection](#collection)
     - .
 12. [Command and Control](#command-and-control)
@@ -60,6 +60,15 @@ Reconnaissance
 	Tool for enumerating subdomains, enumerating DNS, WAF detection, WHOIS, port scan, wayback machine, email harvesting.
 	
 	![image](https://user-images.githubusercontent.com/100603074/192070398-aae0217d-69c4-460b-ae4c-51b045551268.png)
+
+Resource Development
+====================
+
+* [msfvenom](https://www.offensive-security.com/metasploit-unleashed/Msfvenom/)
+
+	Msfvenom allows the creation of payloads for various operating systems in a wide range of formats. It also supports obfuscation of payloads for AV bypass.
+	
+	![image](https://user-images.githubusercontent.com/100603074/192070870-2e65fc9f-6534-42e2-af27-9d8b54a82f0b.png)
 
 
 Initial Access
@@ -114,3 +123,12 @@ Discovery
 	Ping Castle is a tool designed to assess quickly the Active Directory security level with a methodology based on risk assessment and a maturity framework. It does not aim at a perfect evaluation but rather as an efficiency compromise.
 
 	![image](https://user-images.githubusercontent.com/100603074/191008405-39bab2dc-54ce-43d1-aed7-53956776a9ef.png)
+
+Lateral Movement
+====================
+
+* [crackmapexec](https://github.com/Porchetta-Industries/CrackMapExec)
+	
+	This is a great tool for pivoting in a Windows/Active Directory environment using credential pairs (username:password, username:hash). It also offered other features including enumerating logged on users and spidering SMB shares to executing psexec style attacks, auto-injecting Mimikatz/Shellcode/DLL’s into memory using Powershell, dumping the NTDS.dit and more.
+	
+	![image](https://user-images.githubusercontent.com/100603074/192070626-4549ec06-e2c5-477b-a97d-0f29e48bbfbc.png)
