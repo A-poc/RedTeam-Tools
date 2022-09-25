@@ -7,6 +7,7 @@
 
 1. [Reconnaissance](#reconnaissance)
     - crt.sh -> httprobe -> EyeWitness
+    - gobuster
     - dnsrecon
     - Shodan.io
     - AORT (All in One Recon Tool)
@@ -58,6 +59,14 @@ Reconnaissance
 	![image](https://user-images.githubusercontent.com/100603074/192104474-5836138a-4a61-44fd-b3e3-b2a908c2928e.png)
 
 	![image](https://user-images.githubusercontent.com/100603074/192104501-e038aff8-1e51-4cc3-a286-54e93408ed4e.png)
+
+* [gobuster](https://www.kali.org/tools/gobuster/)
+
+	Nice tool for brute forcing file/folder paths on a victim website.
+	
+	`gobuster dir -u https://google.com -w /usr/share/wordlists/dirb/big.txt --wildcard -b 301,401,403,404,500 -t 20`
+
+	![image](https://user-images.githubusercontent.com/100603074/192146594-86f04a85-fce3-4c4c-bcd6-2bf6a6222241.png)
 
 
 * [dnsrecon](https://www.kali.org/tools/dnsrecon/#dnsrecon)
