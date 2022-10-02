@@ -16,6 +16,7 @@
 3. [Initial Access](#initial-access)
     - EvilGoPhish
     - The Social-Engineer Toolkit
+    - Hydra
 4. [Execution](#execution)
     - .
 5. [Persistence](#persistence)
@@ -113,6 +114,14 @@ Initial Access
 	This framework is great for creating campaigns for initial access, 'SET has a number of custom attack vectors that allow you to make a believable attack quickly'.
 
 	![image](https://user-images.githubusercontent.com/100603074/191690233-e1f4255a-514e-4887-94da-b8a3396025f0.png)
+
+* [Hydra](https://github.com/vanhauser-thc/thc-hydra)
+
+	Nice tool for logon brute force attacks. Can bf a number of services including SSH, FTP, TELNET, HTTP etc.
+
+	![image](https://user-images.githubusercontent.com/100603074/193459614-365876d5-09da-4f29-b850-0480944f0097.png)
+
+
 
 Privilege Escalation
 ====================
