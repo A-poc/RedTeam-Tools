@@ -190,6 +190,11 @@ Initial Access
 * [Hydra](https://github.com/vanhauser-thc/thc-hydra)
 
 	Nice tool for logon brute force attacks. Can bf a number of services including SSH, FTP, TELNET, HTTP etc.
+	
+	```
+	hydra -L USER.TXT -P PASS.TXT 1.1.1.1 http-post-form "login.php:username-^USER^&password=^PASS^:Error"
+	hydra -L USER.TXT -P PASS.TXT 1.1.1.1 ssh
+	```
 
 	![image](https://user-images.githubusercontent.com/100603074/193459614-365876d5-09da-4f29-b850-0480944f0097.png)
 
