@@ -39,6 +39,7 @@
     - crackmapexec
     - Enabling RDP
     - Upgrading shell to meterpreter
+    - Forwarding Ports
 11. [Collection](#collection)
     - .
 12. [Command and Control](#command-and-control)
@@ -269,5 +270,11 @@ Lateral Movement
 	
 	![image](https://user-images.githubusercontent.com/100603074/193452305-91b769a7-96c4-43d3-b3e2-6e31b3afec27.png)
 
+* Forwarding Ports	
 	
+	Sometimes, after gaining access to an endpoint there are local ports. Making these internal ports external routable can help for lateral movement to other services on the host.
 	
+	```
+	socat TCP-LISTEN:8888,fork TCP:127.0.0.1:80 &
+	socat TCP-LISTEN:EXTERNAL_PORT,fork TCP:127.0.0.1:INTERNAL_PORT &
+	```
