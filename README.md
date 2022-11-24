@@ -1,6 +1,6 @@
 # RedTeam-Tools
 
-*Tools and Techniques for Red Team / Penetration Testing
+*Tools and Techniques for Red Team / Penetration Testing*
 
 ---------------
 # Table of Contents
