@@ -7,6 +7,7 @@
 
 1. [Reconnaissance](#reconnaissance)
     - crt.sh -> httprobe -> EyeWitness
+    - nuclei
     - gobuster
     - dnsrecon
     - Shodan.io
@@ -69,6 +70,17 @@ Reconnaissance
 	![image](https://user-images.githubusercontent.com/100603074/192104474-5836138a-4a61-44fd-b3e3-b2a908c2928e.png)
 
 	![image](https://user-images.githubusercontent.com/100603074/192104501-e038aff8-1e51-4cc3-a286-54e93408ed4e.png)
+
+* [nuclei](https://github.com/projectdiscovery/nuclei)
+
+	Fast vulnerability scanner that uses .yaml templates to search for specific issues.
+	
+	**Install:** `go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest`
+	
+	**Use:** `cat domains.txt | nuclei -t /PATH/nuclei-templates/`
+	
+	![image](https://user-images.githubusercontent.com/100603074/205439027-2afe4ef8-fc7a-410d-934f-f8d325a8176e.png)
+
 
 * [gobuster](https://www.kali.org/tools/gobuster/)
 
