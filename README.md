@@ -1,6 +1,6 @@
 # RedTeam-Tools
 
-*Tools and Techniques for Red Team / Penetration Testing*
+*This github repository contains a collection of tools and resources that can be useful for red teaming activities. The tools can help red teamers to plan and conduct their operations. Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.*
 
 ---------------
 # Table of Contents
