@@ -50,7 +50,8 @@
 12. [Command and Control](#command-and-control)
     - Havoc
 13. [Exfiltration](#exfiltration)
-    - .
+    - PyExfil
+    - Powershell RAT
 14. [Impact](#impact)
     - .
 15. [Buffer Overflow](#buffer-overflow)
