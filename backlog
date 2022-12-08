@@ -1,0 +1,40 @@
+Reconnaissance
+  spoofcheck https://github.com/BishopFox/spoofcheck
+  AWSBucketDump https://github.com/jordanpotti/AWSBucketDump
+  GitHarvester https://github.com/metac0rtex/GitHarvester
+  truffleHog https://github.com/dxa4481/truffleHog
+Resource Development
+-
+Initial Access
+  squarephish https://github.com/secureworks/squarephish
+  King Phisher https://github.com/securestate/king-phisher
+Execution
+-
+Persistence
+-
+Privilege Escalation
+  Get-GPPPassword https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1
+  ADRecon https://github.com/sense-of-security/ADRecon
+  Rubeus https://github.com/GhostPack/Rubeus
+  Sherlock https://github.com/rasta-mouse/Sherlock
+Defense Evasion
+-
+Credential Access
+-
+Discovery
+-
+Lateral Movement
+  PowerLessShell https://github.com/Mr-Un1k0d3r/PowerLessShell
+  Responder https://github.com/SpiderLabs/Responder
+  PsExec https://docs.microsoft.com/en-us/sysinternals/downloads/psexec
+Collection
+-
+Command and Control
+  Metasploit Framework https://github.com/rapid7/metasploit-framework
+  Pupy https://github.com/n1nj4sec/pupy
+  Empire https://github.com/EmpireProject/Empire
+Exfiltration
+  PyExfil https://github.com/ytisf/PyExfil
+  Powershell RAT https://github.com/Viralmaniar/Powershell-RAT
+Impact
+-
