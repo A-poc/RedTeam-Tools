@@ -9,6 +9,7 @@
 
 1. [Reconnaissance](#reconnaissance)
     - crt.sh -> httprobe -> EyeWitness
+    - jsendpoints
     - nuclei
     - certSniff
     - gobuster
@@ -74,6 +75,24 @@ Reconnaissance
 	![image](https://user-images.githubusercontent.com/100603074/192104474-5836138a-4a61-44fd-b3e3-b2a908c2928e.png)
 
 	![image](https://user-images.githubusercontent.com/100603074/192104501-e038aff8-1e51-4cc3-a286-54e93408ed4e.png)
+
+* [jsendpoints](https://twitter.com/renniepak/status/1602620834463588352)
+
+	A JavaScript bookmarklet for extracting all webpage endpoint links on a page.
+	
+	Created by [@renniepak](https://twitter.com/renniepak), this JavaScript code snippet can be used to extract all endpoints (starting with /) from the current webpage DOM including all external script sources embedded on the webpage.
+	
+	```javascript
+	javascript:(function(){var scripts=document.getElementsByTagName("script"),regex=/(?<=(\"|\'|\`))\/[a-zA-Z0-9_?&=\/\-\#\.]*(?=(\"|\'|\`))/g;const results=new Set;for(var i=0;i<scripts.length;i++){var t=scripts[i].src;""!=t&&fetch(t).then(function(t){return t.text()}).then(function(t){var e=t.matchAll(regex);for(let r of e)results.add(r[0])}).catch(function(t){console.log("An error occurred: ",t)})}var pageContent=document.documentElement.outerHTML,matches=pageContent.matchAll(regex);for(const match of matches)results.add(match[0]);function writeResults(){results.forEach(function(t){document.write(t+"<br>")})}setTimeout(writeResults,3e3);})();
+	```
+	
+	**(1) Usage:** Create a bookmarklet `Right click your bookmark bar > Click 'Add Page' > Paste the above Javascript in the 'url' box > Click 'Save'`,then visit the victim page in the browser and click the bookmarklet.
+	
+	![image](https://user-images.githubusercontent.com/100603074/207563211-6c69711a-f7e7-4451-862b-80c9849df7fe.png)
+	
+	**(2) Usage:** Paste the above Javascript into the console window `F12` and press enter. 
+	
+	![image](https://user-images.githubusercontent.com/100603074/207563598-d70171b5-823e-491e-a6d5-8657af28b0e5.png)
 
 * [nuclei](https://github.com/projectdiscovery/nuclei)
 
