@@ -1,7 +1,5 @@
 # RedTeam-Tools
 
-[![Repo Updated Badge](https://badges.strrl.dev/updated/A-poc/RedTeam-Tools)](https://badges.strrl.dev)
-
 This github repository contains a collection of **tools** and **resources** that can be useful for **red teaming activities**. 
 
 Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
