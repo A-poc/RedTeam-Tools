@@ -2,9 +2,11 @@
 
 [![Repo Updated Badge](https://badges.strrl.dev/updated/A-poc/RedTeam-Tools)](https://badges.strrl.dev)
 
-This github repository contains a collection of **tools** and **resources** that can be useful for **red teaming activities**. Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
+This github repository contains a collection of **tools** and **resources** that can be useful for **red teaming activities**. 
 
-**Note:** *The materials in this repository are for informational and educational purposes only. They are not intended for use in any illegal activities.*
+Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
+
+> ℹ️ **Note:** *The materials in this repository are for informational and educational purposes only. They are not intended for use in any illegal activities.*
 
 ---------------
 # Table of Contents
@@ -938,11 +940,7 @@ An application used to visualize active directory environments. A quick way to v
 
 **Install:** [PenTestPartners Walkthrough](https://www.pentestpartners.com/security-blog/bloodhound-walkthrough-a-tool-for-many-tradecrafts/)
 
-**Custom Queries:** (Download) 
-
-```
-https://github.com/CompassSecurity/BloodHoundQueries
-```
+**Custom Queries:** [CompassSecurity BloodHoundQueries](https://github.com/CompassSecurity/BloodHoundQueries) 
 
 ![image](https://user-images.githubusercontent.com/100603074/206549387-a63e5f0e-aa75-47f6-b51a-942434648ee2.png)
 
