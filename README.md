@@ -16,6 +16,10 @@
     - [dnsrecon](#dnsrecon)
     - [Shodan.io](#shodanio)
     - [AORT (All in One Recon Tool)](#aort)
+    - [spoofcheck](#spoofcheck)
+    - [AWSBucketDump](#awsbucketdump)
+    - [GitHarvester](#githarvester)
+    - [truffleHog](#trufflehog)
 2. [Resource Development](#resource-development)
     - [msfvenom](#msfvenom)
     - [WSH](#wsh)
@@ -205,6 +209,94 @@ python3 AORT.py -d google.com
 ```
 
 ![image](https://user-images.githubusercontent.com/100603074/192070398-aae0217d-69c4-460b-ae4c-51b045551268.png)
+
+### [🔙](#redteam-tools)[spoofcheck](https://github.com/BishopFox/spoofcheck)
+
+A program that checks if a domain can be spoofed from. The program checks SPF and DMARC records for weak configurations that allow spoofing. Additionally it will alert if the domain has DMARC configuration that sends mail or HTTP requests on failed SPF/DKIM emails.
+
+Domains are spoofable if any of the following conditions are met:
+
+- Lack of an SPF or DMARC record
+- SPF record never specifies `~all` or `-all`
+- DMARC policy is set to `p=none` or is nonexistent
+
+**Install:**
+
+```bash
+git clone https://github.com/BishopFox/spoofcheck; cd spoofcheck; pip install -r requirements.txt
+```
+
+**Usage:** 
+
+```bash
+./spoofcheck.py [DOMAIN]
+```
+
+![image](https://user-images.githubusercontent.com/100603074/208209744-dfff6dd6-f53c-41a2-b3b7-bfc6bfb9b521.png)
+
+### [🔙](#redteam-tools)[AWSBucketDump](https://github.com/jordanpotti/AWSBucketDump)
+
+AWSBucketDump is a tool to quickly enumerate AWS S3 buckets to look for interesting files. It's similar to a subdomain bruteforcer but is made specifically for S3 buckets and also has some extra features that allow you to grep for files, as well as download interesting files.
+
+**Install:**
+
+```
+git clone https://github.com/jordanpotti/AWSBucketDump; cd AWSBucketDump; pip install -r requirements.txt
+```
+
+**Usage:** 
+
+```
+usage: AWSBucketDump.py [-h] [-D] [-t THREADS] -l HOSTLIST [-g GREPWORDS] [-m MAXSIZE]
+
+optional arguments:
+  -h, --help    show this help message and exit
+  -D            Download files. This requires significant diskspace
+  -d            If set to 1 or True, create directories for each host w/ results
+  -t THREADS    number of threads
+  -l HOSTLIST
+  -g GREPWORDS  Provide a wordlist to grep for
+  -m MAXSIZE    Maximum file size to download.
+
+ python AWSBucketDump.py -l BucketNames.txt -g interesting_Keywords.txt -D -m 500000 -d 1
+```
+
+### [🔙](#redteam-tools)[GitHarvester](https://github.com/metac0rtex/GitHarvester)
+
+Nice tool for finding information from GitHub with regex, with the ability to search specific GitHub users and/or projects.
+
+**Install:**
+
+```
+git clone https://github.com/metac0rtex/GitHarvester; cd GitHarvester
+```
+
+**Usage:** 
+
+```
+./githarvester.py
+```
+
+### [🔙](#redteam-tools)[truffleHog](https://github.com/dxa4481/truffleHog)
+
+TruffleHog is a tool that scans git repositories and looks for high-entropy strings and patterns that may indicate the presence of secrets, such as passwords and API keys. With TruffleHog, you can quickly and easily find sensitive information that may have been accidentally committed and pushed to a repository.
+
+**Install (Binaries):** [Link](https://github.com/trufflesecurity/trufflehog/releases)
+
+**Install (Go):**
+
+```
+git clone https://github.com/trufflesecurity/trufflehog.git; cd trufflehog; go install
+```
+
+**Usage:** 
+
+```
+trufflehog https://github.com/trufflesecurity/test_keys
+```
+
+![image](https://user-images.githubusercontent.com/100603074/208212273-137cb6ef-b0e6-42f7-8fd3-ac6a5cfe6a40.png)
+
 
 Resource Development
 ====================
