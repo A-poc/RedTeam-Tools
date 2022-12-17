@@ -29,6 +29,8 @@
     - [EvilGoPhish](#evilgophish)
     - [The Social-Engineer Toolkit](#social-engineer-toolkit-set)
     - [Hydra](#hydra)
+    - [SquarePhish](#squarephish)
+    - [King Phisher](#king-phisher)
 4. [Execution](#execution)
     - ...
 5. [Persistence](#persistence)
@@ -60,7 +62,7 @@
 14. [Impact](#impact)
     - ...
     
-[🔙](#redteam-tools)Reconnaissance
+Reconnaissance
 ====================
 
 ### [🔙](#redteam-tools)crt.sh -> httprobe -> EyeWitness
@@ -464,6 +466,81 @@ hydra -L USER.TXT -P PASS.TXT 1.1.1.1 ssh
 ```
 
 ![image](https://user-images.githubusercontent.com/100603074/193459614-365876d5-09da-4f29-b850-0480944f0097.png)
+
+### [🔙](#redteam-tools)[SquarePhish](https://github.com/secureworks/squarephish)
+
+SquarePhish is an advanced phishing tool that uses a technique combining  OAuth Device code authentication flow and QR codes (See [PhishInSuits](https://github.com/secureworks/PhishInSuits) for more about OAuth Device Code flow for phishing attacks).
+
+Attack Steps:
+
+- Send malicious QR code to victim
+- Victim scans QR code with mobile device
+- Victim directed to attacker controlled server (Triggering OAuth Device Code authentication flow process)
+- Victim emailed MFA code (Triggering OAuth Device Code flow 15 minute timer)
+- Attacker polls for authentication
+- Victim enters code into legit Microsoft website
+- Attacker saves authentication token
+
+**Install:** 
+
+```bash
+git clone https://github.com/secureworks/squarephish; cd squarephish; pip install -r requirements.txt
+```
+
+**Note:** *Before using either module, update the required information in the settings.config file noted with `Required`.*
+
+**Usage (Email Module):**
+
+```
+usage: squish.py email [-h] [-c CONFIG] [--debug] [-e EMAIL]
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+  -c CONFIG, --config CONFIG
+                        squarephish config file [Default: settings.config]
+
+  --debug               enable server debugging
+
+  -e EMAIL, --email EMAIL
+                        victim email address to send initial QR code email to
+```
+
+**Usage (Server Module):**
+
+```
+usage: squish.py server [-h] [-c CONFIG] [--debug]
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+  -c CONFIG, --config CONFIG
+                        squarephish config file [Default: settings.config]
+
+  --debug               enable server debugging
+```
+
+![image](https://user-images.githubusercontent.com/100603074/208217359-70e3ebd4-5cbf-40b9-9e4b-ca1608e4422f.png)
+ 
+
+### [🔙](#redteam-tools)[King Phisher](https://github.com/securestate/king-phisher)
+
+King Phisher is a tool that allows attackers to create and send phishing emails to victims to obtain sensitive information.
+
+It includes features like customizable templates, campaign management, and email sending capabilities, making it a powerful and easy-to-use tool for carrying out phishing attacks. With King Phisher, atackers can target individuals or organizations with targeted and convincing phishing emails, increasing the chances of success in their attacks.
+
+**Install (Linux - Client & Server):** 
+
+```bash
+wget -q https://github.com/securestate/king-phisher/raw/master/tools/install.sh && \
+sudo bash ./install.sh
+```
+
+**Usage:**
+
+Once King Phisher has been installed please follow the [wiki page](https://github.com/rsmusllp/king-phisher/wiki/Getting-Started) to setup SSH, Database config, SMTP server etc.
+
+![image](https://user-images.githubusercontent.com/100603074/208217377-a6d36613-4ffe-486d-a630-99ed1bb7ed2d.png)
 
 Execution
 ====================
