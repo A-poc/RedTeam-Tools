@@ -32,7 +32,9 @@
     - [SquarePhish](#squarephish)
     - [King Phisher](#king-phisher)
 4. [Execution](#execution)
-    - ...
+    - [PowerSploit](#powersploit)
+    - [Rubeus](#rubeus)
+    - [SharpUp](#sharpup)
 5. [Persistence](#persistence)
     - ...
 6. [Privilege Escalation](#privilege-escalation)
@@ -545,7 +547,104 @@ Once King Phisher has been installed please follow the [wiki page](https://githu
 Execution
 ====================
 
-### [🔙](#redteam-tools)...
+### [🔙](#redteam-tools)[PowerSploit](https://github.com/PowerShellMafia/PowerSploit)
+
+A collection of PowerShell scripts and modules that can be used to achieve a variety of red teaming objectives.
+
+Some of the features of PowerSploit:
+
+- Dump password hashes and extract clear-text passwords from memory
+- Escalate privileges and bypass security controls
+- Execute arbitrary PowerShell code and bypass execution restrictions
+- Perform network reconnaissance and discovery
+- Generate payloads and execute exploits
+
+**Install:** *1. Save to PowerShell modules folder*
+
+First you will need to download the [PowerSploit Folder](https://github.com/PowerShellMafia/PowerSploit) and save it to your PowerShell modules folder.
+
+Your PowerShell modules folder path can be found with the following command:
+
+```
+$Env:PSModulePath
+```
+
+**Install:** *2. Install PowerSploit as a PowerShell module*
+
+You will then need to install the PowerSploit module (use the name of the downloaded folder). 
+
+**Note:** *Your PowerShell execution policy might block you, to fix this run the following command.*
+
+```
+powershell.exe -ep bypass
+```
+
+Now you can install the PowerSploit module.
+
+```
+Import-Module PowerSploit
+```
+
+**Usage:** 
+
+```
+Get-Command -Module PowerSploit
+```
+
+![image](https://user-images.githubusercontent.com/100603074/208247898-481f48c0-fe51-482f-b7c6-463bfecbd581.png)
+
+
+### [🔙](#redteam-tools)[Rubeus](https://github.com/GhostPack/Rubeus)
+
+A tool that can be used to perform various actions related to Microsoft Active Directory (AD) environments, such as dumping password hashes, creating/deleting users, and modifying user properties.
+
+Some of the features of Rubeus:
+
+- Kerberoasting
+- Golden ticket attacks
+- Silver ticket attacks
+
+**Install: (Download)** 
+
+You can install the unofficial pre-compiled Rubeus binary [here](https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/blob/master/Rubeus.exe). 
+
+**Install: (Compile)** 
+
+Rubeus is compatible with [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/vs/community/). Open the rubeus [project .sln](https://github.com/GhostPack/Rubeus), choose "Release", and build.
+
+**Usage:** 
+
+```
+Rubeus.exe -h
+```
+
+![image](https://user-images.githubusercontent.com/100603074/208250015-674a6fee-95b7-4edf-bd59-fe459cd235ed.png)
+
+
+### [🔙](#redteam-tools)[SharpUp](https://github.com/GhostPack/SharpUp)
+
+A nice tool for checking a victims endpoint for vulnerabilites relating to high integrity processes, groups, hijackable paths, etc.
+
+**Install: (Download)** 
+
+You can install the unofficial pre-compiled SharpUp binary [here](https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/blob/master/SharpUp.exe). 
+
+**Install: (Compile)** 
+
+SharpUp is compatible with [Visual Studio 2015 Community Edition](https://go.microsoft.com/fwlink/?LinkId=532606&clcid=0x409). Open the SharpUp [project .sln](https://github.com/GhostPack/SharpUp), choose "Release", and build.
+
+**Usage:** 
+
+```bash
+SharpUp.exe audit
+#-> Runs all vulnerability checks regardless of integrity level or group membership.
+
+SharpUp.exe HijackablePaths
+#-> Check only if there are modifiable paths in the user's %PATH% variable.
+
+SharpUp.exe audit HijackablePaths
+#-> Check only for modifiable paths in the user's %PATH% regardless of integrity level or group membership.
+```
 
 Persistence
 ====================
