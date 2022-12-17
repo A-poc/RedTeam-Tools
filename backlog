@@ -7,10 +7,7 @@ Initial Access
 Execution
 -
 Persistence
-  Quack https://github.com/quack/quack
-  Inveigh https://github.com/Kevin-Robertson/Inveigh
-  Veil-Evasion https://github.com/Veil-Framework/Veil-Evasion
-  Crutch https://github.com/m4yers/crutch
+-
 Privilege Escalation
   Get-GPPPassword https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1
   ADRecon https://github.com/sense-of-security/ADRecon
