@@ -44,7 +44,10 @@
 7. [Defense Evasion](#defense-evasion)
     - [Invoke-Obfuscation](#invoke-obfuscation)
 8. [Credential Access](#credential-access)
-    - ...
+    - [Mimikatz](#mimikatz)
+    - [LaZagne](#lazagne)
+    - [hashcat](#hashcat)
+    - [John the Ripper](#john-the-ripper)
 9. [Discovery](#discovery)
     - [PCredz](#pcredz)
     - [PingCastle](#pingcastle)
@@ -714,7 +717,84 @@ git clone https://github.com/danielbohannon/Invoke-Obfuscation.git
 Credential Access
 ====================
 
-### [🔙](#redteam-tools)...
+### [🔙](#redteam-tools)[Mimikatz](https://github.com/gentilkiwi/mimikatz)
+
+Great tool for gaining access to hashed and cleartext passwords on a victims endpoint. Once you have gained privileged access to a system, drop this tool to collect some creds.
+
+**Install:** 
+
+1. Download the [mimikatz_trunk.7z](https://github.com/gentilkiwi/mimikatz/releases) file.
+2. Once downloaded, the `mimikatz.exe` binary is in the `x64` folder.
+
+**Usage:** 
+
+```bash
+.\mimikatz.exe
+privilege::debug
+```
+
+![image](https://user-images.githubusercontent.com/100603074/208253562-5c58d412-ed3e-4ab5-b8e7-11092852c3d0.png)
+
+### [🔙](#redteam-tools)[LaZagne](https://github.com/AlessandroZ/LaZagne)
+
+Nice tool for extracting locally stored passwords from browsers, databases, games, mail, git, wifi, etc.
+
+**Install: (Binary)** 
+
+You can install the standalone binary from [here](https://github.com/AlessandroZ/LaZagne/releases/).
+
+**Usage:** 
+
+```bash
+# Launch all modes
+.\laZagne.exe all
+
+# Launch only a specific module
+.\laZagne.exe browsers
+
+# Launch only a specific software script
+.\laZagne.exe browsers -firefox
+```
+
+![image](https://user-images.githubusercontent.com/100603074/208253800-48f960db-d569-4d1a-b39f-d6c7643691e2.png)
+
+
+### [🔙](#redteam-tools)[hashcat](https://github.com/hashcat/hashcat)
+
+Tool for cracking password hashes. Supports a large list of hashing algorithms (Full list can be found [here](https://hashcat.net/wiki/doku.php?id=example_hashes)).
+
+**Install: Binary** 
+
+You can install the standalone binary from [here](https://hashcat.net/hashcat/).
+
+**Usage:** 
+
+```bash
+.\hashcat.exe --help
+```
+
+Nice hashcat command [cheatsheet](https://cheatsheet.haax.fr/passcracking-hashfiles/hashcat_cheatsheet/).
+
+![image](https://user-images.githubusercontent.com/100603074/208263419-94bf92c0-1c83-4366-a6c2-b6533fdcc521.png)
+
+### [🔙](#redteam-tools)[John the Ripper](https://github.com/openwall/john)
+
+Another password cracker, which supports hundreds of hash and cipher types, and runs on many operating systems, CPUs and GPUs.
+
+**Install:** 
+
+```bash
+sudo apt-get install john -y
+```
+
+**Usage:** 
+
+```bash
+john
+```
+
+![image](https://user-images.githubusercontent.com/100603074/208263690-8c2d1253-7261-47da-850d-ca5a8d98ca13.png)
+
 
 Discovery
 ====================
