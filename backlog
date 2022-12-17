@@ -16,10 +16,7 @@ Privilege Escalation
 Defense Evasion
 -
 Credential Access
-  Mimikatz https://github.com/ParrotSec/mimikatz
-  LaZagne https://github.com/AlessandroZ/LaZagne
-  hashcat https://github.com/hashcat/hashcat
-  John the Ripper https://github.com/openwall/john
+-
 Discovery
 -
 Lateral Movement
