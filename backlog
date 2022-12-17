@@ -5,9 +5,15 @@ Resource Development
 Initial Access
 -
 Execution
--
+  PowerSploit https://github.com/PowerShellMafia/PowerSploit
+  Rubeus https://github.com/GhostPack/Rubeus
+  SharpUp https://github.com/GhostPack/SharpUp
+  pwnat https://github.com/samyk/pwnat
 Persistence
--
+  Quack https://github.com/quack/quack
+  Inveigh https://github.com/Kevin-Robertson/Inveigh
+  Veil-Evasion https://github.com/Veil-Framework/Veil-Evasion
+  Crutch https://github.com/m4yers/crutch
 Privilege Escalation
   Get-GPPPassword https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1
   ADRecon https://github.com/sense-of-security/ADRecon
@@ -16,7 +22,10 @@ Privilege Escalation
 Defense Evasion
 -
 Credential Access
--
+  Mimikatz https://github.com/ParrotSec/mimikatz
+  LaZagne https://github.com/AlessandroZ/LaZagne
+  hashcat https://github.com/hashcat/hashcat
+  John the Ripper https://github.com/openwall/john
 Discovery
 -
 Lateral Movement
@@ -32,4 +41,5 @@ Command and Control
 Exfiltration
 -
 Impact
--
+  DeathStar https://github.com/byt3bl33d3r/DeathStar
+  P0wnedShell https://github.com/Cn33liz/p0wnedShell
