@@ -1,6 +1,8 @@
 # RedTeam-Tools
 
-*This github repository contains a collection of tools and resources that can be useful for red teaming activities. The tools can help red teamers to plan and conduct their operations. Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.*
+[![Repo Updated Badge](https://badges.strrl.dev/updated/A-poc/RedTeam-Tools)](https://badges.strrl.dev)
+
+This github repository contains a collection of **tools** and **resources** that can be useful for **red teaming activities**. Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
 
 **Note:** *The materials in this repository are for informational and educational purposes only. They are not intended for use in any illegal activities.*
 
