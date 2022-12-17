@@ -5,10 +5,7 @@ Resource Development
 Initial Access
 -
 Execution
-  PowerSploit https://github.com/PowerShellMafia/PowerSploit
-  Rubeus https://github.com/GhostPack/Rubeus
-  SharpUp https://github.com/GhostPack/SharpUp
-  pwnat https://github.com/samyk/pwnat
+-
 Persistence
   Quack https://github.com/quack/quack
   Inveigh https://github.com/Kevin-Robertson/Inveigh
