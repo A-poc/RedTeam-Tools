@@ -1,8 +1,5 @@
 Reconnaissance
-  spoofcheck https://github.com/BishopFox/spoofcheck
-  AWSBucketDump https://github.com/jordanpotti/AWSBucketDump
-  GitHarvester https://github.com/metac0rtex/GitHarvester
-  truffleHog https://github.com/dxa4481/truffleHog
+-
 Resource Development
 -
 Initial Access
