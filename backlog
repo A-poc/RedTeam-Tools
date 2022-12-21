@@ -1,7 +1,7 @@
 Reconnaissance
 -
 Resource Development
--
+  Chimera https://github.com/tokyoneon/Chimera
 Initial Access
 -
 Execution
@@ -20,6 +20,7 @@ Credential Access
 Discovery
 -
 Lateral Movement
+  evil-winrm https://github.com/Hackplayers/evil-winrm
   PowerLessShell https://github.com/Mr-Un1k0d3r/PowerLessShell
   Responder https://github.com/SpiderLabs/Responder
   PsExec https://docs.microsoft.com/en-us/sysinternals/downloads/psexec
