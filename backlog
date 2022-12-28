@@ -3,35 +3,47 @@ Reconnaissance
 Resource Development
   Chimera https://github.com/tokyoneon/Chimera
 Initial Access
--
+  Bash Bunny https://shop.hak5.org/products/bash-bunny
 Execution
--
+  Macro_pack https://github.com/sevagas/macro_pack
+  Donut https://github.com/TheWover/donut/
 Persistence
--
+  Impacket https://github.com/fortra/impacket
+  Empire https://github.com/EmpireProject/Empire
 Privilege Escalation
+  UACME https://github.com/hfiref0x/UACME
+  Certify https://github.com/GhostPack/Certify
   Get-GPPPassword https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1
   ADRecon https://github.com/sense-of-security/ADRecon
   Rubeus https://github.com/GhostPack/Rubeus
   Sherlock https://github.com/rasta-mouse/Sherlock
 Defense Evasion
--
+  Proxychains https://github.com/haad/proxychains
+  Veil https://github.com/Veil-Framework/Veil
 Credential Access
--
+  Repsonder https://github.com/SpiderLabs/Responder
+  cain-abel https://infosecaddicts.com/cain-abel/
 Discovery
--
+  Seatbelt https://github.com/GhostPack/Seatbelt
+  kismet https://github.com/kismetwireless/kismet
+  ADRecon https://github.com/adrecon/ADRecon
 Lateral Movement
+  WMIOps https://github.com/FortyNorthSecurity/WMIOps
   evil-winrm https://github.com/Hackplayers/evil-winrm
   PowerLessShell https://github.com/Mr-Un1k0d3r/PowerLessShell
-  Responder https://github.com/SpiderLabs/Responder
   PsExec https://docs.microsoft.com/en-us/sysinternals/downloads/psexec
 Collection
--
+  PowerUpSQL https://github.com/NetSPI/PowerUpSQL
 Command and Control
+  Covenant https://github.com/cobbr/Covenant
+  merlin https://github.com/Ne0nd0g/merlin
   Metasploit Framework https://github.com/rapid7/metasploit-framework
   Pupy https://github.com/n1nj4sec/pupy
   Empire https://github.com/EmpireProject/Empire
 Exfiltration
--
+  dnscat2 https://github.com/iagox86/dnscat2
+  Cloakify https://github.com/TryCatchHCF/Cloakify
 Impact
+  slowloris https://github.com/gkbrk/slowloris
   DeathStar https://github.com/byt3bl33d3r/DeathStar
   P0wnedShell https://github.com/Cn33liz/p0wnedShell
