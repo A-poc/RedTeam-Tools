@@ -1,11 +1,10 @@
 Reconnaissance
 -
 Resource Development
-  Chimera https://github.com/tokyoneon/Chimera
+-
 Initial Access
-  Bash Bunny https://shop.hak5.org/products/bash-bunny
+-
 Execution
-  Macro_pack https://github.com/sevagas/macro_pack
   Donut https://github.com/TheWover/donut/
 Persistence
   Impacket https://github.com/fortra/impacket
