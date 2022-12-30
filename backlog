@@ -9,11 +9,7 @@ Execution
 Persistence
 -
 Privilege Escalation
-  UACME https://github.com/hfiref0x/UACME
-  Certify https://github.com/GhostPack/Certify
-  Get-GPPPassword https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1
   ADRecon https://github.com/sense-of-security/ADRecon
-  Rubeus https://github.com/GhostPack/Rubeus
   Sherlock https://github.com/rasta-mouse/Sherlock
 Defense Evasion
   Proxychains https://github.com/haad/proxychains
