@@ -36,11 +36,14 @@ Some of the tools may be specifically designed for red teaming, while others are
     - [SquarePhish](#squarephish)
     - [King Phisher](#king-phisher)
 4. [Execution](#execution)
+    - [Donut](#donut)
     - [Macro_pack](#macro_pack)
     - [PowerSploit](#powersploit)
     - [Rubeus](#rubeus)
     - [SharpUp](#sharpup)
 5. [Persistence](#persistence)
+    - [Impacket](#impacket)
+    - [Empire](#empire)
     - [SharPersist](#sharpersist)
 6. [Privilege Escalation](#privilege-escalation)
     - [LinPEAS](#linpeas)
@@ -592,6 +595,50 @@ Once King Phisher has been installed please follow the [wiki page](https://githu
 Execution
 ====================
 
+### [🔙](#redteam-tools)[Donut](https://github.com/TheWover/donut/)
+
+A tool for in-memory execution of VBScript, JScript, EXE, DLL files and dotNET assemblies. It can be used to load and run custom payloads on target systems without the need to drop files to disk.
+
+**Install: (Windows)** 
+
+```bash
+git clone http://github.com/thewover/donut.git
+```
+
+To generate the loader template, dynamic library donut.dll, the static library donut.lib and the generator donut.exe. Start an x64 Microsoft Visual Studio Developer Command Prompt, change to the directory where you cloned the Donut repository and enter the following:
+
+```bash
+nmake -f Makefile.msvc
+```
+
+To do the same, except using MinGW-64 on Windows or Linux, change to the directory where you cloned the Donut repository and enter the following:
+
+```bash
+make -f Makefile.mingw
+```
+
+**Install: (Linux)** 
+
+```bash
+pip3 install donut-shellcode
+```
+
+**Usage:** 
+
+```bash
+# Creating shellcode from an XSL file that pops up a calculator.
+shellcode = donut.create(file=r"C:\\Tools\\Source\\Repos\\donut\\calc.xsl")
+
+# Creating shellcode from an unmanaged DLL. Invokes DLLMain.
+shellcode = donut.create(file=r"C:\Tools\Source\Repos\donut\payload\test\hello.dll")
+```
+
+For full usage information, see the donut [GitHub Page](https://github.com/TheWover/donut/#4-usage).
+
+See [a recent blog post](https://thewover.github.io/Bear-Claw/) from The Wover for more info.
+
+![image](https://user-images.githubusercontent.com/100603074/210077893-9d42cc2f-0ea0-414f-8103-42e29429321b.png)
+
 ### [🔙](#redteam-tools)[Macro_pack](https://github.com/sevagas/macro_pack)
 
 A tool used to automatize the obfuscation and generation of Office documents, VB scripts, shortcuts, and other formats for red teaming.
@@ -733,8 +780,83 @@ SharpUp.exe audit HijackablePaths
 #-> Check only for modifiable paths in the user's %PATH% regardless of integrity level or group membership.
 ```
 
+![image](https://user-images.githubusercontent.com/100603074/210079939-e709cced-04a2-44a5-9da0-f387bc6599b1.png)
+
 Persistence
 ====================
+
+### [🔙](#redteam-tools)[Impacket](https://github.com/fortra/impacket)
+
+Impacket provides a set of low-level Python bindings for various network protocols, including SMB, Kerberos, and LDAP, as well as higher-level libraries for interacting with network services and performing specific tasks such as dumping password hashes and creating network shares.
+
+It also includes a number of command-line tools that can be used to perform various tasks such as dumping SAM databases, enumerating domain trusts, and cracking Windows passwords.
+
+**Install:** 
+
+```bash
+python3 -m pip install impacket
+```
+
+**Install: (With Example Scripts)** 
+
+Download and extract [the package](https://github.com/fortra/impacket), then navigate to the install folder and run...
+
+```bash
+python3 -m pip install .
+```
+
+**Usage:** 
+
+```bash
+# Extract NTLM hashes with local files
+secretsdump.py -ntds /root/ntds_cracking/ntds.dit -system /root/ntds_cracking/systemhive LOCAL
+
+# Gets a list of the sessions opened at the remote hosts
+netview.py domain/user:password -target 192.168.10.2
+
+# Retrieves the MSSQL instances names from the target host.
+mssqlinstance.py 192.168.1.2
+
+# This script will gather data about the domain's users and their corresponding email addresses.
+GetADUsers.py domain/user:password@IP
+```
+
+Great [cheat sheet](https://cheatsheet.haax.fr/windows-systems/exploitation/impacket/) for Impacket usage.
+
+![image](https://user-images.githubusercontent.com/100603074/210079475-a13f7fe2-7801-40dd-977b-e179d0658b47.png)
+
+### [🔙](#redteam-tools)[Empire](https://github.com/EmpireProject/Empire)
+
+Empire is a post-exploitation framework that allows you to generate payloads for establishing remote connections with victim systems.
+
+Once a payload has been executed on a victim system, it establishes a connection back to the Empire server, which can then be used to issue commands and control the target system.
+
+Empire also includes a number of built-in modules and scripts that can be used to perform specific tasks, such as dumping password hashes, accessing the Windows registry, and exfiltrating data.
+
+**Install:** 
+
+```bash
+git clone https://github.com/EmpireProject/Empire
+cd Empire
+sudo ./setup/install.sh
+```
+
+**Usage:** 
+
+```bash
+# Start Empire
+./empire
+
+# List live agents
+list agents
+
+# List live listeners
+list listeners
+```
+
+Nice usage [cheat sheet](https://github.com/HarmJ0y/CheatSheets/blob/master/Empire.pdf) by [HarmJoy](https://github.com/HarmJ0y).
+
+![image](https://user-images.githubusercontent.com/100603074/210080911-b3c7572a-a0dd-4664-a3e1-46b343db8a79.png)
 
 ### [🔙](#redteam-tools)[SharPersist](https://github.com/mandiant/SharPersist)
 
