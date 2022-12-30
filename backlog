@@ -35,9 +35,6 @@ Command and Control
   Pupy https://github.com/n1nj4sec/pupy
   Empire https://github.com/EmpireProject/Empire
 Exfiltration
-  dnscat2 https://github.com/iagox86/dnscat2
-  Cloakify https://github.com/TryCatchHCF/Cloakify
+-
 Impact
-  slowloris https://github.com/gkbrk/slowloris
-  DeathStar https://github.com/byt3bl33d3r/DeathStar
-  P0wnedShell https://github.com/Cn33liz/p0wnedShell
+-
