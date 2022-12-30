@@ -5,10 +5,9 @@ Resource Development
 Initial Access
 -
 Execution
-  Donut https://github.com/TheWover/donut/
+-
 Persistence
-  Impacket https://github.com/fortra/impacket
-  Empire https://github.com/EmpireProject/Empire
+-
 Privilege Escalation
   UACME https://github.com/hfiref0x/UACME
   Certify https://github.com/GhostPack/Certify
