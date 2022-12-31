@@ -1,5 +1,9 @@
 # RedTeam-Tools
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/100603074/210140513-273be5ad-89cb-4d3a-b72f-709f33928e63.png" height="300">
+</p>
+
 This github repository contains a collection of **tools** and **resources** that can be useful for **red teaming activities**. 
 
 Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
@@ -10,7 +14,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 
 > **Note** 
 > 
-> *Attack stages can be hidden.*
+> *Hide Tool List headings with the arrow.*
 > 
 > *Click 🔙 to get back to the list.*
 
