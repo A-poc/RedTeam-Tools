@@ -1,3 +1,5 @@
+https://wadcoms.github.io/
+
 Reconnaissance
 -
 Resource Development
@@ -9,18 +11,14 @@ Execution
 Persistence
 -
 Privilege Escalation
-  ADRecon https://github.com/sense-of-security/ADRecon
   Sherlock https://github.com/rasta-mouse/Sherlock
 Defense Evasion
-  Proxychains https://github.com/haad/proxychains
-  Veil https://github.com/Veil-Framework/Veil
+-
 Credential Access
   Repsonder https://github.com/SpiderLabs/Responder
   cain-abel https://infosecaddicts.com/cain-abel/
 Discovery
-  Seatbelt https://github.com/GhostPack/Seatbelt
-  kismet https://github.com/kismetwireless/kismet
-  ADRecon https://github.com/adrecon/ADRecon
+-
 Lateral Movement
   WMIOps https://github.com/FortyNorthSecurity/WMIOps
   evil-winrm https://github.com/Hackplayers/evil-winrm
