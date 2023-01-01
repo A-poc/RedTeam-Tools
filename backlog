@@ -25,13 +25,10 @@ Lateral Movement
   PowerLessShell https://github.com/Mr-Un1k0d3r/PowerLessShell
   PsExec https://docs.microsoft.com/en-us/sysinternals/downloads/psexec
 Collection
-  PowerUpSQL https://github.com/NetSPI/PowerUpSQL
+-
 Command and Control
-  Covenant https://github.com/cobbr/Covenant
-  merlin https://github.com/Ne0nd0g/merlin
-  Metasploit Framework https://github.com/rapid7/metasploit-framework
   Pupy https://github.com/n1nj4sec/pupy
-  Empire https://github.com/EmpireProject/Empire
+  Brute Ratel https://bruteratel.com/
 Exfiltration
 -
 Impact
