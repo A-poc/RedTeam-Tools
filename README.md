@@ -92,7 +92,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Privilege Escalation</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <summary><b>Privilege Escalation</b> $\textcolor{gray}{\text{7 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#linpeas">LinPEAS</a></b><i> Linux privilege escalation</i></li>
@@ -100,6 +100,8 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#linux-smart-enumeration">linux-smart-enumeration</a></b><i> Linux privilege escalation</i></li>
             <li><b><a href="#certify">Certify</a></b><i> Active directory privilege escalation</i></li>
             <li><b><a href="#get-gpppassword">Get-GPPPassword</a></b><i> Windows password extraction</i></li>
+	    <li><b><a href="#sherlock">Sherlock</a></b><i> PowerShell privilege escalation tool</i></li>
+	    <li><b><a href="#watson">Watson</a></b><i> Windows privilege escalation tool</i></li>
         </ul>
     </ul>
 </details>
@@ -161,13 +163,15 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Command and Control</b> $\textcolor{gray}{\text{4 tools}}$</summary>
+    <summary><b>Command and Control</b> $\textcolor{gray}{\text{6 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#havoc">Havoc</a></b><i> Command and control framework</i></li>
 	    <li><b><a href="#covenant">Covenant</a></b><i> Command and control framework (.NET)</i></li>
 	    <li><b><a href="#merlin">Merlin</a></b><i> Command and control framework (Golang)</i></li>
 	    <li><b><a href="#metasploit-framework">Metasploit Framework</a></b><i> Command and control framework (Ruby)</i></li>
+	    <li><b><a href="#pupy">Pupy</a></b><i> Command and control framework (Python)</i></li>
+	    <li><b><a href="#brute-ratel">Brute Ratel</a></b><i> Command and control framework ($$$)</i></li>
         </ul>
     </ul>
 </details>
@@ -1138,6 +1142,70 @@ Get-GPPPassword | ForEach-Object {$_.passwords} | Sort-Object -Uniq
 
 ![image](https://user-images.githubusercontent.com/100603074/210089230-6a61579b-849d-4175-96ec-6ea75e001038.png)
 
+### [🔙](#tool-list)[Sherlock](https://github.com/rasta-mouse/Sherlock)
+
+PowerShell script to quickly find missing software patches for local privilege escalation vulnerabilities.
+
+*Supports:*
+
+- MS10-015 : User Mode to Ring (KiTrap0D)
+- MS10-092 : Task Scheduler
+- MS13-053 : NTUserMessageCall Win32k Kernel Pool Overflow
+- MS13-081 : TrackPopupMenuEx Win32k NULL Page
+- MS14-058 : TrackPopupMenu Win32k Null Pointer Dereference
+- MS15-051 : ClientCopyImage Win32k
+- MS15-078 : Font Driver Buffer Overflow
+- MS16-016 : 'mrxdav.sys' WebDAV
+- MS16-032 : Secondary Logon Handle
+- MS16-034 : Windows Kernel-Mode Drivers EoP
+- MS16-135 : Win32k Elevation of Privilege
+- CVE-2017-7199 : Nessus Agent 6.6.2 - 6.10.3 Priv Esc
+
+**Install: (PowerShell)** 
+
+```bash
+# Git install
+git clone https://github.com/rasta-mouse/Sherlock
+
+# Load powershell module
+Import-Module -Name C:\INSTALL_LOCATION\Sherlock\Sherlock.ps1
+```
+
+**Usage: (PowerShell)** 
+
+```bash
+# Run all functions
+Find-AllVulns
+
+# Run specific function (MS14-058 : TrackPopupMenu Win32k Null Pointer Dereference)
+Find-MS14058
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210182250-b5e9a4c1-4d30-4591-b06b-7d58098c7fef.png)
+
+*Image used from https://vk9-sec.com/sherlock-find-missing-windows-patches-for-local-privilege-escalation/*
+
+### [🔙](#tool-list)[Watson](https://github.com/rasta-mouse/Watson)
+
+Watson is a .NET tool designed to enumerate missing KBs and suggest exploits for Privilege Escalation vulnerabilities.
+
+Great for identifying missing patches and suggesting exploits that could be used to exploit known vulnerabilities in order to gain higher privileges on the system.
+
+**Install:** 
+
+Using [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/vs/community/). Open the [Watson project .sln](https://github.com/rasta-mouse/Watson), choose "Release", and build.
+
+**Usage:** 
+
+```bash
+# Run all checks
+Watson.exe
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210182370-409be1ac-64f9-4a07-96bd-b0752d7609a2.png)
+
+*Image text used from https://github.com/rasta-mouse/Watson#usage*
+
 Defense Evasion
 ====================
 
@@ -1683,6 +1751,114 @@ Full installation instructions can be found on the official [wiki](https://docs.
 ![image](https://user-images.githubusercontent.com/100603074/210168463-f1ac1edb-2f0e-4008-a8ba-308f3a741a9e.png)
 
 *Image used from https://goacademy.io/how-to-install-metasploit-on-kali-linux/*
+
+### [🔙](#tool-list)[Pupy](https://github.com/n1nj4sec/pupy)
+
+Pupy is an opensource, cross-platform (Windows, Linux, OSX, Android) C2 and post-exploitation framework written in python and C.
+
+It allows an attacker to remotely control a victim's computer and execute various actions, such as command execution, key logging, and taking screen shots.
+
+**Install: (Git)** 
+
+```bash
+sudo apt install git libssl1.0-dev libffi-dev python-dev python-pip build-essential swig tcpdump python-virtualenv
+git clone --recursive https://github.com/n1nj4sec/pupy
+cd pupy
+python create-workspace.py -DG pupyw
+```
+
+Roll fix to fix the error:
+
+```bash
+sudo pip2 install rpyc==3.4.4
+```
+
+Start:
+
+```bash
+export PATH=$PATH:~/.local/bin; pupysh
+pupyws/bin/pupysh
+```
+
+*Git install instructions used from [here](https://kalitut.com/how-to-install-pupy/).*
+
+**Install: (Docker)** 
+
+For detailed docker and pupy installation instructions see the [wiki](https://github.com/n1nj4sec/pupy/wiki/Installation).
+
+**Usage:** 
+
+```bash
+# Get help page for any builtin commands with -h
+>> sessions -h
+>> jobs -h
+>> run -h
+
+# Interact with session 1
+>> sessions -i 1
+
+# Run local command 'ls'
+>> !ls
+```
+
+Full usage information can be found on the [wiki](https://github.com/n1nj4sec/pupy/wiki/Basic-Usage).
+
+The wiki contains good [post exploitation information](https://github.com/n1nj4sec/pupy/wiki/Post-Exploitation).
+
+![image](https://user-images.githubusercontent.com/100603074/210181480-d1ad1bd8-fa8d-4014-842c-3efbb35b2644.png)
+
+*Image used from https://github.com/n1nj4sec/pupy/wiki/Screenshots*
+
+### [🔙](#tool-list)[Brute Ratel](https://bruteratel.com/)
+
+BruteRatel is a great command and control (C4) framework created by [@NinjaParanoid](https://twitter.com/NinjaParanoid). The framework consists of a client component 'badger' that is installed on the compromised system, and a server component 'commander' that is run by the red team.
+
+The client and server communicate with each other using various communication channels, such as HTTP, DNS, or TCP, and can be configured to use different encoding and encryption methods to evade detection.
+
+Some nice features:
+
+- DNS Over HTTPS
+- Indirect Syscalls
+- Built-in Debugger To Detect EDR Userland Hooks
+- MITRE graph intergration
+- Adversary TTP automation
+
+**Install:** 
+
+To legally get access to the framework you will need to buy a licence (1 Year $2500 per user). See the [pricing page](https://bruteratel.com/pricing/) for more information.
+
+After purchase you can download the framework from [here](https://bruteratel.com/tabs/download/) with your Activation Key and License User ID.
+
+**Usage:** 
+
+```bash
+# Loads a powershell script to memory which can be Invoked using psreflect
+psimport
+
+# Locks keyboard and mouse hardware input. Use ‘unlock_input’ command to unlock
+lock_input
+
+# Dumps user clipboard
+dumpclip
+
+# Enumerates basic domain information
+dcenum
+
+# Elevates user privileges to SYSTEM (Requires admin rights)
+get_system
+
+# Takes a screenshot of current desktop and stores it on the server
+screenshot
+
+# Dumps LSASS to C:\Windows\Memory.DMP using the PssCaptureSnapshot technique
+shadowclone
+```
+
+Full commander terminal usage information can be found [here](https://bruteratel.com/tabs/badger/badgers/).
+
+![image](https://user-images.githubusercontent.com/100603074/210181655-74201cad-a782-43ed-97d3-f4c0926d46c3.png)
+
+*Image used from https://bruteratel.com/*
 
 Exfiltration
 ====================
