@@ -161,10 +161,13 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Command and Control</b> $\textcolor{gray}{\text{1 tools}}$</summary>
+    <summary><b>Command and Control</b> $\textcolor{gray}{\text{4 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#havoc">Havoc</a></b><i> Command and control framework</i></li>
+	    <li><b><a href="#covenant">Covenant</a></b><i> Command and control framework (.NET)</i></li>
+	    <li><b><a href="#merlin">Merlin</a></b><i> Command and control framework (Golang)</i></li>
+	    <li><b><a href="#metasploit-framework">Metasploit Framework</a></b><i> Command and control framework (Ruby)</i></li>
         </ul>
     </ul>
 </details>
@@ -1560,6 +1563,126 @@ sudo ./teamserver server --profile ./profiles/havoc.yaotl -v --debug
 *Full install, build and run instructions on the [wiki](https://github.com/HavocFramework/Havoc/blob/main/WIKI.MD)*
 
 ![image](https://user-images.githubusercontent.com/100603074/206025215-9c7093e5-b45a-4755-81e6-9e2a52a1f455.png)
+
+### [🔙](#tool-list)[Covenant](https://github.com/cobbr/Covenant)
+
+Covenant is a .NET command and control framework, it has a web interface that allows for multi-user collaboration.
+
+It can be used to remotely control compromised systems and perform a variety of different tasks, including executing arbitrary code, capturing keystrokes, exfiltrating data, and more.
+
+**Install: (Dotnet Core)** 
+
+You can download dotnet core for your platform from [here](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+
+**Note:** *After starting Covenant, you must register an initial user through the web interface. Navigating to the web interface will allow you to register the initial user*
+
+```bash
+git clone --recurse-submodules https://github.com/cobbr/Covenant
+cd Covenant/Covenant
+```
+
+**Usage: (Dotnet Core)** 
+
+```bash
+~/Covenant/Covenant > dotnet run
+warn: Microsoft.EntityFrameworkCore.Model.Validation[10400]
+      Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data, this mode should only be enabled during development.
+WARNING: Running Covenant non-elevated. You may not have permission to start Listeners on low-numbered ports. Consider running Covenant elevated.
+Covenant has started! Navigate to https://127.0.0.1:7443 in a browser
+```
+
+**Install: (Docker)**
+
+```bash
+# Build the docker image:
+git clone --recurse-submodules https://github.com/cobbr/Covenant
+cd Covenant/Covenant
+~/Covenant/Covenant > docker build -t covenant .
+```
+
+**Usage: (Docker)** 
+
+```bash
+# Run Covenant within the Docker container
+~/Covenant/Covenant > docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v </absolute/path/to/Covenant/Covenant/Data>:/app/Data covenant
+
+# Stop the container
+~/Covenant/Covenant > docker stop covenant
+
+# Restart Covenant interactively
+~/Covenant/Covenant > docker start covenant -ai
+```
+
+Full installation and startup instructions can be found on the wiki [here](https://github.com/cobbr/Covenant/wiki/Installation-And-Startup).
+
+![image](https://user-images.githubusercontent.com/100603074/210168138-58473fc0-4361-41ec-9439-2f2fcb159520.png)
+
+*Image from https://github.com/cobbr/Covenant*
+
+### [🔙](#tool-list)[Merlin](https://github.com/Ne0nd0g/merlin)
+
+Merlin is an open-source post-exploitation framework that is designed to be used after a initial compromise of a system.
+
+It is written in Python and can be used to perform a variety of different tasks, such as executing arbitrary code, moving laterally through a network, and exfiltrating data.
+
+**Install:** 
+
+1. Download the latest compiled version of Merlin Server from the [releases](https://github.com/Ne0nd0g/merlin/releases) section
+2. Extract the files with 7zip using the x function The password is: merlin
+3. Start Merlin
+4. Configure a [listener](https://merlin-c2.readthedocs.io/en/latest/server/menu/listeners.html)
+5. Deploy an agent. See [Agent Execution Quick Start Guide](https://merlin-c2.readthedocs.io/en/latest/quickStart/agent.html) for examples
+
+```bash
+mkdir /opt/merlin;cd /opt/merlin
+wget https://github.com/Ne0nd0g/merlin/releases/latest/download/merlinServer-Linux-x64.7z
+7z x merlinServer-Linux-x64.7z
+sudo ./merlinServer-Linux-x64
+```
+
+**Usage:** 
+
+1. Ensure the Merlin server is running with a configured listener
+2. Download and deploy an agent to the victim
+3. Execute agent
+
+For detailed usage information see the official Merlin [wiki](https://merlin-c2.readthedocs.io/en/latest/server/menu/main.html).
+
+![image](https://user-images.githubusercontent.com/100603074/210168329-57c77e4f-213c-4402-8dd8-70ac3bcabcfe.png)
+
+*Image from https://www.foregenix.com/blog/a-first-look-at-todays-command-and-control-frameworks*
+
+### [🔙](#tool-list)[Metasploit Framework](https://github.com/rapid7/metasploit-framework)
+
+Metasploit is an open-source framework for developing, testing, and using exploit code.
+
+The Metasploit framework includes a large number of pre-built exploits and payloads, as well as a fully-featured integrated development environment (IDE) for creating and testing custom exploits.
+
+**Install: (Installer)** 
+
+```bash
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
+  chmod 755 msfinstall && \
+  ./msfinstall
+```
+
+**Usage:** 
+
+```bash
+/opt/metasploit-framework/bin/msfconsole
+```
+
+Full installation instructions can be found on the official [wiki](https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html).
+
+[Rapid7 Metasploit blogs](https://www.rapid7.com/blog/tag/metasploit/)
+
+[Cheat sheet graphic](https://cdn.comparitech.com/wp-content/uploads/2019/06/Metasploit-Cheat-Sheet.webp)
+
+[Nice command list](https://github.com/security-cheatsheet/metasploit-cheat-sheet)
+
+![image](https://user-images.githubusercontent.com/100603074/210168463-f1ac1edb-2f0e-4008-a8ba-308f3a741a9e.png)
+
+*Image used from https://goacademy.io/how-to-install-metasploit-on-kali-linux/*
 
 Exfiltration
 ====================
