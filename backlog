@@ -11,7 +11,7 @@ Execution
 Persistence
 -
 Privilege Escalation
-  Sherlock https://github.com/rasta-mouse/Sherlock
+-
 Defense Evasion
 -
 Credential Access
@@ -27,8 +27,7 @@ Lateral Movement
 Collection
 -
 Command and Control
-  Pupy https://github.com/n1nj4sec/pupy
-  Brute Ratel https://bruteratel.com/
+-
 Exfiltration
 -
 Impact
