@@ -21,7 +21,6 @@ Discovery
 -
 Lateral Movement
   WMIOps https://github.com/FortyNorthSecurity/WMIOps
-  evil-winrm https://github.com/Hackplayers/evil-winrm
   PowerLessShell https://github.com/Mr-Un1k0d3r/PowerLessShell
   PsExec https://docs.microsoft.com/en-us/sysinternals/downloads/psexec
 Collection
