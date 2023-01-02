@@ -1,18 +1,15 @@
 Reconnaissance
-  dismap https://github.com/zhzyker/dismap
-  enum4linux https://github.com/CiscoCXSecurity/enum4linux
+-
 Resource Development
 -
 Initial Access
 -
 Execution
-  secretsdump https://github.com/fortra/impacket/blob/master/examples/secretsdump.py | https://riccardoancarani.github.io/2020-05-10-hunting-for-impacket/#secretsdumppy
-  Responder https://github.com/SpiderLabs/Responder
-  evil-winrm https://github.com/Hackplayers/evil-winrm
+-
 Persistence
 -
 Privilege Escalation
-  ImpulsiveDLLHijack https://github.com/knight0x07/ImpulsiveDLLHijack
+-
 Defense Evasion
 -
 Credential Access
@@ -20,14 +17,12 @@ Credential Access
 Discovery
 -
 Lateral Movement
-  WMIOps https://github.com/FortyNorthSecurity/WMIOps
-  PowerLessShell https://github.com/Mr-Un1k0d3r/PowerLessShell
-  PsExec https://docs.microsoft.com/en-us/sysinternals/downloads/psexec
+-
 Collection
-  Snaffler https://github.com/SnaffCon/Snaffler
+-
 Command and Control
 -
 Exfiltration
-  GD-Thief https://github.com/antman1p/GD-Thief
+-
 Impact
 -
