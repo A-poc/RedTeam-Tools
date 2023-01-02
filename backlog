@@ -1,13 +1,14 @@
-https://wadcoms.github.io/
-
 Reconnaissance
   dismap https://github.com/zhzyker/dismap
+  enum4linux https://github.com/CiscoCXSecurity/enum4linux
 Resource Development
 -
 Initial Access
 -
 Execution
--
+  secretsdump https://github.com/fortra/impacket/blob/master/examples/secretsdump.py | https://riccardoancarani.github.io/2020-05-10-hunting-for-impacket/#secretsdumppy
+  Responder https://github.com/SpiderLabs/Responder
+  evil-winrm https://github.com/Hackplayers/evil-winrm
 Persistence
 -
 Privilege Escalation
