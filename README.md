@@ -123,13 +123,14 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Credential Access</b> $\textcolor{gray}{\text{4 tools}}$</summary>
+    <summary><b>Credential Access</b> $\textcolor{gray}{\text{5 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#mimikatz">Mimikatz</a></b><i> Windows credential extractor</i></li>
             <li><b><a href="#lazagne">LaZagne</a></b><i> Local password extractor</i></li>
             <li><b><a href="#hashcat">hashcat</a></b><i> Password hash cracking</i></li>
             <li><b><a href="#john-the-ripper">John the Ripper</a></b><i> Password hash cracking</i></li>
+	    <li><b><a href="#scomdecrypt">SCOMDecrypt</a></b><i> SCOM Credential Decryption Tool</i></li>
         </ul>
     </ul>
 </details>
@@ -1623,6 +1624,54 @@ john
 
 ![image](https://user-images.githubusercontent.com/100603074/208263690-8c2d1253-7261-47da-850d-ca5a8d98ca13.png)
 
+### [🔙](#tool-list)[SCOMDecrypt](https://github.com/nccgroup/SCOMDecrypt)
+
+This tool is designed to retrieve and decrypt RunAs credentials stored within Microsoft System Center Operations Manager (SCOM) databases.
+
+NCC blog post - ['SCOMplicated? – Decrypting SCOM “RunAs” credentials'](https://research.nccgroup.com/2017/02/23/scomplicated-decrypting-scom-runas-credentials/)
+
+**Pre-requisites:** 
+
+To run the tool you will require administrative privileges on the SCOM server. You will also need to ensure that you have read access to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\System Center\2010\Common\MOMBins
+```
+
+You can check manually that you can see the database by gathering the connection details from the following keys:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\System Center\2010\Common\Database\DatabaseServerName
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\System Center\2010\Common\Database\DatabaseName
+```
+
+**Install: (PS1)** 
+
+```
+git clone https://github.com/nccgroup/SCOMDecrypt
+cd .\SCOMDecrypt\SCOMDecrypt\
+. .\Invoke-SCOMDecrypt.ps1
+```
+
+**Install: (Compile)** 
+
+Using [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/vs/community/) you can compile the SCOMDecrypt binary. 
+
+Open the SCOMDecrypt [project .sln](https://github.com/nccgroup/SCOMDecrypt), choose "Release", and build.
+
+**Usage:** 
+
+```bash
+# PS1
+Invoke-SCOMDecrypt
+
+# Compiled C# binary
+.\SCOMDecrypt.exe
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210456718-034ba080-602e-423e-8ac3-b62ef0841208.png)
+
+*Image text used from https://github.com/nccgroup/SCOMDecrypt*
 
 Discovery
 ====================
