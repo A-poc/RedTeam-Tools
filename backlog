@@ -1,5 +1,8 @@
 Reconnaissance
--
+  dirb
+  nikto
+  uniscan
+  wfuzz
 Resource Development
 -
 Initial Access
