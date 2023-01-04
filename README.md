@@ -216,7 +216,7 @@ Reconnaissance
 
 I have put together a bash one-liner that: 
 - Passively collects a list of subdomains from certificate associations ([crt.sh](https://crt.sh/))
-- Actively requests each subdomain to verify it's existance ([httprobe](https://github.com/tomnomnom/httprobe))
+- Actively requests each subdomain to verify it's existence ([httprobe](https://github.com/tomnomnom/httprobe))
 - Actively screenshots each subdomain for manual review ([EyeWitness](https://github.com/FortyNorthSecurity/EyeWitness))
 
 **Usage:** 
@@ -2281,7 +2281,7 @@ Some nice features:
 - DNS Over HTTPS
 - Indirect Syscalls
 - Built-in Debugger To Detect EDR Userland Hooks
-- MITRE graph intergration
+- MITRE graph integration
 - Adversary TTP automation
 
 **Install:** 
