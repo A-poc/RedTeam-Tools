@@ -2281,7 +2281,7 @@ Some nice features:
 - DNS Over HTTPS
 - Indirect Syscalls
 - Built-in Debugger To Detect EDR Userland Hooks
-- MITRE graph intergration
+- MITRE graph integration
 - Adversary TTP automation
 
 **Install:** 
