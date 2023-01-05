@@ -23,7 +23,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 # Tool List
 
 <details open>
-    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{14 tools}}$</summary>
+    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{15 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#crtsh---httprobe---eyewitness">crt.sh -> httprobe -> EyeWitness</a></b><i> Automated domain screenshotting</i></li>
@@ -40,6 +40,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#trufflehog">truffleHog</a></b><i> GitHub credential scanner</i></li>
             <li><b><a href="#dismap">Dismap</a></b><i> Asset discovery/identification</i></li>
             <li><b><a href="#enum4linux">enum4linux</a></b><i> Windows/samba enumeration</i></li>
+            <li><b><a href="#skanuvaty">skanuvaty</a></b><i> Dangerously fast dns/network/port scanner</i></li>
         </ul>
     </ul>
 </details>
@@ -193,8 +194,8 @@ Some of the tools may be specifically designed for red teaming, while others are
     <summary><b>Exfiltration</b> $\textcolor{gray}{\text{5 tools}}$</summary>
     <ul>
         <ul>
-	    <li><b><a href="#dnscat2">Dnscat2</a></b><i> C2 via DNS tunneling</i></li>
-	    <li><b><a href="#cloakify">Cloakify</a></b><i> Data transformation for exfiltration</i></li>
+	        <li><b><a href="#dnscat2">Dnscat2</a></b><i> C2 via DNS tunneling</i></li>
+	        <li><b><a href="#cloakify">Cloakify</a></b><i> Data transformation for exfiltration</i></li>
             <li><b><a href="#pyexfil">PyExfil</a></b><i> Data exfiltration PoC</i></li>
             <li><b><a href="#powershell-rat">Powershell RAT</a></b><i> Python based backdoor</i></li>
             <li><b><a href="#gd-thief">GD-Thief</a></b><i> Google drive exfiltration</i></li>
@@ -203,9 +204,10 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Impact</b> $\textcolor{gray}{\text{1 tools}}$</summary>
+    <summary><b>Impact</b> $\textcolor{gray}{\text{2 tools}}$</summary>
     <ul>
         <ul>
+            <li><b><a href="#conti-pentester-guide-leak">Conti Pentester Guide Leak</a></b><i> Conti ransomware group affilate toolkit</i></li>
             <li><b><a href="#slowloris">SlowLoris</a></b><i> Simple denial of service</i></li>
         </ul>
     </ul>
@@ -536,6 +538,33 @@ Full usage information can be found in this [blog](https://labs.portcullis.co.uk
 ![image](https://user-images.githubusercontent.com/100603074/210266058-bf05f272-ff05-4e97-97e9-5d11b7ae01eb.png)
 
 *Image used from https://allabouttesting.org/samba-enumeration-for-penetration-testing-short-tutorial/*
+
+### [🔙](#tool-list)[skanuvaty](https://github.com/Esc4iCEscEsc/skanuvaty)
+
+Dangerously fast dns/network/port scanner, created by [Esc4iCEscEsc](https://github.com/Esc4iCEscEsc), written in rust.
+
+You will need a subdomains file. *E.g. [Subdomain wordlist by Sublist3r](https://raw.githubusercontent.com/aboul3la/Sublist3r/master/subbrute/names.txt)*.
+
+**Install:** 
+
+Download the latest release from [here](https://github.com/Esc4iCEscEsc/skanuvaty/releases).
+
+```bash
+# Install a wordlist
+sudo apt install wordlists
+ls /usr/share/dirb/wordlists
+ls /usr/share/amass/wordlists
+```
+
+**Usage:** 
+
+```bash
+skanuvaty --target example.com --concurrency 16 --subdomains-file SUBDOMAIN_WORDLIST.txt
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210856146-42a4015c-f34b-4dc6-9e9b-cbeb4a43a964.png)
+
+*Image used from https://github.com/Esc4iCEscEsc/skanuvaty*
 
 Resource Development
 ====================
@@ -2546,6 +2575,28 @@ Nice [blog post](https://antman1p-30185.medium.com/youre-a-gd-thief-1e02358fd557
 
 Impact
 ====================
+
+### [🔙](#tool-list)[Conti Pentester Guide Leak](https://github.com/ForbiddenProgrammer/conti-pentester-guide-leak)
+
+Conti is a ransomware group that is known for targeting large organizations and using sophisticated tactics to evade detection and maximize the impact of their attacks. 
+
+Conti has been responsible for a number of high-profile ransomware attacks, including ones against the computer systems of the City of Pensacola, Florida, and the computer systems of the Irish health service. 
+
+The [Conti Pentester Guide Leak - Repository](https://github.com/ForbiddenProgrammer/conti-pentester-guide-leak) contains leaked pentesting materials given to Conti ransomware group affilates.
+
+Topics include:
+
+- Configuring Rclone with MEGA for data exfiltration
+- Configuring AnyDesk as persistence and remote access into a victim’s network
+- Elevating and gaining admin rights inside a company’s hacked network
+- Taking over domain controllers
+- Dumping passwords from Active Directory
+
+**Note:** *[vx-underground.org](https://www.vx-underground.org/) obtained more training materials and tools used by Conti ransomware operators [here](https://share.vx-underground.org/Conti/).*
+
+![image](https://user-images.githubusercontent.com/100603074/210856582-44a9bf16-23d4-4b7e-9e91-8604c3191e78.png)
+
+*Image used from https://github.com/ForbiddenProgrammer/conti-pentester-guide-leak*
 
 ### [🔙](#tool-list)[SlowLoris](https://github.com/gkbrk/slowloris)
 
