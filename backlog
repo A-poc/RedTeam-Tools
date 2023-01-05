@@ -1,5 +1,4 @@
 Reconnaissance
-  https://github.com/Esc4iCEscEsc/skanuvaty
   dirb
   nikto
   uniscan
@@ -29,4 +28,4 @@ Command and Control
 Exfiltration
 -
 Impact
-  https://github.com/ForbiddenProgrammer/conti-pentester-guide-leak
+-
