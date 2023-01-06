@@ -1,6 +1,4 @@
 Reconnaissance
-  https://github.com/j3ssie/metabigor
-  https://github.com/michenriksen/gitrob
   dirb
   nikto
   uniscan
@@ -16,13 +14,13 @@ Persistence
 Privilege Escalation
 -
 Defense Evasion
-  https://github.com/CCob/SharpBlock
+-
 Credential Access
-  https://github.com/helpsystems/nanodump
+-
 Discovery
-  https://github.com/dirkjanm/adidnsdump
+-
 Lateral Movement
-  https://github.com/RiccardoAncarani/LiquidSnake
+-
 Collection
 -
 Command and Control
