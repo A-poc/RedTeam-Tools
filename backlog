@@ -12,7 +12,7 @@ Execution
 Persistence
 -
 Privilege Escalation
--
+  https://github.com/mandiant/ADFSDump
 Defense Evasion
   https://github.com/weak1337/Alcatraz
 Credential Access
