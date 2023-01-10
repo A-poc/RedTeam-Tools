@@ -8,19 +8,19 @@ Resource Development
 Initial Access
 -
 Execution
-  https://github.com/skahwah/SQLRecon
+-
 Persistence
 -
 Privilege Escalation
   https://github.com/mandiant/ADFSDump
 Defense Evasion
-  https://github.com/weak1337/Alcatraz
+-
 Credential Access
 -
 Discovery
 -
 Lateral Movement
-  https://github.com/mandiant/ADFSpoof
+-
 Collection
 -
 Command and Control
