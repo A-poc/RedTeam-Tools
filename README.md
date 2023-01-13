@@ -43,7 +43,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{17 tools}}$</summary>
+    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{18 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#crtsh---httprobe---eyewitness">crt.sh -> httprobe -> EyeWitness</a></b><i> Automated domain screenshotting</i></li>
@@ -63,6 +63,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#skanuvaty">skanuvaty</a></b><i> Dangerously fast dns/network/port scanner</i></li>
             <li><b><a href="#metabigor">Metabigor</a></b><i> OSINT tool without API</i></li>
             <li><b><a href="#gitrob">Gitrob</a></b><i> GitHub sensitive information scanner</i></li>
+            <li><b><a href="#gowitness">gowitness</a></b><i> Web screenshot utility using Chrome Headless</i></li>
         </ul>
     </ul>
 </details>
@@ -123,7 +124,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Privilege Escalation</b> $\textcolor{gray}{\text{8 tools}}$</summary>
+    <summary><b>Privilege Escalation</b> $\textcolor{gray}{\text{9 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#linpeas">LinPEAS</a></b><i> Linux privilege escalation</i></li>
@@ -134,6 +135,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 	    <li><b><a href="#sherlock">Sherlock</a></b><i> PowerShell privilege escalation tool</i></li>
 	    <li><b><a href="#watson">Watson</a></b><i> Windows privilege escalation tool</i></li>
 	    <li><b><a href="#impulsivedllhijack">ImpulsiveDLLHijack</a></b><i> DLL Hijack tool</i></li>
+	    <li><b><a href="#adfsdump">ADFSDump</a></b><i> AD FS dump tool</i></li>
         </ul>
     </ul>
 </details>
@@ -151,7 +153,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Credential Access</b> $\textcolor{gray}{\text{6 tools}}$</summary>
+    <summary><b>Credential Access</b> $\textcolor{gray}{\text{8 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#mimikatz">Mimikatz</a></b><i> Windows credential extractor</i></li>
@@ -160,6 +162,8 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#john-the-ripper">John the Ripper</a></b><i> Password hash cracking</i></li>
 	        <li><b><a href="#scomdecrypt">SCOMDecrypt</a></b><i> SCOM Credential Decryption Tool</i></li>
 	        <li><b><a href="#nanodump">nanodump</a></b><i> LSASS process minidump creation</i></li>
+	        <li><b><a href="#eviltree">eviltree</a></b><i> Tree remake for credential discovery</i></li>
+	        <li><b><a href="#seeyoucm-thief">SeeYouCM-Thief</a></b><i> Cisco phone systems configuration file parsing</i></li>
         </ul>
     </ul>
 </details>
@@ -178,7 +182,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{10 tools}}$</summary>
+    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{11 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#crackmapexec">crackmapexec</a></b><i> Windows/Active directory lateral movement toolkit</i></li>
@@ -191,6 +195,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#forwarding-ports">Forwarding Ports</a></b><i> Local port forward command</i></li>
             <li><b><a href="#jenkins-reverse-shell">Jenkins reverse shell</a></b><i> Jenkins shell command</i></li>
             <li><b><a href="#adfspoof">ADFSpoof</a></b><i> Forge AD FS security tokens</i></li>
+            <li><b><a href="#kerbrute">kerbrute</a></b><i> A tool to perform Kerberos pre-auth bruteforcing</i></li>
         </ul>
     </ul>
 </details>
@@ -827,6 +832,40 @@ gitrob -load ~/gitrob-session.json
 ![image](https://user-images.githubusercontent.com/100603074/210982754-fb70db8f-0e0f-4c31-962f-ac89edc7e64a.png)
 
 *Image used from https://www.uedbox.com/post/58828/*
+
+### [🔙](#tool-list)[gowitness](https://github.com/sensepost/gowitness)
+
+Gowitness is a website screenshot utility written in Golang, that uses Chrome Headless to generate screenshots of web interfaces using the command line, with a handy report viewer to process results. Both Linux and macOS is supported, with Windows support mostly working.
+
+**Install: (Go)** 
+
+```bash
+go install github.com/sensepost/gowitness@latest
+```
+
+Full installation information can be found [here](https://github.com/sensepost/gowitness/wiki/Installation).
+
+**Usage:** 
+
+```bash
+# Screenshot a single website
+gowitness single https://www.google.com/
+
+# Screenshot a cidr using 20 threads
+gowitness scan --cidr 192.168.0.0/24 --threads 20
+
+# Screenshot open http services from an namp file
+gowitness nmap -f nmap.xml --open --service-contains http
+
+# Run the report server
+gowitness report serve
+```
+
+Full usage information can be found [here](https://github.com/sensepost/gowitness/wiki/Usage).
+
+![image](https://user-images.githubusercontent.com/100603074/212204666-d7dcac1b-0f1a-46b8-8938-d2e122c1436c.png)
+
+*Image used from https://github.com/sensepost/gowitness*
 
 Resource Development
 ====================
@@ -1810,6 +1849,46 @@ Usage examples can be found [here](https://github.com/knight0x07/ImpulsiveDLLHij
 
 *Image used from https://github.com/knight0x07/ImpulsiveDLLHijack#4-examples*
 
+### [🔙](#tool-list)[ADFSDump](https://github.com/mandiant/ADFSDump)
+
+A C# tool to dump all sorts of goodies from AD FS.
+
+Created by Doug Bienstock [@doughsec](https://twitter.com/doughsec) while at Mandiant FireEye.
+
+This tool is designed to be run in conjunction with ADFSpoof. ADFSdump will output all of the information needed in order to generate security tokens using ADFSpoof.
+
+**Requirements:**
+
+- ADFSDump must be run under the user context of the AD FS service account. You can get this information by running a process listing on the AD FS server or from the output of the Get-ADFSProperties cmdlet. Only the AD FS service account has the permissions needed to access the configuration database. Not even a DA can access this.
+- ADFSDump assumes that the service is configured to use the Windows Internal Database (WID). Although it would be trivial to support an external SQL server, this feature does not exist right now.
+- ADFSDump must be run locally on an AD FS server, NOT an AD FS web application proxy. The WID can only be accessed locally via a named pipe.
+
+**Install: (Compile)** 
+
+ADFSDump was built against .NET 4.5 with Visual Studio 2017 Community Edition. Simply open up the project .sln, choose "Release", and build.
+
+**Usage: (Flags)** 
+
+```bash
+# The Active Directory domain to target. Defaults to the current domain.
+/domain:
+
+# The Domain Controller to target. Defaults to the current DC.
+/server:
+
+# Switch. Toggle to disable outputting the DKM key.
+/nokey
+
+# (optional) SQL connection string if ADFS is using remote MS SQL rather than WID.
+/database
+```
+
+[Blog - Exploring the Golden SAML Attack Against ADFS](https://www.orangecyberdefense.com/global/blog/cloud/exploring-the-golden-saml-attack-against-adfs)
+
+![image](https://user-images.githubusercontent.com/100603074/212204724-65da5505-3576-4e6d-91ab-989b96247182.png)
+
+*Image used from https://www.orangecyberdefense.com/global/blog/cloud/exploring-the-golden-saml-attack-against-adfs*
+
 Defense Evasion
 ====================
 
@@ -2131,6 +2210,68 @@ Full usage information can be found [here](https://github.com/helpsystems/nanodu
 
 *Image used from https://github.com/helpsystems/nanodump*
 
+### [🔙](#tool-list)[eviltree](https://github.com/t3l3machus/eviltree)
+
+A standalone python3 remake of the classic "tree" command with the additional feature of searching for user provided keywords/regex in files, highlighting those that contain matches. Created for two main reasons:
+
+- While searching for secrets in files of nested directory structures, being able to visualize which files contain user provided keywords/regex patterns and where those files are located in the hierarchy of folders, provides a significant advantage.
+- `tree` is an amazing tool for analyzing directory structures. It's really handy to have a standalone alternative of the command for post-exploitation enumeration as it is not pre-installed on every linux distro and is kind of limited on Windows (compared to the UNIX version).
+
+**Install:** 
+
+```bash
+git clone https://github.com/t3l3machus/eviltree
+```
+
+**Usage:** 
+
+```bash
+# Running a regex that essentially matches strings similar to: password = something against /var/www
+python3 eviltree.py -r /var/www -x ".{0,3}passw.{0,3}[=]{1}.{0,18}" -v
+
+# Using comma separated keywords instead of regex
+python3 eviltree.py -r C:\Users\USERNAME -k passw,admin,account,login,user -L 3 -v
+```
+
+![image](https://user-images.githubusercontent.com/100603074/212204831-9887b976-dee8-4520-bbd6-e6e69da711ed.png)
+
+*Image used from https://github.com/t3l3machus/eviltree*
+
+### [🔙](#tool-list)[SeeYouCM-Thief](https://github.com/trustedsec/SeeYouCM-Thief)
+
+Simple tool to automatically download and parse configuration files from Cisco phone systems searching for SSH credentials. 
+
+Will also optionally enumerate active directory users from the UDS API.
+
+[Blog - Exploiting common misconfigurations in cisco phone systems](https://www.trustedsec.com/blog/seeyoucm-thief-exploiting-common-misconfigurations-in-cisco-phone-systems/)
+
+**Install:** 
+
+```bash
+git clone https://github.com/trustedsec/SeeYouCM-Thief
+python3 -m pip install -r requirements.txt
+```
+
+**Usage:** 
+
+```bash
+# Enumerate Active Directory users from the UDS api on the CUCM
+./thief.py -H <CUCM server> --userenum
+
+# Without specifying a phone IP address the script will attempt to download every config in the listing.
+./thief.py -H <Cisco CUCM Server> [--verbose]
+
+# Parse the web interface for the CUCM address and will do a reverse lookup for other phones in the same subnet.
+./thief.py --phone <Cisco IP Phoner> [--verbose]
+
+# Specify a subnet to scan with reverse lookups.
+./thief.py --subnet <subnet to scan> [--verbose]
+```
+
+![image](https://user-images.githubusercontent.com/100603074/212204860-a20c83dd-a4f7-4c6f-a760-5925d4ae1e03.png)
+
+*Image used from https://www.trustedsec.com/blog/seeyoucm-thief-exploiting-common-misconfigurations-in-cisco-phone-systems/*
+
 Discovery
 ====================
 
@@ -2295,6 +2436,44 @@ adidnsdump -u icorp\\testuser icorp-dc.internal.corp -r
 ![adidnsdump](https://user-images.githubusercontent.com/100603074/210986363-724e6611-12e9-4a0d-abfa-c44665010b97.jpg)
 
 *Image used from https://dirkjanm.io/getting-in-the-zone-dumping-active-directory-dns-with-adidnsdump/*
+
+### [🔙](#tool-list)[kerbrute](https://github.com/ropnop/kerbrute)
+
+A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication.
+
+**Install: (Go)** 
+
+```bash
+go get github.com/ropnop/kerbrute
+```
+
+**Install: (Make)** 
+
+```bash
+git clone https://github.com/ropnop/kerbrute
+cd kerbrute
+make all
+```
+
+**Usage:** 
+
+```bash
+# User Enumeration
+./kerbrute_linux_amd64 userenum -d lab.ropnop.com usernames.txt
+
+# Password Spray
+./kerbrute_linux_amd64 passwordspray -d lab.ropnop.com domain_users.txt Password123
+
+# Brute User
+./kerbrute_linux_amd64 bruteuser -d lab.ropnop.com passwords.lst thoffman
+
+# Brute Force
+./kerbrute -d lab.ropnop.com bruteforce -
+```
+
+![image](https://user-images.githubusercontent.com/100603074/212205129-e5906b50-78c5-4507-8b1e-74a6686bed14.png)
+
+*Image used from https://matthewomccorkle.github.io/day_032_kerbrute/*
 
 Lateral Movement
 ====================
