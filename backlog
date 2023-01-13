@@ -1,7 +1,6 @@
 Red Teaming Tips 
 -
 Reconnaissance
-  https://github.com/sensepost/gowitness
   dirb
   nikto
   uniscan
@@ -15,16 +14,15 @@ Execution
 Persistence
 -
 Privilege Escalation
-  https://github.com/mandiant/ADFSDump
+-
 Defense Evasion
 -
 Credential Access
-  https://github.com/t3l3machus/eviltree
-  https://github.com/trustedsec/SeeYouCM-Thief
+-
 Discovery
 -
 Lateral Movement
-  https://github.com/ropnop/kerbrute
+-
 Collection
 -
 Command and Control
