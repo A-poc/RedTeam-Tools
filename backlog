@@ -1,10 +1,7 @@
 Red Teaming Tips 
-  https://twitter.com/alh4zr3d/status/1614706476412698624
+-
 Reconnaissance
-  dirb
-  nikto
-  uniscan
-  wfuzz
+-
 Resource Development
 -
 Initial Access
@@ -16,15 +13,15 @@ Persistence
 Privilege Escalation
 -
 Defense Evasion
-  https://github.com/optiv/Mangle
+-
 Credential Access
 -
 Discovery
-  https://github.com/SpiderLabs/scavenger
+-
 Lateral Movement
-  https://github.com/p0dalirius/Coercer
+-
 Collection
-  https://github.com/lefayjey/linWinPwn
+-
 Command and Control
   https://www.thec2matrix.com/
     Empire
