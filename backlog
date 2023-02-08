@@ -17,7 +17,7 @@ Persistence
 Privilege Escalation
 -
 Defense Evasion
--
+  http://amsi.fail (Bypass AMSI)
 Credential Access
   https://github.com/dafthack/MailSniper
   https://github.com/GhostPack/KeeThief
