@@ -4,7 +4,7 @@
 <img src="https://user-images.githubusercontent.com/100603074/210680426-20a92131-56f9-43ad-be82-f449e3215dda.png" height="300">
 </p>
 
-This github repository contains a collection of **115+** **tools** and **resources** that can be useful for **red teaming activities**. 
+This github repository contains a collection of **120+** **tools** and **resources** that can be useful for **red teaming activities**. 
 
 Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
 
@@ -72,13 +72,14 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Resource Development</b> $\textcolor{gray}{\text{7 tools}}$</summary>
+    <summary><b>Resource Development</b> $\textcolor{gray}{\text{8 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#chimera">Chimera</a></b><i> PowerShell obfuscation</i></li>
             <li><b><a href="#msfvenom">msfvenom</a></b><i> Payload creation</i></li>
             <li><b><a href="#shellter">Shellter</a></b><i> Dynamic shellcode injection tool</i></li>
             <li><b><a href="#freeze">Freeze</a></b><i> Payload creation (circumventing EDR)</i></li>
+            <li><b><a href="#wordsteal">WordSteal</a></b><i> Steal NTML hashes with Microsoft Word</i></li>
             <li><b><a href="#wsh">WSH</a></b><i> Wsh payload</i></li>
             <li><b><a href="#hta">HTA</a></b><i> Hta  payload</i></li>
             <li><b><a href="#vba">VBA</a></b><i> Vba  payload</i></li>
@@ -101,7 +102,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Execution</b> $\textcolor{gray}{\text{9 tools}}$</summary>
+    <summary><b>Execution</b> $\textcolor{gray}{\text{12 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#responder">Responder</a></b><i> LLMNR, NBT-NS and MDNS poisoner</i></li>
@@ -113,6 +114,9 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#rubeus">Rubeus</a></b><i> Active directory hack tool</i></li>
             <li><b><a href="#sharpup">SharpUp</a></b><i> Windows vulnerability identifier</i></li>
             <li><b><a href="#sqlrecon">SQLRecon</a></b><i> Offensive MS-SQL toolkit</i></li>
+            <li><b><a href="#ultimateapplockerbypasslist">UltimateAppLockerByPassList</a></b><i> Common AppLocker Bypass Techniques</i></li>
+            <li><b><a href="#starfighters">StarFighters</a></b><i> JavaScript and VBScript Based Empire Launcher</i></li>
+            <li><b><a href="#demiguise">demiguise</a></b><i> HTA encryption toola</i></li>
         </ul>
     </ul>
 </details>
@@ -155,12 +159,13 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#sharpblock">SharpBlock</a></b><i> EDR bypass via entry point execution prevention</i></li>
             <li><b><a href="#alcatraz">Alcatraz</a></b><i> GUI x64 binary obfuscator</i></li>
             <li><b><a href="#mangle">Mangle</a></b><i> Compiled executable manipulation</i></li>
+            <li><b><a href="#amsi-fail">AMSI Fail</a></b><i> PowerShell snippets that break or disable AMSI</i></li>
         </ul>
     </ul>
 </details>
 
 <details open>
-    <summary><b>Credential Access</b> $\textcolor{gray}{\text{8 tools}}$</summary>
+    <summary><b>Credential Access</b> $\textcolor{gray}{\text{9 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#mimikatz">Mimikatz</a></b><i> Windows credential extractor</i></li>
@@ -171,6 +176,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 	        <li><b><a href="#nanodump">nanodump</a></b><i> LSASS process minidump creation</i></li>
 	        <li><b><a href="#eviltree">eviltree</a></b><i> Tree remake for credential discovery</i></li>
 	        <li><b><a href="#seeyoucm-thief">SeeYouCM-Thief</a></b><i> Cisco phone systems configuration file parsing</i></li>
+            <li><b><a href="#mailsniper">MailSniper</a></b><i> Microsoft Exchange Mail Searcher</i></li>
         </ul>
     </ul>
 </details>
@@ -248,11 +254,12 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Impact</b> $\textcolor{gray}{\text{2 tools}}$</summary>
+    <summary><b>Impact</b> $\textcolor{gray}{\text{3 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#conti-pentester-guide-leak">Conti Pentester Guide Leak</a></b><i> Conti ransomware group affilate toolkit</i></li>
             <li><b><a href="#slowloris">SlowLoris</a></b><i> Simple denial of service</i></li>
+            <li><b><a href="#usbkill">usbkill</a></b><i> Anti-forensic kill-switch</i></li>
         </ul>
     </ul>
 </details>
@@ -1121,6 +1128,33 @@ go build Freeze.go
 
 *Image used from https://www.blackhatethicalhacking.com/tools/freeze/*
 
+### [🔙](#tool-list)[WordSteal](https://github.com/0x09AL/WordSteal)
+
+This script will create a Microsoft Word Document with a remote image, allowing for the capture of NTML hashes from a remote victim endpoint.
+
+Microsoft Word has the ability to include images from remote locations, including a remote image hosted on an attacker controlled SMB server. This gives you the opportunity to listen for, and capture, NTLM hashes that are sent when an authenticated victim opens the Word document and renders the image. 
+
+**Install:** 
+
+```
+git clone https://github.com/0x09AL/WordSteal
+cd WordSteal
+```
+
+**Usage:** 
+
+```bash
+# Generate document containing 'test.jpg' and start listener
+./main.py 127.0.0.1 test.jpg 1
+
+# Generate document containing 'test.jpg' and do not start listener
+./main.py 127.0.0.1 test.jpg 0\n
+```
+
+![image](https://user-images.githubusercontent.com/100603074/217653886-09bf9eba-a117-47b9-99b4-12fb2d73ef44.png)
+
+*Image used from https://pentestit.com/wordsteal-steal-ntlm-hashes-remotely/*
+
 ### [🔙](#tool-list)WSH
 
 **Creating payload:** 
@@ -1673,6 +1707,85 @@ Tool module usage information can be found [here](https://github.com/skahwah/SQL
 ![image](https://user-images.githubusercontent.com/100603074/211530318-6e115272-a00c-4e9e-af9a-852d476ff3fb.png)
 
 *Image used from SQLRecon help page*
+
+### [🔙](#tool-list)[UltimateAppLockerByPassList](https://github.com/api0cradle/UltimateAppLockerByPassList)
+
+This resrouce is a collection of the most common and known techniques to bypass AppLocker. 
+
+Since AppLocker can be configured in different ways [@api0cradle](https://github.com/api0cradle) maintains a verified list of bypasses (that works against the default AppLocker rules) and a list with possible bypass technique (depending on configuration) or claimed to be a bypass by someone. 
+
+They also have a list of generic bypass techniques as well as a legacy list of methods to execute through DLLs.
+
+Indexed Lists
+
+- [Generic-AppLockerbypasses.md](https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/Generic-AppLockerbypasses.md)
+- [VerifiedAppLockerBypasses.md](https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/VerifiedAppLockerBypasses.md)
+- [UnverifiedAppLockerBypasses.md](https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/UnverifiedAppLockerBypasses.md)
+- [DLL-Execution.md](https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/DLL-Execution.md)
+
+![image](https://user-images.githubusercontent.com/100603074/217654010-5fa1102b-7463-4389-bd73-48a6b8a752bc.png)
+
+*Image used from https://github.com/api0cradle/UltimateAppLockerByPassList*
+
+### [🔙](#tool-list)[StarFighters](https://github.com/Cn33liz/StarFighters)
+
+A JavaScript and VBScript Based Empire Launcher, which runs within their own embedded PowerShell Host.
+
+Both Launchers run within their own embedded PowerShell Host, so we don't need PowerShell.exe. 
+
+This might be usefull when a company is blocking PowerShell.exe and/or is using a Application Whitelisting solution, but does not block running JS/VBS files.
+
+**Usage:** 
+
+- Setup a new Listener within PowerShell Empire
+- Use the Launcher command to Generate a PowerShell launcher for this listener
+- Copy and Replace the Base64 encoded Launcher Payload within the StarFighter JavaScript or VBScript file
+
+For the JavaScript version use the following Variable: 
+
+```javascript
+  var EncodedPayload = "<Paste Encoded Launcher Payload Here>"
+```
+
+For the VBScript version use the following Variable: 
+
+```vbscript
+  Dim EncodedPayload: EncodedPayload = "<Paste Encoded Launcher Payload Here>"
+```
+
+- Then run: wscript.exe StarFighter.js or StarFighter.vbs on Target, or DoubleClick the launchers within Explorer.
+
+![image](https://user-images.githubusercontent.com/100603074/217654090-d8f57773-4fa0-44dd-b5b1-ad4b66f7c98e.png)
+
+*Image used from https://www.hackplayers.com/2017/06/startfighters-un-launcher-de-empire-en-js-vbs.html*
+
+### [🔙](#tool-list)[demiguise](https://github.com/nccgroup/demiguise)
+
+The aim of this project is to generate .html files that contain an encrypted HTA file. 
+
+The idea is that when your target visits the page, the key is fetched and the HTA is decrypted dynamically within the browser and pushed directly to the user. 
+
+This is an evasion technique to get round content / file-type inspection implemented by some security-appliances.
+
+Further technical information [here](https://github.com/nccgroup/demiguise#how-does-it-do-it). 
+
+**Install:** 
+
+```
+git clone https://github.com/nccgroup/demiguise
+cd demiguise
+```
+
+**Usage:** 
+
+```bash
+# Generate an encrypted .hta file that executes notepad.exe
+python demiguise.py -k hello -c "notepad.exe" -p Outlook.Application -o test.hta
+```
+
+![image](https://user-images.githubusercontent.com/100603074/217654229-fb3a4875-2de2-4bc3-9583-8300e014fda4.png)
+
+*Image used from https://github.com/nccgroup/demiguise*
 
 Persistence
 ====================
@@ -2322,6 +2435,18 @@ Full usage information can be found [here](https://github.com/optiv/Mangle#usage
 
 *Image used from https://github.com/optiv/Mangle*
 
+### [🔙](#tool-list)[AMSI Fail](http://amsi.fail/)
+
+AMSI.fail is a great website that can be used to generate obfuscated PowerShell snippets that break or disable AMSI for the current process. 
+
+The snippets are randomly selected from a small pool of techniques/variations before being obfuscated. Every snippet is obfuscated at runtime/request so that no generated output share the same signatures.
+
+Nice f-secure blog explaining AMSI [here](https://blog.f-secure.com/hunting-for-amsi-bypasses/).
+
+![image](https://user-images.githubusercontent.com/100603074/217655078-919e9c98-4c78-4c2b-a695-3e1c4d3f1e65.png)
+
+*Image used from http://amsi.fail/*
+
 Credential Access
 ====================
 
@@ -2564,6 +2689,35 @@ python3 -m pip install -r requirements.txt
 ![image](https://user-images.githubusercontent.com/100603074/212204860-a20c83dd-a4f7-4c6f-a760-5925d4ae1e03.png)
 
 *Image used from https://www.trustedsec.com/blog/seeyoucm-thief-exploiting-common-misconfigurations-in-cisco-phone-systems/*
+
+### [🔙](#tool-list)[MailSniper](https://github.com/dafthack/MailSniper)
+
+MailSniper is a penetration testing tool for searching through email in a Microsoft Exchange environment for specific terms (passwords, insider intel, network architecture information, etc.). It can be used as a non-administrative user to search their own email or by an Exchange administrator to search the mailboxes of every user in a domain.
+
+MailSniper also includes additional modules for password spraying, enumerating users and domains, gathering the Global Address List (GAL) from OWA and EWS and checking mailbox permissions for every Exchange user at an organization.
+
+Nice blog post with more information about  [here](https://www.blackhillsinfosec.com/introducing-mailsniper-a-tool-for-searching-every-users-email-for-sensitive-data/).
+
+[MailSniper Field Manual](http://www.dafthack.com/files/MailSniper-Field-Manual.pdf)
+
+**Install:** 
+
+```
+git clone https://github.com/dafthack/MailSniper
+cd MailSniper
+Import-Module MailSniper.ps1
+```
+
+**Usage:** 
+
+```bash
+# Search current users mailbox
+Invoke-SelfSearch -Mailbox current-user@domain.com
+```
+
+![image](https://user-images.githubusercontent.com/100603074/217654320-3d74551c-e37a-4398-b354-a1ed7f982cd0.png)
+
+*Image used from https://patrowl.io/*
 
 Discovery
 ====================
@@ -3757,3 +3911,29 @@ python3 slowloris.py example.com
 ```
 
 ![image](https://user-images.githubusercontent.com/100603074/210115630-b6541ee0-ad82-471a-9a7e-7f0ec028c67d.png)
+
+### [🔙](#tool-list)[usbkill](https://github.com/hephaest0s/usbkill)
+
+This is an anti-forensic kill-switch that waits for a change in USB port status, immediately shutting down endpoint if a change is detected.
+
+In some situations, it is imperative that no data is added or removed from an endpoint via USB.
+
+This is where USBkill comes in.
+
+**Install:** 
+
+```
+git clone https://github.com/hephaest0s/usbkill
+cd usbkill
+./setup.py install
+```
+
+**Usage:** 
+
+```bash
+sudo python3 usbkill.py
+```
+
+![image](https://user-images.githubusercontent.com/100603074/217654429-98efef6d-b70f-48b8-8979-228ce2f78932.png)
+
+*Image used from https://en.wikipedia.org/wiki/USBKill*
