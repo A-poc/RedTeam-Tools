@@ -11,7 +11,7 @@ Initial Access
 Execution
 -
 Persistence
--
+  https://github.com/leoloobeek/COMProxy (Prevent application crashes during COM Object Search Order Hijacking)
 Privilege Escalation
 -
 Defense Evasion
