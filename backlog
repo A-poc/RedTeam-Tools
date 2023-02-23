@@ -4,6 +4,7 @@ Red Teaming Tips
   RCE on a web application for less mature client? nslookup -q=srv _ldap._tcp if its domain joined Invoke-Kerberoast
   https://twitter.com/malmoeb/status/1628272928855826433
 Reconnaissance
+  https://github.com/LukaSikic/subzy
   https://github.com/six2dez/reconftw
   https://github.com/smicallef/spiderfoot
   https://github.com/cvandeplas/pystemon
