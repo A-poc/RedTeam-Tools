@@ -20,6 +20,7 @@ Persistence
 Privilege Escalation
 -
 Defense Evasion
+  https://github.com/optiv/ScareCrow
   https://github.com/CCob/SharpBlock
 Credential Access
   https://github.com/helpsystems/nanodump
