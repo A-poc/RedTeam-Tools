@@ -23,31 +23,18 @@ Persistence
 Privilege Escalation
 -
 Defense Evasion
-  https://github.com/optiv/ScareCrow
-  https://github.com/CCob/SharpBlock
-  https://github.com/mufeedvh/moonwalk
+-
 Credential Access
-  https://github.com/helpsystems/nanodump
-  https://github.com/djhohnstein/SharpChromium
-  https://github.com/zblurx/dploot
-  https://github.com/GhostPack/KeeThief
+-
 Discovery
 -
 Lateral Movement
-  https://github.com/RiccardoAncarani/LiquidSnake
-  https://github.com/mandiant/ADFSpoof
+-
 Collection
 -
 Command and Control
-  https://lots-project.com/
-  https://github.com/chvancooten/NimPlant
-  https://www.thec2matrix.com/
-    Empire
-    Koadic
-    Mythic
-    PoshC2
-    Sliver
+-
 Exfiltration
 -
 Impact
-  https://github.com/hephaest0s/usbkill
+-
