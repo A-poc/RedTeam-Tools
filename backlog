@@ -20,6 +20,7 @@ Privilege Escalation
 Defense Evasion
 -
 Credential Access
+  https://github.com/helpsystems/nanodump
   https://github.com/djhohnstein/SharpChromium
   https://github.com/zblurx/dploot
   https://github.com/GhostPack/KeeThief
