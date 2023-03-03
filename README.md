@@ -23,7 +23,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 # Tool List
 
 <details open>
-    <summary><b>Red Team Tips</b> $\textcolor{gray}{\text{13 tips}}$</summary>
+    <summary><b>Red Team Tips</b> 13 tips</summary>
     <ul>
         <ul>
             <li><b><a href="#hiding-the-local-admin-account">Hiding the local admin account</a></b><i> @Alh4zr3d</i></li>
@@ -44,7 +44,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Reconnaissance</b> $\textcolor{gray}{\text{20 tools}}$</summary>
+    <summary><b>Reconnaissance</b> 20 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#crtsh---httprobe---eyewitness">crt.sh -> httprobe -> EyeWitness</a></b><i> Automated domain screenshotting</i></li>
@@ -72,7 +72,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Resource Development</b> $\textcolor{gray}{\text{8 tools}}$</summary>
+    <summary><b>Resource Development</b> 8 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#chimera">Chimera</a></b><i> PowerShell obfuscation</i></li>
@@ -88,7 +88,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Initial Access</b> $\textcolor{gray}{\text{6 tools}}$</summary>
+    <summary><b>Initial Access</b> 6 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#bash-bunny">Bash Bunny</a></b><i> USB attack tool</i></li>
@@ -102,7 +102,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Execution</b> $\textcolor{gray}{\text{12 tools}}$</summary>
+    <summary><b>Execution</b> 12 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#responder">Responder</a></b><i> LLMNR, NBT-NS and MDNS poisoner</i></li>
@@ -122,7 +122,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Persistence</b> $\textcolor{gray}{\text{4 tools}}$</summary>
+    <summary><b>Persistence</b> 4 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#impacket">Impacket</a></b><i> Python script suite</i></li>
@@ -134,7 +134,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Privilege Escalation</b> $\textcolor{gray}{\text{9 tools}}$</summary>
+    <summary><b>Privilege Escalation</b> 9 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#linpeas">LinPEAS</a></b><i> Linux privilege escalation</i></li>
@@ -151,7 +151,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Defense Evasion</b> $\textcolor{gray}{\text{8 tools}}$</summary>
+    <summary><b>Defense Evasion</b> 8 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#invoke-obfuscation">Invoke-Obfuscation</a></b><i> Script obfuscator</i></li>
@@ -167,7 +167,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Credential Access</b> $\textcolor{gray}{\text{11 tools}}$</summary>
+    <summary><b>Credential Access</b> 11 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#mimikatz">Mimikatz</a></b><i> Windows credential extractor</i></li>
@@ -186,7 +186,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Discovery</b> $\textcolor{gray}{\text{6 tools}}$</summary>
+    <summary><b>Discovery</b> 6 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#pcredz">PCredz</a></b><i> Credential discovery PCAP/live interface</i></li>
@@ -200,7 +200,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Lateral Movement</b> $\textcolor{gray}{\text{12 tools}}$</summary>
+    <summary><b>Lateral Movement</b> 12 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#crackmapexec">crackmapexec</a></b><i> Windows/Active directory lateral movement toolkit</i></li>
@@ -221,7 +221,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Collection</b> $\textcolor{gray}{\text{3 tools}}$</summary>
+    <summary><b>Collection</b> 3 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#bloodhound">BloodHound</a></b><i> Active directory visualisation</i></li>
@@ -232,7 +232,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Command and Control</b> $\textcolor{gray}{\text{8 tools}}$</summary>
+    <summary><b>Command and Control</b> 8 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#living-off-trusted-sites-project">Living Off Trusted Sites Project</a></b><i> Leverage legitimate domains for your C2</i></li>
@@ -248,7 +248,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Exfiltration</b> $\textcolor{gray}{\text{5 tools}}$</summary>
+    <summary><b>Exfiltration</b> 5 tools</summary>
     <ul>
         <ul>
 	        <li><b><a href="#dnscat2">Dnscat2</a></b><i> C2 via DNS tunneling</i></li>
@@ -261,7 +261,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Impact</b> $\textcolor{gray}{\text{3 tools}}$</summary>
+    <summary><b>Impact</b> 3 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#conti-pentester-guide-leak">Conti Pentester Guide Leak</a></b><i> Conti ransomware group affilate toolkit</i></li>
