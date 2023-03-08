@@ -461,7 +461,7 @@ reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\SrpV2\Exe\
 
 **Credit:** [PenTestPartners](https://www.pentestpartners.com/)
 
-**Link:** [Blog](https://www.pentestpartners.com/security-blog/breaking-out-of-citrix-and-other-restricted-desktop-environments/#binaryplanting)
+**Link:** [Blog](https://www.pentestpartners.com/security-blog/breaking-out-of-citrix-and-other-restricted-desktop-environments/#gainingacommandshell)
 
 ### [🔙](#tool-list)Link spoofing with PreventDefault JavaScript method
 
@@ -571,7 +571,7 @@ git clone https://github.com/A-poc/certSniff;cd certSniff/;pip install -r requir
 python3 certSniff.py -f example.txt
 ```
 
-![image](https://user-images.githubusercontent.com/100603074/206023792-ef251912-00c0-48e1-8691-71438cf7dd11.png)
+![image](https://user-images.githubusercontent.com/100603074/223851512-068261fa-7070-4307-852c-7ef46d938b18.png)
 
 ### [🔙](#tool-list)[gobuster](https://www.kali.org/tools/gobuster/)
 
