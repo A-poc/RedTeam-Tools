@@ -1,4 +1,5 @@
 Red Teaming Tips 
+  6 bytes .png, rename to .bat for cmd shell
   Using PreventDefault() in JavaScript, you are able to create a spoofed link that previews one site but goes to another on your phishing site
   Have blue hidden the ways including winkey+R? Try shift and right click desktop and open command prompt
   RCE on a web application for less mature client? nslookup -q=srv _ldap._tcp if its domain joined Invoke-Kerberoast
