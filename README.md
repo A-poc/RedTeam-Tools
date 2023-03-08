@@ -23,7 +23,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 # Tool List
 
 <details open>
-    <summary><b>Red Team Tips</b> 13 tips</summary>
+    <summary><b>Red Team Tips</b> 15 tips</summary>
     <ul>
         <ul>
             <li><b><a href="#hiding-the-local-admin-account">Hiding the local admin account</a></b><i> @Alh4zr3d</i></li>
@@ -39,6 +39,8 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#stop-windows-defender-deleting-mimikatzexe">Stop windows defender deleting mimikatz.exe</a></b><i> @GuhnooPlusLinux</i></li>
             <li><b><a href="#check-if-you-are-in-a-virtual-machine">Check if you are in a virtual machine</a></b><i> @dmcxblue</i></li>
             <li><b><a href="#enumerate-applocker-rules">Enumerate AppLocker rules</a></b><i> @Alh4zr3d</i></li>
+            <li><b><a href="#cmd-shortcut-with-6-pixels-via-mspaint">CMD shortcut with 6 pixels via mspaint</a></b><i> PenTestPartners</i></li>
+            <li><b><a href="#link-spoofing-with-preventdefault-javascript-method">Link spoofing with PreventDefault JavaScript method</a></b><i> </i></li>
         </ul>
     </ul>        
 </details>
@@ -438,6 +440,49 @@ reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\SrpV2\Exe\
 **Credit:** [@Alh4zr3d](https://twitter.com/Alh4zr3d)
 
 **Link:** [Twitter](https://twitter.com/alh4zr3d/status/1614706476412698624)
+
+### [🔙](#tool-list)CMD shortcut with 6 pixels via mspaint
+
+![image](https://user-images.githubusercontent.com/100603074/223849011-24db49d7-37b0-4dad-a7a6-db046f6cb7da.png)
+
+1. Open MSPaint.exe and set the canvas size to: Width=6 and Height=1 pixels
+2. Zoom in to make the following tasks easier
+3. Using the colour picker, set pixels values to (from left to right):
+    - 1st: R: 10, G: 0, B: 0
+    - 2nd: R: 13, G: 10, B: 13
+    - 3rd: R: 100, G: 109, B: 99
+    - 4th: R: 120, G: 101, B: 46
+    - 5th: R: 0, G: 0, B: 101
+    - 6th: R: 0, G: 0, B: 0
+4. Save it as 24-bit Bitmap (*.bmp;*.dib)
+5. Change its extension from bmp to bat and run.
+
+**Description:** *'An unusual, yet effective method of gaining a shell by creating a shortcut to cmd.exe by drawing certain colours in Microsoft Paint. Due to the encoding algorithm used to write BMP files, it is possible to dictate ASCII data written into a file by carefully selecting certain RGB colours.'*
+
+**Credit:** [PenTestPartners](https://www.pentestpartners.com/)
+
+**Link:** [Blog](https://www.pentestpartners.com/security-blog/breaking-out-of-citrix-and-other-restricted-desktop-environments/#binaryplanting)
+
+### [🔙](#tool-list)Link spoofing with PreventDefault JavaScript method
+
+![image](https://user-images.githubusercontent.com/100603074/223849419-c65fec83-ca1c-4a20-ac06-ec2de537a748.png)
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>PreventDefault Example</title>
+  </head>
+  <body>
+    <a href="https://google.com" onclick="event.preventDefault(); window.location.href = 'https://bing.com';">Go to Google</a>
+  </body>
+</html>
+```
+
+**Description:** *Threat actors have been observed using this technique to trick victims into clicking spoofed in-page malware download links. Using the PreventDefault JavaScript method you can spoof the hover link to display a legit link `google.com`, but once clicked the victim will be redirected to your malicious link `bing.com`. Great for getting victims to download payloads via a controlled site.*
+
+**Link:** [PreventDefault Docs](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
 
 Reconnaissance
 ====================
