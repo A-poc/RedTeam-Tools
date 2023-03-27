@@ -20,7 +20,8 @@ Execution
 Persistence
 -
 Privilege Escalation
--
+  PowerUp (https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc#powerup)
+  BeRoot (https://github.com/AlessandroZ/BeRoot)
 Defense Evasion
 -
 Credential Access
