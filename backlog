@@ -2,7 +2,6 @@ Red Teaming Tips
   Use pssuspend (https://learn.microsoft.com/en-us/sysinternals/downloads/pssuspend) to suspend AV Service processes with local admin
   Have blue hidden the ways including winkey+R? Try shift and right click desktop and open command prompt
   RCE on a web application for less mature client? nslookup -q=srv _ldap._tcp if its domain joined Invoke-Kerberoast
-  https://twitter.com/malmoeb/status/1628272928855826433
 Reconnaissance
   https://github.com/LukaSikic/subzy
   https://github.com/six2dez/reconftw
@@ -16,7 +15,7 @@ Resource Development
 Initial Access
 -
 Execution
-  https://github.com/hausec/PowerZure
+-
 Persistence
 -
 Privilege Escalation
@@ -33,8 +32,8 @@ Lateral Movement
 Collection
 -
 Command and Control
-  https://github.com/t3l3machus/hoaxshell
+-
 Exfiltration
 -
 Impact
-  KeyTap - https://github.com/ggerganov/kbd-audio
+-
