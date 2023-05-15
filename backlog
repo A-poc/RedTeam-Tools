@@ -1,5 +1,5 @@
 Red Teaming Tips 
-  Use pssuspend (https://learn.microsoft.com/en-us/sysinternals/downloads/pssuspend) to suspend AV Service processes with local admin
+-
 Reconnaissance
   https://github.com/LukaSikic/subzy
   https://github.com/six2dez/reconftw
@@ -7,9 +7,7 @@ Reconnaissance
   https://github.com/cvandeplas/pystemon
   https://twitter.com/nullenc0de/status/1628576277123702789
 Resource Development
-  http://undocumented.ntinternals.net/
-  https://codemachine.com/articles/kernel_callback_functions.html
-  https://github.com/S3cur3Th1sSh1t/OffensiveVBA
+-
 Initial Access
 -
 Execution
@@ -17,7 +15,7 @@ Execution
 Persistence
 -
 Privilege Escalation
-  BeRoot (https://github.com/AlessandroZ/BeRoot)
+-
 Defense Evasion
 -
 Credential Access
