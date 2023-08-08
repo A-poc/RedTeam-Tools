@@ -2,6 +2,7 @@ Red Teaming Tips
   Use google translate webpage feature, with phishing pages, to bypass potential proxy blocks (https://twitter.com/malmoeb/status/1671106885590630400)
   (mouse movement EventListener for improved html smuggling vs AV sandbox) https://twitter.com/pr0xylife/status/1598410732516802563
 Reconnaissance
+  https://github.com/cytopia/smtp-user-enum
   https://github.com/LukaSikic/subzy
   https://github.com/six2dez/reconftw
   https://github.com/smicallef/spiderfoot
