@@ -136,6 +136,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#starfighters">StarFighters</a></b><i> JavaScript and VBScript Based Empire Launcher</i></li>
             <li><b><a href="#demiguise">demiguise</a></b><i> HTA encryption tool</i></li>
             <li><b><a href="#powerzure">PowerZure</a></b><i> PowerShell framework to assess Azure security</i></li>
+	    <li><b><a href="#ExploitPack">Exploit Pack</a></b><i>Exploitation Framework with over 39.500+ exploits, monthly zero-days and utilities</i></li>
         </ul>
     </ul>
 </details>
@@ -161,7 +162,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#winpeas">WinPEAS</a></b><i> Windows privilege escalation</i></li>
             <li><b><a href="#linux-smart-enumeration">linux-smart-enumeration</a></b><i> Linux privilege escalation</i></li>
             <li><b><a href="#certify">Certify</a></b><i> Active directory privilege escalation</i></li>
-            <li><b><a href="#get-gpppassword">Get-GPPPassword</a></b><i> Windows password extraction</i></li>
+            <li><b><a href="#get-gpppassword">Get-GPPPassword</a></b><i> Windows password extraction</i></li> PowerShell framework to assess Azure security
             <li><b><a href="#sherlock">Sherlock</a></b><i> PowerShell privilege escalation tool</i></li>
             <li><b><a href="#watson">Watson</a></b><i> Windows privilege escalation tool</i></li>
             <li><b><a href="#impulsivedllhijack">ImpulsiveDLLHijack</a></b><i> DLL Hijack tool</i></li>
@@ -265,6 +266,7 @@ Some of the tools may be specifically designed for red teaming, while others are
     	    <li><b><a href="#brute-ratel">Brute Ratel</a></b><i> Command and control framework ($$$)</i></li>
             <li><b><a href="#nimplant">NimPlant</a></b><i> C2 implant written in Nim</i></li>
             <li><b><a href="#hoaxshell">Hoaxshell</a></b><i> PowerShell reverse shell</i></li>
+	    <li><b><a href="#ControlPack">Control Pack</a></b><i>Multi-agent C2 framework designed with stealth and EDR/AV evasion at its core.</i></li>
         </ul>
     </ul>
 </details>
@@ -1777,7 +1779,6 @@ Once King Phisher has been installed please follow the [wiki page](https://githu
 
 Execution
 ====================
-
 ### [🔙](#tool-list)[Responder](https://github.com/SpiderLabs/Responder)
 
 Responder is a tool for poisoning the LLMNR and NBT-NS protocols on a network, to allow for credential capture and arbitrary code execution.
@@ -1803,11 +1804,36 @@ cd Responder
 ./Responder.py -I eth0 -wrf
 ```
 
-Full usage information can be found [here](https://github.com/SpiderLabs/Responder#usage).
+### [🔙](#tool-list)[ExploitPack](https://exploitpack.com](https://exploitpack.com/indexexploitpack.html)
 
-![image](https://user-images.githubusercontent.com/100603074/210266150-b9cbd4a0-d07b-435a-8fa9-bc0b88d2c6ae.png)
+Exploit Pack is an exploitation framework and exploit development tool. It contains more than 39.500+ exploits, zero-days, post-exploitation modules, an advanced shellcode-generator and to top it off,
 
-*Image used from https://www.4armed.com/blog/llmnr-nbtns-poisoning-using-responder/*
+you get access to our monthly zero-days from our lab. Get all the arsenal you need before your next penetration test and become unstoppable.
+
+**Install:** 
+
+```bash
+echo "Installing requirements, please wait"
+echo "##########################################"
+# Quick install for Linux .deb based
+wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb;sudo dpkg -i jdk-21_linux-x64_bin.deb
+sudo apt-get update && sudo apt-get install xterm nmap default-jdk python2 python2.7 python3-pip;pip install scapy ropper keystone-engine --break-system-packages
+echo "##########################################"
+echo "Requirements installed successfully"
+```
+
+**Usage:** 
+
+```bash
+# Running the tool
+java -jar ExploitPack.jar
+```
+
+Full documentation can be found [here](https://github.com/SpiderLabs/Responder#usage](https://exploit-pack.gitbook.io/exploit-pack-manual-pages).
+
+![image](https://exploitpack.com/images/app-screens-2800.gif)
+
+*Image used from https://www.exploitpack.com*
 
 ### [🔙](#tool-list)[secretsdump](https://github.com/fortra/impacket/blob/master/examples/secretsdump.py)
 
@@ -4419,6 +4445,38 @@ Full usage documentation [here](https://github.com/t3l3machus/hoaxshell#usage).
 ![image](https://user-images.githubusercontent.com/100603074/229649767-817d838c-891d-4a33-b494-9249f3a2f404.png)
 
 *Image used from https://github.com/t3l3machus/hoaxshell*
+
+### [🔙](#tool-list)[ControlPack](https://exploitpack.com/indexcontrolpack.html)
+
+Control Pack has been designed to enable Red teams and cyber security professionals to simulate the attacks and tactics of a real threat inside and outside of an IT network. 
+
+It has an easy-to-use graphical interface that will get you running in no time and customizable agents that can be tailored to your specific needs. 
+
+Control Pack at its core is a commercial C2 that will allow you to conduct attack simulations with the added value of being capable to bypass the most current AVs and EDRs.
+
+**Install:** 
+
+```bash
+echo "Installing requirements, please wait"
+echo "##########################################"
+# Quick install for Linux .deb based
+wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb;sudo dpkg -i jdk-21_linux-x64_bin.deb
+sudo apt-get update && sudo apt-get install xterm nmap default-jdk python2 python2.7 python3-pip;pip install scapy ropper keystone-engine --break-system-packages
+echo "##########################################"
+echo "Requirements installed successfully
+```
+
+**Usage:** 
+
+```bash
+java -jar ControlPack.jar
+```
+
+Full usage documentation [here](https://github.com/t3l3machus/hoaxshell#usage](https://exploit-pack.gitbook.io/exploit-pack-manual-pages/control-pack).
+
+![image](https://user-images.githubusercontent.com/100603074/229649767-817d838c-891d-4a33-b494-9249f3a2f404.png](https://exploitpack.com/images2/app-screens-2800.gif)
+
+*Image used from https://exploitpack.com*
 
 Exfiltration
 ====================
