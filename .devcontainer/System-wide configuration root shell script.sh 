@@ -1,0 +1,2128 @@
+mount installed
+
+$lshal
+| All HIDL binderized services (registered with hwservicemanager)
+VINTF R Interface Thread Use Server Clients
+
+| All HIDL interfaces getService() has ever returned as a passthrough interface;
+| PIDs / processes shown below might be inaccurate because the process
+| might have relinquished the interface or might have died.
+| The Server / Server CMD column can be ignored.
+| The Clients / Clients CMD column shows all process that have ever dlopen'ed 
+| the library and successfully fetched the passthrough implementation.
+VINTF R Interface Thread Use Server Clients
+
+| All available HIDL passthrough implementations (all -impl.so files).
+| These may return subclasses through their respective HIDL_FETCH_I* functions.
+VINTF R Interface                                                                     Thread Use Server Clients
+X     ? android.hardware.bluetooth@1.0::I*/* (/vendor/lib64/hw/) (-qti)               N/A        N/A    
+X     ? android.hardware.graphics.mapper@4.0::I*/* (/vendor/lib64/hw/) (-qti-display) N/A        N/A    
+X     ? android.hardware.renderscript@1.0::I*/* (/vendor/lib64/hw/)                   N/A        N/A    
+X     ? vendor.qti.hardware.bluetooth_audio@2.0::I*/* (/vendor/lib64/hw/)             N/A        N/A    
+X     ? vendor.qti.hardware.bluetooth_audio@2.1::I*/* (/vendor/lib64/hw/)             N/A        N/A    
+X     ? vendor.qti.hardware.bluetooth_sar@1.1::I*/* (/vendor/lib64/hw/)               N/A        N/A    
+X     ? vendor.qti.hardware.btconfigstore@1.0::I*/* (/vendor/lib64/hw/)               N/A        N/A    
+X     ? vendor.qti.hardware.btconfigstore@2.0::I*/* (/vendor/lib64/hw/)               N/A        N/A    
+X     ? vendor.qti.hardware.qseecom@1.0::I*/* (/vendor/lib64/hw/)                     N/A        N/A
+$lspci
+lspci: /sys/bus/pci/devices/: Permission denied
+$lsusb
+lsusb: /sys/bus/usb/devices/: Permission denied
+___ip_n_route_________
+•IPv4
+$ip addr
+Cannot bind netlink socket: Permission denied
+$ip neigh
+Cannot bind netlink socket: Permission denied
+$ip route show
+Cannot bind netlink socket: Permission denied
+$route -n
+sh: <stdin>[1]: route: inaccessible or not found
+•IPv6
+$ip -f inet6 addr
+Cannot bind netlink socket: Permission denied
+$ip -f inet6 neigh
+Cannot bind netlink socket: Permission denied
+$ip -f inet6 route show
+Cannot bind netlink socket: Permission denied
+$route -A inet6 -n
+sh: <stdin>[1]: route: inaccessible or not found
+•Config
+$ifconfig -a
+ifconfig: socket 2 0: Operation not permitted
+$netcfg
+sh: <stdin>[1]: netcfg: inaccessible or not found
+___proc_______________
+•General Info
+$cat /proc/meminfo
+MemTotal:        5407940 kB
+MemFree:          321476 kB
+MemAvailable:    1594796 kB
+Buffers:            1420 kB
+Cached:          1133564 kB
+SwapCached:        10508 kB
+Active:          1034340 kB
+Inactive:         693356 kB
+Active(anon):     677860 kB
+Inactive(anon):   312668 kB
+Active(file):     356480 kB
+Inactive(file):   380688 kB
+Unevictable:        5472 kB
+Mlocked:            4308 kB
+SwapTotal:       4194300 kB
+SwapFree:         956556 kB
+Dirty:               744 kB
+Writeback:            36 kB
+AnonPages:        978676 kB
+Mapped:           472668 kB
+Shmem:             16080 kB
+KReclaimable:     443104 kB
+Slab:             604256 kB
+SReclaimable:     143796 kB
+SUnreclaim:       460460 kB
+KernelStack:      107388 kB
+ShadowCallStack:   26816 kB
+PageTables:       214052 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6693468 kB
+Committed_AS:   384492116 kB
+VmallocTotal:   257687552 kB
+VmallocUsed:      261424 kB
+VmallocChunk:          0 kB
+Percpu:            11456 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:         299008 kB
+CmaFree:            4736 kB
+system:           193876 kB
+RbinTotal:        409600 kB
+RbinAlloced:        7200 kB
+RbinFree:          22104 kB
+RbinCached:       380296 kB
+DmaHeapPool:      109920 kB
+GpuTotal:         282536 kB
+KgslShmemUsage:        0 kB
+GpuSwap:               0 kB
+zram0:            967652 kB
+$cat /proc/uptime
+cat: /proc/uptime: Permission denied
+$cat /proc/version
+cat: /proc/version: Permission denied
+•Hardware Info
+$cat /proc/cpuinfo
+processor	: 0
+BogoMIPS	: 38.40
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 1
+BogoMIPS	: 38.40
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 2
+BogoMIPS	: 38.40
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 3
+BogoMIPS	: 38.40
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 4
+BogoMIPS	: 38.40
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd41
+CPU revision	: 2
+
+processor	: 5
+BogoMIPS	: 38.40
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd41
+CPU revision	: 2
+
+processor	: 6
+BogoMIPS	: 38.40
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd41
+CPU revision	: 2
+
+processor	: 7
+BogoMIPS	: 38.40
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd41
+CPU revision	: 2
+$cat /proc/devices
+cat: /proc/devices: Permission denied
+$cat /proc/mounts
+/dev/block/dm-14 / erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0
+tmpfs /dev tmpfs rw,seclabel,nosuid,relatime,size=2385680k,nr_inodes=596420,mode=755 0 0
+devpts /dev/pts devpts rw,seclabel,relatime,mode=600,ptmxmode=000 0 0
+none /dev/blkio cgroup rw,nosuid,nodev,noexec,relatime,blkio 0 0
+none /dev/cpuctl cgroup rw,nosuid,nodev,noexec,relatime,cpu 0 0
+none /dev/cpuset cgroup rw,nosuid,nodev,noexec,relatime,cpuset,noprefix,release_agent=/sbin/cpuset_release_agent 0 0
+none /dev/memcg cgroup rw,nosuid,nodev,noexec,relatime,memory 0 0
+none /dev/freezer cgroup rw,nosuid,nodev,noexec,relatime,freezer 0 0
+binder /dev/binderfs binder rw,relatime,max=1048576,stats=global 0 0
+adb /dev/usb-ffs/adb functionfs rw,relatime 0 0
+diag /dev/ffs-diag functionfs rw,relatime 0 0
+diag_mdm /dev/ffs-diag-1 functionfs rw,relatime 0 0
+diag_mdm2 /dev/ffs-diag-2 functionfs rw,relatime 0 0
+mtp /dev/usb-ffs/mtp functionfs rw,relatime 0 0
+ptp /dev/usb-ffs/ptp functionfs rw,relatime 0 0
+proc /proc proc rw,relatime,gid=3009,hidepid=invisible 0 0
+sysfs /sys sysfs rw,seclabel,relatime 0 0
+selinuxfs /sys/fs/selinux selinuxfs rw,relatime 0 0
+none /sys/fs/cgroup cgroup2 rw,nosuid,nodev,noexec,relatime,memory_recursiveprot 0 0
+tracefs /sys/kernel/tracing tracefs rw,seclabel,relatime,gid=3012 0 0
+none /sys/fs/fuse/connections fusectl rw,relatime 0 0
+bpf /sys/fs/bpf bpf rw,nosuid,nodev,noexec,relatime 0 0
+pstore /sys/fs/pstore pstore rw,seclabel,nosuid,nodev,noexec,relatime 0 0
+tmpfs /mnt tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2385680k,nr_inodes=596420,mode=755,gid=1000 0 0
+tmpfs /mnt/installer tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2385680k,nr_inodes=596420,mode=755,gid=1000 0 0
+/dev/fuse /mnt/installer/0/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/fuse /mnt/installer/95/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/fuse /mnt/installer/150/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+tmpfs /mnt/androidwritable tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2385680k,nr_inodes=596420,mode=755,gid=1000 0 0
+/dev/fuse /mnt/androidwritable/0/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/fuse /mnt/androidwritable/95/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/fuse /mnt/androidwritable/150/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/block/sda5 /mnt/vendor/persist ext4 rw,seclabel,nosuid,nodev,noatime,journal_checksum,noauto_da_alloc 0 0
+/dev/block/sda6 /mnt/vendor/efs ext4 rw,seclabel,nosuid,nodev,noatime,journal_checksum,noauto_da_alloc 0 0
+/dev/fuse /mnt/user/0/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/block/dm-66 /mnt/pass_through/0/emulated f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/fuse /mnt/user/95/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/block/dm-66 /mnt/pass_through/95/emulated f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/fuse /mnt/user/150/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/block/dm-66 /mnt/pass_through/150/emulated f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/block/sda25 /metadata f2fs rw,sync,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,data_flush,mode=adaptive,active_logs=6,inlinecrypt,alloc_mode=reuse,checkpoint_merge,fsync_mode=strict,memory=normal,errors=continue 0 0
+/dev/block/dm-15 /system_ext erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0
+/dev/block/dm-16 /product erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0
+/dev/block/sda56 /product/vm-system ext4 ro,seclabel,nosuid,nodev,relatime 0 0
+/dev/block/dm-17 /vendor erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0
+/dev/block/sda50 /vendor/firmware_mnt vfat ro,context=u:object_r:firmware_file:s0,relatime,gid=1000,fmask=0337,dmask=0227,codepage=437,iocharset=iso8859-1,shortname=lower,errors=remount-ro 0 0
+/dev/block/sda52 /vendor/firmware-modem vfat ro,context=u:object_r:firmware_file:s0,relatime,uid=1000,gid=1000,fmask=0337,dmask=0227,codepage=437,iocharset=iso8859-1,shortname=lower,errors=remount-ro 0 0
+/dev/block/sda49 /vendor/dsp ext4 ro,seclabel,nosuid,nodev,relatime 0 0
+/dev/block/dm-18 /vendor_dlkm erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0
+/dev/block/dm-19 /system_dlkm erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0
+/dev/block/dm-20 /odm erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0
+/dev/block/dm-21 /prism ext4 ro,seclabel,relatime 0 0
+/dev/block/dm-22 /optics ext4 ro,seclabel,relatime 0 0
+tmpfs /apex tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2388576k,nr_inodes=597144,mode=755 0 0
+/dev/block/loop4 /apex/com.android.tzdata@351400020 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop12 /apex/com.samsung.android.shell@342508271 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop10 /apex/com.google.android.widevine@190241014 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop12 /apex/com.samsung.android.shell ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop13 /apex/com.android.devicelock@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop4 /apex/com.android.tzdata ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop11 /apex/com.android.runtime@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop10 /apex/com.google.android.widevine ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop3 /apex/com.android.virt@2 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop5 /apex/com.samsung.android.vital@340000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop11 /apex/com.android.runtime ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop3 /apex/com.android.virt ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop5 /apex/com.samsung.android.vital ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop13 /apex/com.android.devicelock ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop8 /apex/com.samsung.android.camera.unihal@352408080 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop9 /apex/com.android.rkpd@352090000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop9 /apex/com.android.rkpd ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop8 /apex/com.samsung.android.camera.unihal ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop7 /apex/com.android.apex.cts.shim@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-51 /apex/com.android.media@351311020 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop14 /apex/com.samsung.android.authfw.ta@342508270 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-51 /apex/com.android.media ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop14 /apex/com.samsung.android.authfw.ta ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop7 /apex/com.android.apex.cts.shim ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-64 /apex/com.android.adbd@351010000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop19 /apex/com.samsung.android.spqr@432 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-64 /apex/com.android.adbd ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop19 /apex/com.samsung.android.spqr ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop20 /apex/com.samsung.android.biometrics.fingerprint@311722300 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop20 /apex/com.samsung.android.biometrics.fingerprint ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop15 /apex/com.android.hardware.cas@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop17 /apex/com.samsung.android.lifeguard@332017701 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop18 /apex/com.android.i18n@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop15 /apex/com.android.hardware.cas ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop17 /apex/com.samsung.android.lifeguard ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop21 /apex/com.samsung.android.biometrics.face@311722300 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop18 /apex/com.android.i18n ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop21 /apex/com.samsung.android.biometrics.face ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop16 /apex/com.google.mainline.primary.libs@351165000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-63 /apex/com.android.mediaprovider@351416160 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-63 /apex/com.android.mediaprovider ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-65 /apex/com.android.media.swcodec@351311120 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-65 /apex/com.android.media.swcodec ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-39 /apex/com.android.configinfrastructure@351010000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-34 /apex/com.android.ondevicepersonalization@351421000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-54 /apex/com.android.profiling@352090000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-39 /apex/com.android.configinfrastructure ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-58 /apex/com.android.wifi@352090000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-41 /apex/com.android.extservices@351423043 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-54 /apex/com.android.profiling ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-34 /apex/com.android.ondevicepersonalization ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-58 /apex/com.android.wifi ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-41 /apex/com.android.extservices ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-50 /apex/com.android.os.statsd@351416000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-50 /apex/com.android.os.statsd ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-29 /apex/com.android.tethering@351415080 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop33 /apex/com.android.btservices@352090000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-44 /apex/com.android.cellbroadcast@351410000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-29 /apex/com.android.tethering ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-44 /apex/com.android.cellbroadcast ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-56 /apex/com.android.appsearch@351412000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop33 /apex/com.android.btservices ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-33 /apex/com.android.permission@351410080 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-56 /apex/com.android.appsearch ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-46 /apex/com.android.adservices@351420000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-61 /apex/com.android.conscrypt@351412000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-46 /apex/com.android.adservices ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-61 /apex/com.android.conscrypt ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-33 /apex/com.android.permission ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-35 /apex/com.android.ipsec@351410000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-40 /apex/com.android.uwb@352090000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-35 /apex/com.android.ipsec ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-36 /apex/com.android.healthfitness@351420080 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-42 /apex/com.android.art@351410020 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-40 /apex/com.android.uwb ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-43 /apex/com.android.neuralnetworks@351010040 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-32 /apex/com.android.resolv@351111040 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-36 /apex/com.android.healthfitness ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-42 /apex/com.android.art ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-32 /apex/com.android.resolv ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-43 /apex/com.android.neuralnetworks ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-30 /apex/com.android.sdkext@351415000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-31 /apex/com.android.scheduling@351010000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-31 /apex/com.android.scheduling ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/dm-30 /apex/com.android.sdkext ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+tmpfs /apex/apex-info-list.xml tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2388576k,nr_inodes=597144,mode=755 0 0
+tmpfs /bootstrap-apex tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2388576k,nr_inodes=597144,mode=755 0 0
+/dev/block/loop2 /bootstrap-apex/com.android.tzdata@351400020 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop0 /bootstrap-apex/com.android.runtime@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop2 /bootstrap-apex/com.android.tzdata ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop0 /bootstrap-apex/com.android.runtime ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop1 /bootstrap-apex/com.android.i18n@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop1 /bootstrap-apex/com.android.i18n ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+tmpfs /bootstrap-apex/apex-info-list.xml tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2388576k,nr_inodes=597144,mode=755 0 0
+tmpfs /linkerconfig tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2388576k,nr_inodes=597144,mode=755 0 0
+tmpfs /linkerconfig tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2388576k,nr_inodes=597144,mode=755 0 0
+none /acct cgroup rw,nosuid,nodev,noexec,relatime,cpuacct 0 0
+tmpfs /tmp tmpfs rw,seclabel,relatime,size=2388576k,nr_inodes=597144 0 0
+none /config configfs rw,nosuid,nodev,noexec,relatime 0 0
+/dev/block/sda7 /efs ext4 rw,seclabel,nosuid,nodev,noatime,journal_checksum,noauto_da_alloc 0 0
+/dev/block/sda35 /cache ext4 rw,seclabel,nosuid,nodev,noatime,journal_checksum,noauto_da_alloc 0 0
+/dev/block/by-name/omr /omr ext4 rw,seclabel,nosuid,nodev,noatime,journal_checksum,noauto_da_alloc 0 0
+/dev/block/dm-66 /data f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/block/dm-66 /data/user/0 f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/proc/self/fd/15 /data/incremental/MT_data_app_vmdl166/mount incremental-fs rw,seclabel,nosuid,nodev,noatime,read_timeout_ms=10000,readahead=0,report_uid,sysfs_name=MT_data_app_vmdl1664587cca8-5d9e-43d7-b57a-78043a62e442 0 0
+/proc/self/fd/15 /data/app/~~EknD7m7JLY000-kXwzTjcA== incremental-fs rw,seclabel,nosuid,nodev,noatime,read_timeout_ms=10000,readahead=0,report_uid,sysfs_name=MT_data_app_vmdl1664587cca8-5d9e-43d7-b57a-78043a62e442 0 0
+/proc/self/fd/15 /data/incremental/MT_data_app_vmdl179/mount incremental-fs rw,seclabel,nosuid,nodev,noatime,read_timeout_ms=10000,readahead=0,report_uid,sysfs_name=MT_data_app_vmdl17972291b0c-8dba-4bda-8411-62633d4f3ef7 0 0
+/proc/self/fd/15 /data/app/~~mWsxbO_VBIdTkvPEtaxYNg== incremental-fs rw,seclabel,nosuid,nodev,noatime,read_timeout_ms=10000,readahead=0,report_uid,sysfs_name=MT_data_app_vmdl17972291b0c-8dba-4bda-8411-62633d4f3ef7 0 0
+/proc/self/fd/15 /data/incremental/MT_data_app_vmdl415/mount incremental-fs rw,seclabel,nosuid,nodev,noatime,read_timeout_ms=10000,readahead=0,report_uid,sysfs_name=MT_data_app_vmdl415a9e7be0b-7895-4112-8a74-6d6d3306cf57 0 0
+/proc/self/fd/15 /data/app/~~--OrY7s718YjywdLjsyBiQ== incremental-fs rw,seclabel,nosuid,nodev,noatime,read_timeout_ms=10000,readahead=0,report_uid,sysfs_name=MT_data_app_vmdl415a9e7be0b-7895-4112-8a74-6d6d3306cf57 0 0
+/proc/self/fd/15 /data/incremental/MT_data_app_vmdl831/mount incremental-fs rw,seclabel,nosuid,nodev,noatime,read_timeout_ms=10000,readahead=0,report_uid,sysfs_name=MT_data_app_vmdl831954d8470-6868-4ddb-a4a3-5f2ac0bffc0b 0 0
+/proc/self/fd/15 /data/app/~~gvgRnmBntXqdvtsD5Ww6ow== incremental-fs rw,seclabel,nosuid,nodev,noatime,read_timeout_ms=10000,readahead=0,report_uid,sysfs_name=MT_data_app_vmdl831954d8470-6868-4ddb-a4a3-5f2ac0bffc0b 0 0
+/proc/self/fd/15 /data/incremental/MT_data_app_vmdl117/mount incremental-fs rw,seclabel,nosuid,nodev,noatime,read_timeout_ms=10000,readahead=0,rlog_pages=32,rlog_wakeup_cnt=1,report_uid,sysfs_name=MT_data_app_vmdl11789fe1aa8-97b7-4676-9bad-9e13c34944f1 0 0
+/proc/self/fd/15 /data/app/~~I2Cgu66qz3K60rrCHzj9ig== incremental-fs rw,seclabel,nosuid,nodev,noatime,read_timeout_ms=10000,readahead=0,rlog_pages=32,rlog_wakeup_cnt=1,report_uid,sysfs_name=MT_data_app_vmdl11789fe1aa8-97b7-4676-9bad-9e13c34944f1 0 0
+tmpfs /data_mirror tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2477152k,nr_inodes=619288,mode=700,gid=1000 0 0
+/dev/block/dm-66 /data_mirror/data_ce/null f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/block/dm-66 /data_mirror/data_ce/null/0 f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/block/dm-66 /data_mirror/data_de/null f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/block/dm-66 /data_mirror/misc_ce/null f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/block/dm-66 /data_mirror/misc_de/null f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/block/dm-66 /data_mirror/storage_area f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/block/dm-66 /data_mirror/cur_profiles f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/block/dm-66 /data_mirror/ref_profiles f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=on,nogc_merge,discard,discard_unit=block,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,barrier,extent_cache,mode=adaptive,active_logs=6,reserve_root=32768,resuid=0,resgid=5678,usrquota,grpquota,inlinecrypt,alloc_mode=default,checkpoint_merge,fsync_mode=nobarrier,compress_algorithm=lz4,compress_log_size=5,compress_mode=user,memory=normal,errors=continue 0 0
+/dev/block/dm-14 /system/carrier erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0
+tmpfs /storage tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=2385680k,nr_inodes=596420,mode=755,gid=1000 0 0
+/dev/fuse /storage/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+•Network Info
+$cat /proc/net/arp
+cat: /proc/net/arp: Permission denied
+$cat /proc/net/if_inet6
+cat: /proc/net/if_inet6: Permission denied
+$cat /proc/net/ipv6_route
+cat: /proc/net/ipv6_route: Permission denied
+$cat /proc/net/route
+cat: /proc/net/route: Permission denied
+$cat /proc/net/wireless
+cat: /proc/net/wireless: Permission denied
+___ps_________________
+$ps
+USER            PID   PPID        VSZ    RSS WCHAN            ADDR S NAME                       
+u0_a313        9329    752   10773464   2944 sigsuspend          0 S sh
+u0_a313        9330   9329   10776836   4224 0                   0 R ps
+___netstat____________
+$netstat -apnW
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address                                       Foreign Address                                     State       PID/Program Name
+$netstat -rpnW
+netstat: No file /proc/net/route: Permission denied
+___system_properties__
+$getprop
+[DEVICE_PROVISIONED]: [1]
+[aaudio.hw_burst_min_usec]: [2000]
+[aaudio.mmap_exclusive_policy]: [2]
+[aaudio.mmap_policy]: [2]
+[apex.all.ready]: [true]
+[arm64.memtag.process.system_server]: [off]
+[audio.sys.mute.latency.factor]: [2]
+[audio.sys.noisy.broadcast.delay]: [500]
+[audio.sys.offload.pstimeout.secs]: [3]
+[audio.sys.routing.latency]: [0]
+[bluetooth.device.class_of_device]: [90,2,12]
+[bluetooth.profile.a2dp.sink.enabled]: [false]
+[bluetooth.profile.a2dp.source.enabled]: [true]
+[bluetooth.profile.asha.central.enabled]: [true]
+[bluetooth.profile.avrcp.controller.enabled]: [false]
+[bluetooth.profile.avrcp.target.enabled]: [true]
+[bluetooth.profile.bap.broadcast.assist.enabled]: [true]
+[bluetooth.profile.bap.broadcast.source.enabled]: [false]
+[bluetooth.profile.bap.unicast.client.enabled]: [true]
+[bluetooth.profile.bas.client.enabled]: [true]
+[bluetooth.profile.ccp.server.enabled]: [true]
+[bluetooth.profile.csip.set_coordinator.enabled]: [true]
+[bluetooth.profile.gatt.enabled]: [true]
+[bluetooth.profile.hap.client.enabled]: [true]
+[bluetooth.profile.hfp.ag.enabled]: [true]
+[bluetooth.profile.hid.device.enabled]: [true]
+[bluetooth.profile.hid.host.enabled]: [true]
+[bluetooth.profile.map.server.enabled]: [true]
+[bluetooth.profile.mcp.server.enabled]: [true]
+[bluetooth.profile.opp.enabled]: [false]
+[bluetooth.profile.pan.nap.enabled]: [true]
+[bluetooth.profile.pan.panu.enabled]: [true]
+[bluetooth.profile.pbap.server.enabled]: [true]
+[bluetooth.profile.sap.server.enabled]: [true]
+[bluetooth.profile.vcp.controller.enabled]: [true]
+[build.version.extensions.ad_services]: [16]
+[build.version.extensions.r]: [16]
+[build.version.extensions.s]: [16]
+[build.version.extensions.t]: [16]
+[build.version.extensions.u]: [16]
+[build.version.extensions.v]: [16]
+[cache_key.bluetooth.bluetooth_adapter_get_connection_state]: [-9072394593030967969]
+[cache_key.bluetooth.bluetooth_adapter_get_profile_connection_state]: [-9072394593030967968]
+[cache_key.bluetooth.bluetooth_adapter_get_state]: [-9072394593030967965]
+[cache_key.bluetooth.bluetooth_adapter_is_offloaded_filtering_supported]: [-9072394593030967982]
+[cache_key.bluetooth.bluetooth_device_get_bond_state]: [-9072394593030967985]
+[cache_key.bluetooth.bluetooth_map_get_connection_state]: [-9072394593030967971]
+[cache_key.bluetooth.bluetooth_sap_get_connection_state]: [-9072394593030967970]
+[cache_key.display_info]: [5172362157692841824]
+[cache_key.get_packages_for_uid]: [5172362157692841820]
+[cache_key.has_system_feature]: [5172362157692827357]
+[cache_key.is_compat_change_enabled]: [5172362157692841774]
+[cache_key.is_interactive]: [5172362157692840374]
+[cache_key.is_power_save_mode]: [5172362157692828662]
+[cache_key.is_user_unlocked]: [5172362157692827560]
+[cache_key.location_enabled]: [5172362157692827374]
+[cache_key.package_info]: [5172362157692841775]
+[cache_key.system_server.account_user_data]: [5172362157692841491]
+[cache_key.system_server.accounts_data]: [5172362157692841733]
+[cache_key.system_server.device_policy_manager_caches]: [5172362157692827559]
+[cache_key.system_server.get_credential_type]: [5172362157692827377]
+[cache_key.system_server.get_night_mode]: [5172362157692827370]
+[cache_key.system_server.stylus_handwriting]: [5172362157692827550]
+[cache_key.telephony.phone_account_to_subid]: [-7381187041547048287]
+[cache_key.telephony.subscription_manager_service]: [-7381187041547048297]
+[camera.disable_zsl_mode]: [1]
+[config.disable_rtt]: [true]
+[dalvik.vm.appimageformat]: [lz4]
+[dalvik.vm.boot-dex2oat-threads]: [8]
+[dalvik.vm.dex2oat-Xms]: [64m]
+[dalvik.vm.dex2oat-Xmx]: [512m]
+[dalvik.vm.dex2oat-cpu-set]: [0,1,2,3]
+[dalvik.vm.dex2oat-max-image-block-size]: [524288]
+[dalvik.vm.dex2oat-minidebuginfo]: [true]
+[dalvik.vm.dex2oat-resolve-startup-strings]: [true]
+[dalvik.vm.dex2oat-threads]: [4]
+[dalvik.vm.dex2oat64.enabled]: [true]
+[dalvik.vm.dexopt.secondary]: [true]
+[dalvik.vm.dexopt.thermal-cutoff]: [2]
+[dalvik.vm.enable_pr_dexopt]: [true]
+[dalvik.vm.finalizer-timeout-ms]: [60000]
+[dalvik.vm.heapgrowthlimit]: [256m]
+[dalvik.vm.heapmaxfree]: [8m]
+[dalvik.vm.heapminfree]: [2m]
+[dalvik.vm.heapsize]: [512m]
+[dalvik.vm.heapstartsize]: [8m]
+[dalvik.vm.heaptargetutilization]: [0.75]
+[dalvik.vm.image-dex2oat-Xms]: [64m]
+[dalvik.vm.image-dex2oat-Xmx]: [64m]
+[dalvik.vm.isa.arm64.features]: [default]
+[dalvik.vm.isa.arm64.variant]: [kryo300]
+[dalvik.vm.lockprof.threshold]: [500]
+[dalvik.vm.madvise.artfile.size]: [4294967295]
+[dalvik.vm.madvise.odexfile.size]: [104857600]
+[dalvik.vm.madvise.vdexfile.size]: [104857600]
+[dalvik.vm.minidebuginfo]: [true]
+[dalvik.vm.systemuicompilerfilter]: [speed]
+[dalvik.vm.thread-suspend-timeout-ms]: [8000]
+[dalvik.vm.usap_pool_enabled]: [false]
+[dalvik.vm.usap_pool_refill_delay_ms]: [3000]
+[dalvik.vm.usap_pool_size_max]: [3]
+[dalvik.vm.usap_pool_size_min]: [1]
+[dalvik.vm.usap_refill_threshold]: [1]
+[dalvik.vm.useartservice]: [true]
+[dalvik.vm.usejit]: [true]
+[debug.atrace.tags.enableflags]: [0]
+[debug.c2.use_dmabufheaps]: [1]
+[debug.egl.hw]: [0]
+[debug.force_rtl]: [false]
+[debug.graphics.game_default_frame_rate.disabled]: [true]
+[debug.hwui.skia_atrace_enabled]: [false]
+[debug.hwui.skia_tracing_enabled]: [false]
+[debug.hwui.skia_use_perfetto_track_events]: [false]
+[debug.hwui.use_hint_manager]: [true]
+[debug.mdpcomp.logs]: [0]
+[debug.perfetto.sdk_sysprop_guard_generation]: [0]
+[debug.renderengine.skia_tracing_enabled]: [false]
+[debug.renderengine.skia_use_perfetto_track_events]: [false]
+[debug.sf.auto_latch_unsignaled]: [1]
+[debug.sf.disable_client_composition_cache]: [1]
+[debug.sf.enable_adpf_cpu_hint]: [true]
+[debug.sf.enable_advanced_sf_phase_offset]: [1]
+[debug.sf.enable_gl_backpressure]: [1]
+[debug.sf.enable_hwc_vds]: [false]
+[debug.sf.hw]: [0]
+[debug.sf.latch_unsignaled]: [1]
+[debug.sf.predict_hwc_composition_strategy]: [0]
+[debug.sf.show_refresh_rate_overlay_render_rate]: [true]
+[debug.sf.treat_170m_as_sRGB]: [1]
+[debug.stagefright.c2inputsurface]: [-1]
+[debug.stagefright.ccodec]: [4]
+[debug.stagefright.omx_default_rank]: [0]
+[debug.tracing.battery_status]: [3]
+[debug.tracing.device_state]: [0:DEFAULT]
+[debug.tracing.mcc]: [311]
+[debug.tracing.mnc]: [480]
+[debug.tracing.plug_type]: [0]
+[debug.tracing.screen_brightness]: [0.3019608]
+[debug.tracing.screen_state]: [2]
+[dev.anomaly.support.config_part]: [true]
+[dev.anomaly.version]: [3.0.3]
+[dev.boot.0.user_unlocked]: [FAIL-finishUserUnlocking]
+[dev.boot.150.user_unlocked]: [FAIL-finishUserUnlocking]
+[dev.boot.95.user_unlocked]: [FAIL-finishUserUnlocking]
+[dev.boot_count]: [0]
+[dev.bootcomplete]: [1]
+[dev.mnt.blk.cache]: [sda35]
+[dev.mnt.blk.data]: [sda64]
+[dev.mnt.blk.data.user.0]: [sda64]
+[dev.mnt.blk.data_mirror.cur_profiles]: [sda64]
+[dev.mnt.blk.data_mirror.data_ce.null]: [sda64]
+[dev.mnt.blk.data_mirror.data_ce.null.0]: [sda64]
+[dev.mnt.blk.data_mirror.data_de.null]: [sda64]
+[dev.mnt.blk.data_mirror.misc_ce.null]: [sda64]
+[dev.mnt.blk.data_mirror.misc_de.null]: [sda64]
+[dev.mnt.blk.data_mirror.ref_profiles]: [sda64]
+[dev.mnt.blk.data_mirror.storage_area]: [sda64]
+[dev.mnt.blk.efs]: [sda7]
+[dev.mnt.blk.metadata]: [sda25]
+[dev.mnt.blk.mnt.vendor.efs]: [sda6]
+[dev.mnt.blk.mnt.vendor.persist]: [sda5]
+[dev.mnt.blk.odm]: [sda32]
+[dev.mnt.blk.omr]: [sda36]
+[dev.mnt.blk.optics]: [sda59]
+[dev.mnt.blk.prism]: [sda58]
+[dev.mnt.blk.product]: [sda32]
+[dev.mnt.blk.product.vm-system]: [sda56]
+[dev.mnt.blk.root]: [sda32]
+[dev.mnt.blk.system.carrier]: [sda32]
+[dev.mnt.blk.system_dlkm]: [sda32]
+[dev.mnt.blk.system_ext]: [sda32]
+[dev.mnt.blk.vendor]: [sda32]
+[dev.mnt.blk.vendor.dsp]: [sda49]
+[dev.mnt.blk.vendor.firmware-modem]: [sda52]
+[dev.mnt.blk.vendor.firmware_mnt]: [sda50]
+[dev.mnt.blk.vendor_dlkm]: [sda32]
+[dev.mnt.dev.cache]: [sda35]
+[dev.mnt.dev.data]: [dm-66]
+[dev.mnt.dev.data.user.0]: [dm-66]
+[dev.mnt.dev.data_mirror.cur_profiles]: [dm-66]
+[dev.mnt.dev.data_mirror.data_ce.null]: [dm-66]
+[dev.mnt.dev.data_mirror.data_ce.null.0]: [dm-66]
+[dev.mnt.dev.data_mirror.data_de.null]: [dm-66]
+[dev.mnt.dev.data_mirror.misc_ce.null]: [dm-66]
+[dev.mnt.dev.data_mirror.misc_de.null]: [dm-66]
+[dev.mnt.dev.data_mirror.ref_profiles]: [dm-66]
+[dev.mnt.dev.data_mirror.storage_area]: [dm-66]
+[dev.mnt.dev.efs]: [sda7]
+[dev.mnt.dev.metadata]: [sda25]
+[dev.mnt.dev.mnt.vendor.efs]: [sda6]
+[dev.mnt.dev.mnt.vendor.persist]: [sda5]
+[dev.mnt.dev.odm]: [dm-20]
+[dev.mnt.dev.omr]: [sda36]
+[dev.mnt.dev.optics]: [dm-22]
+[dev.mnt.dev.prism]: [dm-21]
+[dev.mnt.dev.product]: [dm-16]
+[dev.mnt.dev.product.vm-system]: [sda56]
+[dev.mnt.dev.root]: [dm-14]
+[dev.mnt.dev.system.carrier]: [dm-14]
+[dev.mnt.dev.system_dlkm]: [dm-19]
+[dev.mnt.dev.system_ext]: [dm-15]
+[dev.mnt.dev.vendor]: [dm-17]
+[dev.mnt.dev.vendor.dsp]: [sda49]
+[dev.mnt.dev.vendor.firmware-modem]: [sda52]
+[dev.mnt.dev.vendor.firmware_mnt]: [sda50]
+[dev.mnt.dev.vendor_dlkm]: [dm-18]
+[dev.mnt.rootdisk.cache]: [sda]
+[dev.mnt.rootdisk.data]: [sda]
+[dev.mnt.rootdisk.data.user.0]: [sda]
+[dev.mnt.rootdisk.data_mirror.cur_profiles]: [sda]
+[dev.mnt.rootdisk.data_mirror.data_ce.null]: [sda]
+[dev.mnt.rootdisk.data_mirror.data_ce.null.0]: [sda]
+[dev.mnt.rootdisk.data_mirror.data_de.null]: [sda]
+[dev.mnt.rootdisk.data_mirror.misc_ce.null]: [sda]
+[dev.mnt.rootdisk.data_mirror.misc_de.null]: [sda]
+[dev.mnt.rootdisk.data_mirror.ref_profiles]: [sda]
+[dev.mnt.rootdisk.data_mirror.storage_area]: [sda]
+[dev.mnt.rootdisk.efs]: [sda]
+[dev.mnt.rootdisk.metadata]: [sda]
+[dev.mnt.rootdisk.mnt.vendor.efs]: [sda]
+[dev.mnt.rootdisk.mnt.vendor.persist]: [sda]
+[dev.mnt.rootdisk.odm]: [sda]
+[dev.mnt.rootdisk.omr]: [sda]
+[dev.mnt.rootdisk.optics]: [sda]
+[dev.mnt.rootdisk.prism]: [sda]
+[dev.mnt.rootdisk.product]: [sda]
+[dev.mnt.rootdisk.product.vm-system]: [sda]
+[dev.mnt.rootdisk.root]: [sda]
+[dev.mnt.rootdisk.system.carrier]: [sda]
+[dev.mnt.rootdisk.system_dlkm]: [sda]
+[dev.mnt.rootdisk.system_ext]: [sda]
+[dev.mnt.rootdisk.vendor]: [sda]
+[dev.mnt.rootdisk.vendor.dsp]: [sda]
+[dev.mnt.rootdisk.vendor.firmware-modem]: [sda]
+[dev.mnt.rootdisk.vendor.firmware_mnt]: [sda]
+[dev.mnt.rootdisk.vendor_dlkm]: [sda]
+[dev.pm.dyn_samplingrate]: [1]
+[dev.sdhms.hp]: [1]
+[dev.sdhms.ltb]: [0,530:5,520:12,466:64,0:PALM:]
+[dev.sdhms.ss]: [0,620:5,730:12,615:64,0:]
+[dev.ssrm.app.install.standby]: [-1]
+[dev.ssrm.init]: [1]
+[dev.ssrm.turbo]: [false]
+[dev.ssrm.version]: [4.0]
+[dumpstate.is_running]: [0]
+[enable_detecting_gnss_assert]: [false]
+[graphics.gpu.profiler.support]: [true]
+[gsm.current.phone-type]: [1,1]
+[gsm.default.channel]: [0]
+[gsm.facilitylock.state]: [,false]
+[gsm.network.type]: [Unknown,LTE]
+[gsm.nitz.time]: [1767650544000]
+[gsm.nitz.time-elapsedtime]: [19921]
+[gsm.operator.alpha]: [No service,Xfinity Mobile]
+[gsm.operator.iso-country]: [,us]
+[gsm.operator.isroaming]: [false,false]
+[gsm.operator.numeric]: [,311480]
+[gsm.sim.acc]: [0000000000100000]
+[gsm.sim.eventList2]: [1544]
+[gsm.sim.imsRegiEvent]: [,0]
+[gsm.sim.operator.alpha]: [,Xfinity Mobile]
+[gsm.sim.operator.iso-country]: [,us]
+[gsm.sim.operator.numeric]: [,311480]
+[gsm.sim.sprintsim1]: [0]
+[gsm.sim.state]: [ABSENT,LOADED]
+[gsm.version.baseband]: [A366USQS3AYI1,A366USQS3AYI1]
+[gsm.version.ril-impl]: [Samsung RIL v5.0]
+[hwservicemanager.disabled]: [true]
+[init.svc.BCS-daemon]: [running]
+[init.svc.DR-daemon]: [running]
+[init.svc.DisplayQuality-hal]: [running]
+[init.svc.MemHal-1-0]: [running]
+[init.svc.SMD-daemon]: [running]
+[init.svc.aconfigd]: [stopped]
+[init.svc.aconfigd-mainline-init]: [stopped]
+[init.svc.aconfigd-platform-init]: [stopped]
+[init.svc.adbd]: [stopped]
+[init.svc.apexd]: [stopped]
+[init.svc.apexd-bootstrap]: [stopped]
+[init.svc.apexd-snapshotde]: [stopped]
+[init.svc.art_boot]: [stopped]
+[init.svc.artd]: [stopped]
+[init.svc.at_distributor]: [stopped]
+[init.svc.audioserver]: [running]
+[init.svc.bootanim]: [stopped]
+[init.svc.bootchecker]: [stopped]
+[init.svc.bootchecker-bootc]: [stopped]
+[init.svc.boringssl_self_test64]: [stopped]
+[init.svc.boringssl_self_test64_vendor]: [stopped]
+[init.svc.boringssl_self_test_apex64]: [stopped]
+[init.svc.bpfloader]: [stopped]
+[init.svc.btcoex_cont_config]: [stopped]
+[init.svc.bugreportd]: [stopped]
+[init.svc.bugreportm]: [stopped]
+[init.svc.cameraserver]: [running]
+[init.svc.cass]: [running]
+[init.svc.clear-fota]: [stopped]
+[init.svc.cnss-daemon]: [running]
+[init.svc.credstore]: [running]
+[init.svc.derive_classpath]: [stopped]
+[init.svc.derive_sdk]: [stopped]
+[init.svc.drk_hal]: [running]
+[init.svc.drm]: [running]
+[init.svc.dsmsd]: [running]
+[init.svc.dumpstate]: [stopped]
+[init.svc.dumpstatez]: [stopped]
+[init.svc.emservice]: [running]
+[init.svc.engmode_hal]: [running]
+[init.svc.eris]: [running]
+[init.svc.ewlogd]: [running]
+[init.svc.fabric_crypto]: [running]
+[init.svc.factory_ssc]: [running]
+[init.svc.gatekeeperd]: [running]
+[init.svc.gki.modprobe]: [stopped]
+[init.svc.gnss_service]: [running]
+[init.svc.gpu]: [running]
+[init.svc.hcgcd]: [stopped]
+[init.svc.hdcp_hal]: [running]
+[init.svc.hdm_status_sh]: [stopped]
+[init.svc.heapprofd]: [stopped]
+[init.svc.hermesd]: [running]
+[init.svc.hidl_memory]: [stopped]
+[init.svc.hwservicemanager]: [stopped]
+[init.svc.idmap2d]: [stopped]
+[init.svc.imsd]: [running]
+[init.svc.incidentd]: [running]
+[init.svc.installd]: [running]
+[init.svc.insthk]: [stopped]
+[init.svc.iod]: [running]
+[init.svc.irsc_util]: [stopped]
+[init.svc.irsc_util_oem]: [stopped]
+[init.svc.kernel-boot]: [stopped]
+[init.svc.kernel-post-boot]: [stopped]
+[init.svc.keystore2]: [running]
+[init.svc.kgtaserv]: [stopped]
+[init.svc.kumihodecoder]: [running]
+[init.svc.lmkd]: [running]
+[init.svc.loc_launcher]: [running]
+[init.svc.logd]: [running]
+[init.svc.logd-auditctl]: [stopped]
+[init.svc.logd-reinit]: [stopped]
+[init.svc.macloader]: [stopped]
+[init.svc.media]: [running]
+[init.svc.media.swcodec]: [running]
+[init.svc.mediadrm]: [running]
+[init.svc.mediaextractor]: [running]
+[init.svc.mediametrics]: [running]
+[init.svc.memory-init-boot]: [stopped]
+[init.svc.memory-post-boot]: [stopped]
+[init.svc.misctrl]: [stopped]
+[init.svc.multiclient-daemon]: [running]
+[init.svc.netd]: [running]
+[init.svc.network_config]: [stopped]
+[init.svc.nqnfcinfo]: [stopped]
+[init.svc.odsign]: [stopped]
+[init.svc.pageboostd]: [running]
+[init.svc.perf2-hal-1-0]: [running]
+[init.svc.perfetto_persistent_sysui_tracing_for_bugreport]: [stopped]
+[init.svc.perfmond]: [running]
+[init.svc.perfsdkserver]: [running]
+[init.svc.powersnd]: [stopped]
+[init.svc.prng_seeder]: [running]
+[init.svc.proca]: [running]
+[init.svc.qccsyshal_aidl-service]: [running]
+[init.svc.qcom-c_core-sh]: [stopped]
+[init.svc.qcom-c_main-sh]: [stopped]
+[init.svc.qcom-post-boot]: [stopped]
+[init.svc.qcom-sh]: [stopped]
+[init.svc.qseecom-service]: [running]
+[init.svc.qti-media]: [stopped]
+[init.svc.qti-ss-ramdump]: [stopped]
+[init.svc.qti_display_boot]: [stopped]
+[init.svc.rdxd]: [stopped]
+[init.svc.resetreason]: [stopped]
+[init.svc.ril-daemon]: [running]
+[init.svc.rtts_hal]: [running]
+[init.svc.samsung-software-media-c2-hal-1-0]: [running]
+[init.svc.sbauth]: [stopped]
+[init.svc.scs]: [stopped]
+[init.svc.sec-biometrics-face-aidl]: [running]
+[init.svc.sec-camera-provider]: [running]
+[init.svc.sec-sysinput-aidl]: [running]
+[init.svc.sec-vibrator-aidl]: [running]
+[init.svc.sec_diag_uart_log]: [stopped]
+[init.svc.sem_aidl]: [stopped]
+[init.svc.sem_daemon]: [stopped]
+[init.svc.servicemanager]: [running]
+[init.svc.sim_config]: [stopped]
+[init.svc.snap_utility_64]: [stopped]
+[init.svc.snapaidl]: [stopped]
+[init.svc.snaplite_utility_64]: [stopped]
+[init.svc.speg_helper]: [running]
+[init.svc.spqr_service]: [running]
+[init.svc.ss_conn_daemon2_service]: [stopped]
+[init.svc.ssu-teecl]: [running]
+[init.svc.ssud]: [running]
+[init.svc.statsd]: [running]
+[init.svc.storaged]: [running]
+[init.svc.surfaceflinger]: [running]
+[init.svc.syshealthmon-service]: [running]
+[init.svc.system_suspend]: [running]
+[init.svc.thermal-engine]: [running]
+[init.svc.time_daemon]: [running]
+[init.svc.tlc-ucm-hal-aidl]: [running]
+[init.svc.tombstoned]: [running]
+[init.svc.traced]: [running]
+[init.svc.traced_perf]: [stopped]
+[init.svc.traced_probes]: [running]
+[init.svc.ueventd]: [running]
+[init.svc.update_engine]: [running]
+[init.svc.update_verifier]: [stopped]
+[init.svc.usbd]: [stopped]
+[init.svc.vaultkeeper]: [running]
+[init.svc.vaultkeeper_aidl]: [running]
+[init.svc.vendor-qti-media-c2-hal-1-0]: [running]
+[init.svc.vendor-sensor-sh]: [stopped]
+[init.svc.vndservicemanager]: [running]
+[init.svc.vold]: [running]
+[init.svc.wificond]: [running]
+[init.svc.ztd]: [stopped]
+[init.svc.zygote]: [running]
+[knox.kg.state]: [Completed]
+[log.tag.APM_AudioPolicyManager]: [V]
+[log.tag.ClatdController]: [D]
+[log.tag.ConnectivityManager]: [D]
+[log.tag.ConnectivityService]: [D]
+[log.tag.IptablesRestoreController]: [D]
+[log.tag.NetworkLogger]: [D]
+[log.tag.snap_api::V2]: [INFO]
+[log.tag.snap_api::V3]: [INFO]
+[log.tag.snap_api::snap_eden::V3]: [WARN]
+[log.tag.snap_api::snap_ofi::V1]: [WARN]
+[log.tag.snap_api::snpe]: [WARN]
+[log.tag.snap_compute::V2]: [WARN]
+[log.tag.snap_compute::V3]: [WARN]
+[log.tag.snap_hidl_v3]: [WARN]
+[log.tag.snap_service@1.2]: [WARN]
+[log.tag.snaplite_lib]: [WARN]
+[log.tag.stats_log]: [I]
+[logd.ready]: [true]
+[mdc.matched_code2]: [CCT]
+[mdc.omc.config_version]: [SAOMC_SM-A366U_OYN_CCT_15_0010]
+[mdc.omc.img_mount]: [0]
+[mdc.scs.running_state]: [6]
+[mdc.scs.tss_checked]: [1]
+[mdc.singlesku]: [false]
+[mdc.sys.automatic_language]: [true]
+[mdc.sys.carrierid_etcpath]: [/prism/etc/carriers/CCT]
+[mdc.sys.enable_smff]: [true]
+[mdc.sys.locale]: [en-US]
+[mdc.sys.omc_etcpath]: [/prism/etc/carriers/CCT]
+[mdc.sys.sec_cid2]: [30185]
+[mdc.sys.sec_feature2]: [30185_10]
+[mdc.sys.sec_pcid2]: [30185]
+[mdc.system.nw_path]: [/optics/configs/carriers/CCT/conf/system]
+[mdc.system.nw_path2]: [/optics/configs/carriers/CCT/conf/system]
+[mdc.system.path]: [/optics/configs/carriers/CCT/conf/system]
+[mdc.unified]: [false]
+[mdc.vendor.nw_path]: [/optics/configs/carriers/CCT/conf/system]
+[mdc.vendor.nw_path2]: [/optics/configs/carriers/CCT/conf/system]
+[mdc.vendor.path]: [/optics/configs/carriers/CCT/conf/system]
+[media.aac_51_output_enabled]: [true]
+[media.c2.hal.selection]: [aidl]
+[media.stagefright.audio.deep]: [false]
+[media.stagefright.enable-aac]: [true]
+[media.stagefright.enable-fma2dp]: [true]
+[media.stagefright.enable-http]: [true]
+[media.stagefright.enable-player]: [true]
+[media.stagefright.enable-qcp]: [true]
+[media.stagefright.enable-scan]: [true]
+[media.stagefright.thumbnail.prefer_hw_codecs]: [true]
+[mmp.enable.3g2]: [true]
+[mnodmclient.boot_completed]: [true]
+[net.bt.name]: [Android]
+[net.knoxvpn.version]: [2.2.0]
+[net.tcp.2g_init_rwnd]: [10]
+[nfc.core_reset_ntf_count]: [0]
+[nfc.diagnostic.sim.error]: [1]
+[nfc.fw.dfl]: []
+[nfc.fw.force_download]: [0]
+[nfc.fw.rfreg_display_ver]: [93]
+[nfc.fw.rfreg_ver]: [MAJ:3D, MIN:93]
+[nfc.fw.ver]: [NXP 1.1.3d]
+[nfc.initialized]: [true]
+[nfc.nxp_log_level_global]: [1]
+[nfc.preferred.wallet]: [com.samsung.android.spayfw]
+[nfc.product.support.ese]: [1]
+[nfc.product.support.euicc]: [0]
+[nfc.product.support.uicc]: [0]
+[partition.odm.verified.check_at_most_once]: [0]
+[partition.optics.verified]: [2]
+[partition.optics.verified.check_at_most_once]: [0]
+[partition.optics.verified.hash_alg]: [sha256]
+[partition.optics.verified.root_digest]: [761101ae2775f832b2b17215a35dce5a97d9fadff7d0598d4c53e45b30baef9a]
+[partition.prism.verified]: [2]
+[partition.prism.verified.check_at_most_once]: [0]
+[partition.prism.verified.hash_alg]: [sha256]
+[partition.prism.verified.root_digest]: [64acd1b98975e79834ad3c4bac8009c9d126ca0a606386c85e406a7299e8dec8]
+[partition.product.verified.check_at_most_once]: [0]
+[partition.system.verified.check_at_most_once]: [0]
+[partition.system_dlkm.verified]: [2]
+[partition.system_dlkm.verified.check_at_most_once]: [0]
+[partition.system_dlkm.verified.hash_alg]: [sha256]
+[partition.system_dlkm.verified.root_digest]: [0dad0ed5055a75bce39894f33d0f87446512aa8ab1742736f4dc7eaa8852f744]
+[partition.system_ext.verified.check_at_most_once]: [0]
+[partition.vendor.verified.check_at_most_once]: [0]
+[partition.vendor_dlkm.verified]: [2]
+[partition.vendor_dlkm.verified.check_at_most_once]: [0]
+[partition.vendor_dlkm.verified.hash_alg]: [sha256]
+[partition.vendor_dlkm.verified.root_digest]: [dc2d7527ec0bb20a4eba203759c25525ebf1d587b4629f9286d30d2cc7863c86]
+[persist.audio.allsoundmute]: [0]
+[persist.audio.headsetsysvolume]: [9]
+[persist.audio.hphonesysvolume]: [9]
+[persist.audio.pcmdump]: [0]
+[persist.audio.ringermode]: [2]
+[persist.audio.sales_code]: [CCT]
+[persist.audio.sysvolume]: [9]
+[persist.backup.ntpServer]: ["0.pool.ntp.org"]
+[persist.config.chimera.enable]: [true]
+[persist.data.df.dev_name]: [rmnet_usb0]
+[persist.data.df.dl_mode]: [5]
+[persist.data.df.iwlan_mux]: [9]
+[persist.data.df.mux_count]: [8]
+[persist.data.df.ul_mode]: [5]
+[persist.debug.coresight.config]: [stm-events]
+[persist.debug.wfd.enable]: [1]
+[persist.device_config.aconfig_flags.accessibility.enable_magnifier_thumbnail]: [false]
+[persist.device_config.aconfig_flags.activity_manager_native_boot.modern_queue_enabled]: [true]
+[persist.device_config.aconfig_flags.bluetooth.INIT_gd_hal_snoop_logger_filtering]: [true]
+[persist.device_config.aconfig_flags.bluetooth.INIT_gd_hal_snoop_logger_socket]: [true]
+[persist.device_config.aconfig_flags.bluetooth.audio_policy_ag_enabled]: [true]
+[persist.device_config.aconfig_flags.bluetooth.audio_policy_hf_enabled]: [true]
+[persist.device_config.aconfig_flags.bluetooth.le_audio_enabled_by_default]: [false]
+[persist.device_config.aconfig_flags.bluetooth.location_denylist_advertising_data]: [⊈0016AAFE40/00FFFFFFF0,⊆0016AAFE/00FFFFFF,⊆00FF4C0002/00FFFFFFFF]
+[persist.device_config.aconfig_flags.bluetooth.location_denylist_mac]: []
+[persist.device_config.aconfig_flags.bluetooth.location_denylist_name]: []
+[persist.device_config.aconfig_flags.bluetooth.scan_timeout_millis]: [300000]
+[persist.device_config.aconfig_flags.companion.enable_context_sync_telecom]: [false]
+[persist.device_config.aconfig_flags.configuration.beta_launch]: [false]
+[persist.device_config.aconfig_flags.configuration.beta_public_launch]: [false]
+[persist.device_config.aconfig_flags.configuration.demo_flag]: [false]
+[persist.device_config.aconfig_flags.configuration.droidfood_launch]: [false]
+[persist.device_config.aconfig_flags.configuration.flag]: [true]
+[persist.device_config.aconfig_flags.configuration.flag_five]: [false]
+[persist.device_config.aconfig_flags.configuration.flag_four]: [false]
+[persist.device_config.aconfig_flags.configuration.flag_six]: [false]
+[persist.device_config.aconfig_flags.configuration.flag_three]: [false]
+[persist.device_config.aconfig_flags.configuration.flag_two]: [false]
+[persist.device_config.aconfig_flags.configuration.public_launch]: [false]
+[persist.device_config.aconfig_flags.configuration.rescue_party_throttle_duration_min]: [10]
+[persist.device_config.aconfig_flags.connectivity.data_stall_consecutive_dns_timeout_threshold]: [5]
+[persist.device_config.aconfig_flags.connectivity.dhcp_init_reboot_enabled]: [false]
+[persist.device_config.aconfig_flags.connectivity.dhcp_init_reboot_version]: [0]
+[persist.device_config.aconfig_flags.connectivity.dhcp_ip_conflict_detect_version]: [0]
+[persist.device_config.aconfig_flags.connectivity.dhcp_rapid_commit_enabled]: [false]
+[persist.device_config.aconfig_flags.connectivity.dhcp_rapid_commit_version]: [1]
+[persist.device_config.aconfig_flags.connectivity.dhcp_restart_configuration_delay]: [1000]
+[persist.device_config.aconfig_flags.connectivity.dhcp_server_decline_version]: [0]
+[persist.device_config.aconfig_flags.connectivity.ip_reachability_ignore_never_reachable_neighbor_version]: [350820280]
+[persist.device_config.aconfig_flags.connectivity.ip_reachability_mcast_resolicit_version]: [0]
+[persist.device_config.aconfig_flags.connectivity.ipclient_accept_ipv6_link_local_dns_version]: [0]
+[persist.device_config.aconfig_flags.connectivity.ipclient_multicast_ns_version]: [0]
+[persist.device_config.aconfig_flags.edgetpu_native.allowlist_app11]: []
+[persist.device_config.aconfig_flags.edgetpu_native.allowlist_app12]: []
+[persist.device_config.aconfig_flags.edgetpu_native.allowlist_app4]: []
+[persist.device_config.aconfig_flags.edgetpu_native.allowlist_app5]: []
+[persist.device_config.aconfig_flags.edgetpu_native.allowlist_app6]: []
+[persist.device_config.aconfig_flags.edgetpu_native.allowlist_app7]: []
+[persist.device_config.aconfig_flags.lmkd_native.thrashing_limit_critical]: [300]
+[persist.device_config.aconfig_flags.nearby.nearby_enable_presence_broadcast_legacy]: [false]
+[persist.device_config.aconfig_flags.nearby.nearby_nano_app_min_version]: [1]
+[persist.device_config.aconfig_flags.nearby.nearby_support_test_app]: [false]
+[persist.device_config.aconfig_flags.netd_native.dns_event_subsample_map]: [default:6 0:400 2:110 4:110 7:110]
+[persist.device_config.aconfig_flags.netd_native.doh]: [1]
+[persist.device_config.aconfig_flags.netd_native.dot_connect_timeout_ms]: [30000]
+[persist.device_config.aconfig_flags.netd_native.dot_query_timeout_ms]: [-1]
+[persist.device_config.aconfig_flags.netd_native.dot_revalidation_threshold]: [-1]
+[persist.device_config.aconfig_flags.netd_native.dot_validation_latency_factor]: [3]
+[persist.device_config.aconfig_flags.netd_native.dot_validation_latency_offset_ms]: [100]
+[persist.device_config.aconfig_flags.netd_native.dot_xport_unusable_threshold]: [-1]
+[persist.device_config.aconfig_flags.netd_native.keep_listening_udp]: [1]
+[persist.device_config.aconfig_flags.netd_native.max_cache_entries]: [640]
+[persist.device_config.aconfig_flags.netd_native.max_queries_global]: [2500]
+[persist.device_config.aconfig_flags.netd_native.parallel_lookup]: [0]
+[persist.device_config.aconfig_flags.netd_native.retransmission_time_interval]: [3000]
+[persist.device_config.aconfig_flags.netd_native.retry_count]: [2]
+[persist.device_config.aconfig_flags.netd_native.sort_nameservers]: [0]
+[persist.device_config.aconfig_flags.nnapi_native.current_feature_level]: [7]
+[persist.device_config.aconfig_flags.nnapi_native.telemetry_enable]: [false]
+[persist.device_config.aconfig_flags.remote_key_provisioning_native.enable_rkpd]: [false]
+[persist.device_config.aconfig_flags.runtime_native.metrics.reporting-mods]: [2]
+[persist.device_config.aconfig_flags.runtime_native.metrics.reporting-mods-server]: [2]
+[persist.device_config.aconfig_flags.runtime_native.metrics.reporting-num-mods]: [100]
+[persist.device_config.aconfig_flags.runtime_native.metrics.reporting-num-mods-server]: [100]
+[persist.device_config.aconfig_flags.runtime_native.metrics.reporting-spec]: [1,5,30,60,600]
+[persist.device_config.aconfig_flags.runtime_native.metrics.reporting-spec-server]: [1,10,60,3600,*]
+[persist.device_config.aconfig_flags.runtime_native.metrics.write-to-statsd]: [true]
+[persist.device_config.aconfig_flags.runtime_native.use_app_image_startup_cache]: [true]
+[persist.device_config.aconfig_flags.runtime_native_boot.disable_lock_profiling]: [false]
+[persist.device_config.aconfig_flags.runtime_native_boot.iorap_blacklisted_packages]: []
+[persist.device_config.aconfig_flags.runtime_native_boot.iorap_perfetto_enable]: [false]
+[persist.device_config.aconfig_flags.runtime_native_boot.iorap_readahead_enable]: [false]
+[persist.device_config.aconfig_flags.runtime_native_boot.iorapd_options]: []
+[persist.device_config.aconfig_flags.runtime_native_boot.use_generational_gc]: [true]
+[persist.device_config.aconfig_flags.storage_native_boot.charging_required]: [false]
+[persist.device_config.aconfig_flags.storage_native_boot.dirty_reclaim_rate]: [0.5]
+[persist.device_config.aconfig_flags.storage_native_boot.fuse_enabled]: [1]
+[persist.device_config.aconfig_flags.storage_native_boot.lifetime_threshold]: [70]
+[persist.device_config.aconfig_flags.storage_native_boot.low_battery_level]: [20.0]
+[persist.device_config.aconfig_flags.storage_native_boot.min_gc_sleeptime]: [5000]
+[persist.device_config.aconfig_flags.storage_native_boot.min_segments_threshold]: [512]
+[persist.device_config.aconfig_flags.storage_native_boot.segment_reclaim_weight]: [2.0]
+[persist.device_config.aconfig_flags.storage_native_boot.smart_idle_maint_enabled]: [true]
+[persist.device_config.aconfig_flags.storage_native_boot.smart_idle_maint_period]: [60]
+[persist.device_config.aconfig_flags.storage_native_boot.take_over_get_content]: [false]
+[persist.device_config.aconfig_flags.storage_native_boot.target_dirty_ratio]: [80]
+[persist.device_config.aconfig_flags.storage_native_boot.transcode_compat_stale]: []
+[persist.device_config.aconfig_flags.surface_flinger_native_boot.SkiaTracingFeature__use_skia_tracing]: [false]
+[persist.device_config.nnapi_native.current_feature_level]: [7]
+[persist.device_config.nnapi_native.telemetry_enable]: [false]
+[persist.device_config.runtime_native.metrics.reporting-mods]: [2]
+[persist.device_config.runtime_native.metrics.reporting-mods-server]: [2]
+[persist.device_config.runtime_native.metrics.reporting-num-mods]: [100]
+[persist.device_config.runtime_native.metrics.reporting-num-mods-server]: [100]
+[persist.device_config.runtime_native.metrics.reporting-spec]: [1,5,30,60,600]
+[persist.device_config.runtime_native.metrics.reporting-spec-server]: [1,10,60,3600,*]
+[persist.device_config.runtime_native.metrics.write-to-statsd]: [true]
+[persist.device_config.runtime_native.use_app_image_startup_cache]: [true]
+[persist.device_config.runtime_native_boot.disable_lock_profiling]: [false]
+[persist.device_config.runtime_native_boot.iorap_blacklisted_packages]: []
+[persist.device_config.runtime_native_boot.iorap_perfetto_enable]: [false]
+[persist.device_config.runtime_native_boot.iorap_readahead_enable]: [false]
+[persist.device_config.runtime_native_boot.iorapd_options]: []
+[persist.device_config.runtime_native_boot.use_generational_gc]: [true]
+[persist.fuse_sdcard]: [true]
+[persist.graphics.egl]: []
+[persist.ims.ts32.profile.enable]: [true]
+[persist.kumiho.disabled]: [false]
+[persist.log.level]: [0xFFFFFFFF]
+[persist.log.semlevel]: [0xFFFFFF00]
+[persist.log.tag.ApfFilter]: [UNKNOWN]
+[persist.log.tag.bluetooth]: []
+[persist.logd.size]: []
+[persist.mm.enable.prefetch]: [true]
+[persist.nfc.snoop_log_mode]: [filtered]
+[persist.nfc.vendor_debug_enabled]: [false]
+[persist.radio.airplane_mode_on]: [0]
+[persist.radio.allow_mock_modem]: [false]
+[persist.radio.block_atcmd.status]: [0]
+[persist.radio.def_network]: [26,26]
+[persist.radio.latest-modeltype]: [1,1]
+[persist.radio.max_ims_instance]: [2]
+[persist.radio.multisim.config]: [dsds]
+[persist.radio.preconfig_reset]: [0]
+[persist.radio.silent-reset]: [67]
+[persist.radio.sim.initfail]: [,0]
+[persist.radio.support.dualrat]: [2]
+[persist.radio.support.satellite]: [1]
+[persist.radio.tpmr_sms]: [,17]
+[persist.ril.config.defaultmsgapp]: [AM]
+[persist.ril.cp_feature_hash]: [1760785078718959056]
+[persist.ril.cp_feature_type]: [0]
+[persist.ril.interfaceconf.failed]: [2]
+[persist.ril.matched_code]: [,CCT]
+[persist.ril.modemSettingDone]: [OK]
+[persist.ril.preconfig]: [0]
+[persist.ril.sales_network_code]: [CCTCCTCCT]
+[persist.ril.supportNrModefromCp]: [0]
+[persist.rild.nitz_long_ons_0]: []
+[persist.rild.nitz_long_ons_1]: []
+[persist.rild.nitz_long_ons_2]: []
+[persist.rild.nitz_long_ons_3]: []
+[persist.rild.nitz_plmn]: []
+[persist.rild.nitz_short_ons_0]: []
+[persist.rild.nitz_short_ons_1]: []
+[persist.rild.nitz_short_ons_2]: []
+[persist.rild.nitz_short_ons_3]: []
+[persist.security.ucm_fbe_mode]: [0]
+[persist.service.bgkeycount]: [25,1/26,22/]
+[persist.service.tspcmd.spay]: [true]
+[persist.sys.auto_confirm]: [0]
+[persist.sys.clear_package_cache_needed]: [false]
+[persist.sys.csc_status]: [normal]
+[persist.sys.dalvik.vm.lib.2]: [libart.so]
+[persist.sys.displayinset.top]: [0]
+[persist.sys.dualapp.directory.revision]: [1]
+[persist.sys.dualapp.prop]: [1]
+[persist.sys.enablehomekey]: [false]
+[persist.sys.fflag.override.settings_bluetooth_hearing_aid]: [true]
+[persist.sys.fflag.override.settings_enable_monitor_phantom_procs]: [true]
+[persist.sys.force_sw_gles]: [1]
+[persist.sys.fuse]: [true]
+[persist.sys.fuse.disable_transcode_cache]: [true]
+[persist.sys.fuse.passthrough.enable]: [true]
+[persist.sys.fuse.transcode_notification]: [true]
+[persist.sys.fuse.transcode_user_control]: [true]
+[persist.sys.gps.dds.subId]: [1]
+[persist.sys.gps.lpp]: [2]
+[persist.sys.ims.last_omcnw_code2]: [CCT]
+[persist.sys.ims.supportmmtel1]: [0]
+[persist.sys.ims.supportmmtel2]: [1]
+[persist.sys.ims.vzw.keepalive]: [0]
+[persist.sys.is_in_maintenance_mode]: [false]
+[persist.sys.knox.device_owner]: [false]
+[persist.sys.knox.provisioning_in_progress]: [0]
+[persist.sys.knox.secure_folder_state_available]: [true]
+[persist.sys.knox.userinfo]: [150,268832816]
+[persist.sys.knox.ztd]: [false]
+[persist.sys.knoxvpn.date]: [Wed Aug 27 12:22:17 KST 2025]
+[persist.sys.lmk.reportkills]: [true]
+[persist.sys.locale]: [en-US]
+[persist.sys.matched_code2]: [CCT]
+[persist.sys.myfilter_preload]: [preload_done]
+[persist.sys.nw_path2]: [/optics/configs/carriers/CCT/conf/system]
+[persist.sys.omc.alarm]: []
+[persist.sys.omc.notification]: []
+[persist.sys.omc.notification_2]: []
+[persist.sys.omc.ringtone]: []
+[persist.sys.omc.ringtone_2]: []
+[persist.sys.omc_etcpath]: [/prism/etc/carriers/CCT]
+[persist.sys.omc_path]: [/optics/configs/carriers/CCT/conf]
+[persist.sys.omc_respath]: [/prism/media/carriers/CCT]
+[persist.sys.omc_root]: [/prism/etc/carriers]
+[persist.sys.omc_support]: [true]
+[persist.sys.omcnw_path]: [/optics/configs/carriers/CCT/conf]
+[persist.sys.omcnw_path2]: [/optics/configs/carriers/CCT/conf]
+[persist.sys.package_feature.version.appcategory]: [2024021301]
+[persist.sys.package_feature.version.br]: [2025093001]
+[persist.sys.pcovalue]: [-1;0]
+[persist.sys.prev_omcnwcode]: [CCT]
+[persist.sys.prev_omcnwcode2]: [CCT]
+[persist.sys.prev_salescode]: [CCT]
+[persist.sys.sec_cid2]: [30185]
+[persist.sys.sec_cid_ver]: [150042]
+[persist.sys.sec_operator2]: [311480]
+[persist.sys.sec_pcid2]: [30185]
+[persist.sys.sec_subid2]: [1]
+[persist.sys.setupwizard]: [FINISH]
+[persist.sys.setupwizard.jig_on_wifisetup]: [0]
+[persist.sys.setupwizard.sep_ver]: [160000]
+[persist.sys.setupwizard.user_setup_complete]: [true]
+[persist.sys.sf.color_mode]: [7]
+[persist.sys.sf.color_saturation]: [1.0]
+[persist.sys.sf.hs_mode]: [3]
+[persist.sys.shutdown_received]: [false]
+[persist.sys.silent]: [0]
+[persist.sys.storage_preload]: [2]
+[persist.sys.strictmode.visual]: []
+[persist.sys.time.dst_offset]: [3600000]
+[persist.sys.time.dst_transition]: [1772953200000]
+[persist.sys.time.offset]: [-18000000]
+[persist.sys.timezone]: [America/New_York]
+[persist.sys.usb.config]: [mtp]
+[persist.sys.vzw_wifi_running]: [false]
+[persist.sys.wfd.virtual]: [0]
+[persist.sys.zram.daily_quota]: [3145728]
+[persist.sys.zram.daily_quota_remain]: [0]
+[persist.sys.zram.ram_expand_size]: [4096]
+[persist.sys.zram.total_writes]: [9437184]
+[persist.sys.zram0.bigdata_info]: [0,0,0,0,0,0,0,0,0,0]
+[persist.thirdparty.disabled]: [true]
+[persist.vendor.camera.adjustfps]: [0]
+[persist.vendor.camera.debugdata.enable3A]: [TRUE]
+[persist.vendor.camera.debugdata.enableConcise3A]: [FALSE]
+[persist.vendor.camera.debugdata.sizeAEC]: [642008]
+[persist.vendor.camera.debugdata.sizeAF]: [112008]
+[persist.vendor.camera.debugdata.sizeAWB]: [2502008]
+[persist.vendor.camera.exif.metering]: [1]
+[persist.vendor.dpm.feature]: [11]
+[persist.vendor.radio.atfwd.start]: [true]
+[persist.vendor.radio.enableadvancedscan]: [true]
+[persist.vendor.rcs.singlereg.feature]: [1]
+[persist.wm.extensions.enabled]: [true]
+[pm.dexopt.ab-ota]: [speed-profile]
+[pm.dexopt.bg-dexopt]: [speed-profile]
+[pm.dexopt.boot-after-mainline-update]: [verify]
+[pm.dexopt.boot-after-mainline-update.concurrency]: [4]
+[pm.dexopt.boot-after-ota]: [verify]
+[pm.dexopt.boot-after-ota.concurrency]: [4]
+[pm.dexopt.cmdline]: [verify]
+[pm.dexopt.first-boot]: [verify]
+[pm.dexopt.first-boot.concurrency]: [4]
+[pm.dexopt.inactive]: [verify]
+[pm.dexopt.install]: [speed-profile]
+[pm.dexopt.install-bulk]: [speed-profile]
+[pm.dexopt.install-bulk-downgraded]: [verify]
+[pm.dexopt.install-bulk-secondary]: [verify]
+[pm.dexopt.install-bulk-secondary-downgraded]: [verify]
+[pm.dexopt.install-fast]: [skip]
+[pm.dexopt.post-boot]: [verify]
+[pm.dexopt.shared]: [speed]
+[qcom.hw.aac.encoder]: [true]
+[remote_provisioning.enable_rkpd]: [true]
+[restore.feature.use_samsung_smart_switch_flow]: [1]
+[ril.5g_rf]: [1]
+[ril.BootCompletedIntent]: [OK]
+[ril.ICC_TYPE0]: [0]
+[ril.ICC_TYPE1]: [2]
+[ril.RildInit]: [1,1]
+[ril.app.pco]: [-1;0]
+[ril.approved_codever]: [none]
+[ril.approved_cscver]: [none]
+[ril.approved_modemver]: [none]
+[ril.atdStarted]: [ON]
+[ril.attach.apn1]: [IMS]
+[ril.backoffstate]: [17448370176]
+[ril.bip_dns_in_progress]: [1,1]
+[ril.carrierRoamingNtnMode]: [false,false]
+[ril.carrier_changed.state]: [ABSENT,CARRIER_LOADED]
+[ril.cidManager.initiated]: [0]
+[ril.cold_sim]: [,0]
+[ril.cpreset]: [0]
+[ril.currentplmn]: [unknown,unknown]
+[ril.data.intfprefix]: [rmnet_data]
+[ril.data_connection]: [,1]
+[ril.dds.call.ongoing0]: [0]
+[ril.dds.call.ongoing1]: [0]
+[ril.dds.data.slotid]: [1]
+[ril.dds.datacross.slotid]: [-1]
+[ril.debug.cdmasupporttype]: [0;2,0;2]
+[ril.def_ipv6_on_ehrpd]: [0]
+[ril.device_provisioned]: [1]
+[ril.enabled_5g_rf]: [1]
+[ril.enabled_5g_rf_per_subs]: [1,1]
+[ril.epdg.currenMno]: [,VZW_US:CCT]
+[ril.eri_num]: [1]
+[ril.eri_ver_1]: [E:]
+[ril.esim.mep_mode]: [,1]
+[ril.esim.queried]: [11]
+[ril.ff03.supported]: [1,1]
+[ril.halservice.registered.slot1]: [true]
+[ril.halservice.registered.slot2]: [true]
+[ril.hasSimAbsent]: [1]
+[ril.hasisim]: [0,1]
+[ril.hw_ver]: [REV1.0]
+[ril.ims.ltevoicesupport]: [0,1]
+[ril.initPB]: [0]
+[ril.initPB2]: [1]
+[ril.isIccChanged]: [,0]
+[ril.is_advanced_band_indi0]: [0]
+[ril.is_advanced_band_indi1]: [0]
+[ril.isimAuth.status]: [,OK]
+[ril.lte.voice.status]: [0]
+[ril.ltenetworktype]: [,FDD]
+[ril.manufacturedate]: [20250225]
+[ril.matchedcsc2]: [CCT]
+[ril.max_interface0]: [7]
+[ril.max_interface1]: [7]
+[ril.model_id]: [31421389]
+[ril.modem.board]: [SM6475]
+[ril.multisim.standby_active]: [1;1]
+[ril.official_cscver]: [A366UOYN3AYI1]
+[ril.phone.connected.slot1]: [true]
+[ril.phone.connected.slot2]: [false]
+[ril.pin_mode1]: [0]
+[ril.pnd_rps_iface]: [rmnet_ipa0]
+[ril.pnd_rps_mask]: [2]
+[ril.preconfigSync]: [1]
+[ril.product_code]: [SM-A366UZKACCT]
+[ril.profileClass]: [-1,2]
+[ril.qc.codename]: [parrot]
+[ril.radiostate]: [10]
+[ril.rejectForDiagnostics]: [0,0]
+[ril.reject_enabled]: [1]
+[ril.rejectedPlmn]: [,]
+[ril.removableEsim1]: [0]
+[ril.removableEsim2]: [0]
+[ril.rfcal_date]: [2025.02.25]
+[ril.rildreset_state]: [0]
+[ril.sar_control]: [0]
+[ril.sar_device_id]: [0]
+[ril.set_pnd_rps]: [true]
+[ril.set_vnd_rps]: [true]
+[ril.signal.param]: [255;255;255,255;255;18]
+[ril.sim.acc]: [,32]
+[ril.sim.ef_rat_mode2]: []
+[ril.sim.lastSubCmdId]: [25]
+[ril.sim.mobility]: [false,false]
+[ril.sim.opl0]: [-1]
+[ril.sim.opl1]: [1]
+[ril.sim.opl5g0]: [-1]
+[ril.sim.opl5g1]: [1]
+[ril.simillegal]: []
+[ril.simillegal2]: []
+[ril.simoperator]: [,ETC]
+[ril.simslottype1]: [0]
+[ril.simslottype2]: [1]
+[ril.skt.network_regist]: [Status0;Idle0;CS0;PS0,Status0;Idle0;CS0;PS0]
+[ril.sms_preference]: [2/0,2/0]
+[ril.subscription.types]: [NV,RUIM]
+[ril.support.cpIconSolution]: [1,1]
+[ril.support.dynamic_imei]: [true]
+[ril.support.incrementalscan]: [1]
+[ril.support.newEpdgQmi]: [1,1]
+[ril.supportSA]: [1]
+[ril.sw_ver]: [A366USQS3AYI1]
+[ril.twwan911Timer]: [10]
+[ril.vnd_rps_mask]: [7d]
+[ril.volte.911call]: [0,0]
+[rild.libpath]: [/vendor/lib64/libril-qc-hal-qmi.so]
+[ro.actionable_compatible_property.enabled]: [true]
+[ro.adb.secure]: [1]
+[ro.af.fcmultiplier]: [2]
+[ro.allow.mock.location]: [0]
+[ro.apex.updatable]: [true]
+[ro.baseband]: [msm]
+[ro.binary.type]: [user]
+[ro.bluetooth.finder.supported]: [false]
+[ro.bluetooth.library_name]: [libbluetooth_qti.so]
+[ro.board.api_frozen]: [true]
+[ro.board.api_level]: [202404]
+[ro.board.first_api_level]: [202404]
+[ro.board.platform]: [parrot]
+[ro.boot.appcb]: [255]
+[ro.boot.avb_version]: [1.3]
+[ro.boot.baseband]: [msm]
+[ro.boot.boot_devices]: [soc/1d84000.ufshc]
+[ro.boot.boot_recovery]: [0]
+[ro.boot.bootdevice]: [1d84000.ufshc]
+[ro.boot.bootloader]: [A366USQS3AYI1]
+[ro.boot.carrierid]: [CCT]
+[ro.boot.carrierid.param.offset]: [9437644]
+[ro.boot.cm.param.offset]: [9437632]
+[ro.boot.cp_debug_level]: [0x55FF]
+[ro.boot.ddr_start_type]: [1]
+[ro.boot.debug_level]: [0x4f4c]
+[ro.boot.dtb_idx]: [1]
+[ro.boot.dtbo_idx]: [8]
+[ro.boot.dynamic_partitions]: [true]
+[ro.boot.em.cid]: [24122200]
+[ro.boot.em.model]: [SM-A366U]
+[ro.boot.em.rdx_dump]: [false]
+[ro.boot.em.status]: [0x0]
+[ro.boot.fastbootd]: [false]
+[ro.boot.flash.locked]: [1]
+[ro.boot.force_normal_boot]: [1]
+[ro.boot.fstab_suffix]: [default]
+[ro.boot.hardware]: [qcom]
+[ro.boot.hdm_status]: [NONE]
+[ro.boot.im.param.offset]: [9437232]
+[ro.boot.keymaster]: [1]
+[ro.boot.kg]: [0x4]
+[ro.boot.kg.bit]: [0]
+[ro.boot.load_modules_parallel]: [false]
+[ro.boot.me.param.offset]: [9437312]
+[ro.boot.memcg]: [1]
+[ro.boot.other.locked]: [1]
+[ro.boot.pr.param.offset]: [9437472]
+[ro.boot.prodcode.param.offset]: [9445416]
+[ro.boot.product.vendor.sku]: [parrot]
+[ro.boot.prototype.param.offset]: [9437660]
+[ro.boot.reserve_mem_region]: [0x0]
+[ro.boot.revision]: [10]
+[ro.boot.rp]: [3]
+[ro.boot.sales.param.offset]: [9437648]
+[ro.boot.sales_code]: [CCT]
+[ro.boot.sb.debug0]: [0x0,0,0,0]
+[ro.boot.sec_atd.tty]: [/dev/ttyHS5]
+[ro.boot.serialconsole]: [0]
+[ro.boot.sku.param.offset]: [9437552]
+[ro.boot.slavepcb]: [7]
+[ro.boot.slot_suffix]: [_b]
+[ro.boot.sn.param.offset]: [9437392]
+[ro.boot.subpcb]: [0]
+[ro.boot.svb.ver]: [SVB1.0]
+[ro.boot.ucs_mode]: [0]
+[ro.boot.ulcnt]: [0]
+[ro.boot.upload_offset]: [9438196]
+[ro.boot.usbcontroller]: [a600000.dwc3]
+[ro.boot.vbmeta.avb_version]: [1.2]
+[ro.boot.vbmeta.device]: [PARTUUID=4b7a15d6-322c-42ac-8110-88b7da0c5d77]
+[ro.boot.vbmeta.device_state]: [locked]
+[ro.boot.vbmeta.digest]: [ee85c9e25a820cd6ca70e6938a82bd29fa3b477333e8411d2100d9bb0dccbe6d]
+[ro.boot.vbmeta.hash_alg]: [sha256]
+[ro.boot.vbmeta.size]: [14656]
+[ro.boot.vendor.qspa]: [true]
+[ro.boot.vendor.qspa.audio]: [enabled]
+[ro.boot.vendor.qspa.camera]: [enabled]
+[ro.boot.vendor.qspa.comp]: [enabled]
+[ro.boot.vendor.qspa.comp1]: [enabled]
+[ro.boot.vendor.qspa.display]: [enabled]
+[ro.boot.vendor.qspa.display1]: [enabled]
+[ro.boot.vendor.qspa.eva]: [enabled]
+[ro.boot.vendor.qspa.gpu]: [enabled]
+[ro.boot.vendor.qspa.modem]: [enabled]
+[ro.boot.vendor.qspa.nav]: [enabled]
+[ro.boot.vendor.qspa.npu]: [enabled]
+[ro.boot.vendor.qspa.nsp]: [enabled]
+[ro.boot.vendor.qspa.sensors]: [enabled]
+[ro.boot.vendor.qspa.spss]: [enabled]
+[ro.boot.vendor.qspa.video]: [enabled]
+[ro.boot.vendor.qspa.wlan]: [enabled]
+[ro.boot.verifiedbootstate]: [green]
+[ro.boot.veritymode]: [enforcing]
+[ro.boot.veritymode.managed]: [yes]
+[ro.boot.vib_le.param.offset]: [9445520]
+[ro.boot.warranty_bit]: [0]
+[ro.boot.wc.param.offset]: [9437228]
+[ro.boot.windowcolor.param.offset]: [9445496]
+[ro.bootimage.build.date]: [Wed Aug 27 12:32:06 KST 2025]
+[ro.bootimage.build.date.utc]: [1756265526]
+[ro.bootimage.build.fingerprint]: [samsung/a36xqsq/a36xq:15/AP3A.240905.015.A2/A366USQS3AYI1:user/release-keys]
+[ro.bootimage.build.id]: [AP3A.240905.015.A2]
+[ro.bootimage.build.tags]: [release-keys]
+[ro.bootimage.build.type]: [user]
+[ro.bootimage.build.version.incremental]: [A366USQS3AYI1]
+[ro.bootimage.build.version.release]: [15]
+[ro.bootimage.build.version.release_or_codename]: [15]
+[ro.bootimage.build.version.sdk]: [35]
+[ro.bootloader]: [A366USQS3AYI1]
+[ro.bootmode]: [unknown]
+[ro.build.2ndbrand]: [false]
+[ro.build.PDA]: [A366USQS3AYI1]
+[ro.build.ab_update]: [true]
+[ro.build.changelist]: [30526601]
+[ro.build.characteristics]: [phone]
+[ro.build.date]: [Wed Aug 27 12:22:17 KST 2025]
+[ro.build.date.utc]: [1756264937]
+[ro.build.description]: [a36xqsq-user 15 AP3A.240905.015.A2 A366USQS3AYI1 release-keys]
+[ro.build.display.id]: [AP3A.240905.015.A2.A366USQS3AYI1]
+[ro.build.fingerprint]: [samsung/a36xqsq/a36xq:15/AP3A.240905.015.A2/A366USQS3AYI1_OYN3AYI1:user/release-keys]
+[ro.build.flavor]: [a36xqsq-user]
+[ro.build.host]: [SWDM8414]
+[ro.build.id]: [AP3A.240905.015.A2]
+[ro.build.official.developer]: [false]
+[ro.build.official.release]: [true]
+[ro.build.product]: [qssi_64]
+[ro.build.selinux]: [1]
+[ro.build.selinux.enforce]: [1]
+[ro.build.tags]: [release-keys]
+[ro.build.type]: [user]
+[ro.build.user]: [dpi]
+[ro.build.version.all_codenames]: [REL]
+[ro.build.version.base_os]: [samsung/a36xqsq/a36xq:15/AP3A.240905.015.A2/A366USQU2AYD8_OYN2AYD8:user/release-keys]
+[ro.build.version.codename]: [REL]
+[ro.build.version.incremental]: [A366USQS3AYI1]
+[ro.build.version.known_codenames]: [Base,Base11,Cupcake,Donut,Eclair,Eclair01,EclairMr1,Froyo,Gingerbread,GingerbreadMr1,Honeycomb,HoneycombMr1,HoneycombMr2,IceCreamSandwich,IceCreamSandwichMr1,JellyBean,JellyBeanMr1,JellyBeanMr2,Kitkat,KitkatWatch,Lollipop,LollipopMr1,M,N,NMr1,O,OMr1,P,Q,R,S,Sv2,Tiramisu,UpsideDownCake,VanillaIceCream]
+[ro.build.version.min_supported_target_sdk]: [28]
+[ro.build.version.oneui]: [70000]
+[ro.build.version.preview_sdk]: [0]
+[ro.build.version.preview_sdk_fingerprint]: [REL]
+[ro.build.version.release]: [15]
+[ro.build.version.release_or_codename]: [15]
+[ro.build.version.release_or_preview_display]: [15]
+[ro.build.version.sdk]: [35]
+[ro.build.version.security_index]: [1]
+[ro.build.version.security_patch]: [2025-08-01]
+[ro.build.version.sem]: [3501]
+[ro.build.version.sep]: [160000]
+[ro.camera.disableJpegR]: [true]
+[ro.camera.enableCamera1MaxZsl]: [1]
+[ro.camera.notify_nfc]: [1]
+[ro.carrier]: [unknown]
+[ro.channel.officehubrow]: [SAMSUNG_PRELOAD]
+[ro.com.google.cdb.spa1]: [bsxasm1]
+[ro.com.google.clientidbase]: [android-samsung-ss]
+[ro.com.google.clientidbase.cr]: [android-comcast-us-rvc3]
+[ro.com.google.clientidbase.ms]: [android-comcast-us-rvc3]
+[ro.com.google.clientidbase.pg]: [android-comcast-inca]
+[ro.com.google.clientidbase.pg2]: [android-samsung-sros-21-43]
+[ro.com.google.clientidbase.tx]: [android-samsung-rvod1]
+[ro.com.google.clientidbase.vs]: [android-comcast-us-rvc3]
+[ro.com.google.gmsversion]: [15_202501]
+[ro.config.alarm_alert]: [Morning_Xylophone.ogg]
+[ro.config.dmverity]: [F]
+[ro.config.iccc_version]: [3.0]
+[ro.config.media_sound]: [Media_preview_Touch_the_light.ogg]
+[ro.config.notification_sound]: [Brightline.ogg]
+[ro.config.notification_sound_2]: [Three_Star.ogg]
+[ro.config.ringtone]: [Galaxy_Bells.ogg]
+[ro.config.ringtone_2]: [Atomic_Bell.ogg]
+[ro.config.rm_preload_enabled]: [1]
+[ro.config.vc_call_vol_steps]: [8]
+[ro.control_privapp_permissions]: [enforce]
+[ro.crypto.metadata.enabled]: [true]
+[ro.crypto.metadata.encrypted]: [1]
+[ro.crypto.state]: [encrypted]
+[ro.crypto.type]: [file]
+[ro.csc.country_code]: [USA]
+[ro.csc.countryiso_code]: [US]
+[ro.csc.facebook.partnerid]: [samsung:dec1cc9c-1497-4aab-b953-cee702c2a481]
+[ro.csc.sales_code]: [CCT]
+[ro.csc.spotify.music.partnerid]: [samsung-mobile-preload]
+[ro.csc.spotify.music.referrerid]: [samsung-mobile-preload]
+[ro.dalvik.vm.enable_uffd_gc]: [true]
+[ro.dalvik.vm.native.bridge]: [0]
+[ro.em.version]: [40]
+[ro.force.debuggable]: [0]
+[ro.frp.pst]: [/dev/block/bootdevice/by-name/frp]
+[ro.fuse.bpf.is_running]: [true]
+[ro.gms.dck.eligible_wcc]: [2]
+[ro.hardware]: [qcom]
+[ro.hardware.egl]: [adreno]
+[ro.hardware.gatekeeper]: [mdfpp]
+[ro.hardware.keystore]: [mdfpp]
+[ro.hardware.keystore_desede]: [true]
+[ro.hardware.vulkan]: [adreno]
+[ro.hwui.drop_shadow_cache_size]: [6]
+[ro.hwui.gradient_cache_size]: [1]
+[ro.hwui.layer_cache_size]: [48]
+[ro.hwui.path_cache_size]: [32]
+[ro.hwui.r_buffer_cache_size]: [8]
+[ro.hwui.text_large_cache_height]: [1024]
+[ro.hwui.text_large_cache_width]: [2048]
+[ro.hwui.text_small_cache_height]: [1024]
+[ro.hwui.text_small_cache_width]: [1024]
+[ro.hwui.texture_cache_flushrate]: [0.4]
+[ro.hwui.texture_cache_size]: [72]
+[ro.hwui.use_vulkan]: [true]
+[ro.kernel.qemu]: [0]
+[ro.kernel.qemu.gles]: [0]
+[ro.kernel.version]: [6.6]
+[ro.launcher.blur.appLaunch]: [0]
+[ro.linkedin.channel]: [samsung_preload]
+[ro.llndk.api_level]: [202404]
+[ro.logd.auditd]: [false]
+[ro.logd.size.stats]: [64K]
+[ro.media.recorder-max-base-layer-fps]: [60]
+[ro.media.xml_variant.codecs]: [_parrot_v0]
+[ro.media.xml_variant.codecs_performance]: [_parrot_v0]
+[ro.multisim.simslotcount]: [2]
+[ro.netflix.bsp_rev]: [Q6450-36256-1]
+[ro.nfc.port]: [I2C]
+[ro.odm.build.date]: [Wed Aug 27 12:32:06 KST 2025]
+[ro.odm.build.date.utc]: [1756265526]
+[ro.odm.build.fingerprint]: [samsung/a36xqsq/a36xq:15/AP3A.240905.015.A2/A366USQS3AYI1:user/release-keys]
+[ro.odm.build.version.incremental]: [A366USQS3AYI1]
+[ro.oem.key1]: [CCT]
+[ro.omc.build.id]: [100441188]
+[ro.omc.build.version]: [A366UOYN3AYI1]
+[ro.omc.changetype]: [DATA_RESET_OFF,TRUE]
+[ro.omc.data_reset]: [FALSE]
+[ro.omc.disabler]: [FALSE]
+[ro.omc.multi_csc]: [OYN]
+[ro.omc.region]: [US]
+[ro.opa.eligible_device]: [true]
+[ro.opengles.version]: [196610]
+[ro.postinstall.fstab.prefix]: [/system]
+[ro.product.ab_ota_partitions]: [product,pvmfw,system,system_ext,vbmeta_system]
+[ro.product.board]: [parrot]
+[ro.product.bootimage.brand]: [samsung]
+[ro.product.bootimage.device]: [a36xq]
+[ro.product.bootimage.manufacturer]: [samsung]
+[ro.product.bootimage.model]: [SM-A366U]
+[ro.product.bootimage.name]: [a36xqsq]
+[ro.product.brand]: [samsung]
+[ro.product.build.date]: [Wed Aug 27 12:22:17 KST 2025]
+[ro.product.build.date.utc]: [1756264937]
+[ro.product.build.fingerprint]: [samsung/a36xqsq/qssi_64:15/AP3A.240905.015.A2/A366USQS3AYI1:user/release-keys]
+[ro.product.build.id]: [AP3A.240905.015.A2]
+[ro.product.build.no_bionic_page_size_macro]: [true]
+[ro.product.build.tags]: [release-keys]
+[ro.product.build.type]: [user]
+[ro.product.build.version.incremental]: [A366USQS3AYI1]
+[ro.product.build.version.release]: [15]
+[ro.product.build.version.release_or_codename]: [15]
+[ro.product.build.version.sdk]: [35]
+[ro.product.cpu.abi]: [arm64-v8a]
+[ro.product.cpu.abilist]: [arm64-v8a]
+[ro.product.cpu.abilist32]: []
+[ro.product.cpu.abilist64]: [arm64-v8a]
+[ro.product.cpu.pagesize.max]: [16384]
+[ro.product.device]: [a36xq]
+[ro.product.first_api_level]: [35]
+[ro.product.locale]: [en-US]
+[ro.product.manufacturer]: [samsung]
+[ro.product.model]: [SM-A366U]
+[ro.product.name]: [a36xqsq]
+[ro.product.odm.brand]: [samsung]
+[ro.product.odm.device]: [a36xq]
+[ro.product.odm.manufacturer]: [samsung]
+[ro.product.odm.model]: [SM-A366U]
+[ro.product.odm.name]: [a36xqsq]
+[ro.product.product.brand]: [samsung]
+[ro.product.product.device]: [qssi_64]
+[ro.product.product.manufacturer]: [samsung]
+[ro.product.product.model]: [SM-A366U]
+[ro.product.product.name]: [a36xqsq]
+[ro.product.system.brand]: [samsung]
+[ro.product.system.device]: [qssi_64]
+[ro.product.system.manufacturer]: [samsung]
+[ro.product.system.model]: [SM-A366U]
+[ro.product.system.name]: [a36xqsq]
+[ro.product.system_dlkm.brand]: [samsung]
+[ro.product.system_dlkm.device]: [a36xq]
+[ro.product.system_dlkm.manufacturer]: [samsung]
+[ro.product.system_dlkm.model]: [SM-A366U]
+[ro.product.system_dlkm.name]: [a36xqsq]
+[ro.product.system_ext.brand]: [samsung]
+[ro.product.system_ext.device]: [qssi_64]
+[ro.product.system_ext.manufacturer]: [samsung]
+[ro.product.system_ext.model]: [SM-A366U]
+[ro.product.system_ext.name]: [a36xqsq]
+[ro.product.vendor.brand]: [samsung]
+[ro.product.vendor.device]: [a36xq]
+[ro.product.vendor.manufacturer]: [samsung]
+[ro.product.vendor.model]: [SM-A366U]
+[ro.product.vendor.name]: [a36xqsq]
+[ro.product.vendor_dlkm.brand]: [samsung]
+[ro.product.vendor_dlkm.device]: [a36xq]
+[ro.product.vendor_dlkm.manufacturer]: [samsung]
+[ro.product.vendor_dlkm.model]: [SM-A366U]
+[ro.product.vendor_dlkm.name]: [a36xqsq]
+[ro.product_ship]: [true]
+[ro.property_service.version]: [2]
+[ro.radio.noril]: [no]
+[ro.revision]: [10]
+[ro.ril.def_network_after_check_tdscdma]: [26]
+[ro.ril.support_cdma]: [false]
+[ro.ril.svdo]: [false]
+[ro.ril.svlte1x]: [false]
+[ro.security.bapcheck]: [0]
+[ro.security.bio.release]: [1]
+[ro.security.bio.ver]: [1.1]
+[ro.security.bt.release]: [1]
+[ro.security.bt.ver]: [1.0]
+[ro.security.cass.feature]: [1]
+[ro.security.ese.cosname]: [JCOP6.5U_00584B48]
+[ro.security.ese.cosname.default]: [JCOP6.5U]
+[ro.security.ese.support_nfc]: [1]
+[ro.security.esest]: [per0201exi]
+[ro.security.fips.ux]: [Disabled]
+[ro.security.keystore.keytype]: [sakv2,gak,rkp]
+[ro.security.mdf.release]: [1]
+[ro.security.mdf.ux]: [Enabled]
+[ro.security.mdf.ver]: [3.3]
+[ro.security.vpnpp.release]: [2.0]
+[ro.security.vpnpp.ver]: [2.4]
+[ro.security.wlan.release]: [2]
+[ro.security.wlan.ver]: [1.0]
+[ro.setupwizard.mode]: [OPTIONAL]
+[ro.setupwizard.rotation_locked]: [false]
+[ro.setupwizard.wifi_on_exit]: [false]
+[ro.sf.lcd_density]: [450]
+[ro.simbased.changetype]: [NO_DFLT_CSC,OMC]
+[ro.slmk.2nd.dha_cached_max]: [24]
+[ro.slmk.add_bonusEFK]: [2]
+[ro.slmk.beks_enable]: [true]
+[ro.slmk.beks_key]: [224]
+[ro.slmk.cam_dha_ver]: [19]
+[ro.slmk.chimera.quickreclaim_enable]: [true]
+[ro.slmk.chimera_strategy_6gb]: [1200,15,9,2034]
+[ro.slmk.dha_2ndprop_thMB]: [6144]
+[ro.slmk.dha_cached_min]: [3]
+[ro.slmk.freelimit_val]: [13]
+[ro.slmk.plg_key]: [91140]
+[ro.slmk.swap_free_low_percentage]: [20]
+[ro.slmk.trim_sec_policy]: [true]
+[ro.slmk.v_bonusEFK]: [30720]
+[ro.soc.manufacturer]: [QTI]
+[ro.soc.model]: [SM6475]
+[ro.sts.property]: [FALSE]
+[ro.surface_flinger.enable_frame_rate_override]: [true]
+[ro.surface_flinger.force_hwc_copy_for_virtual_displays]: [true]
+[ro.surface_flinger.game_default_frame_rate_override]: [60]
+[ro.surface_flinger.has_HDR_display]: [true]
+[ro.surface_flinger.has_wide_color_display]: [true]
+[ro.surface_flinger.max_frame_buffer_acquired_buffers]: [3]
+[ro.surface_flinger.max_virtual_display_dimension]: [4096]
+[ro.surface_flinger.protected_contents]: [true]
+[ro.surface_flinger.set_idle_timer_ms]: [600]
+[ro.surface_flinger.set_touch_timer_ms]: [300]
+[ro.surface_flinger.supports_background_blur]: [0]
+[ro.surface_flinger.use_color_management]: [true]
+[ro.surface_flinger.use_content_detection_for_refresh_rate]: [true]
+[ro.surface_flinger.wcg_composition_dataspace]: [143261696]
+[ro.system.build.date]: [Wed Aug 27 12:22:17 KST 2025]
+[ro.system.build.date.utc]: [1756264937]
+[ro.system.build.fingerprint]: [samsung/a36xqsq/qssi_64:15/AP3A.240905.015.A2/A366USQS3AYI1:user/release-keys]
+[ro.system.build.id]: [AP3A.240905.015.A2]
+[ro.system.build.tags]: [release-keys]
+[ro.system.build.type]: [user]
+[ro.system.build.version.incremental]: [A366USQS3AYI1]
+[ro.system.build.version.release]: [15]
+[ro.system.build.version.release_or_codename]: [15]
+[ro.system.build.version.sdk]: [35]
+[ro.system.build.version.sehi]: [3501]
+[ro.system.product.cpu.abilist]: [arm64-v8a]
+[ro.system.product.cpu.abilist32]: []
+[ro.system.product.cpu.abilist64]: [arm64-v8a]
+[ro.system_dlkm.build.date]: [Wed Aug 27 12:32:06 KST 2025]
+[ro.system_dlkm.build.date.utc]: [1756265526]
+[ro.system_dlkm.build.fingerprint]: [samsung/a36xqsq/a36xq:15/AP3A.240905.015.A2/A366USQS3AYI1:user/release-keys]
+[ro.system_dlkm.build.id]: [AP3A.240905.015.A2]
+[ro.system_dlkm.build.tags]: [release-keys]
+[ro.system_dlkm.build.type]: [user]
+[ro.system_dlkm.build.version.incremental]: [A366USQS3AYI1]
+[ro.system_dlkm.build.version.release]: [15]
+[ro.system_dlkm.build.version.release_or_codename]: [15]
+[ro.system_dlkm.build.version.sdk]: [35]
+[ro.system_ext.build.date]: [Wed Aug 27 12:22:17 KST 2025]
+[ro.system_ext.build.date.utc]: [1756264937]
+[ro.system_ext.build.fingerprint]: [samsung/a36xqsq/qssi_64:15/AP3A.240905.015.A2/A366USQS3AYI1:user/release-keys]
+[ro.system_ext.build.id]: [AP3A.240905.015.A2]
+[ro.system_ext.build.tags]: [release-keys]
+[ro.system_ext.build.type]: [user]
+[ro.system_ext.build.version.incremental]: [A366USQS3AYI1]
+[ro.system_ext.build.version.release]: [15]
+[ro.system_ext.build.version.release_or_codename]: [15]
+[ro.system_ext.build.version.sdk]: [35]
+[ro.telephony.call_ring.multiple]: [false]
+[ro.telephony.default_cdma_sub]: [0]
+[ro.telephony.default_network]: [26]
+[ro.treble.enabled]: [true]
+[ro.vendor.api_level]: [202404]
+[ro.vendor.beluga.c]: [0x4800]
+[ro.vendor.beluga.p]: [0x3]
+[ro.vendor.beluga.s]: [0x900]
+[ro.vendor.beluga.t]: [0x240]
+[ro.vendor.build.date]: [Wed Aug 27 12:32:06 KST 2025]
+[ro.vendor.build.date.utc]: [1756265526]
+[ro.vendor.build.fingerprint]: [samsung/a36xqsq/a36xq:15/AP3A.240905.015.A2/A366USQS3AYI1:user/release-keys]
+[ro.vendor.build.id]: [AP3A.240905.015.A2]
+[ro.vendor.build.security_patch]: [2025-08-01]
+[ro.vendor.build.tags]: [release-keys]
+[ro.vendor.build.type]: [user]
+[ro.vendor.build.version.incremental]: [A366USQS3AYI1]
+[ro.vendor.build.version.release]: [15]
+[ro.vendor.build.version.release_or_codename]: [15]
+[ro.vendor.build.version.sdk]: [35]
+[ro.vendor.display.panelbased.config]: [1]
+[ro.vendor.display.paneltype]: [2]
+[ro.vendor.display.sensortype]: [2]
+[ro.vendor.display.svi]: [1]
+[ro.vendor.hdm.btonly.subsystem]: [100]
+[ro.vendor.hdm.btonly.unblock.subsystem]: [100]
+[ro.vendor.hdm.hdm_supported_subsystem]: [195]
+[ro.vendor.hdm.pad_supported_subsystem]: [081]
+[ro.vendor.hdm.supported.swblock]: [0x100]
+[ro.vendor.multisim.simslotcount]: [2]
+[ro.vendor.perf.scroll_opt]: [1]
+[ro.vendor.product.cpu.abilist]: [arm64-v8a]
+[ro.vendor.product.cpu.abilist32]: []
+[ro.vendor.product.cpu.abilist64]: [arm64-v8a]
+[ro.vendor.qti.va_aosp.support]: [1]
+[ro.vendor.qti.va_odm.support]: [1]
+[ro.vendor.radio.default_network]: [26]
+[ro.vendor.radio.default_network_by]: [telephony.prop_26]
+[ro.vendor.redirect_socket_calls]: [true]
+[ro.vendor.ril.mbn_copy_completed]: [1]
+[ro.vendor_dlkm.build.date]: [Wed Aug 27 12:32:06 KST 2025]
+[ro.vendor_dlkm.build.date.utc]: [1756265526]
+[ro.vendor_dlkm.build.fingerprint]: [samsung/a36xqsq/a36xq:15/AP3A.240905.015.A2/A366USQS3AYI1:user/release-keys]
+[ro.vendor_dlkm.build.id]: [AP3A.240905.015.A2]
+[ro.vendor_dlkm.build.tags]: [release-keys]
+[ro.vendor_dlkm.build.type]: [user]
+[ro.vendor_dlkm.build.version.incremental]: [A366USQS3AYI1]
+[ro.vendor_dlkm.build.version.release]: [15]
+[ro.vendor_dlkm.build.version.release_or_codename]: [15]
+[ro.vendor_dlkm.build.version.sdk]: [35]
+[ro.wifi.channels]: []
+[ro.zygote]: [zygote64]
+[secmm.codecsolution.ready]: [1]
+[secmm.hdrsolution.ready]: [1]
+[security.ADP.policy_version]: [20230510]
+[security.ADP.version]: [3.1]
+[security.ASKS.delta_policy_version]: [20250623]
+[security.ASKS.expiration_date]: [20250829]
+[security.ASKS.policy_version]: [20251214]
+[security.ASKS.rufs_enable]: [true]
+[security.ASKS.safeinstall.enable]: [false]
+[security.ASKS.safeinstall.remote.control.enable]: [false]
+[security.ASKS.smsfilter_enable]: [false]
+[security.ASKS.smsfilter_target]: [false]
+[security.ASKS.time_value]: [20260106]
+[security.ASKS.version]: [9.2 ]
+[security.esesqn]: [5666]
+[security.fbe.fail_cause]: [K00R]
+[security.fbe.genSecret]: [false]
+[security.fbe.global_de]: [loaded]
+[security.mdf]: [Ready]
+[security.mdf.result]: [None]
+[security.perf_harden]: [1]
+[security.securehw.available]: [true]
+[security.securenvm.available]: [false]
+[security.sem.esecosdaemonstate]: [102]
+[security.semdaemonfinish]: [1]
+[security.ucm_version]: [1.11]
+[selinux.policy_version]: [SEPF_SM-A366U_15_0001]
+[selinux.restorecon_recursive]: [/data/misc_ce/150]
+[service.browser.homepage]: [http://www.google.com]
+[service.bt.security.policy.mode]: [2]
+[service.camera.running]: [0]
+[service.media.powersnd]: [1]
+[service.sf.present_timestamp]: [1]
+[servicemanager.ready]: [true]
+[setupwizard.feature.enable_quick_start_flow]: [true]
+[setupwizard.feature.enable_stencil_partner_customization]: [1]
+[setupwizard.feature.support_oem_large_screen_landscape_temporary_by_sys_prop]: [true]
+[setupwizard.phenotype_sync_timeout_ms]: [90000]
+[setupwizard.theme]: [glif_v3_light]
+[ssu.count]: [29]
+[ssu.error]: [0]
+[ssu.status]: [lock]
+[ssu.support]: [1]
+[storage.support.usb]: [1]
+[sys.aa_noti_inprog_slot_0]: []
+[sys.aa_noti_inprog_slot_1]: []
+[sys.aa_noti_slot_0]: []
+[sys.aa_noti_slot_1]: []
+[sys.aa_system_noti_slot_0]: []
+[sys.adaptivedisplaysolution.adson]: [true]
+[sys.boot.debug_history]: [0]
+[sys.boot.errp]: [1]
+[sys.boot_completed]: [1]
+[sys.bootstat.first_boot_completed]: [1]
+[sys.config.activelaunch_enable]: [true]
+[sys.config.hardcoder.enable]: [false]
+[sys.config.ibs.enable]: [false]
+[sys.config.mars.predl_filter.enabled]: [1]
+[sys.config.mars_version]: [9.00]
+[sys.daydream.connected]: [0]
+[sys.ddp.extdata_range]: [23691264+4980736]
+[sys.default.data.phoneid]: [1]
+[sys.dexopt.ctrl]: [true]
+[sys.dualapp.profile_id]: [95]
+[sys.eyecomfortsolution.ecson]: [false]
+[sys.fuse.transcode_enabled]: [true]
+[sys.hdm.double.protection.subsystem]: [145]
+[sys.hqm.support]: [true]
+[sys.ims.versionCode]: [250827120]
+[sys.is_members]: [exist]
+[sys.is_vold_shutdown]: [0]
+[sys.knox.app_icon_change]: [false]
+[sys.knox.app_name_change]: [false]
+[sys.locksecured]: [false]
+[sys.mdniecontrolservice.mscon]: [true]
+[sys.members.installed]: [true]
+[sys.mtdl.start]: [false]
+[sys.oem_unlock_allowed]: [0]
+[sys.pdp.action]: [cekeyunlock]
+[sys.pdp.bkup_size]: [0]
+[sys.perf.aal]: [true]
+[sys.perf.aid]: [true]
+[sys.perf.bc]: [true]
+[sys.perf.boostopt]: [true]
+[sys.perf.cg]: [true]
+[sys.perf.fbooster]: [true]
+[sys.perf.gvn]: [true]
+[sys.perf.heavy]: [false]
+[sys.perf.olaf]: [true]
+[sys.perf.olog]: [27/CUJ=J<LAUNCHER_APP_SWIPE_TO_RECENTS>/54/41/1/42/81/31]
+[sys.perf.schd]: [true]
+[sys.perf.status]: [false]
+[sys.perf.tbooster]: [true]
+[sys.perf.viboost]: [true]
+[sys.perf.zygote]: [true]
+[sys.qca1530]: [detect]
+[sys.rdxd.create]: [1]
+[sys.rdxd.erase_all]: [1]
+[sys.rdxd.stop_reason]: [not_allowed]
+[sys.rdxd.total_size]: [4]
+[sys.readahead.resource]: [0]
+[sys.recovery.deleteapn]: [done]
+[sys.recovery.resizing]: [done]
+[sys.rescue_boot_count]: [1]
+[sys.reset_reason]: []
+[sys.siop.level]: [1]
+[sys.smf.mnoname0]: [VZW_US|ABSENT]
+[sys.smf.mnoname1]: [VZW_US:CCT|LOADED]
+[sys.ssrm.trigger_sysmon]: [1]
+[sys.sysctl.boot_extra_free_kbytes]: [60335]
+[sys.sysctl.origin_extra_free_kbytes]: [60335]
+[sys.sysctl.watermark_boost_factor]: [0]
+[sys.system_server.pid]: [2292]
+[sys.system_server.start_count]: [1]
+[sys.system_server.start_elapsed]: [12569]
+[sys.system_server.start_uptime]: [12569]
+[sys.tcp_cubic.hystart]: [0]
+[sys.usb.adb.disabled]: [0]
+[sys.usb.certification]: [0]
+[sys.usb.config]: [rndis]
+[sys.usb.configfs]: [1]
+[sys.usb.configured]: [none]
+[sys.usb.controller]: [a600000.dwc3]
+[sys.usb.mtp.batchcancel]: [1]
+[sys.usb.mtp.device_type]: [3]
+[sys.usb.state]: [rndis]
+[sys.use_memfd]: [false]
+[sys.user.0.ce_available]: [true]
+[sys.vendor.shutdown.waittime]: [500]
+[sys.vzw_sim_state]: [1,0;5,10]
+[tunnel.audio.encode]: [true]
+[use.voice.path.for.pcm.voip]: [true]
+[vendor.bluetooth_fw_ver]: [BTFW.MOSELLE_C.1.2.0-00303-PATCHZ-1.96540.3 | msbtfw12.mbn]
+[vendor.bluetooth_nv_ver]: [BTFW.MOSELLE_C.1.2.0-00303-PATCHZ-1.96540.3 | msnv12.bin]
+[vendor.camera.ppp.erawstart]: [0]
+[vendor.camera.ppp.erawtid]: [0]
+[vendor.camera.ppp.nativestart]: [0]
+[vendor.camera.ppp.nativetid]: [0]
+[vendor.camera.unihal.enable]: [true]
+[vendor.display.allow_tonemap_native]: [1]
+[vendor.display.comp_mask]: [0]
+[vendor.display.disable_3d_adaptive_tm]: [1]
+[vendor.display.disable_excl_rect]: [0]
+[vendor.display.disable_excl_rect_partial_fb]: [1]
+[vendor.display.disable_get_screen_decorator_support]: [0]
+[vendor.display.disable_hw_recovery_dump]: [1]
+[vendor.display.disable_mitigated_fps]: [1]
+[vendor.display.disable_non_wfd_vds]: [1]
+[vendor.display.disable_offline_rotator]: [1]
+[vendor.display.disable_scaler]: [0]
+[vendor.display.disable_sdr_dimming]: [1]
+[vendor.display.disable_sdr_histogram]: [1]
+[vendor.display.disable_stc_dimming]: [1]
+[vendor.display.enable_allow_idle_fallback]: [1]
+[vendor.display.enable_async_powermode]: [0]
+[vendor.display.enable_async_vds_creation]: [1]
+[vendor.display.enable_display_extensions]: [1]
+[vendor.display.enable_dpps_dynamic_fps]: [1]
+[vendor.display.enable_early_wakeup]: [1]
+[vendor.display.enable_hdr10_gpu_target]: [1]
+[vendor.display.enable_optimize_refresh]: [0]
+[vendor.display.enable_perf_hint_large_comp_cycle]: [1]
+[vendor.display.enable_posted_start_dyn]: [2]
+[vendor.display.enable_qsync_idle]: [1]
+[vendor.display.enable_rc_support]: [1]
+[vendor.display.enable_rotator_ui]: [1]
+[vendor.display.enable_rounded_corner]: [1]
+[vendor.display.enable_spec_fence]: [1]
+[vendor.display.lcd_density]: [480]
+[vendor.display.secure_preview_buffer_format]: [420_sp]
+[vendor.display.supports_background_blur]: [0]
+[vendor.display.svi.config]: [1]
+[vendor.display.target.version]: [2]
+[vendor.display.thermal.version]: [1]
+[vendor.display.use_smooth_motion]: [1]
+[vendor.display.vds_allow_hwc]: [1]
+[vendor.gralloc.disable_ubwc]: [0]
+[vendor.gralloc.enable_logs]: [0]
+[vendor.gralloc.enable_snapalloc]: [1]
+[vendor.gralloc.hw_supports_ubwcp]: [0]
+[vendor.gralloc.secure_preview_buffer_format]: [420_sp]
+[vendor.gralloc.use_dma_buf_heaps]: [1]
+[vendor.hdm.swblock.status]: [0x0]
+[vendor.perf.framepacing.enable]: [1]
+[vendor.wifi.dualconcurrent.interface]: [swlan0]
+[vold.has_adoptable]: [1]
+[vold.has_compress]: [1]
+[vold.has_quota]: [1]
+[vold.has_reserved]: [1]
+___other______________
+•System info
+$df -ah
+Filesystem        Size Used Avail Use% Mounted on
+/dev/block/dm-14  6.9G 6.9G     0 100% /
+tmpfs             2.2G 2.6M  2.2G   1% /dev
+devpts               0    0     0   0% /dev/pts
+none                 0    0     0   0% /dev/blkio
+none                 0    0     0   0% /dev/cpuctl
+none                 0    0     0   0% /dev/cpuset
+none                 0    0     0   0% /dev/memcg
+none                 0    0     0   0% /dev/freezer
+binder               0    0     0   0% /dev/binderfs
+adb                  0    0     0   0% /dev/usb-ffs/adb
+diag                 0    0     0   0% /dev/ffs-diag
+diag_mdm             0    0     0   0% /dev/ffs-diag-1
+diag_mdm2            0    0     0   0% /dev/ffs-diag-2
+mtp                  0    0     0   0% /dev/usb-ffs/mtp
+ptp                  0    0     0   0% /dev/usb-ffs/ptp
+proc                 0    0     0   0% /proc
+sysfs                0    0     0   0% /sys
+selinuxfs            0    0     0   0% /sys/fs/selinux
+none                 0    0     0   0% /sys/fs/cgroup
+tracefs              0    0     0   0% /sys/kernel/tracing
+none                 0    0     0   0% /sys/fs/fuse/connections
+bpf                  0    0     0   0% /sys/fs/bpf
+pstore               0    0     0   0% /sys/fs/pstore
+tmpfs             2.2G    0  2.2G   0% /mnt
+tmpfs                -    -     -    - /mnt/installer
+/dev/fuse            -    -     -    - /mnt/installer/0/emulated
+/dev/fuse            -    -     -    - /mnt/installer/95/emulated
+/dev/fuse            -    -     -    - /mnt/installer/150/emulated
+tmpfs                -    -     -    - /mnt/androidwritable
+/dev/fuse            -    -     -    - /mnt/androidwritable/0/emulated
+/dev/fuse            -    -     -    - /mnt/androidwritable/95/emulated
+/dev/fuse            -    -     -    - /mnt/androidwritable/150/emulated
+/dev/block/sda5      -    -     -    - /mnt/vendor/persist
+/dev/block/sda6      -    -     -    - /mnt/vendor/efs
+/dev/fuse            -    -     -    - /mnt/user/0/emulated
+/dev/block/dm-66     -    -     -    - /mnt/pass_through/0/emulated
+/dev/fuse            -    -     -    - /mnt/user/95/emulated
+/dev/block/dm-66     -    -     -    - /mnt/pass_through/95/emulated
+/dev/fuse            -    -     -    - /mnt/user/150/emulated
+/dev/block/dm-66     -    -     -    - /mnt/pass_through/150/emulated
+/dev/block/sda25     -    -     -    - /metadata
+/dev/block/dm-15  219M 219M     0 100% /system_ext
+/dev/block/dm-16  1.7G 1.7G     0 100% /product
+/dev/block/sda56     -    -     -    - /product/vm-system
+/dev/block/dm-17  1.1G 1.1G     0 100% /vendor
+/dev/block/sda50     -    -     -    - /vendor/firmware_mnt
+/dev/block/sda52     -    -     -    - /vendor/firmware-modem
+/dev/block/sda49     -    -     -    - /vendor/dsp
+/dev/block/dm-18   78M  78M     0 100% /vendor_dlkm
+/dev/block/dm-19     -    -     -    - /system_dlkm
+/dev/block/dm-20  1.9M 1.9M     0 100% /odm
+/dev/block/dm-21  387M 173M  206M  46% /prism
+/dev/block/dm-22   29M 956K   27M   4% /optics
+tmpfs             2.2G  24K  2.2G   1% /apex
+/dev/block/loop4  788K 756K   16K  98% /apex/com.android.tzdata@351400020
+/dev/block/loop12 336K 304K   28K  92% /apex/com.samsung.android.shell@342508271
+/dev/block/loop10 5.0M 5.0M     0 100% /apex/com.google.android.widevine@190241014
+/dev/block/loop12    -    -     -    - /apex/com.samsung.android.shell
+/dev/block/loop13 232K 168K   60K  74% /apex/com.android.devicelock@1
+/dev/block/loop4     -    -     -    - /apex/com.android.tzdata
+/dev/block/loop11 7.3M 7.3M     0 100% /apex/com.android.runtime@1
+/dev/block/loop10    -    -     -    - /apex/com.google.android.widevine
+/dev/block/loop3  328K 296K   28K  92% /apex/com.android.virt@2
+/dev/block/loop5  232K  24K  204K  11% /apex/com.samsung.android.vital@340000000
+/dev/block/loop11    -    -     -    - /apex/com.android.runtime
+/dev/block/loop3     -    -     -    - /apex/com.android.virt
+/dev/block/loop5     -    -     -    - /apex/com.samsung.android.vital
+/dev/block/loop13    -    -     -    - /apex/com.android.devicelock
+/dev/block/loop8  232K  24K  204K  11% /apex/com.samsung.android.camera.unihal@352408080
+/dev/block/loop9  1.1M 1.1M  8.0K 100% /apex/com.android.rkpd@352090000
+/dev/block/loop9     -    -     -    - /apex/com.android.rkpd
+/dev/block/loop8     -    -     -    - /apex/com.samsung.android.camera.unihal
+/dev/block/loop7  232K 112K  116K  50% /apex/com.android.apex.cts.shim@1
+/dev/block/dm-51  5.5M 5.5M     0 100% /apex/com.android.media@351311020
+/dev/block/loop14 748K 720K   16K  98% /apex/com.samsung.android.authfw.ta@342508270
+/dev/block/dm-51     -    -     -    - /apex/com.android.media
+/dev/block/loop14    -    -     -    - /apex/com.samsung.android.authfw.ta
+/dev/block/loop7     -    -     -    - /apex/com.android.apex.cts.shim
+/dev/block/dm-64  5.9M 5.8M     0 100% /apex/com.android.adbd@351010000
+/dev/block/loop19 2.3M 2.3M     0 100% /apex/com.samsung.android.spqr@432
+/dev/block/dm-64     -    -     -    - /apex/com.android.adbd
+/dev/block/loop19    -    -     -    - /apex/com.samsung.android.spqr
+/dev/block/loop20 232K  24K  204K  11% /apex/com.samsung.android.biometrics.fingerprint@311722300
+/dev/block/loop20    -    -     -    - /apex/com.samsung.android.biometrics.fingerprint
+/dev/block/loop15 232K 192K   36K  85% /apex/com.android.hardware.cas@1
+/dev/block/loop17 232K  56K  172K  25% /apex/com.samsung.android.lifeguard@332017701
+/dev/block/loop18  34M  34M     0 100% /apex/com.android.i18n@1
+/dev/block/loop15    -    -     -    - /apex/com.android.hardware.cas
+/dev/block/loop17    -    -     -    - /apex/com.samsung.android.lifeguard
+/dev/block/loop21 232K  24K  204K  11% /apex/com.samsung.android.biometrics.face@311722300
+/dev/block/loop18    -    -     -    - /apex/com.android.i18n
+/dev/block/loop21    -    -     -    - /apex/com.samsung.android.biometrics.face
+/dev/block/loop16 1.2M 1.2M  8.0K 100% /apex/com.google.mainline.primary.libs@351165000
+/dev/block/dm-63   25M  25M     0 100% /apex/com.android.mediaprovider@351416160
+/dev/block/dm-63     -    -     -    - /apex/com.android.mediaprovider
+/dev/block/dm-65   27M  27M     0 100% /apex/com.android.media.swcodec@351311120
+/dev/block/dm-65     -    -     -    - /apex/com.android.media.swcodec
+/dev/block/dm-39  628K 600K   16K  98% /apex/com.android.configinfrastructure@351010000
+/dev/block/dm-34   13M  13M     0 100% /apex/com.android.ondevicepersonalization@351421000
+/dev/block/dm-54  596K 568K   16K  98% /apex/com.android.profiling@352090000
+/dev/block/dm-39     -    -     -    - /apex/com.android.configinfrastructure
+/dev/block/dm-58  7.4M 7.4M     0 100% /apex/com.android.wifi@352090000
+/dev/block/dm-41  6.2M 6.1M     0 100% /apex/com.android.extservices@351423043
+/dev/block/dm-54     -    -     -    - /apex/com.android.profiling
+/dev/block/dm-34     -    -     -    - /apex/com.android.ondevicepersonalization
+/dev/block/dm-58     -    -     -    - /apex/com.android.wifi
+/dev/block/dm-41     -    -     -    - /apex/com.android.extservices
+/dev/block/dm-50  2.8M 2.8M     0 100% /apex/com.android.os.statsd@351416000
+/dev/block/dm-50     -    -     -    - /apex/com.android.os.statsd
+/dev/block/dm-29   17M  17M     0 100% /apex/com.android.tethering@351415080
+/dev/block/loop33  22M  22M     0 100% /apex/com.android.btservices@352090000
+/dev/block/dm-44   18M  18M     0 100% /apex/com.android.cellbroadcast@351410000
+/dev/block/dm-29     -    -     -    - /apex/com.android.tethering
+/dev/block/dm-44     -    -     -    - /apex/com.android.cellbroadcast
+/dev/block/dm-56  4.6M 4.6M     0 100% /apex/com.android.appsearch@351412000
+/dev/block/loop33    -    -     -    - /apex/com.android.btservices
+/dev/block/dm-33   25M  25M     0 100% /apex/com.android.permission@351410080
+/dev/block/dm-56     -    -     -    - /apex/com.android.appsearch
+/dev/block/dm-46   22M  22M     0 100% /apex/com.android.adservices@351420000
+/dev/block/dm-61  4.5M 4.5M     0 100% /apex/com.android.conscrypt@351412000
+/dev/block/dm-46     -    -     -    - /apex/com.android.adservices
+/dev/block/dm-61     -    -     -    - /apex/com.android.conscrypt
+/dev/block/dm-33     -    -     -    - /apex/com.android.permission
+/dev/block/dm-35  836K 808K   12K  99% /apex/com.android.ipsec@351410000
+/dev/block/dm-40  4.3M 4.3M     0 100% /apex/com.android.uwb@352090000
+/dev/block/dm-35     -    -     -    - /apex/com.android.ipsec
+/dev/block/dm-36   12M  12M     0 100% /apex/com.android.healthfitness@351420080
+/dev/block/dm-42   28M  28M     0 100% /apex/com.android.art@351410020
+/dev/block/dm-40     -    -     -    - /apex/com.android.uwb
+/dev/block/dm-43  4.5M 4.4M     0 100% /apex/com.android.neuralnetworks@351010040
+/dev/block/dm-32  4.0M 4.0M     0 100% /apex/com.android.resolv@351111040
+/dev/block/dm-36     -    -     -    - /apex/com.android.healthfitness
+/dev/block/dm-42     -    -     -    - /apex/com.android.art
+/dev/block/dm-32     -    -     -    - /apex/com.android.resolv
+/dev/block/dm-43     -    -     -    - /apex/com.android.neuralnetworks
+/dev/block/dm-30  736K 708K   16K  98% /apex/com.android.sdkext@351415000
+/dev/block/dm-31  232K 104K  124K  46% /apex/com.android.scheduling@351010000
+/dev/block/dm-31     -    -     -    - /apex/com.android.scheduling
+/dev/block/dm-30     -    -     -    - /apex/com.android.sdkext
+tmpfs                -    -     -    - /apex/apex-info-list.xml
+tmpfs             2.2G 4.0K  2.2G   1% /bootstrap-apex
+/dev/block/loop2  788K 756K   16K  98% /bootstrap-apex/com.android.tzdata@351400020
+/dev/block/loop0  7.3M 7.3M     0 100% /bootstrap-apex/com.android.runtime@1
+/dev/block/loop2     -    -     -    - /bootstrap-apex/com.android.tzdata
+/dev/block/loop0     -    -     -    - /bootstrap-apex/com.android.runtime
+/dev/block/loop1   34M  34M     0 100% /bootstrap-apex/com.android.i18n@1
+/dev/block/loop1     -    -     -    - /bootstrap-apex/com.android.i18n
+tmpfs                -    -     -    - /bootstrap-apex/apex-info-list.xml
+tmpfs             2.2G 768K  2.2G   1% /linkerconfig
+tmpfs                -    -     -    - /linkerconfig
+none                 0    0     0   0% /acct
+tmpfs             2.2G    0  2.2G   0% /tmp
+none                 0    0     0   0% /config
+/dev/block/sda7    16M 1.4M   14M  10% /efs
+/dev/block/sda35   35M 6.6M   27M  20% /cache
+/dev/block/sda36   45M  24K   44M   1% /omr
+/dev/block/dm-66     -    -     -    - /data
+/dev/block/dm-66     -    -     -    - /data/user/0
+/proc/9299/fd/15     0    0     0   0% /data/incremental/MT_data_app_vmdl166/mount
+/proc/9299/fd/15     -    -     -    - /data/app/~~EknD7m7JLY000-kXwzTjcA==
+/proc/9299/fd/15     0    0     0   0% /data/incremental/MT_data_app_vmdl179/mount
+/proc/9299/fd/15     -    -     -    - /data/app/~~mWsxbO_VBIdTkvPEtaxYNg==
+/proc/9299/fd/15     0    0     0   0% /data/incremental/MT_data_app_vmdl415/mount
+/proc/9299/fd/15     -    -     -    - /data/app/~~--OrY7s718YjywdLjsyBiQ==
+/proc/9299/fd/15     0    0     0   0% /data/incremental/MT_data_app_vmdl831/mount
+/proc/9299/fd/15     -    -     -    - /data/app/~~gvgRnmBntXqdvtsD5Ww6ow==
+/proc/9299/fd/15     0    0     0   0% /data/incremental/MT_data_app_vmdl117/mount
+/proc/9299/fd/15     -    -     -    - /data/app/~~I2Cgu66qz3K60rrCHzj9ig==
+tmpfs                -    -     -    - /data_mirror
+/dev/block/dm-66     -    -     -    - /data_mirror/data_ce/null
+/dev/block/dm-66     -    -     -    - /data_mirror/data_ce/null/0
+/dev/block/dm-66     -    -     -    - /data_mirror/data_de/null
+/dev/block/dm-66     -    -     -    - /data_mirror/misc_ce/null
+/dev/block/dm-66     -    -     -    - /data_mirror/misc_de/null
+/dev/block/dm-66     -    -     -    - /data_mirror/storage_area
+/dev/block/dm-66     -    -     -    - /data_mirror/cur_profiles
+/dev/block/dm-66     -    -     -    - /data_mirror/ref_profiles
+/dev/block/dm-14     -    -     -    - /system/carrier
+tmpfs                -    -     -    - /storage
+/dev/fuse         104G  79G   26G  76% /storage/emulated
+$uname -a
+Linux localhost 6.6.46-android15-8-30526735-abogkiA366USQS3AYI1-4k #1 SMP PREEMPT Wed Aug 27 03:26:06 UTC 2025 aarch64 Toybox
+$lsmod
+lsmod: No file /proc/modules: Permission denied
+
+
+---------------------------------
