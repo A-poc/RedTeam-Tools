@@ -265,6 +265,7 @@ Some of the tools may be specifically designed for red teaming, while others are
     	    <li><b><a href="#brute-ratel">Brute Ratel</a></b><i> Command and control framework ($$$)</i></li>
             <li><b><a href="#nimplant">NimPlant</a></b><i> C2 implant written in Nim</i></li>
             <li><b><a href="#hoaxshell">Hoaxshell</a></b><i> PowerShell reverse shell</i></li>
+            <li><b><a href="#nullsec-beacon">NullSec Beacon</a></b><i> Lightweight C2 beacon (Rust)</i></li>
         </ul>
     </ul>
 </details>
@@ -4420,6 +4421,37 @@ Full usage documentation [here](https://github.com/t3l3machus/hoaxshell#usage).
 ![image](https://user-images.githubusercontent.com/100603074/229649767-817d838c-891d-4a33-b494-9249f3a2f404.png)
 
 *Image used from https://github.com/t3l3machus/hoaxshell*
+
+### [🔙](#tool-list)[NullSec Beacon](https://github.com/bad-antics/nullsec-beacon)
+
+A lightweight C2 beacon written in Rust for red team operations. Supports multiple communication protocols and built-in evasion techniques.
+
+**Features:**
+- Multi-protocol support (HTTP/HTTPS/DNS)
+- Built-in evasion and anti-analysis techniques
+- Cross-platform (Windows, Linux, macOS)
+- Minimal footprint (~200KB)
+- Encrypted C2 communications
+
+**Install:**
+
+```bash
+git clone https://github.com/bad-antics/nullsec-beacon
+cd nullsec-beacon
+cargo build --release
+```
+
+**Usage:**
+
+```bash
+# Generate beacon payload
+./nullsec-beacon generate --protocol https --server c2.example.com
+
+# Start listener
+./nullsec-beacon listen --port 443 --cert server.pem
+```
+
+Full documentation [here](https://github.com/bad-antics/nullsec-beacon#readme).
 
 Exfiltration
 ====================
