@@ -188,7 +188,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Credential Access</b> 11 tools</summary>
+    <summary><b>Credential Access</b> 12 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#mimikatz">Mimikatz</a></b><i> Windows credential extractor</i></li>
@@ -202,6 +202,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#mailsniper">MailSniper</a></b><i> Microsoft Exchange Mail Searcher</i></li>
             <li><b><a href="#sharpchromium">SharpChromium</a></b><i> Cookie, history and saved login chromium extractor</i></li>
             <li><b><a href="#dploot">dploot</a></b><i> DPAPI looting remotely in Python</i></li>
+            <li><b><a href="#mozdmp">mozdmp</a></b><i> Decrypt firefox profile data offline and crack the master password.</i></li>
         </ul>
     </ul>
 </details>
@@ -3396,6 +3397,34 @@ dploot backupkey -d waza.local -u Administrator -p 'Password!123' 192.168.56.112
 
 # Leverage the DPAPI backup key `key.pvk` to loot any user secrets stored on Windows domain joined endpoints
 dploot certificates -d waza.local -u Administrator -p 'Password!123' 192.168.56.14 -pvk key.pvk  -quiet 
+```
+
+### [🔙](#tool-list)[mozdmp](https://github.com/asaix/mozdmp)
+
+mozdmp is an offline profile decryption tool for the Mozilla Firefox browser. It decrypts the `logins.json` file that stores saved user passwords by extracting the key from the NSS database (`key4.db`).
+
+Unlike Chromium-based browsers which protect their sensitive files with OS-level tooling (keyrings, DPAPI), Firefox stores everything needed to decrypt saved logins within the profile itself. Given a copy of `key4.db` and `logins.json`, mozdmp recovers the plaintext credentials without needing anything else from the host.
+
+- Supports the latest Firefox versions, which use SHA384 to derive the PBKDF2 input (the correct hash type is selected automatically).
+- **Cracks a user-set master password with a wordlist**. Multi-core cracking is supported on Linux; on Windows/macOS cracking runs single-core.
+
+**Install:** 
+
+Download and extract the latest [binary release](https://github.com/asaix/mozdmp/releases) (Linux only). To run on Windows/macOS, clone the source and install the dependencies:
+
+```bash
+git clone https://github.com/asaix/mozdmp; cd mozdmp
+pip install -r requirements.txt
+```
+
+**Usage:** 
+
+```bash
+# Binary release
+mozdmp <key4db> <logins_json>
+
+# From source
+python3 mozdmp.py <key4db> <logins_json>
 ```
 
 Discovery
