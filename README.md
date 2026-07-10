@@ -707,6 +707,8 @@ Paste the above Javascript into the console window `F12` and press enter.
 
 ![image](https://user-images.githubusercontent.com/100603074/207563598-d70171b5-823e-491e-a6d5-8657af28b0e5.png)
 
+### [🔙](#tool-list)[Darkmoon](https://github.com/ASCIT31/Dark-Moon)
+Open-source (GPL-3.0) autonomous AI penetration-testing platform and MCP host that orchestrates per-technology offensive sub-agents across web, Active Directory, and Kubernetes, driven by a local LLM with a Privacy Gateway and an evidence trail per finding.
 ### [🔙](#tool-list)[nuclei](https://github.com/projectdiscovery/nuclei)
 
 Fast vulnerability scanner that uses .yaml templates to search for specific issues.
