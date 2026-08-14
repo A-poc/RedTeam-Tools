@@ -952,7 +952,7 @@ git clone https://github.com/metac0rtex/GitHarvester; cd GitHarvester
 ./githarvester.py
 ```
 
-### [🔙](#tool-list)[truffleHog](https://github.com/dxa4481/truffleHog)
+### [🔙](#tool-list)[truffleHog](https://github.com/trufflesecurity/trufflehog)
 
 TruffleHog is a tool that scans git repositories and looks for high-entropy strings and patterns that may indicate the presence of secrets, such as passwords and API keys. With TruffleHog, you can quickly and easily find sensitive information that may have been accidentally committed and pushed to a repository.
 
@@ -1202,6 +1202,10 @@ Full usage information can be found [here](https://github.com/sensepost/gowitnes
 ![image](https://user-images.githubusercontent.com/100603074/212204666-d7dcac1b-0f1a-46b8-8938-d2e122c1436c.png)
 
 *Image used from https://github.com/sensepost/gowitness*
+
+### [🔙](#tool-list)[Xquik](https://github.com/Xquik-dev/x-twitter-scraper)
+
+Independent X (Twitter) data API for search, follower export, monitors, and MCP. Not affiliated with X Corp.
 
 Resource Development
 ====================
