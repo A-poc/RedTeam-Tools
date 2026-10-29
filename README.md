@@ -102,7 +102,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Initial Access</b> 10 tools</summary>
+    <summary><b>Initial Access</b> 11 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#credmaster">CredMaster</a></b><i> CredKing password spraying tool</i></li>
@@ -115,6 +115,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#hydra">Hydra</a></b><i> Brute force tool</i></li>
             <li><b><a href="#squarephish">SquarePhish</a></b><i> OAuth/QR code phishing framework</i></li>
             <li><b><a href="#king-phisher">King Phisher</a></b><i> Phishing campaign framework</i></li>
+            <li><b><a href="#exploit-pack">Exploit Pack</a></b><i> Initial-access and exploit-development framework</i></li>
         </ul>
     </ul>
 </details>
@@ -253,7 +254,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Command and Control</b> 9 tools</summary>
+    <summary><b>Command and Control</b> 11 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#living-off-trusted-sites-project">Living Off Trusted Sites Project</a></b><i> Leverage legitimate domains for your C2</i></li>
@@ -265,6 +266,8 @@ Some of the tools may be specifically designed for red teaming, while others are
     	    <li><b><a href="#brute-ratel">Brute Ratel</a></b><i> Command and control framework ($$$)</i></li>
             <li><b><a href="#nimplant">NimPlant</a></b><i> C2 implant written in Nim</i></li>
             <li><b><a href="#hoaxshell">Hoaxshell</a></b><i> PowerShell reverse shell</i></li>
+            <li><b><a href="#control-pack">Control Pack</a></b><i> Multi-agent user-mode C2</i></li>
+            <li><b><a href="#kernel-pack">Kernel Pack</a></b><i> Windows C2 with an integrated kernel agent</i></li>
         </ul>
     </ul>
 </details>
@@ -1493,6 +1496,12 @@ End Sub
 
 Initial Access
 ====================
+
+### [🔙](#tool-list)[Exploit Pack](https://www.exploitpack.com/products/exploit-pack)
+
+Exploit Pack is a commercial initial-access and exploit-development framework. It combines target discovery, exploit selection, module execution, payload construction, remote testing, debugging, and result collection in one environment.
+
+**Product page:** [https://www.exploitpack.com/products/exploit-pack](https://www.exploitpack.com/products/exploit-pack)
 
 ### [🔙](#tool-list)[CredMaster](https://github.com/knavesec/CredMaster)
 
@@ -4034,6 +4043,18 @@ Full usage information [here](https://github.com/lefayjey/linWinPwn#usage).
 
 Command and Control
 ====================
+
+### [🔙](#tool-list)[Control Pack](https://www.exploitpack.com/products/control-pack)
+
+Control Pack is a commercial multi-agent user-mode C2. It provides payload generation, communications, endpoint sessions, remote tasking, interactive access, file handling, post-exploitation capabilities, and SOCKS5 reverse tunneling.
+
+**Product page:** [https://www.exploitpack.com/products/control-pack](https://www.exploitpack.com/products/control-pack)
+
+### [🔙](#tool-list)[Kernel Pack](https://www.exploitpack.com/products/kernel-pack)
+
+Kernel Pack is a commercial Windows C2 with an integrated kernel agent. It manages payload deployment, endpoint sessions, tasking, and results while exploit backends provide kernel-level access and operations.
+
+**Product page:** [https://www.exploitpack.com/products/kernel-pack](https://www.exploitpack.com/products/kernel-pack)
 
 ### [🔙](#tool-list)[Living Off Trusted Sites Project](https://lots-project.com/)
 
