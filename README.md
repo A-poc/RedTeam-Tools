@@ -102,7 +102,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Initial Access</b> 10 tools</summary>
+    <summary><b>Initial Access</b> 11 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#credmaster">CredMaster</a></b><i> CredKing password spraying tool</i></li>
@@ -115,6 +115,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#hydra">Hydra</a></b><i> Brute force tool</i></li>
             <li><b><a href="#squarephish">SquarePhish</a></b><i> OAuth/QR code phishing framework</i></li>
             <li><b><a href="#king-phisher">King Phisher</a></b><i> Phishing campaign framework</i></li>
+            <li><b><a href="#exploit-pack">Exploit Pack</a></b><i> Initial-access and exploit-development framework</i></li>
         </ul>
     </ul>
 </details>
@@ -1493,6 +1494,12 @@ End Sub
 
 Initial Access
 ====================
+
+### [🔙](#tool-list)[Exploit Pack](https://www.exploitpack.com/products/exploit-pack)
+
+Exploit Pack is a commercial initial-access and exploit-development framework. It combines target discovery, exploit selection, module execution, payload construction, remote testing, debugging, and result collection in one environment.
+
+**Product page:** [https://www.exploitpack.com/products/exploit-pack](https://www.exploitpack.com/products/exploit-pack)
 
 ### [🔙](#tool-list)[CredMaster](https://github.com/knavesec/CredMaster)
 
