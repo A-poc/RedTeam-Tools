@@ -253,7 +253,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Command and Control</b> 9 tools</summary>
+    <summary><b>Command and Control</b> 10 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#living-off-trusted-sites-project">Living Off Trusted Sites Project</a></b><i> Leverage legitimate domains for your C2</i></li>
@@ -265,6 +265,7 @@ Some of the tools may be specifically designed for red teaming, while others are
     	    <li><b><a href="#brute-ratel">Brute Ratel</a></b><i> Command and control framework ($$$)</i></li>
             <li><b><a href="#nimplant">NimPlant</a></b><i> C2 implant written in Nim</i></li>
             <li><b><a href="#hoaxshell">Hoaxshell</a></b><i> PowerShell reverse shell</i></li>
+            <li><b><a href="#control-pack">Control Pack</a></b><i> Multi-agent user-mode C2</i></li>
         </ul>
     </ul>
 </details>
@@ -4034,6 +4035,12 @@ Full usage information [here](https://github.com/lefayjey/linWinPwn#usage).
 
 Command and Control
 ====================
+
+### [🔙](#tool-list)[Control Pack](https://www.exploitpack.com/products/control-pack)
+
+Control Pack is a commercial multi-agent user-mode C2. It provides payload generation, communications, endpoint sessions, remote tasking, interactive access, file handling, post-exploitation capabilities, and SOCKS5 reverse tunneling.
+
+**Product page:** [https://www.exploitpack.com/products/control-pack](https://www.exploitpack.com/products/control-pack)
 
 ### [🔙](#tool-list)[Living Off Trusted Sites Project](https://lots-project.com/)
 
