@@ -253,7 +253,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Command and Control</b> 9 tools</summary>
+    <summary><b>Command and Control</b> 10 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#living-off-trusted-sites-project">Living Off Trusted Sites Project</a></b><i> Leverage legitimate domains for your C2</i></li>
@@ -265,6 +265,7 @@ Some of the tools may be specifically designed for red teaming, while others are
     	    <li><b><a href="#brute-ratel">Brute Ratel</a></b><i> Command and control framework ($$$)</i></li>
             <li><b><a href="#nimplant">NimPlant</a></b><i> C2 implant written in Nim</i></li>
             <li><b><a href="#hoaxshell">Hoaxshell</a></b><i> PowerShell reverse shell</i></li>
+            <li><b><a href="#kernel-pack">Kernel Pack</a></b><i> Windows C2 with an integrated kernel agent</i></li>
         </ul>
     </ul>
 </details>
@@ -4034,6 +4035,12 @@ Full usage information [here](https://github.com/lefayjey/linWinPwn#usage).
 
 Command and Control
 ====================
+
+### [🔙](#tool-list)[Kernel Pack](https://www.exploitpack.com/products/kernel-pack)
+
+Kernel Pack is a commercial Windows C2 with an integrated kernel agent. It manages payload deployment, endpoint sessions, tasking, and results while exploit backends provide kernel-level access and operations.
+
+**Product page:** [https://www.exploitpack.com/products/kernel-pack](https://www.exploitpack.com/products/kernel-pack)
 
 ### [🔙](#tool-list)[Living Off Trusted Sites Project](https://lots-project.com/)
 
