@@ -1498,6 +1498,8 @@ NotHoly is a model provider for offensive security work. It serves uncensored an
 
 The same API key works with its MCP server. The tools include CKE 2.0 (a search engine over offensive security material), CVE lookup with CVSS, EPSS and KEV data, advisories, passive OSINT, web search, page reading and static file analysis. None of the tools scan or exploit a target.
 
+It also has a skills registry (`skills_search`, `skill_get`, `skill_invoke`): reviewed, signed skill packages for security work that the model can search, read and load for a task. The CLI ships built-in skills of its own. [Skills directory](https://notholy.com/skills)
+
 Hosted service, API key required. [Documentation](https://docs.notholy.com)
 
 **Install:**
