@@ -82,7 +82,7 @@ Some of the tools may be specifically designed for red teaming, while others are
 </details>
 
 <details open>
-    <summary><b>Resource Development</b> 12 tools</summary>
+    <summary><b>Resource Development</b> 13 tools</summary>
     <ul>
         <ul>
             <li><b><a href="#remoteinjector">remoteinjector</a></b><i> Inject remote template link into word document</i></li>
@@ -97,6 +97,7 @@ Some of the tools may be specifically designed for red teaming, while others are
             <li><b><a href="#wsh">WSH</a></b><i> Wsh payload</i></li>
             <li><b><a href="#hta">HTA</a></b><i> Hta  payload</i></li>
             <li><b><a href="#vba">VBA</a></b><i> Vba  payload</i></li>
+            <li><b><a href="#notholy">NotHoly</a></b><i> Uncensored LLM API and MCP server for offensive security</i></li>
         </ul>
     </ul>
 </details>
@@ -1490,6 +1491,35 @@ End Sub
 ```
 
 **Execute:** Set function to Auto_Open() in macro enabled document
+
+### [🔙](#tool-list)[NotHoly](https://notholy.com)
+
+NotHoly is a model provider for offensive security work. It serves uncensored and abliterated models (refusal behaviour removed from the weights) through an API compatible with the OpenAI and Anthropic SDKs, so existing scripts and agents only need a new base URL.
+
+The same API key works with its MCP server. The tools include CKE 2.0 (a search engine over offensive security material), CVE lookup with CVSS, EPSS and KEV data, advisories, passive OSINT, web search, page reading and static file analysis. None of the tools scan or exploit a target.
+
+Hosted service, API key required. [Documentation](https://docs.notholy.com)
+
+**Install:**
+
+```bash
+curl -fsSL https://notholy.com/install.sh | sh
+```
+
+**Usage:**
+
+```bash
+# Log in, then start Claude Code (or codex, opencode) on NotHoly models for that process only
+notholy login
+notholy run claude
+
+# Add the MCP server to Claude Code
+claude mcp add --transport http notholy https://api.notholy.com/mcp --header "Authorization: Bearer $NOTHOLY_API_KEY"
+
+# OpenAI-compatible base URL for any SDK or tool
+export OPENAI_BASE_URL=https://api.notholy.com/v1
+export OPENAI_API_KEY=$NOTHOLY_API_KEY
+```
 
 Initial Access
 ====================
